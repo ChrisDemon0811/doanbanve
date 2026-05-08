@@ -1,0 +1,62 @@
+﻿namespace doanbanve.Forms
+{
+    partial class frmGioHang
+    {
+        private System.ComponentModel.IContainer components = null;
+        private DataGridView dgvGioHang;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            dgvGioHang = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvGioHang).BeginInit();
+            SuspendLayout();
+            // 
+            // dgvGioHang
+            // 
+            dgvGioHang.AllowUserToAddRows = false;
+            dgvGioHang.AllowUserToDeleteRows = false;
+            dgvGioHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvGioHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvGioHang.Columns.AddRange(new DataGridViewColumn[]
+            {
+                new DataGridViewTextBoxColumn { Name = "colTenVe", HeaderText = "Tên vé" },
+                new DataGridViewTextBoxColumn { Name = "colNgaySuDung", HeaderText = "Ngày sử dụng" },
+                new DataGridViewTextBoxColumn { Name = "colNguoiLon", HeaderText = "Người lớn" },
+                new DataGridViewTextBoxColumn { Name = "colTreEm", HeaderText = "Trẻ em" },
+                new DataGridViewTextBoxColumn { Name = "colNguoiCaoTuoi", HeaderText = "Người cao tuổi" },
+                new DataGridViewTextBoxColumn { Name = "colTongSoLuong", HeaderText = "Tổng số lượng" },
+                new DataGridViewTextBoxColumn { Name = "colTongTien", HeaderText = "Tổng tiền" }
+            });
+            dgvGioHang.Dock = DockStyle.Fill;
+            dgvGioHang.Location = new Point(0, 0);
+            dgvGioHang.Name = "dgvGioHang";
+            dgvGioHang.ReadOnly = true;
+            dgvGioHang.RowHeadersVisible = false;
+            dgvGioHang.Size = new Size(700, 360);
+            dgvGioHang.TabIndex = 0;
+            // 
+            // frmGioHang
+            // 
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(700, 360);
+            Controls.Add(dgvGioHang);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            Name = "frmGioHang";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Giỏ hàng";
+            Load += frmGioHang_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvGioHang).EndInit();
+            ResumeLayout(false);
+        }
+    }
+}

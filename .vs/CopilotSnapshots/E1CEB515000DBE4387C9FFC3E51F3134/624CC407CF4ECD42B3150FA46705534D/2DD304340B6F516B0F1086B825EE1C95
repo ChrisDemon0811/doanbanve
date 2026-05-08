@@ -1,0 +1,71 @@
+﻿using doanbanve.Controllers;
+using doanbanve.Utils;
+
+namespace doanbanve.Forms
+{
+    public partial class frmThongTinNguoiDung : Form
+    {
+        private readonly HoaDonController hoaDonController = new();
+
+        public frmThongTinNguoiDung()
+        {
+            InitializeComponent();
+        }
+
+        private async void frmThongTinNguoiDung_Load(object sender, EventArgs e)
+        {
+            if (Session.NguoiDungHienTai == null)
+            {
+                MessageBox.Show("Vui lòng đăng nhập để xem thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Close();
+                return;
+            }
+
+            lblHoTen.Text = Session.NguoiDungHienTai.HoTen;
+            lblTaiKhoan.Text = Session.NguoiDungHienTai.TaiKhoan;
+            lblEmail.Text = Session.NguoiDungHienTai.Email ?? "Chưa cập nhật";
+            lblSoDienThoai.Text = Session.NguoiDungHienTai.SoDienThoai ?? "Chưa cập nhật";
+            lblVaiTro.Text = Session.NguoiDungHienTai.VaiTro;
+
+            await TaiDanhSachHoaDon();
+        }
+
+        private async Task TaiDanhSachHoaDon()
+        {
+            if (Session.NguoiDungHienTai == null)
+            {
+                return;
+            }
+
+            dgvHoaDon.Rows.Clear();
+            var danhSach = await hoaDonController.LayDanhSachDaThanhToan(Session.NguoiDungHienTai.MaNguoiDung);
+            foreach (var hoaDon in danhSach)
+            {
+                dgvHoaDon.Rows.Add(
+                    hoaDon.MaHoaDon,
+                    hoaDon.NgayLap.ToString("dd/MM/yyyy HH:mm"),
+                    hoaDon.TongTien.ToString("N0") + " VNĐ",
+                    hoaDon.TienGiam.ToString("N0") + " VNĐ",
+                    hoaDon.ThanhTien.ToString("N0") + " VNĐ",
+                    hoaDon.ThanhToan);
+            }
+        }
+
+        private void btnChiTietHoaDon_Click(object sender, EventArgs e)
+        {
+            if (dgvHoaDon.CurrentRow == null)
+            {
+                return;
+            }
+
+            var giaTri = dgvHoaDon.CurrentRow.Cells[0].Value?.ToString();
+            if (!int.TryParse(giaTri, out var maHoaDon))
+            {
+                return;
+            }
+
+            var formChiTiet = new frmChiTietThanhToan(maHoaDon);
+            formChiTiet.ShowDialog();
+        }
+    }
+}

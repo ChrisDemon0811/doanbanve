@@ -1,0 +1,15 @@
+using doanbanve.DAO;
+using doanbanve.Models;
+
+namespace doanbanve.Controllers
+{
+    public class VeController
+    {
+        private readonly VeDAO veDAO = new();
+
+        public async Task<List<Ve>> LayDanhSachVe(int? maLoaiVe)
+        {
+            return await veDAO.LayDanhSachVe(maLoaiVe);
+        }
+    }
+}

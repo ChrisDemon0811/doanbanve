@@ -1,0 +1,116 @@
+﻿using doanbanve.Controllers;
+using doanbanve.Models;
+using doanbanve.Utils;
+
+namespace doanbanve.Forms
+{
+    public partial class frmThanhToan : Form
+    {
+        private readonly GioHangController gioHangController = new();
+        private readonly ThanhToanController thanhToanController = new();
+        private List<MucGioHang> danhSachMuc = new();
+        private decimal tienGiam = 0;
+        private int? maVoucher = null;
+
+        public frmThanhToan()
+        {
+            InitializeComponent();
+        }
+
+        private async void frmThanhToan_Load(object sender, EventArgs e)
+        {
+            if (Session.NguoiDungHienTai == null)
+            {
+                MessageBox.Show("Vui lòng đăng nhập để thanh toán.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Close();
+                return;
+            }
+
+            lblNguoiDat.Text = Session.NguoiDungHienTai.HoTen;
+            lblNgayDat.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+            cboThanhToan.SelectedIndex = 0;
+
+            await TaiDanhSach();
+        }
+
+        private async Task TaiDanhSach()
+        {
+            if (Session.NguoiDungHienTai == null)
+            {
+                return;
+            }
+
+            danhSachMuc = await gioHangController.LayDanhSach(Session.NguoiDungHienTai.MaNguoiDung);
+            dgvThanhToan.Rows.Clear();
+            foreach (var muc in danhSachMuc)
+            {
+                dgvThanhToan.Rows.Add(
+                    muc.Ve.TenVe,
+                    muc.NgaySuDung.ToString("dd/MM/yyyy"),
+                    muc.SoLuongNguoiLon,
+                    muc.SoLuongTreEm,
+                    muc.SoLuongNguoiCaoTuoi,
+                    muc.TinhTongTien().ToString("N0") + " VNĐ");
+            }
+
+            CapNhatTongTien();
+        }
+
+        private void CapNhatTongTien()
+        {
+            var tongTien = danhSachMuc.Sum(m => m.TinhTongTien());
+            lblTongTien.Text = tongTien.ToString("N0") + " VNĐ";
+            lblTienGiam.Text = tienGiam.ToString("N0") + " VNĐ";
+            lblThanhTien.Text = (tongTien - tienGiam).ToString("N0") + " VNĐ";
+        }
+
+        private async void btnApDungVoucher_Click(object sender, EventArgs e)
+        {
+            var maGiamGia = txtMaVoucher.Text.Trim();
+            if (string.IsNullOrWhiteSpace(maGiamGia))
+            {
+                MessageBox.Show("Vui lòng nhập mã voucher.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var tongTien = danhSachMuc.Sum(m => m.TinhTongTien());
+            var ketQua = await thanhToanController.ApDungVoucher(maGiamGia, tongTien);
+            if (!ketQua.HopLe)
+            {
+                MessageBox.Show(ketQua.ThongBao, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            maVoucher = ketQua.MaVoucher;
+            tienGiam = ketQua.TienGiam;
+            CapNhatTongTien();
+            MessageBox.Show(ketQua.ThongBao, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private async void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            if (Session.NguoiDungHienTai == null)
+            {
+                return;
+            }
+
+            if (!danhSachMuc.Any())
+            {
+                MessageBox.Show("Giỏ hàng đang trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                var phuongThuc = cboThanhToan.SelectedItem?.ToString() ?? "";
+                await thanhToanController.LuuHoaDon(Session.NguoiDungHienTai.MaNguoiDung, danhSachMuc, maVoucher, tienGiam, phuongThuc);
+                MessageBox.Show("Thanh toán thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+}

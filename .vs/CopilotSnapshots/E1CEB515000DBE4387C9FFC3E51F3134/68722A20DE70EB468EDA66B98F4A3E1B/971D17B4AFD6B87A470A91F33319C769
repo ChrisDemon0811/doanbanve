@@ -1,0 +1,41 @@
+﻿using System.Data;
+using Microsoft.Data.SqlClient;
+using doanbanve.Models;
+using doanbanve.Utils;
+
+namespace doanbanve.DAO
+{
+    public class HoaDonDAO
+    {
+        public async Task<List<DonHangDaThanhToan>> LayDanhSachDaThanhToan(int maNguoiDung)
+        {
+            var danhSach = new List<DonHangDaThanhToan>();
+            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
+            const string cauLenh = @"SELECT MaHoaDon, NgayLap, TongTien, TienGiam, (TongTien - TienGiam) AS ThanhTien, ThanhToan
+                                    FROM HoaDon
+                                    WHERE MaNguoiDung = @MaNguoiDung AND TrangThai = N'DaThanhToan'
+                                    ORDER BY NgayLap DESC";
+
+            using var ketNoi = new SqlConnection(chuoiKetNoi);
+            using var lenh = new SqlCommand(cauLenh, ketNoi);
+            lenh.Parameters.AddWithValue("@MaNguoiDung", maNguoiDung);
+
+            await ketNoi.OpenAsync();
+            using var doc = await lenh.ExecuteReaderAsync();
+            while (await doc.ReadAsync())
+            {
+                danhSach.Add(new DonHangDaThanhToan
+                {
+                    MaHoaDon = doc.GetInt32(0),
+                    NgayLap = doc.GetDateTime(1),
+                    TongTien = doc.GetDecimal(2),
+                    TienGiam = doc.GetDecimal(3),
+                    ThanhTien = doc.GetDecimal(4),
+                    ThanhToan = doc.GetString(5)
+                });
+            }
+
+            return danhSach;
+        }
+    }
+}

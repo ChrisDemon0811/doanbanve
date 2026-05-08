@@ -1,0 +1,258 @@
+﻿namespace doanbanve.Forms
+{
+    partial class frmThanhToan
+    {
+        private System.ComponentModel.IContainer components = null;
+        private DataGridView dgvThanhToan;
+        private Label lblNguoiDatText;
+        private Label lblNguoiDat;
+        private Label lblNgayDatText;
+        private Label lblNgayDat;
+        private Label lblVoucherText;
+        private TextBox txtMaVoucher;
+        private Button btnApDungVoucher;
+        private Label lblTienGiamText;
+        private Label lblTienGiam;
+        private Label lblTongTienText;
+        private Label lblTongTien;
+        private Label lblThanhTienText;
+        private Label lblThanhTien;
+        private ComboBox cboThanhToan;
+        private Label lblThanhToanText;
+        private Button btnThanhToan;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            dgvThanhToan = new DataGridView();
+            lblNguoiDatText = new Label();
+            lblNguoiDat = new Label();
+            lblNgayDatText = new Label();
+            lblNgayDat = new Label();
+            lblVoucherText = new Label();
+            txtMaVoucher = new TextBox();
+            btnApDungVoucher = new Button();
+            lblTienGiamText = new Label();
+            lblTienGiam = new Label();
+            lblTongTienText = new Label();
+            lblTongTien = new Label();
+            lblThanhTienText = new Label();
+            lblThanhTien = new Label();
+            cboThanhToan = new ComboBox();
+            lblThanhToanText = new Label();
+            btnThanhToan = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvThanhToan).BeginInit();
+            SuspendLayout();
+            // 
+            // dgvThanhToan
+            // 
+            dgvThanhToan.AllowUserToAddRows = false;
+            dgvThanhToan.AllowUserToDeleteRows = false;
+            dgvThanhToan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvThanhToan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvThanhToan.Columns.AddRange(new DataGridViewColumn[]
+            {
+                new DataGridViewTextBoxColumn { Name = "colTenVe", HeaderText = "Tên vé" },
+                new DataGridViewTextBoxColumn { Name = "colNgaySuDung", HeaderText = "Ngày sử dụng" },
+                new DataGridViewTextBoxColumn { Name = "colNguoiLon", HeaderText = "Người lớn" },
+                new DataGridViewTextBoxColumn { Name = "colTreEm", HeaderText = "Trẻ em" },
+                new DataGridViewTextBoxColumn { Name = "colNguoiCaoTuoi", HeaderText = "Người cao tuổi" },
+                new DataGridViewTextBoxColumn { Name = "colThanhTien", HeaderText = "Thành tiền" }
+            });
+            dgvThanhToan.Location = new Point(24, 24);
+            dgvThanhToan.Name = "dgvThanhToan";
+            dgvThanhToan.ReadOnly = true;
+            dgvThanhToan.RowHeadersVisible = false;
+            dgvThanhToan.Size = new Size(760, 220);
+            dgvThanhToan.TabIndex = 0;
+            // 
+            // lblNguoiDatText
+            // 
+            lblNguoiDatText.AutoSize = true;
+            lblNguoiDatText.Location = new Point(24, 260);
+            lblNguoiDatText.Name = "lblNguoiDatText";
+            lblNguoiDatText.Size = new Size(65, 15);
+            lblNguoiDatText.TabIndex = 1;
+            lblNguoiDatText.Text = "Người đặt:";
+            // 
+            // lblNguoiDat
+            // 
+            lblNguoiDat.AutoSize = true;
+            lblNguoiDat.Location = new Point(100, 260);
+            lblNguoiDat.Name = "lblNguoiDat";
+            lblNguoiDat.Size = new Size(12, 15);
+            lblNguoiDat.TabIndex = 2;
+            lblNguoiDat.Text = "-";
+            // 
+            // lblNgayDatText
+            // 
+            lblNgayDatText.AutoSize = true;
+            lblNgayDatText.Location = new Point(24, 286);
+            lblNgayDatText.Name = "lblNgayDatText";
+            lblNgayDatText.Size = new Size(62, 15);
+            lblNgayDatText.TabIndex = 3;
+            lblNgayDatText.Text = "Ngày đặt:";
+            // 
+            // lblNgayDat
+            // 
+            lblNgayDat.AutoSize = true;
+            lblNgayDat.Location = new Point(100, 286);
+            lblNgayDat.Name = "lblNgayDat";
+            lblNgayDat.Size = new Size(12, 15);
+            lblNgayDat.TabIndex = 4;
+            lblNgayDat.Text = "-";
+            // 
+            // lblVoucherText
+            // 
+            lblVoucherText.AutoSize = true;
+            lblVoucherText.Location = new Point(24, 320);
+            lblVoucherText.Name = "lblVoucherText";
+            lblVoucherText.Size = new Size(78, 15);
+            lblVoucherText.TabIndex = 5;
+            lblVoucherText.Text = "Mã voucher:";
+            // 
+            // txtMaVoucher
+            // 
+            txtMaVoucher.Location = new Point(110, 316);
+            txtMaVoucher.Name = "txtMaVoucher";
+            txtMaVoucher.Size = new Size(180, 23);
+            txtMaVoucher.TabIndex = 6;
+            // 
+            // btnApDungVoucher
+            // 
+            btnApDungVoucher.Location = new Point(300, 314);
+            btnApDungVoucher.Name = "btnApDungVoucher";
+            btnApDungVoucher.Size = new Size(96, 26);
+            btnApDungVoucher.TabIndex = 7;
+            btnApDungVoucher.Text = "Áp dụng";
+            btnApDungVoucher.UseVisualStyleBackColor = true;
+            btnApDungVoucher.Click += btnApDungVoucher_Click;
+            // 
+            // lblTienGiamText
+            // 
+            lblTienGiamText.AutoSize = true;
+            lblTienGiamText.Location = new Point(24, 352);
+            lblTienGiamText.Name = "lblTienGiamText";
+            lblTienGiamText.Size = new Size(62, 15);
+            lblTienGiamText.TabIndex = 8;
+            lblTienGiamText.Text = "Giảm giá:";
+            // 
+            // lblTienGiam
+            // 
+            lblTienGiam.AutoSize = true;
+            lblTienGiam.Location = new Point(110, 352);
+            lblTienGiam.Name = "lblTienGiam";
+            lblTienGiam.Size = new Size(43, 15);
+            lblTienGiam.TabIndex = 9;
+            lblTienGiam.Text = "0 VNĐ";
+            // 
+            // lblTongTienText
+            // 
+            lblTongTienText.AutoSize = true;
+            lblTongTienText.Location = new Point(24, 378);
+            lblTongTienText.Name = "lblTongTienText";
+            lblTongTienText.Size = new Size(64, 15);
+            lblTongTienText.TabIndex = 10;
+            lblTongTienText.Text = "Tổng tiền:";
+            // 
+            // lblTongTien
+            // 
+            lblTongTien.AutoSize = true;
+            lblTongTien.Location = new Point(110, 378);
+            lblTongTien.Name = "lblTongTien";
+            lblTongTien.Size = new Size(43, 15);
+            lblTongTien.TabIndex = 11;
+            lblTongTien.Text = "0 VNĐ";
+            // 
+            // lblThanhTienText
+            // 
+            lblThanhTienText.AutoSize = true;
+            lblThanhTienText.Location = new Point(24, 404);
+            lblThanhTienText.Name = "lblThanhTienText";
+            lblThanhTienText.Size = new Size(69, 15);
+            lblThanhTienText.TabIndex = 12;
+            lblThanhTienText.Text = "Thành tiền:";
+            // 
+            // lblThanhTien
+            // 
+            lblThanhTien.AutoSize = true;
+            lblThanhTien.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblThanhTien.ForeColor = Color.FromArgb(210, 85, 30);
+            lblThanhTien.Location = new Point(110, 402);
+            lblThanhTien.Name = "lblThanhTien";
+            lblThanhTien.Size = new Size(50, 19);
+            lblThanhTien.TabIndex = 13;
+            lblThanhTien.Text = "0 VNĐ";
+            // 
+            // lblThanhToanText
+            // 
+            lblThanhToanText.AutoSize = true;
+            lblThanhToanText.Location = new Point(420, 260);
+            lblThanhToanText.Name = "lblThanhToanText";
+            lblThanhToanText.Size = new Size(118, 15);
+            lblThanhToanText.TabIndex = 14;
+            lblThanhToanText.Text = "Phương thức thanh toán:";
+            // 
+            // cboThanhToan
+            // 
+            cboThanhToan.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboThanhToan.FormattingEnabled = true;
+            cboThanhToan.Items.AddRange(new object[] { "Thẻ ngân hàng", "Thẻ tín dụng/Ghi nợ quốc tế", "Ví điện tử" });
+            cboThanhToan.Location = new Point(420, 282);
+            cboThanhToan.Name = "cboThanhToan";
+            cboThanhToan.Size = new Size(260, 23);
+            cboThanhToan.TabIndex = 15;
+            // 
+            // btnThanhToan
+            // 
+            btnThanhToan.BackColor = Color.FromArgb(210, 85, 30);
+            btnThanhToan.ForeColor = Color.White;
+            btnThanhToan.Location = new Point(420, 328);
+            btnThanhToan.Name = "btnThanhToan";
+            btnThanhToan.Size = new Size(160, 36);
+            btnThanhToan.TabIndex = 16;
+            btnThanhToan.Text = "Thanh toán";
+            btnThanhToan.UseVisualStyleBackColor = false;
+            btnThanhToan.Click += btnThanhToan_Click;
+            // 
+            // frmThanhToan
+            // 
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(820, 450);
+            Controls.Add(btnThanhToan);
+            Controls.Add(cboThanhToan);
+            Controls.Add(lblThanhToanText);
+            Controls.Add(lblThanhTien);
+            Controls.Add(lblThanhTienText);
+            Controls.Add(lblTongTien);
+            Controls.Add(lblTongTienText);
+            Controls.Add(lblTienGiam);
+            Controls.Add(lblTienGiamText);
+            Controls.Add(btnApDungVoucher);
+            Controls.Add(txtMaVoucher);
+            Controls.Add(lblVoucherText);
+            Controls.Add(lblNgayDat);
+            Controls.Add(lblNgayDatText);
+            Controls.Add(lblNguoiDat);
+            Controls.Add(lblNguoiDatText);
+            Controls.Add(dgvThanhToan);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            Name = "frmThanhToan";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Thanh toán";
+            Load += frmThanhToan_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvThanhToan).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+    }
+}

@@ -1,0 +1,33 @@
+﻿using doanbanve.Utils;
+
+namespace doanbanve.Forms
+{
+    public partial class frmDashboardNguoiDung : Form
+    {
+        public frmDashboardNguoiDung()
+        {
+            InitializeComponent();
+        }
+
+        private void frmDashboardNguoiDung_Load(object sender, EventArgs e)
+        {
+            if (Session.NguoiDungHienTai == null)
+            {
+                MessageBox.Show("Vui lòng đăng nhập để tiếp tục.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Close();
+                return;
+            }
+
+            lblXinChao.Text = $"Xin chào, {Session.NguoiDungHienTai.HoTen}!";
+            lblThongTin.Text = $"Tài khoản: {Session.NguoiDungHienTai.TaiKhoan} | Vai trò: {Session.NguoiDungHienTai.VaiTro}";
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            Session.DangXuat();
+            var formDangNhap = new frmDangNhap();
+            formDangNhap.Show();
+            Close();
+        }
+    }
+}

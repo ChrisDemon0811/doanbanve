@@ -1,0 +1,62 @@
+﻿namespace doanbanve.Forms
+{
+    partial class frmChiTietThanhToan
+    {
+        private System.ComponentModel.IContainer components = null;
+        private DataGridView dgvChiTiet;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            dgvChiTiet = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvChiTiet).BeginInit();
+            SuspendLayout();
+            // 
+            // dgvChiTiet
+            // 
+            dgvChiTiet.AllowUserToAddRows = false;
+            dgvChiTiet.AllowUserToDeleteRows = false;
+            dgvChiTiet.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvChiTiet.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvChiTiet.Columns.AddRange(new DataGridViewColumn[]
+            {
+                new DataGridViewTextBoxColumn { Name = "colTenVe", HeaderText = "Tên vé" },
+                new DataGridViewTextBoxColumn { Name = "colNgaySuDung", HeaderText = "Ngày sử dụng" },
+                new DataGridViewTextBoxColumn { Name = "colNguoiLon", HeaderText = "Người lớn" },
+                new DataGridViewTextBoxColumn { Name = "colTreEm", HeaderText = "Trẻ em" },
+                new DataGridViewTextBoxColumn { Name = "colNguoiCaoTuoi", HeaderText = "Người cao tuổi" },
+                new DataGridViewTextBoxColumn { Name = "colThanhTien", HeaderText = "Thành tiền" }
+            });
+            dgvChiTiet.Dock = DockStyle.Fill;
+            dgvChiTiet.Location = new Point(0, 0);
+            dgvChiTiet.Name = "dgvChiTiet";
+            dgvChiTiet.ReadOnly = true;
+            dgvChiTiet.RowHeadersVisible = false;
+            dgvChiTiet.Size = new Size(700, 360);
+            dgvChiTiet.TabIndex = 0;
+            dgvChiTiet.CellDoubleClick += dgvChiTiet_CellDoubleClick;
+            // 
+            // frmChiTietThanhToan
+            // 
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(700, 360);
+            Controls.Add(dgvChiTiet);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            Name = "frmChiTietThanhToan";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Chi tiết thanh toán";
+            Load += frmChiTietThanhToan_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvChiTiet).EndInit();
+            ResumeLayout(false);
+        }
+    }
+}

@@ -1,0 +1,62 @@
+﻿using doanbanve.Controllers;
+using doanbanve.Models;
+
+namespace doanbanve.Forms
+{
+    public partial class frmChiTietThanhToan : Form
+    {
+        private readonly HoaDonController hoaDonController = new();
+        private readonly int maHoaDon;
+
+        public frmChiTietThanhToan(int maHoaDon)
+        {
+            InitializeComponent();
+            this.maHoaDon = maHoaDon;
+        }
+
+        private async void frmChiTietThanhToan_Load(object sender, EventArgs e)
+        {
+            await TaiChiTiet();
+        }
+
+        private async Task TaiChiTiet()
+        {
+            dgvChiTiet.Rows.Clear();
+            var danhSach = await hoaDonController.LayChiTietHoaDon(maHoaDon);
+            foreach (var muc in danhSach)
+            {
+                dgvChiTiet.Rows.Add(
+                    muc.Ve.TenVe,
+                    muc.NgaySuDung.ToString("dd/MM/yyyy"),
+                    muc.SoLuongNguoiLon,
+                    muc.SoLuongTreEm,
+                    muc.SoLuongNguoiCaoTuoi,
+                    muc.TinhTongTien().ToString("N0") + " VNĐ");
+            }
+        }
+
+        private void dgvChiTiet_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
+            var tenVe = dgvChiTiet.Rows[e.RowIndex].Cells[0].Value?.ToString() ?? "";
+            var thongTinVe = danhSachThongTin.ElementAtOrDefault(e.RowIndex);
+            var formThongTin = new frmThongTinVe(tenVe, thongTinVe);
+            formThongTin.ShowDialog();
+        }
+
+        private readonly List<string?> danhSachThongTin = new();
+
+        private void LuuThongTin(IEnumerable<MucGioHang> danhSach)
+        {
+            danhSachThongTin.Clear();
+            foreach (var muc in danhSach)
+            {
+                danhSachThongTin.Add(muc.Ve.ThongTinVe);
+            }
+        }
+    }
+}

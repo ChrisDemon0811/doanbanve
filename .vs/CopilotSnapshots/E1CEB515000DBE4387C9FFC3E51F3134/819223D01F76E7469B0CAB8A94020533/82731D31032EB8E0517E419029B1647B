@@ -1,0 +1,13 @@
+﻿namespace doanbanve.Models
+{
+    public class Ve
+    {
+        public int MaVe { get; set; }
+        public int MaLoaiVe { get; set; }
+        public string TenVe { get; set; } = string.Empty;
+        public decimal GiaVe { get; set; }
+        public int SoLuong { get; set; }
+        public string? MoTa { get; set; }
+        public bool TrangThai { get; set; }
+    }
+}

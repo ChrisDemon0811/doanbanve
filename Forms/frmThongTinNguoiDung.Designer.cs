@@ -1,0 +1,212 @@
+namespace doanbanve.Forms
+{
+    partial class frmThongTinNguoiDung
+    {
+        private System.ComponentModel.IContainer components = null;
+        private TabControl tabThongTin;
+        private TabPage tabThongTinNguoiDung;
+        private TabPage tabDonHang;
+        private Label lblHoTenText;
+        private Label lblTaiKhoanText;
+        private Label lblEmailText;
+        private Label lblSoDienThoaiText;
+        private Label lblVaiTroText;
+        private Label lblHoTen;
+        private Label lblTaiKhoan;
+        private Label lblEmail;
+        private Label lblSoDienThoai;
+        private Label lblVaiTro;
+        private FlowLayoutPanel pnlDonHangDanhSach;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            tabThongTin = new TabControl();
+            tabThongTinNguoiDung = new TabPage();
+            tabDonHang = new TabPage();
+            lblHoTenText = new Label();
+            lblTaiKhoanText = new Label();
+            lblEmailText = new Label();
+            lblSoDienThoaiText = new Label();
+            lblVaiTroText = new Label();
+            lblHoTen = new Label();
+            lblTaiKhoan = new Label();
+            lblEmail = new Label();
+            lblSoDienThoai = new Label();
+            lblVaiTro = new Label();
+            pnlDonHangDanhSach = new FlowLayoutPanel();
+            tabThongTin.SuspendLayout();
+            tabThongTinNguoiDung.SuspendLayout();
+            tabDonHang.SuspendLayout();
+            SuspendLayout();
+            // 
+            // tabThongTin
+            // 
+            tabThongTin.Controls.Add(tabThongTinNguoiDung);
+            tabThongTin.Controls.Add(tabDonHang);
+            tabThongTin.Dock = DockStyle.Fill;
+            tabThongTin.Location = new Point(0, 0);
+            tabThongTin.Name = "tabThongTin";
+            tabThongTin.SelectedIndex = 0;
+            tabThongTin.Size = new Size(720, 420);
+            tabThongTin.TabIndex = 0;
+            // 
+            // tabThongTinNguoiDung
+            // 
+            tabThongTinNguoiDung.Controls.Add(lblVaiTro);
+            tabThongTinNguoiDung.Controls.Add(lblSoDienThoai);
+            tabThongTinNguoiDung.Controls.Add(lblEmail);
+            tabThongTinNguoiDung.Controls.Add(lblTaiKhoan);
+            tabThongTinNguoiDung.Controls.Add(lblHoTen);
+            tabThongTinNguoiDung.Controls.Add(lblVaiTroText);
+            tabThongTinNguoiDung.Controls.Add(lblSoDienThoaiText);
+            tabThongTinNguoiDung.Controls.Add(lblEmailText);
+            tabThongTinNguoiDung.Controls.Add(lblTaiKhoanText);
+            tabThongTinNguoiDung.Controls.Add(lblHoTenText);
+            tabThongTinNguoiDung.Location = new Point(4, 24);
+            tabThongTinNguoiDung.Name = "tabThongTinNguoiDung";
+            tabThongTinNguoiDung.Padding = new Padding(12);
+            tabThongTinNguoiDung.Size = new Size(712, 392);
+            tabThongTinNguoiDung.TabIndex = 0;
+            tabThongTinNguoiDung.Text = "Thông tin người dùng";
+            tabThongTinNguoiDung.UseVisualStyleBackColor = true;
+            // 
+            // tabDonHang
+            // 
+            tabDonHang.Controls.Add(pnlDonHangDanhSach);
+            tabDonHang.Location = new Point(4, 24);
+            tabDonHang.Name = "tabDonHang";
+            tabDonHang.Padding = new Padding(12);
+            tabDonHang.Size = new Size(712, 392);
+            tabDonHang.TabIndex = 1;
+            tabDonHang.Text = "Đơn hàng đã thanh toán";
+            tabDonHang.UseVisualStyleBackColor = true;
+            // 
+            // lblHoTenText
+            // 
+            lblHoTenText.AutoSize = true;
+            lblHoTenText.Location = new Point(24, 24);
+            lblHoTenText.Name = "lblHoTenText";
+            lblHoTenText.Size = new Size(46, 15);
+            lblHoTenText.TabIndex = 0;
+            lblHoTenText.Text = "Họ tên:";
+            // 
+            // lblTaiKhoanText
+            // 
+            lblTaiKhoanText.AutoSize = true;
+            lblTaiKhoanText.Location = new Point(24, 60);
+            lblTaiKhoanText.Name = "lblTaiKhoanText";
+            lblTaiKhoanText.Size = new Size(62, 15);
+            lblTaiKhoanText.TabIndex = 1;
+            lblTaiKhoanText.Text = "Tài khoản:";
+            // 
+            // lblEmailText
+            // 
+            lblEmailText.AutoSize = true;
+            lblEmailText.Location = new Point(24, 96);
+            lblEmailText.Name = "lblEmailText";
+            lblEmailText.Size = new Size(39, 15);
+            lblEmailText.TabIndex = 2;
+            lblEmailText.Text = "Email:";
+            // 
+            // lblSoDienThoaiText
+            // 
+            lblSoDienThoaiText.AutoSize = true;
+            lblSoDienThoaiText.Location = new Point(24, 132);
+            lblSoDienThoaiText.Name = "lblSoDienThoaiText";
+            lblSoDienThoaiText.Size = new Size(79, 15);
+            lblSoDienThoaiText.TabIndex = 3;
+            lblSoDienThoaiText.Text = "Số điện thoại:";
+            // 
+            // lblVaiTroText
+            // 
+            lblVaiTroText.AutoSize = true;
+            lblVaiTroText.Location = new Point(24, 168);
+            lblVaiTroText.Name = "lblVaiTroText";
+            lblVaiTroText.Size = new Size(46, 15);
+            lblVaiTroText.TabIndex = 4;
+            lblVaiTroText.Text = "Vai trò:";
+            // 
+            // lblHoTen
+            // 
+            lblHoTen.AutoSize = true;
+            lblHoTen.Location = new Point(140, 24);
+            lblHoTen.Name = "lblHoTen";
+            lblHoTen.Size = new Size(12, 15);
+            lblHoTen.TabIndex = 5;
+            lblHoTen.Text = "-";
+            // 
+            // lblTaiKhoan
+            // 
+            lblTaiKhoan.AutoSize = true;
+            lblTaiKhoan.Location = new Point(140, 60);
+            lblTaiKhoan.Name = "lblTaiKhoan";
+            lblTaiKhoan.Size = new Size(12, 15);
+            lblTaiKhoan.TabIndex = 6;
+            lblTaiKhoan.Text = "-";
+            // 
+            // lblEmail
+            // 
+            lblEmail.AutoSize = true;
+            lblEmail.Location = new Point(140, 96);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(12, 15);
+            lblEmail.TabIndex = 7;
+            lblEmail.Text = "-";
+            // 
+            // lblSoDienThoai
+            // 
+            lblSoDienThoai.AutoSize = true;
+            lblSoDienThoai.Location = new Point(140, 132);
+            lblSoDienThoai.Name = "lblSoDienThoai";
+            lblSoDienThoai.Size = new Size(12, 15);
+            lblSoDienThoai.TabIndex = 8;
+            lblSoDienThoai.Text = "-";
+            // 
+            // lblVaiTro
+            // 
+            lblVaiTro.AutoSize = true;
+            lblVaiTro.Location = new Point(140, 168);
+            lblVaiTro.Name = "lblVaiTro";
+            lblVaiTro.Size = new Size(12, 15);
+            lblVaiTro.TabIndex = 9;
+            lblVaiTro.Text = "-";
+            // 
+            // pnlDonHangDanhSach
+            // 
+            pnlDonHangDanhSach.AutoScroll = true;
+            pnlDonHangDanhSach.BackColor = Color.FromArgb(245, 245, 245);
+            pnlDonHangDanhSach.Dock = DockStyle.Fill;
+            pnlDonHangDanhSach.Location = new Point(12, 12);
+            pnlDonHangDanhSach.Name = "pnlDonHangDanhSach";
+            pnlDonHangDanhSach.Padding = new Padding(12);
+            pnlDonHangDanhSach.Size = new Size(688, 368);
+            pnlDonHangDanhSach.TabIndex = 0;
+            // 
+            // frmThongTinNguoiDung
+            // 
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(720, 420);
+            Controls.Add(tabThongTin);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            Name = "frmThongTinNguoiDung";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Thông tin người dùng";
+            Load += frmThongTinNguoiDung_Load;
+            tabThongTin.ResumeLayout(false);
+            tabThongTinNguoiDung.ResumeLayout(false);
+            tabThongTinNguoiDung.PerformLayout();
+            tabDonHang.ResumeLayout(false);
+            ResumeLayout(false);
+        }
+    }
+}

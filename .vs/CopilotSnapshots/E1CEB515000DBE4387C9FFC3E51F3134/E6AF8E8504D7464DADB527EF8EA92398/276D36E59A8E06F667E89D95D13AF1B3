@@ -1,0 +1,85 @@
+﻿using doanbanve.Utils;
+
+namespace doanbanve.Forms
+{
+    public partial class frmDashboardNguoiDung : Form
+    {
+        public frmDashboardNguoiDung()
+        {
+            InitializeComponent();
+        }
+
+        private void frmDashboardNguoiDung_Load(object sender, EventArgs e)
+        {
+            HienThiThongTinDangNhap();
+            TaiLoaiVeMacDinh();
+        }
+
+        private void HienThiThongTinDangNhap()
+        {
+            var daDangNhap = Session.NguoiDungHienTai != null;
+            btnDangNhap.Visible = !daDangNhap;
+            btnDangKy.Visible = !daDangNhap;
+            btnDangXuat.Visible = daDangNhap;
+
+            if (daDangNhap)
+            {
+                lblXinChao.Text = $"Xin chào, {Session.NguoiDungHienTai!.HoTen}!";
+                lblThongTin.Text = $"Vai trò: {Session.NguoiDungHienTai!.VaiTro}";
+            }
+            else
+            {
+                lblXinChao.Text = "Xin chào!";
+                lblThongTin.Text = string.Empty;
+            }
+        }
+
+        private void TaiLoaiVeMacDinh()
+        {
+            pnlLoaiVe.Controls.Clear();
+            var danhSachLoaiVe = new[]
+            {
+                "Tất cả vé",
+                "Người Địa Phương",
+                "Bán chạy nhất",
+                "Siêu hời",
+                "Ẩm thực",
+                "Trải nghiệm HOT"
+            };
+
+            foreach (var tenLoai in danhSachLoaiVe)
+            {
+                var nutLoai = new Button
+                {
+                    Text = tenLoai,
+                    AutoSize = true,
+                    Height = 36,
+                    Padding = new Padding(16, 6, 16, 6),
+                    Margin = new Padding(8, 8, 8, 8),
+                    BackColor = Color.White,
+                    FlatStyle = FlatStyle.Standard
+                };
+                pnlLoaiVe.Controls.Add(nutLoai);
+            }
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            Session.DangXuat();
+            HienThiThongTinDangNhap();
+        }
+
+        private void btnDangNhap_Click(object sender, EventArgs e)
+        {
+            var formDangNhap = new frmDangNhap();
+            formDangNhap.ShowDialog();
+            HienThiThongTinDangNhap();
+        }
+
+        private void btnDangKy_Click(object sender, EventArgs e)
+        {
+            var formDangKy = new frmDangKy();
+            formDangKy.ShowDialog();
+        }
+    }
+}

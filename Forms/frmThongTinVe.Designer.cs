@@ -1,0 +1,58 @@
+namespace doanbanve.Forms
+{
+    partial class frmThongTinVe
+    {
+        private System.ComponentModel.IContainer components = null;
+        private Label lblTieuDe;
+        private TextBox txtThongTinVe;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            lblTieuDe = new Label();
+            txtThongTinVe = new TextBox();
+            SuspendLayout();
+            // 
+            // lblTieuDe
+            // 
+            lblTieuDe.AutoSize = true;
+            lblTieuDe.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTieuDe.Location = new Point(16, 16);
+            lblTieuDe.Name = "lblTieuDe";
+            lblTieuDe.Size = new Size(126, 21);
+            lblTieuDe.TabIndex = 0;
+            lblTieuDe.Text = "Thông tin vé";
+            // 
+            // txtThongTinVe
+            // 
+            txtThongTinVe.Location = new Point(16, 48);
+            txtThongTinVe.Multiline = true;
+            txtThongTinVe.Name = "txtThongTinVe";
+            txtThongTinVe.ReadOnly = true;
+            txtThongTinVe.ScrollBars = ScrollBars.Vertical;
+            txtThongTinVe.Size = new Size(560, 320);
+            txtThongTinVe.TabIndex = 1;
+            // 
+            // frmThongTinVe
+            // 
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(600, 390);
+            Controls.Add(txtThongTinVe);
+            Controls.Add(lblTieuDe);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            Name = "frmThongTinVe";
+            StartPosition = FormStartPosition.CenterParent;
+            ResumeLayout(false);
+            PerformLayout();
+        }
+    }
+}

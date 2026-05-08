@@ -1,0 +1,81 @@
+﻿using doanbanve.Controllers;
+using doanbanve.Models;
+
+namespace doanbanve.Forms
+{
+    public partial class frmChiTietThanhToan : Form
+    {
+        private readonly HoaDonController hoaDonController = new();
+        private readonly int maHoaDon;
+
+        public frmChiTietThanhToan(int maHoaDon)
+        {
+            InitializeComponent();
+            this.maHoaDon = maHoaDon;
+        }
+
+        private async void frmChiTietThanhToan_Load(object sender, EventArgs e)
+        {
+            await TaiChiTiet();
+        }
+
+        private async Task TaiChiTiet()
+        {
+            pnlDanhSach.Controls.Clear();
+            var danhSach = await hoaDonController.LayChiTietHoaDon(maHoaDon);
+            foreach (var muc in danhSach)
+            {
+                pnlDanhSach.Controls.Add(TaoTheChiTiet(muc));
+            }
+        }
+
+        private Panel TaoTheChiTiet(MucGioHang muc)
+        {
+            var theMuc = new Panel
+            {
+                Width = 620,
+                Height = 120,
+                BackColor = Color.White,
+                Margin = new Padding(8),
+                BorderStyle = BorderStyle.FixedSingle
+            };
+
+            var lblTenVe = new Label
+            {
+                Text = muc.Ve.TenVe,
+                Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point),
+                Location = new Point(16, 12),
+                AutoSize = true
+            };
+
+            var lblNgaySuDung = new Label
+            {
+                Text = "Ngày sử dụng: " + muc.NgaySuDung.ToString("dd/MM/yyyy"),
+                Location = new Point(16, 40),
+                AutoSize = true
+            };
+
+            var lblSoLuong = new Label
+            {
+                Text = $"Người lớn: {muc.SoLuongNguoiLon} | Trẻ em: {muc.SoLuongTreEm} | Người cao tuổi: {muc.SoLuongNguoiCaoTuoi}",
+                Location = new Point(16, 64),
+                AutoSize = true
+            };
+
+            var lblThanhTien = new Label
+            {
+                Text = muc.TinhTongTien().ToString("N0") + " VNĐ",
+                ForeColor = Color.FromArgb(210, 85, 30),
+                Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point),
+                Location = new Point(480, 40),
+                AutoSize = true
+            };
+
+            theMuc.Controls.Add(lblTenVe);
+            theMuc.Controls.Add(lblNgaySuDung);
+            theMuc.Controls.Add(lblSoLuong);
+            theMuc.Controls.Add(lblThanhTien);
+            return theMuc;
+        }
+    }
+}

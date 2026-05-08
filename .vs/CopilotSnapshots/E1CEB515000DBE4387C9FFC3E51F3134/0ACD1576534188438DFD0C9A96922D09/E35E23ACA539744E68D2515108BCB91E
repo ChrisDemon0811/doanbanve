@@ -1,0 +1,33 @@
+﻿using doanbanve.Utils;
+
+namespace doanbanve.Forms
+{
+    public partial class frmGioHang : Form
+    {
+        public frmGioHang()
+        {
+            InitializeComponent();
+        }
+
+        private void frmGioHang_Load(object sender, EventArgs e)
+        {
+            HienThiDanhSach();
+        }
+
+        private void HienThiDanhSach()
+        {
+            dgvGioHang.Rows.Clear();
+            foreach (var muc in GioHangTam.LayDanhSach())
+            {
+                dgvGioHang.Rows.Add(
+                    muc.Ve.TenVe,
+                    muc.NgaySuDung.ToString("dd/MM/yyyy"),
+                    muc.SoLuongNguoiLon,
+                    muc.SoLuongTreEm,
+                    muc.SoLuongNguoiCaoTuoi,
+                    muc.TinhTongSoLuong(),
+                    muc.TinhTongTien().ToString("N0") + " VNĐ");
+            }
+        }
+    }
+}

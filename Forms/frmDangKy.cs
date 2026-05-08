@@ -1,0 +1,48 @@
+using doanbanve.Controllers;
+using doanbanve.Models;
+
+namespace doanbanve.Forms
+{
+    public partial class frmDangKy : Form
+    {
+        private readonly NguoiDungController nguoiDungController = new();
+
+        public frmDangKy()
+        {
+            InitializeComponent();
+        }
+
+        private async void btnDangKy_Click(object sender, EventArgs e)
+        {
+            var taiKhoan = txtTaiKhoan.Text.Trim();
+            var matKhau = txtMatKhau.Text.Trim();
+            var hoTen = txtHoTen.Text.Trim();
+            var email = txtEmail.Text.Trim();
+            var soDienThoai = txtSoDienThoai.Text.Trim();
+
+            var nguoiDung = new NguoiDung
+            {
+                TaiKhoan = taiKhoan,
+                MatKhau = matKhau,
+                HoTen = hoTen,
+                Email = string.IsNullOrWhiteSpace(email) ? null : email,
+                SoDienThoai = string.IsNullOrWhiteSpace(soDienThoai) ? null : soDienThoai,
+                VaiTro = "NguoiDung"
+            };
+
+            try
+            {
+                var ketQua = await nguoiDungController.DangKy(nguoiDung);
+                MessageBox.Show(ketQua.ThongBao, "Thông báo", MessageBoxButtons.OK, ketQua.ThanhCong ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
+                if (ketQua.ThanhCong)
+                {
+                    Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+}

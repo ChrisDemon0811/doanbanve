@@ -1,0 +1,131 @@
+﻿IF DB_ID(N'QuanLyBanVeKhuDuLich') IS NULL
+BEGIN
+    CREATE DATABASE QuanLyBanVeKhuDuLich;
+END
+GO
+
+USE QuanLyBanVeKhuDuLich;
+GO
+
+IF OBJECT_ID(N'ChiTietHoaDon', N'U') IS NOT NULL DROP TABLE ChiTietHoaDon;
+IF OBJECT_ID(N'HoaDon', N'U') IS NOT NULL DROP TABLE HoaDon;
+IF OBJECT_ID(N'ChiTietGioHang', N'U') IS NOT NULL DROP TABLE ChiTietGioHang;
+IF OBJECT_ID(N'GioHang', N'U') IS NOT NULL DROP TABLE GioHang;
+IF OBJECT_ID(N'Voucher', N'U') IS NOT NULL DROP TABLE Voucher;
+IF OBJECT_ID(N'ChiTietVe', N'U') IS NOT NULL DROP TABLE ChiTietVe;
+IF OBJECT_ID(N'Ve', N'U') IS NOT NULL DROP TABLE Ve;
+IF OBJECT_ID(N'LoaiVe', N'U') IS NOT NULL DROP TABLE LoaiVe;
+IF OBJECT_ID(N'NguoiDung', N'U') IS NOT NULL DROP TABLE NguoiDung;
+GO
+
+CREATE TABLE NguoiDung
+(
+    MaNguoiDung INT IDENTITY(1,1) PRIMARY KEY,
+    TaiKhoan NVARCHAR(100) NOT NULL UNIQUE,
+    MatKhau NVARCHAR(255) NOT NULL,
+    HoTen NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(150) NULL,
+    SoDienThoai NVARCHAR(20) NULL,
+    VaiTro NVARCHAR(20) NOT NULL,
+    NgayDangKy DATETIME NOT NULL DEFAULT GETDATE(),
+    TrangThai BIT NOT NULL DEFAULT 1
+);
+
+CREATE TABLE LoaiVe
+(
+    MaLoaiVe INT IDENTITY(1,1) PRIMARY KEY,
+    TenLoaiVe NVARCHAR(100) NOT NULL,
+    MoTa NVARCHAR(500) NULL,
+    TrangThai BIT NOT NULL DEFAULT 1
+);
+
+CREATE TABLE Ve
+(
+    MaVe INT IDENTITY(1,1) PRIMARY KEY,
+    MaLoaiVe INT NOT NULL,
+    TenVe NVARCHAR(150) NOT NULL,
+    GiaVe DECIMAL(18,2) NOT NULL,
+    SoLuong INT NOT NULL,
+    MoTa NVARCHAR(500) NULL,
+    TrangThai BIT NOT NULL DEFAULT 1,
+    CONSTRAINT FK_Ve_LoaiVe FOREIGN KEY (MaLoaiVe) REFERENCES LoaiVe(MaLoaiVe)
+);
+
+CREATE TABLE ChiTietVe
+(
+    MaChiTietVe INT IDENTITY(1,1) PRIMARY KEY,
+    MaVe INT NOT NULL,
+    NgaySuDung DATE NOT NULL,
+    SoLuongToiDa INT NOT NULL,
+    SoLuongDaDat INT NOT NULL DEFAULT 0,
+    CONSTRAINT FK_ChiTietVe_Ve FOREIGN KEY (MaVe) REFERENCES Ve(MaVe)
+);
+
+CREATE TABLE Voucher
+(
+    MaVoucher INT IDENTITY(1,1) PRIMARY KEY,
+    MaGiamGia NVARCHAR(50) NOT NULL UNIQUE,
+    TenVoucher NVARCHAR(150) NOT NULL,
+    KieuGiamGia NVARCHAR(20) NOT NULL,
+    GiaTriGiam DECIMAL(18,2) NOT NULL,
+    NgayBatDau DATE NOT NULL,
+    NgayKetThuc DATE NOT NULL,
+    SoLuong INT NOT NULL,
+    TrangThai BIT NOT NULL DEFAULT 1
+);
+
+CREATE TABLE GioHang
+(
+    MaGioHang INT IDENTITY(1,1) PRIMARY KEY,
+    MaNguoiDung INT NOT NULL,
+    NgayTao DATETIME NOT NULL DEFAULT GETDATE(),
+    CONSTRAINT FK_GioHang_NguoiDung FOREIGN KEY (MaNguoiDung) REFERENCES NguoiDung(MaNguoiDung)
+);
+
+CREATE TABLE ChiTietGioHang
+(
+    MaChiTietGioHang INT IDENTITY(1,1) PRIMARY KEY,
+    MaGioHang INT NOT NULL,
+    MaChiTietVe INT NOT NULL,
+    SoLuong INT NOT NULL,
+    DonGia DECIMAL(18,2) NOT NULL,
+    ThanhTien DECIMAL(18,2) NOT NULL,
+    CONSTRAINT FK_ChiTietGioHang_GioHang FOREIGN KEY (MaGioHang) REFERENCES GioHang(MaGioHang),
+    CONSTRAINT FK_ChiTietGioHang_ChiTietVe FOREIGN KEY (MaChiTietVe) REFERENCES ChiTietVe(MaChiTietVe)
+);
+
+CREATE TABLE HoaDon
+(
+    MaHoaDon INT IDENTITY(1,1) PRIMARY KEY,
+    MaNguoiDung INT NOT NULL,
+    NgayLap DATETIME NOT NULL DEFAULT GETDATE(),
+    TongTien DECIMAL(18,2) NOT NULL,
+    MaVoucher INT NULL,
+    TienGiam DECIMAL(18,2) NOT NULL DEFAULT 0,
+    ThanhToan NVARCHAR(20) NOT NULL,
+    TrangThai NVARCHAR(20) NOT NULL,
+    CONSTRAINT FK_HoaDon_NguoiDung FOREIGN KEY (MaNguoiDung) REFERENCES NguoiDung(MaNguoiDung),
+    CONSTRAINT FK_HoaDon_Voucher FOREIGN KEY (MaVoucher) REFERENCES Voucher(MaVoucher)
+);
+
+CREATE TABLE ChiTietHoaDon
+(
+    MaChiTietHoaDon INT IDENTITY(1,1) PRIMARY KEY,
+    MaHoaDon INT NOT NULL,
+    MaChiTietVe INT NOT NULL,
+    SoLuong INT NOT NULL,
+    DonGia DECIMAL(18,2) NOT NULL,
+    ThanhTien DECIMAL(18,2) NOT NULL,
+    CONSTRAINT FK_ChiTietHoaDon_HoaDon FOREIGN KEY (MaHoaDon) REFERENCES HoaDon(MaHoaDon),
+    CONSTRAINT FK_ChiTietHoaDon_ChiTietVe FOREIGN KEY (MaChiTietVe) REFERENCES ChiTietVe(MaChiTietVe)
+);
+
+CREATE INDEX IX_ChiTietVe_NgaySuDung ON ChiTietVe(NgaySuDung);
+CREATE INDEX IX_HoaDon_NgayLap ON HoaDon(NgayLap);
+CREATE INDEX IX_Ve_MaLoaiVe ON Ve(MaLoaiVe);
+
+INSERT INTO NguoiDung (TaiKhoan, MatKhau, HoTen, Email, SoDienThoai, VaiTro, TrangThai)
+VALUES
+    (N'user01', N'123456', N'Nguyen Van A', N'user01@gmail.com', N'0900000001', N'NhanVien', 1),
+    (N'user02', N'123456', N'Tran Thi B', N'user02@gmail.com', N'0900000002', N'NhanVien', 1),
+    (N'quanly01', N'123456', N'Le Van Quan', N'quanly01@gmail.com', N'0900000003', N'QuanLy', 1);

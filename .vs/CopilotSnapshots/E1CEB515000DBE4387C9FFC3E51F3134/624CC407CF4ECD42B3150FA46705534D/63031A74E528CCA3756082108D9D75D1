@@ -1,0 +1,240 @@
+﻿namespace doanbanve.Forms
+{
+    partial class frmThongTinNguoiDung
+    {
+        private System.ComponentModel.IContainer components = null;
+        private TabControl tabThongTin;
+        private TabPage tabThongTinNguoiDung;
+        private TabPage tabDonHang;
+        private Label lblHoTenText;
+        private Label lblTaiKhoanText;
+        private Label lblEmailText;
+        private Label lblSoDienThoaiText;
+        private Label lblVaiTroText;
+        private Label lblHoTen;
+        private Label lblTaiKhoan;
+        private Label lblEmail;
+        private Label lblSoDienThoai;
+        private Label lblVaiTro;
+        private DataGridView dgvHoaDon;
+        private Button btnChiTietHoaDon;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            tabThongTin = new TabControl();
+            tabThongTinNguoiDung = new TabPage();
+            tabDonHang = new TabPage();
+            lblHoTenText = new Label();
+            lblTaiKhoanText = new Label();
+            lblEmailText = new Label();
+            lblSoDienThoaiText = new Label();
+            lblVaiTroText = new Label();
+            lblHoTen = new Label();
+            lblTaiKhoan = new Label();
+            lblEmail = new Label();
+            lblSoDienThoai = new Label();
+            lblVaiTro = new Label();
+            dgvHoaDon = new DataGridView();
+            btnChiTietHoaDon = new Button();
+            tabThongTin.SuspendLayout();
+            tabThongTinNguoiDung.SuspendLayout();
+            tabDonHang.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).BeginInit();
+            SuspendLayout();
+            // 
+            // tabThongTin
+            // 
+            tabThongTin.Controls.Add(tabThongTinNguoiDung);
+            tabThongTin.Controls.Add(tabDonHang);
+            tabThongTin.Dock = DockStyle.Fill;
+            tabThongTin.Location = new Point(0, 0);
+            tabThongTin.Name = "tabThongTin";
+            tabThongTin.SelectedIndex = 0;
+            tabThongTin.Size = new Size(720, 420);
+            tabThongTin.TabIndex = 0;
+            // 
+            // tabThongTinNguoiDung
+            // 
+            tabThongTinNguoiDung.Controls.Add(lblVaiTro);
+            tabThongTinNguoiDung.Controls.Add(lblSoDienThoai);
+            tabThongTinNguoiDung.Controls.Add(lblEmail);
+            tabThongTinNguoiDung.Controls.Add(lblTaiKhoan);
+            tabThongTinNguoiDung.Controls.Add(lblHoTen);
+            tabThongTinNguoiDung.Controls.Add(lblVaiTroText);
+            tabThongTinNguoiDung.Controls.Add(lblSoDienThoaiText);
+            tabThongTinNguoiDung.Controls.Add(lblEmailText);
+            tabThongTinNguoiDung.Controls.Add(lblTaiKhoanText);
+            tabThongTinNguoiDung.Controls.Add(lblHoTenText);
+            tabThongTinNguoiDung.Location = new Point(4, 24);
+            tabThongTinNguoiDung.Name = "tabThongTinNguoiDung";
+            tabThongTinNguoiDung.Padding = new Padding(12);
+            tabThongTinNguoiDung.Size = new Size(712, 392);
+            tabThongTinNguoiDung.TabIndex = 0;
+            tabThongTinNguoiDung.Text = "Thông tin người dùng";
+            tabThongTinNguoiDung.UseVisualStyleBackColor = true;
+            // 
+            // tabDonHang
+            // 
+            tabDonHang.Controls.Add(dgvHoaDon);
+            tabDonHang.Controls.Add(btnChiTietHoaDon);
+            tabDonHang.Location = new Point(4, 24);
+            tabDonHang.Name = "tabDonHang";
+            tabDonHang.Padding = new Padding(12);
+            tabDonHang.Size = new Size(712, 392);
+            tabDonHang.TabIndex = 1;
+            tabDonHang.Text = "Đơn hàng đã thanh toán";
+            tabDonHang.UseVisualStyleBackColor = true;
+            // 
+            // lblHoTenText
+            // 
+            lblHoTenText.AutoSize = true;
+            lblHoTenText.Location = new Point(24, 24);
+            lblHoTenText.Name = "lblHoTenText";
+            lblHoTenText.Size = new Size(46, 15);
+            lblHoTenText.TabIndex = 0;
+            lblHoTenText.Text = "Họ tên:";
+            // 
+            // lblTaiKhoanText
+            // 
+            lblTaiKhoanText.AutoSize = true;
+            lblTaiKhoanText.Location = new Point(24, 60);
+            lblTaiKhoanText.Name = "lblTaiKhoanText";
+            lblTaiKhoanText.Size = new Size(62, 15);
+            lblTaiKhoanText.TabIndex = 1;
+            lblTaiKhoanText.Text = "Tài khoản:";
+            // 
+            // lblEmailText
+            // 
+            lblEmailText.AutoSize = true;
+            lblEmailText.Location = new Point(24, 96);
+            lblEmailText.Name = "lblEmailText";
+            lblEmailText.Size = new Size(39, 15);
+            lblEmailText.TabIndex = 2;
+            lblEmailText.Text = "Email:";
+            // 
+            // lblSoDienThoaiText
+            // 
+            lblSoDienThoaiText.AutoSize = true;
+            lblSoDienThoaiText.Location = new Point(24, 132);
+            lblSoDienThoaiText.Name = "lblSoDienThoaiText";
+            lblSoDienThoaiText.Size = new Size(79, 15);
+            lblSoDienThoaiText.TabIndex = 3;
+            lblSoDienThoaiText.Text = "Số điện thoại:";
+            // 
+            // lblVaiTroText
+            // 
+            lblVaiTroText.AutoSize = true;
+            lblVaiTroText.Location = new Point(24, 168);
+            lblVaiTroText.Name = "lblVaiTroText";
+            lblVaiTroText.Size = new Size(46, 15);
+            lblVaiTroText.TabIndex = 4;
+            lblVaiTroText.Text = "Vai trò:";
+            // 
+            // lblHoTen
+            // 
+            lblHoTen.AutoSize = true;
+            lblHoTen.Location = new Point(140, 24);
+            lblHoTen.Name = "lblHoTen";
+            lblHoTen.Size = new Size(12, 15);
+            lblHoTen.TabIndex = 5;
+            lblHoTen.Text = "-";
+            // 
+            // lblTaiKhoan
+            // 
+            lblTaiKhoan.AutoSize = true;
+            lblTaiKhoan.Location = new Point(140, 60);
+            lblTaiKhoan.Name = "lblTaiKhoan";
+            lblTaiKhoan.Size = new Size(12, 15);
+            lblTaiKhoan.TabIndex = 6;
+            lblTaiKhoan.Text = "-";
+            // 
+            // lblEmail
+            // 
+            lblEmail.AutoSize = true;
+            lblEmail.Location = new Point(140, 96);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(12, 15);
+            lblEmail.TabIndex = 7;
+            lblEmail.Text = "-";
+            // 
+            // lblSoDienThoai
+            // 
+            lblSoDienThoai.AutoSize = true;
+            lblSoDienThoai.Location = new Point(140, 132);
+            lblSoDienThoai.Name = "lblSoDienThoai";
+            lblSoDienThoai.Size = new Size(12, 15);
+            lblSoDienThoai.TabIndex = 8;
+            lblSoDienThoai.Text = "-";
+            // 
+            // lblVaiTro
+            // 
+            lblVaiTro.AutoSize = true;
+            lblVaiTro.Location = new Point(140, 168);
+            lblVaiTro.Name = "lblVaiTro";
+            lblVaiTro.Size = new Size(12, 15);
+            lblVaiTro.TabIndex = 9;
+            lblVaiTro.Text = "-";
+            // 
+            // dgvHoaDon
+            // 
+            dgvHoaDon.AllowUserToAddRows = false;
+            dgvHoaDon.AllowUserToDeleteRows = false;
+            dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvHoaDon.Columns.AddRange(new DataGridViewColumn[]
+            {
+                new DataGridViewTextBoxColumn { Name = "colMaHoaDon", HeaderText = "Mã hóa đơn" },
+                new DataGridViewTextBoxColumn { Name = "colNgayLap", HeaderText = "Ngày lập" },
+                new DataGridViewTextBoxColumn { Name = "colTongTien", HeaderText = "Tổng tiền" },
+                new DataGridViewTextBoxColumn { Name = "colTienGiam", HeaderText = "Giảm giá" },
+                new DataGridViewTextBoxColumn { Name = "colThanhTien", HeaderText = "Thành tiền" },
+                new DataGridViewTextBoxColumn { Name = "colThanhToan", HeaderText = "Thanh toán" }
+            });
+            dgvHoaDon.Dock = DockStyle.Fill;
+            dgvHoaDon.Location = new Point(12, 12);
+            dgvHoaDon.Name = "dgvHoaDon";
+            dgvHoaDon.ReadOnly = true;
+            dgvHoaDon.RowHeadersVisible = false;
+            dgvHoaDon.Size = new Size(688, 368);
+            dgvHoaDon.TabIndex = 0;
+            // 
+            // btnChiTietHoaDon
+            // 
+            btnChiTietHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnChiTietHoaDon.Location = new Point(544, 344);
+            btnChiTietHoaDon.Name = "btnChiTietHoaDon";
+            btnChiTietHoaDon.Size = new Size(156, 28);
+            btnChiTietHoaDon.TabIndex = 1;
+            btnChiTietHoaDon.Text = "Chi tiết thanh toán";
+            btnChiTietHoaDon.UseVisualStyleBackColor = true;
+            btnChiTietHoaDon.Click += btnChiTietHoaDon_Click;
+            // 
+            // frmThongTinNguoiDung
+            // 
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(720, 420);
+            Controls.Add(tabThongTin);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            Name = "frmThongTinNguoiDung";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Thông tin người dùng";
+            Load += frmThongTinNguoiDung_Load;
+            tabThongTin.ResumeLayout(false);
+            tabThongTinNguoiDung.ResumeLayout(false);
+            tabThongTinNguoiDung.PerformLayout();
+            tabDonHang.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).EndInit();
+            ResumeLayout(false);
+        }
+    }
+}

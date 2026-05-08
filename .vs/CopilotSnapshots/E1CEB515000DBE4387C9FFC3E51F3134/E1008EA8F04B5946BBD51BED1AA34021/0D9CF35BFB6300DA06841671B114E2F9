@@ -1,0 +1,150 @@
+﻿using System.Data;
+using Microsoft.Data.SqlClient;
+using doanbanve.Models;
+using doanbanve.Utils;
+
+namespace doanbanve.DAO
+{
+    public class ChiTietGioHangDAO
+    {
+        public async Task<List<MucGioHang>> LayDanhSach(int maGioHang)
+        {
+            var danhSach = new List<MucGioHang>();
+            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
+            const string cauLenh = @"SELECT c.MaChiTietGioHang, c.MaGioHang, c.MaVe, c.NgaySuDung, c.SoLuongNguoiLon, c.SoLuongTreEm, c.SoLuongNguoiCaoTuoi,
+                                           v.TenVe, v.GiaNguoiLon, v.GiaTreEm, v.GiaNguoiCaoTuoi, v.MoTa, v.ThongTinVe
+                                    FROM ChiTietGioHang c
+                                    INNER JOIN Ve v ON c.MaVe = v.MaVe
+                                    WHERE c.MaGioHang = @MaGioHang
+                                    ORDER BY c.MaChiTietGioHang DESC";
+
+            using var ketNoi = new SqlConnection(chuoiKetNoi);
+            using var lenh = new SqlCommand(cauLenh, ketNoi);
+            lenh.Parameters.AddWithValue("@MaGioHang", maGioHang);
+
+            await ketNoi.OpenAsync();
+            using var doc = await lenh.ExecuteReaderAsync();
+            while (await doc.ReadAsync())
+            {
+                danhSach.Add(new MucGioHang
+                {
+                    MaChiTietGioHang = doc.GetInt32(0),
+                    MaGioHang = doc.GetInt32(1),
+                    Ve = new Ve
+                    {
+                        MaVe = doc.GetInt32(2),
+                        TenVe = doc.GetString(7),
+                        GiaNguoiLon = doc.GetDecimal(8),
+                        GiaTreEm = doc.GetDecimal(9),
+                        GiaNguoiCaoTuoi = doc.GetDecimal(10),
+                        MoTa = doc.IsDBNull(11) ? null : doc.GetString(11),
+                        ThongTinVe = doc.IsDBNull(12) ? null : doc.GetString(12)
+                    },
+                    NgaySuDung = doc.GetDateTime(3),
+                    SoLuongNguoiLon = doc.GetInt32(4),
+                    SoLuongTreEm = doc.GetInt32(5),
+                    SoLuongNguoiCaoTuoi = doc.GetInt32(6)
+                });
+            }
+
+            return danhSach;
+        }
+
+        public async Task<MucGioHang?> LayTheoVeVaNgay(int maGioHang, int maVe, DateTime ngaySuDung)
+        {
+            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
+            const string cauLenh = @"SELECT MaChiTietGioHang, MaGioHang, MaVe, NgaySuDung, SoLuongNguoiLon, SoLuongTreEm, SoLuongNguoiCaoTuoi
+                                    FROM ChiTietGioHang
+                                    WHERE MaGioHang = @MaGioHang AND MaVe = @MaVe AND NgaySuDung = @NgaySuDung";
+
+            using var ketNoi = new SqlConnection(chuoiKetNoi);
+            using var lenh = new SqlCommand(cauLenh, ketNoi);
+            lenh.Parameters.AddWithValue("@MaGioHang", maGioHang);
+            lenh.Parameters.AddWithValue("@MaVe", maVe);
+            lenh.Parameters.AddWithValue("@NgaySuDung", ngaySuDung.Date);
+
+            await ketNoi.OpenAsync();
+            using var doc = await lenh.ExecuteReaderAsync(CommandBehavior.SingleRow);
+            if (!await doc.ReadAsync())
+            {
+                return null;
+            }
+
+            return new MucGioHang
+            {
+                MaChiTietGioHang = doc.GetInt32(0),
+                MaGioHang = doc.GetInt32(1),
+                Ve = new Ve { MaVe = doc.GetInt32(2) },
+                NgaySuDung = doc.GetDateTime(3),
+                SoLuongNguoiLon = doc.GetInt32(4),
+                SoLuongTreEm = doc.GetInt32(5),
+                SoLuongNguoiCaoTuoi = doc.GetInt32(6)
+            };
+        }
+
+        public async Task<int> Them(MucGioHang muc)
+        {
+            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
+            const string cauLenh = @"INSERT INTO ChiTietGioHang (MaGioHang, MaVe, NgaySuDung, SoLuongNguoiLon, SoLuongTreEm, SoLuongNguoiCaoTuoi, DonGiaNguoiLon, DonGiaTreEm, DonGiaNguoiCaoTuoi)
+                                    VALUES (@MaGioHang, @MaVe, @NgaySuDung, @SoLuongNguoiLon, @SoLuongTreEm, @SoLuongNguoiCaoTuoi, @DonGiaNguoiLon, @DonGiaTreEm, @DonGiaNguoiCaoTuoi);
+                                    SELECT SCOPE_IDENTITY();";
+
+            using var ketNoi = new SqlConnection(chuoiKetNoi);
+            using var lenh = new SqlCommand(cauLenh, ketNoi);
+            lenh.Parameters.AddWithValue("@MaGioHang", muc.MaGioHang);
+            lenh.Parameters.AddWithValue("@MaVe", muc.Ve.MaVe);
+            lenh.Parameters.AddWithValue("@NgaySuDung", muc.NgaySuDung.Date);
+            lenh.Parameters.AddWithValue("@SoLuongNguoiLon", muc.SoLuongNguoiLon);
+            lenh.Parameters.AddWithValue("@SoLuongTreEm", muc.SoLuongTreEm);
+            lenh.Parameters.AddWithValue("@SoLuongNguoiCaoTuoi", muc.SoLuongNguoiCaoTuoi);
+            lenh.Parameters.AddWithValue("@DonGiaNguoiLon", muc.Ve.GiaNguoiLon);
+            lenh.Parameters.AddWithValue("@DonGiaTreEm", muc.Ve.GiaTreEm);
+            lenh.Parameters.AddWithValue("@DonGiaNguoiCaoTuoi", muc.Ve.GiaNguoiCaoTuoi);
+
+            await ketNoi.OpenAsync();
+            var ketQua = await lenh.ExecuteScalarAsync();
+            return Convert.ToInt32(ketQua);
+        }
+
+        public async Task CapNhat(MucGioHang muc)
+        {
+            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
+            const string cauLenh = @"UPDATE ChiTietGioHang
+                                    SET NgaySuDung = @NgaySuDung,
+                                        SoLuongNguoiLon = @SoLuongNguoiLon,
+                                        SoLuongTreEm = @SoLuongTreEm,
+                                        SoLuongNguoiCaoTuoi = @SoLuongNguoiCaoTuoi,
+                                        DonGiaNguoiLon = @DonGiaNguoiLon,
+                                        DonGiaTreEm = @DonGiaTreEm,
+                                        DonGiaNguoiCaoTuoi = @DonGiaNguoiCaoTuoi
+                                    WHERE MaChiTietGioHang = @MaChiTietGioHang";
+
+            using var ketNoi = new SqlConnection(chuoiKetNoi);
+            using var lenh = new SqlCommand(cauLenh, ketNoi);
+            lenh.Parameters.AddWithValue("@MaChiTietGioHang", muc.MaChiTietGioHang);
+            lenh.Parameters.AddWithValue("@NgaySuDung", muc.NgaySuDung.Date);
+            lenh.Parameters.AddWithValue("@SoLuongNguoiLon", muc.SoLuongNguoiLon);
+            lenh.Parameters.AddWithValue("@SoLuongTreEm", muc.SoLuongTreEm);
+            lenh.Parameters.AddWithValue("@SoLuongNguoiCaoTuoi", muc.SoLuongNguoiCaoTuoi);
+            lenh.Parameters.AddWithValue("@DonGiaNguoiLon", muc.Ve.GiaNguoiLon);
+            lenh.Parameters.AddWithValue("@DonGiaTreEm", muc.Ve.GiaTreEm);
+            lenh.Parameters.AddWithValue("@DonGiaNguoiCaoTuoi", muc.Ve.GiaNguoiCaoTuoi);
+
+            await ketNoi.OpenAsync();
+            await lenh.ExecuteNonQueryAsync();
+        }
+
+        public async Task Xoa(int maChiTietGioHang)
+        {
+            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
+            const string cauLenh = "DELETE FROM ChiTietGioHang WHERE MaChiTietGioHang = @MaChiTietGioHang";
+
+            using var ketNoi = new SqlConnection(chuoiKetNoi);
+            using var lenh = new SqlCommand(cauLenh, ketNoi);
+            lenh.Parameters.AddWithValue("@MaChiTietGioHang", maChiTietGioHang);
+
+            await ketNoi.OpenAsync();
+            await lenh.ExecuteNonQueryAsync();
+        }
+    }
+}

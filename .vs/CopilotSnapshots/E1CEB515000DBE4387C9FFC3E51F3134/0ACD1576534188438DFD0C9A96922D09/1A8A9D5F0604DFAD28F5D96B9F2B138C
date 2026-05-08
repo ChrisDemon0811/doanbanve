@@ -1,0 +1,24 @@
+﻿using doanbanve.Models;
+
+namespace doanbanve.Utils
+{
+    public static class GioHangTam
+    {
+        private static readonly List<MucGioHang> danhSachMuc = new();
+
+        public static IReadOnlyList<MucGioHang> LayDanhSach()
+        {
+            return danhSachMuc.AsReadOnly();
+        }
+
+        public static void ThemMuc(MucGioHang muc)
+        {
+            danhSachMuc.Add(muc);
+        }
+
+        public static void XoaTatCa()
+        {
+            danhSachMuc.Clear();
+        }
+    }
+}
