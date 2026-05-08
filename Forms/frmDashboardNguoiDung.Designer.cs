@@ -11,6 +11,7 @@ namespace doanbanve.Forms
         private Button btnDangKy;
         private Button btnGioHang;
         private Button btnThongTinNguoiDung;
+        private Button btnDoiMatKhau;
         private FlowLayoutPanel pnlLoaiVe;
         private FlowLayoutPanel pnlVe;
 
@@ -33,6 +34,7 @@ namespace doanbanve.Forms
             btnDangKy = new Button();
             btnGioHang = new Button();
             btnThongTinNguoiDung = new Button();
+            btnDoiMatKhau = new Button();
             pnlLoaiVe = new FlowLayoutPanel();
             pnlVe = new FlowLayoutPanel();
             SuspendLayout();
@@ -115,6 +117,16 @@ namespace doanbanve.Forms
             btnThongTinNguoiDung.UseVisualStyleBackColor = true;
             btnThongTinNguoiDung.Click += btnThongTinNguoiDung_Click;
             // 
+            // btnDoiMatKhau
+            // 
+            btnDoiMatKhau.Location = new Point(376, 24);
+            btnDoiMatKhau.Name = "btnDoiMatKhau";
+            btnDoiMatKhau.Size = new Size(130, 32);
+            btnDoiMatKhau.TabIndex = 8;
+            btnDoiMatKhau.Text = "Đổi mật khẩu";
+            btnDoiMatKhau.UseVisualStyleBackColor = true;
+            btnDoiMatKhau.Click += btnDoiMatKhau_Click;
+            // 
             // pnlLoaiVe
             // 
             pnlLoaiVe.AutoScroll = true;
@@ -139,6 +151,7 @@ namespace doanbanve.Forms
             Controls.Add(pnlVe);
             Controls.Add(pnlLoaiVe);
             Controls.Add(btnThongTinNguoiDung);
+            Controls.Add(btnDoiMatKhau);
             Controls.Add(btnGioHang);
             Controls.Add(btnDangKy);
             Controls.Add(btnDangNhap);

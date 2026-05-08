@@ -68,3 +68,8 @@ D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms
 D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.frmThongTinVe.resources
 D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.frmChiTietThanhToan.resources
 D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.frmThanhToan.resources
+D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.sourcelink.json
+D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.frmDashboardQuanLy.resources
+D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.frmNhapVe.resources
+D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.frmNhapLoaiVe.resources
+D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.frmChiTietHoaDonQuanLy.resources

@@ -1,0 +1,114 @@
+﻿using doanbanve.Controllers;
+using doanbanve.Models;
+
+namespace doanbanve.Forms
+{
+    public partial class frmDashboardQuanLy : Form
+    {
+        private readonly NguoiDungController nguoiDungController = new();
+
+        public frmDashboardQuanLy()
+        {
+            InitializeComponent();
+        }
+
+        private async void frmDashboardQuanLy_Load(object sender, EventArgs e)
+        {
+            await TaiDanhSachNguoiDung();
+            HienThiManHinhNguoiDung();
+        }
+
+        private void HienThiManHinhNguoiDung()
+        {
+            pnlNguoiDung.Visible = true;
+        }
+
+        private async Task TaiDanhSachNguoiDung()
+        {
+            dgvNguoiDung.Rows.Clear();
+            var danhSach = await nguoiDungController.LayDanhSachNguoiDung();
+            foreach (var nguoiDung in danhSach)
+            {
+                dgvNguoiDung.Rows.Add(
+                    nguoiDung.MaNguoiDung,
+                    nguoiDung.TaiKhoan,
+                    nguoiDung.HoTen,
+                    nguoiDung.Email,
+                    nguoiDung.SoDienThoai,
+                    nguoiDung.VaiTro);
+            }
+        }
+
+        private void btnXemThongTin_Click(object sender, EventArgs e)
+        {
+            if (dgvNguoiDung.CurrentRow == null)
+            {
+                return;
+            }
+
+            var hoTen = dgvNguoiDung.CurrentRow.Cells[2].Value?.ToString() ?? "";
+            var taiKhoan = dgvNguoiDung.CurrentRow.Cells[1].Value?.ToString() ?? "";
+            var email = dgvNguoiDung.CurrentRow.Cells[3].Value?.ToString() ?? "";
+            var soDienThoai = dgvNguoiDung.CurrentRow.Cells[4].Value?.ToString() ?? "";
+            var vaiTro = dgvNguoiDung.CurrentRow.Cells[5].Value?.ToString() ?? "";
+
+            MessageBox.Show($"Họ tên: {hoTen}\nTài khoản: {taiKhoan}\nEmail: {email}\nSố điện thoại: {soDienThoai}\nVai trò: {vaiTro}",
+                "Thông tin người dùng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private async void btnResetMatKhau_Click(object sender, EventArgs e)
+        {
+            if (dgvNguoiDung.CurrentRow == null)
+            {
+                return;
+            }
+
+            pnlNhapMatKhau.Visible = true;
+            txtMatKhauMoi.Focus();
+        }
+
+        private void btnHuyMatKhau_Click(object sender, EventArgs e)
+        {
+            txtMatKhauMoi.Clear();
+            pnlNhapMatKhau.Visible = false;
+        }
+
+        private async void btnXacNhanMatKhau_Click(object sender, EventArgs e)
+        {
+            if (dgvNguoiDung.CurrentRow == null)
+            {
+                return;
+            }
+
+            var giaTri = dgvNguoiDung.CurrentRow.Cells[0].Value?.ToString();
+            if (!int.TryParse(giaTri, out var maNguoiDung))
+            {
+                return;
+            }
+
+            var matKhauMoi = txtMatKhauMoi.Text.Trim();
+            if (string.IsNullOrWhiteSpace(matKhauMoi))
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu mới.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                await nguoiDungController.DatMatKhau(maNguoiDung, matKhauMoi);
+                MessageBox.Show("Đã reset mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMatKhauMoi.Clear();
+                pnlNhapMatKhau.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnMenuNguoiDung_Click(object sender, EventArgs e)
+        {
+            HienThiManHinhNguoiDung();
+        }
+    }
+}

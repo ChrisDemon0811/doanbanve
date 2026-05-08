@@ -4,6 +4,9 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\frmChiTietHoaDonQuanLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\frmChiTietThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -19,7 +22,22 @@
     <Compile Update="Forms\frmDashboardNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\frmDashboardQuanLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\frmDoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\frmGioHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\frmNhapLoaiVe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\frmNhapVe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\frmNhapVoucher.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\frmThanhToan.cs">

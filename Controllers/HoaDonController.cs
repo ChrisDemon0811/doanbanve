@@ -12,6 +12,11 @@ namespace doanbanve.Controllers
             return await hoaDonDAO.LayDanhSachDaThanhToan(maNguoiDung);
         }
 
+        public async Task<List<ThongTinHoaDon>> LayDanhSachHoaDonQuanLy()
+        {
+            return await hoaDonDAO.LayDanhSachHoaDonQuanLy();
+        }
+
         public async Task<List<MucGioHang>> LayChiTietHoaDon(int maHoaDon)
         {
             return await hoaDonDAO.LayChiTietHoaDon(maHoaDon);
@@ -20,6 +25,21 @@ namespace doanbanve.Controllers
         public async Task<ThongTinHoaDon?> LayThongTinHoaDon(int maHoaDon)
         {
             return await hoaDonDAO.LayThongTinHoaDon(maHoaDon);
+        }
+
+        public async Task<ThongKeDuLieu> LayThongKeDuLieu()
+        {
+            return await hoaDonDAO.LayThongKeDuLieu();
+        }
+
+        public async Task<int> LayTongVeDaBan()
+        {
+            return await hoaDonDAO.LayTongVeDaBan();
+        }
+
+        public async Task<List<ThongKeTheoLoaiVe>> LayThongKeTheoLoaiVe()
+        {
+            return await hoaDonDAO.LayThongKeTheoLoaiVe();
         }
     }
 }

@@ -33,5 +33,15 @@ namespace doanbanve.Controllers
             await nguoiDungDAO.ThemNguoiDung(nguoiDung);
             return (true, "Đăng ký thành công.");
         }
+
+        public async Task<List<NguoiDung>> LayDanhSachNguoiDung()
+        {
+            return await nguoiDungDAO.LayDanhSachNguoiDung();
+        }
+
+        public async Task DatMatKhau(int maNguoiDung, string matKhauMoi)
+        {
+            await nguoiDungDAO.DatMatKhau(maNguoiDung, matKhauMoi);
+        }
     }
 }

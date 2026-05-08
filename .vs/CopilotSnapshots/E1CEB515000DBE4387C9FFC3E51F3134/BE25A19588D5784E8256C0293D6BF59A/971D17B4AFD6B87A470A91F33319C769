@@ -1,0 +1,192 @@
+﻿using System.Data;
+using Microsoft.Data.SqlClient;
+using doanbanve.Models;
+using doanbanve.Utils;
+
+namespace doanbanve.DAO
+{
+    public class HoaDonDAO
+    {
+        public async Task<List<DonHangDaThanhToan>> LayDanhSachDaThanhToan(int maNguoiDung)
+        {
+            var danhSach = new List<DonHangDaThanhToan>();
+            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
+            const string cauLenh = @"SELECT MaHoaDon, NgayLap, TongTien, TienGiam, (TongTien - TienGiam) AS ThanhTien, ThanhToan
+                                    FROM HoaDon
+                                    WHERE MaNguoiDung = @MaNguoiDung AND TrangThai = N'DaThanhToan'
+                                    ORDER BY NgayLap DESC";
+
+            using var ketNoi = new SqlConnection(chuoiKetNoi);
+            using var lenh = new SqlCommand(cauLenh, ketNoi);
+            lenh.Parameters.AddWithValue("@MaNguoiDung", maNguoiDung);
+
+            await ketNoi.OpenAsync();
+            using var doc = await lenh.ExecuteReaderAsync();
+            while (await doc.ReadAsync())
+            {
+                danhSach.Add(new DonHangDaThanhToan
+                {
+                    MaHoaDon = doc.GetInt32(0),
+                    NgayLap = doc.GetDateTime(1),
+                    TongTien = doc.GetDecimal(2),
+                    TienGiam = doc.GetDecimal(3),
+                    ThanhTien = doc.GetDecimal(4),
+                    ThanhToan = doc.GetString(5)
+                });
+            }
+
+            return danhSach;
+        }
+
+        public async Task<List<Models.ThongTinHoaDon>> LayDanhSachHoaDonQuanLy()
+        {
+            var danhSach = new List<Models.ThongTinHoaDon>();
+            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
+            const string cauLenh = @"SELECT h.MaHoaDon, h.NgayLap, h.TongTien, h.TienGiam, h.ThanhToan, h.TrangThai, n.HoTen
+                                    FROM HoaDon h
+                                    INNER JOIN NguoiDung n ON h.MaNguoiDung = n.MaNguoiDung
+                                    ORDER BY h.NgayLap DESC";
+
+            using var ketNoi = new SqlConnection(chuoiKetNoi);
+            using var lenh = new SqlCommand(cauLenh, ketNoi);
+
+            await ketNoi.OpenAsync();
+            using var doc = await lenh.ExecuteReaderAsync();
+            while (await doc.ReadAsync())
+            {
+                var tongTien = doc.GetDecimal(2);
+                var tienGiam = doc.GetDecimal(3);
+                danhSach.Add(new Models.ThongTinHoaDon
+                {
+                    MaHoaDon = doc.GetInt32(0),
+                    NgayLap = doc.GetDateTime(1),
+                    TongTien = tongTien,
+                    TienGiam = tienGiam,
+                    ThanhTien = tongTien - tienGiam,
+                    ThanhToan = doc.GetString(4),
+                    TrangThai = doc.GetString(5),
+                    HoTenNguoiDat = doc.GetString(6)
+                });
+            }
+
+            return danhSach;
+        }
+
+        public async Task<int> ThemHoaDon(int maNguoiDung, decimal tongTien, int? maVoucher, decimal tienGiam, string thanhToan)
+        {
+            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
+            const string cauLenh = @"INSERT INTO HoaDon (MaNguoiDung, NgayLap, TongTien, MaVoucher, TienGiam, ThanhToan, TrangThai)
+                                    VALUES (@MaNguoiDung, GETDATE(), @TongTien, @MaVoucher, @TienGiam, @ThanhToan, N'DaThanhToan');
+                                    SELECT SCOPE_IDENTITY();";
+
+            using var ketNoi = new SqlConnection(chuoiKetNoi);
+            using var lenh = new SqlCommand(cauLenh, ketNoi);
+            lenh.Parameters.AddWithValue("@MaNguoiDung", maNguoiDung);
+            lenh.Parameters.AddWithValue("@TongTien", tongTien);
+            lenh.Parameters.AddWithValue("@MaVoucher", (object?)maVoucher ?? DBNull.Value);
+            lenh.Parameters.AddWithValue("@TienGiam", tienGiam);
+            lenh.Parameters.AddWithValue("@ThanhToan", thanhToan);
+
+            await ketNoi.OpenAsync();
+            var ketQua = await lenh.ExecuteScalarAsync();
+            return Convert.ToInt32(ketQua);
+        }
+
+        public async Task ThemChiTietHoaDon(int maHoaDon, Models.MucGioHang muc)
+        {
+            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
+            const string cauLenh = @"INSERT INTO ChiTietHoaDon (MaHoaDon, MaVe, NgaySuDung, SoLuongNguoiLon, SoLuongTreEm, SoLuongNguoiCaoTuoi, DonGiaNguoiLon, DonGiaTreEm, DonGiaNguoiCaoTuoi, ThanhTien)
+                                    VALUES (@MaHoaDon, @MaVe, @NgaySuDung, @SoLuongNguoiLon, @SoLuongTreEm, @SoLuongNguoiCaoTuoi, @DonGiaNguoiLon, @DonGiaTreEm, @DonGiaNguoiCaoTuoi, @ThanhTien);";
+
+            using var ketNoi = new SqlConnection(chuoiKetNoi);
+            using var lenh = new SqlCommand(cauLenh, ketNoi);
+            lenh.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
+            lenh.Parameters.AddWithValue("@MaVe", muc.Ve.MaVe);
+            lenh.Parameters.AddWithValue("@NgaySuDung", muc.NgaySuDung.Date);
+            lenh.Parameters.AddWithValue("@SoLuongNguoiLon", muc.SoLuongNguoiLon);
+            lenh.Parameters.AddWithValue("@SoLuongTreEm", muc.SoLuongTreEm);
+            lenh.Parameters.AddWithValue("@SoLuongNguoiCaoTuoi", muc.SoLuongNguoiCaoTuoi);
+            lenh.Parameters.AddWithValue("@DonGiaNguoiLon", muc.Ve.GiaNguoiLon);
+            lenh.Parameters.AddWithValue("@DonGiaTreEm", muc.Ve.GiaTreEm);
+            lenh.Parameters.AddWithValue("@DonGiaNguoiCaoTuoi", muc.Ve.GiaNguoiCaoTuoi);
+            lenh.Parameters.AddWithValue("@ThanhTien", muc.TinhTongTien());
+
+            await ketNoi.OpenAsync();
+            await lenh.ExecuteNonQueryAsync();
+        }
+
+        public async Task<List<Models.MucGioHang>> LayChiTietHoaDon(int maHoaDon)
+        {
+            var danhSach = new List<Models.MucGioHang>();
+            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
+            const string cauLenh = @"SELECT c.MaVe, c.NgaySuDung, c.SoLuongNguoiLon, c.SoLuongTreEm, c.SoLuongNguoiCaoTuoi,
+                                           c.DonGiaNguoiLon, c.DonGiaTreEm, c.DonGiaNguoiCaoTuoi,
+                                           v.TenVe, v.ThongTinVe
+                                    FROM ChiTietHoaDon c
+                                    INNER JOIN Ve v ON c.MaVe = v.MaVe
+                                    WHERE c.MaHoaDon = @MaHoaDon";
+
+            using var ketNoi = new SqlConnection(chuoiKetNoi);
+            using var lenh = new SqlCommand(cauLenh, ketNoi);
+            lenh.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
+
+            await ketNoi.OpenAsync();
+            using var doc = await lenh.ExecuteReaderAsync();
+            while (await doc.ReadAsync())
+            {
+                danhSach.Add(new Models.MucGioHang
+                {
+                    Ve = new Models.Ve
+                    {
+                        MaVe = doc.GetInt32(0),
+                        TenVe = doc.GetString(8),
+                        GiaNguoiLon = doc.GetDecimal(5),
+                        GiaTreEm = doc.GetDecimal(6),
+                        GiaNguoiCaoTuoi = doc.GetDecimal(7),
+                        ThongTinVe = doc.IsDBNull(9) ? null : doc.GetString(9)
+                    },
+                    NgaySuDung = doc.GetDateTime(1),
+                    SoLuongNguoiLon = doc.GetInt32(2),
+                    SoLuongTreEm = doc.GetInt32(3),
+                    SoLuongNguoiCaoTuoi = doc.GetInt32(4)
+                });
+            }
+
+            return danhSach;
+        }
+
+        public async Task<Models.ThongTinHoaDon?> LayThongTinHoaDon(int maHoaDon)
+        {
+            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
+            const string cauLenh = @"SELECT h.MaHoaDon, h.NgayLap, h.TongTien, h.TienGiam, h.ThanhToan, h.TrangThai, n.HoTen
+                                    FROM HoaDon h
+                                    INNER JOIN NguoiDung n ON h.MaNguoiDung = n.MaNguoiDung
+                                    WHERE h.MaHoaDon = @MaHoaDon";
+
+            using var ketNoi = new SqlConnection(chuoiKetNoi);
+            using var lenh = new SqlCommand(cauLenh, ketNoi);
+            lenh.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
+
+            await ketNoi.OpenAsync();
+            using var doc = await lenh.ExecuteReaderAsync();
+            if (!await doc.ReadAsync())
+            {
+                return null;
+            }
+
+            var tongTien = doc.GetDecimal(2);
+            var tienGiam = doc.GetDecimal(3);
+            return new Models.ThongTinHoaDon
+            {
+                MaHoaDon = doc.GetInt32(0),
+                NgayLap = doc.GetDateTime(1),
+                TongTien = tongTien,
+                TienGiam = tienGiam,
+                ThanhTien = tongTien - tienGiam,
+                ThanhToan = doc.GetString(4),
+                TrangThai = doc.GetString(5),
+                HoTenNguoiDat = doc.GetString(6)
+            };
+        }
+    }
+}

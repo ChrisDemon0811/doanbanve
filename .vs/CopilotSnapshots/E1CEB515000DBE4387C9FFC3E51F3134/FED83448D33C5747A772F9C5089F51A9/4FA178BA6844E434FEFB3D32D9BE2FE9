@@ -1,0 +1,518 @@
+﻿namespace doanbanve.Forms
+{
+    partial class frmDashboardQuanLy
+    {
+        private System.ComponentModel.IContainer components = null;
+        private Panel pnlMenu;
+        private Button btnMenuNguoiDung;
+        private Button btnMenuVe;
+        private Panel pnlNoiDung;
+        private Panel pnlNguoiDung;
+        private DataGridView dgvNguoiDung;
+        private Button btnResetMatKhau;
+        private Button btnXemThongTin;
+        private Panel pnlNhapMatKhau;
+        private Label lblMatKhauMoi;
+        private TextBox txtMatKhauMoi;
+        private Button btnXacNhanMatKhau;
+        private Button btnHuyMatKhau;
+        private Panel pnlQuanLyVe;
+        private DataGridView dgvVe;
+        private TextBox txtTenVe;
+        private ComboBox cboLoaiVe;
+        private TextBox txtGiaVe;
+        private TextBox txtGiaNguoiLon;
+        private TextBox txtGiaTreEm;
+        private TextBox txtGiaNguoiCaoTuoi;
+        private TextBox txtSoLuong;
+        private TextBox txtMoTa;
+        private TextBox txtThongTinVe;
+        private Button btnThemVe;
+        private Button btnSuaVe;
+        private Button btnXoaVe;
+        private Button btnLamMoiVe;
+        private Label lblTenVe;
+        private Label lblLoaiVe;
+        private Label lblGiaVe;
+        private Label lblGiaNguoiLon;
+        private Label lblGiaTreEm;
+        private Label lblGiaNguoiCaoTuoi;
+        private Label lblSoLuong;
+        private Label lblMoTa;
+        private Label lblThongTinVe;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            pnlMenu = new Panel();
+            btnMenuNguoiDung = new Button();
+            btnMenuVe = new Button();
+            pnlNoiDung = new Panel();
+            pnlNguoiDung = new Panel();
+            dgvNguoiDung = new DataGridView();
+            btnResetMatKhau = new Button();
+            btnXemThongTin = new Button();
+            pnlNhapMatKhau = new Panel();
+            lblMatKhauMoi = new Label();
+            txtMatKhauMoi = new TextBox();
+            btnXacNhanMatKhau = new Button();
+            btnHuyMatKhau = new Button();
+            pnlQuanLyVe = new Panel();
+            dgvVe = new DataGridView();
+            txtTenVe = new TextBox();
+            cboLoaiVe = new ComboBox();
+            txtGiaVe = new TextBox();
+            txtGiaNguoiLon = new TextBox();
+            txtGiaTreEm = new TextBox();
+            txtGiaNguoiCaoTuoi = new TextBox();
+            txtSoLuong = new TextBox();
+            txtMoTa = new TextBox();
+            txtThongTinVe = new TextBox();
+            btnThemVe = new Button();
+            btnSuaVe = new Button();
+            btnXoaVe = new Button();
+            btnLamMoiVe = new Button();
+            lblTenVe = new Label();
+            lblLoaiVe = new Label();
+            lblGiaVe = new Label();
+            lblGiaNguoiLon = new Label();
+            lblGiaTreEm = new Label();
+            lblGiaNguoiCaoTuoi = new Label();
+            lblSoLuong = new Label();
+            lblMoTa = new Label();
+            lblThongTinVe = new Label();
+            pnlMenu.SuspendLayout();
+            pnlNoiDung.SuspendLayout();
+            pnlNguoiDung.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvNguoiDung).BeginInit();
+            pnlNhapMatKhau.SuspendLayout();
+            pnlQuanLyVe.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvVe).BeginInit();
+            SuspendLayout();
+            // 
+            // pnlMenu
+            // 
+            pnlMenu.BackColor = Color.FromArgb(245, 245, 245);
+            pnlMenu.Controls.Add(btnMenuNguoiDung);
+            pnlMenu.Controls.Add(btnMenuVe);
+            pnlMenu.Dock = DockStyle.Left;
+            pnlMenu.Location = new Point(0, 0);
+            pnlMenu.Name = "pnlMenu";
+            pnlMenu.Size = new Size(180, 500);
+            pnlMenu.TabIndex = 0;
+            // 
+            // btnMenuNguoiDung
+            // 
+            btnMenuNguoiDung.Dock = DockStyle.Top;
+            btnMenuNguoiDung.Location = new Point(0, 0);
+            btnMenuNguoiDung.Name = "btnMenuNguoiDung";
+            btnMenuNguoiDung.Size = new Size(180, 44);
+            btnMenuNguoiDung.TabIndex = 0;
+            btnMenuNguoiDung.Text = "Quản lý người dùng";
+            btnMenuNguoiDung.UseVisualStyleBackColor = true;
+            btnMenuNguoiDung.Click += btnMenuNguoiDung_Click;
+            // 
+            // btnMenuVe
+            // 
+            btnMenuVe.Dock = DockStyle.Top;
+            btnMenuVe.Location = new Point(0, 44);
+            btnMenuVe.Name = "btnMenuVe";
+            btnMenuVe.Size = new Size(180, 44);
+            btnMenuVe.TabIndex = 1;
+            btnMenuVe.Text = "Quản lý vé";
+            btnMenuVe.UseVisualStyleBackColor = true;
+            btnMenuVe.Click += btnMenuVe_Click;
+            // 
+            // pnlNoiDung
+            // 
+            pnlNoiDung.Controls.Add(pnlQuanLyVe);
+            pnlNoiDung.Controls.Add(pnlNguoiDung);
+            pnlNoiDung.Dock = DockStyle.Fill;
+            pnlNoiDung.Location = new Point(180, 0);
+            pnlNoiDung.Name = "pnlNoiDung";
+            pnlNoiDung.Padding = new Padding(16);
+            pnlNoiDung.Size = new Size(820, 500);
+            pnlNoiDung.TabIndex = 1;
+            // 
+            // pnlNguoiDung
+            // 
+            pnlNguoiDung.Controls.Add(pnlNhapMatKhau);
+            pnlNguoiDung.Controls.Add(btnXemThongTin);
+            pnlNguoiDung.Controls.Add(btnResetMatKhau);
+            pnlNguoiDung.Controls.Add(dgvNguoiDung);
+            pnlNguoiDung.Dock = DockStyle.Fill;
+            pnlNguoiDung.Location = new Point(16, 16);
+            pnlNguoiDung.Name = "pnlNguoiDung";
+            pnlNguoiDung.Size = new Size(788, 468);
+            pnlNguoiDung.TabIndex = 0;
+            // 
+            // dgvNguoiDung
+            // 
+            dgvNguoiDung.AllowUserToAddRows = false;
+            dgvNguoiDung.AllowUserToDeleteRows = false;
+            dgvNguoiDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvNguoiDung.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvNguoiDung.Columns.AddRange(new DataGridViewColumn[]
+            {
+                new DataGridViewTextBoxColumn { Name = "colMaNguoiDung", HeaderText = "Mã" },
+                new DataGridViewTextBoxColumn { Name = "colTaiKhoan", HeaderText = "Tài khoản" },
+                new DataGridViewTextBoxColumn { Name = "colHoTen", HeaderText = "Họ tên" },
+                new DataGridViewTextBoxColumn { Name = "colEmail", HeaderText = "Email" },
+                new DataGridViewTextBoxColumn { Name = "colSoDienThoai", HeaderText = "Số điện thoại" },
+                new DataGridViewTextBoxColumn { Name = "colVaiTro", HeaderText = "Vai trò" }
+            });
+            dgvNguoiDung.Location = new Point(0, 0);
+            dgvNguoiDung.Name = "dgvNguoiDung";
+            dgvNguoiDung.ReadOnly = true;
+            dgvNguoiDung.RowHeadersVisible = false;
+            dgvNguoiDung.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvNguoiDung.Size = new Size(788, 320);
+            dgvNguoiDung.TabIndex = 0;
+            // 
+            // btnResetMatKhau
+            // 
+            btnResetMatKhau.Location = new Point(0, 336);
+            btnResetMatKhau.Name = "btnResetMatKhau";
+            btnResetMatKhau.Size = new Size(140, 32);
+            btnResetMatKhau.TabIndex = 1;
+            btnResetMatKhau.Text = "Reset mật khẩu";
+            btnResetMatKhau.UseVisualStyleBackColor = true;
+            btnResetMatKhau.Click += btnResetMatKhau_Click;
+            // 
+            // btnXemThongTin
+            // 
+            btnXemThongTin.Location = new Point(156, 336);
+            btnXemThongTin.Name = "btnXemThongTin";
+            btnXemThongTin.Size = new Size(140, 32);
+            btnXemThongTin.TabIndex = 2;
+            btnXemThongTin.Text = "Xem thông tin";
+            btnXemThongTin.UseVisualStyleBackColor = true;
+            btnXemThongTin.Click += btnXemThongTin_Click;
+            // 
+            // pnlNhapMatKhau
+            // 
+            pnlNhapMatKhau.BorderStyle = BorderStyle.FixedSingle;
+            pnlNhapMatKhau.Controls.Add(btnHuyMatKhau);
+            pnlNhapMatKhau.Controls.Add(btnXacNhanMatKhau);
+            pnlNhapMatKhau.Controls.Add(txtMatKhauMoi);
+            pnlNhapMatKhau.Controls.Add(lblMatKhauMoi);
+            pnlNhapMatKhau.Location = new Point(0, 380);
+            pnlNhapMatKhau.Name = "pnlNhapMatKhau";
+            pnlNhapMatKhau.Size = new Size(520, 60);
+            pnlNhapMatKhau.TabIndex = 3;
+            pnlNhapMatKhau.Visible = false;
+            // 
+            // pnlQuanLyVe
+            // 
+            pnlQuanLyVe.Controls.Add(btnLamMoiVe);
+            pnlQuanLyVe.Controls.Add(btnXoaVe);
+            pnlQuanLyVe.Controls.Add(btnSuaVe);
+            pnlQuanLyVe.Controls.Add(btnThemVe);
+            pnlQuanLyVe.Controls.Add(txtThongTinVe);
+            pnlQuanLyVe.Controls.Add(lblThongTinVe);
+            pnlQuanLyVe.Controls.Add(txtMoTa);
+            pnlQuanLyVe.Controls.Add(lblMoTa);
+            pnlQuanLyVe.Controls.Add(txtSoLuong);
+            pnlQuanLyVe.Controls.Add(lblSoLuong);
+            pnlQuanLyVe.Controls.Add(txtGiaNguoiCaoTuoi);
+            pnlQuanLyVe.Controls.Add(lblGiaNguoiCaoTuoi);
+            pnlQuanLyVe.Controls.Add(txtGiaTreEm);
+            pnlQuanLyVe.Controls.Add(lblGiaTreEm);
+            pnlQuanLyVe.Controls.Add(txtGiaNguoiLon);
+            pnlQuanLyVe.Controls.Add(lblGiaNguoiLon);
+            pnlQuanLyVe.Controls.Add(txtGiaVe);
+            pnlQuanLyVe.Controls.Add(lblGiaVe);
+            pnlQuanLyVe.Controls.Add(cboLoaiVe);
+            pnlQuanLyVe.Controls.Add(lblLoaiVe);
+            pnlQuanLyVe.Controls.Add(txtTenVe);
+            pnlQuanLyVe.Controls.Add(lblTenVe);
+            pnlQuanLyVe.Controls.Add(dgvVe);
+            pnlQuanLyVe.Dock = DockStyle.Fill;
+            pnlQuanLyVe.Location = new Point(16, 16);
+            pnlQuanLyVe.Name = "pnlQuanLyVe";
+            pnlQuanLyVe.Size = new Size(788, 468);
+            pnlQuanLyVe.TabIndex = 1;
+            pnlQuanLyVe.Visible = false;
+            // 
+            // dgvVe
+            // 
+            dgvVe.AllowUserToAddRows = false;
+            dgvVe.AllowUserToDeleteRows = false;
+            dgvVe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvVe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvVe.Columns.AddRange(new DataGridViewColumn[]
+            {
+                new DataGridViewTextBoxColumn { Name = "colMaVe", HeaderText = "Mã" },
+                new DataGridViewTextBoxColumn { Name = "colTenVe", HeaderText = "Tên vé" },
+                new DataGridViewTextBoxColumn { Name = "colMaLoaiVe", HeaderText = "Loại" },
+                new DataGridViewTextBoxColumn { Name = "colGiaVe", HeaderText = "Giá vé" },
+                new DataGridViewTextBoxColumn { Name = "colGiaNguoiLon", HeaderText = "Giá NL" },
+                new DataGridViewTextBoxColumn { Name = "colGiaTreEm", HeaderText = "Giá TE" },
+                new DataGridViewTextBoxColumn { Name = "colGiaNguoiCaoTuoi", HeaderText = "Giá NCT" },
+                new DataGridViewTextBoxColumn { Name = "colSoLuong", HeaderText = "Số lượng" }
+            });
+            dgvVe.Location = new Point(0, 0);
+            dgvVe.Name = "dgvVe";
+            dgvVe.ReadOnly = true;
+            dgvVe.RowHeadersVisible = false;
+            dgvVe.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvVe.Size = new Size(788, 220);
+            dgvVe.TabIndex = 0;
+            dgvVe.SelectionChanged += dgvVe_SelectionChanged;
+            // 
+            // lblTenVe
+            // 
+            lblTenVe.AutoSize = true;
+            lblTenVe.Location = new Point(0, 236);
+            lblTenVe.Name = "lblTenVe";
+            lblTenVe.Size = new Size(48, 15);
+            lblTenVe.TabIndex = 1;
+            lblTenVe.Text = "Tên vé:";
+            // 
+            // txtTenVe
+            // 
+            txtTenVe.Location = new Point(80, 232);
+            txtTenVe.Name = "txtTenVe";
+            txtTenVe.Size = new Size(200, 23);
+            txtTenVe.TabIndex = 2;
+            // 
+            // lblLoaiVe
+            // 
+            lblLoaiVe.AutoSize = true;
+            lblLoaiVe.Location = new Point(300, 236);
+            lblLoaiVe.Name = "lblLoaiVe";
+            lblLoaiVe.Size = new Size(49, 15);
+            lblLoaiVe.TabIndex = 3;
+            lblLoaiVe.Text = "Loại vé:";
+            // 
+            // cboLoaiVe
+            // 
+            cboLoaiVe.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboLoaiVe.Location = new Point(360, 232);
+            cboLoaiVe.Name = "cboLoaiVe";
+            cboLoaiVe.Size = new Size(200, 23);
+            cboLoaiVe.TabIndex = 4;
+            // 
+            // lblGiaVe
+            // 
+            lblGiaVe.AutoSize = true;
+            lblGiaVe.Location = new Point(0, 268);
+            lblGiaVe.Name = "lblGiaVe";
+            lblGiaVe.Size = new Size(44, 15);
+            lblGiaVe.TabIndex = 5;
+            lblGiaVe.Text = "Giá vé:";
+            // 
+            // txtGiaVe
+            // 
+            txtGiaVe.Location = new Point(80, 264);
+            txtGiaVe.Name = "txtGiaVe";
+            txtGiaVe.Size = new Size(120, 23);
+            txtGiaVe.TabIndex = 6;
+            // 
+            // lblGiaNguoiLon
+            // 
+            lblGiaNguoiLon.AutoSize = true;
+            lblGiaNguoiLon.Location = new Point(210, 268);
+            lblGiaNguoiLon.Name = "lblGiaNguoiLon";
+            lblGiaNguoiLon.Size = new Size(79, 15);
+            lblGiaNguoiLon.TabIndex = 7;
+            lblGiaNguoiLon.Text = "Giá người lớn:";
+            // 
+            // txtGiaNguoiLon
+            // 
+            txtGiaNguoiLon.Location = new Point(300, 264);
+            txtGiaNguoiLon.Name = "txtGiaNguoiLon";
+            txtGiaNguoiLon.Size = new Size(120, 23);
+            txtGiaNguoiLon.TabIndex = 8;
+            // 
+            // lblGiaTreEm
+            // 
+            lblGiaTreEm.AutoSize = true;
+            lblGiaTreEm.Location = new Point(430, 268);
+            lblGiaTreEm.Name = "lblGiaTreEm";
+            lblGiaTreEm.Size = new Size(64, 15);
+            lblGiaTreEm.TabIndex = 9;
+            lblGiaTreEm.Text = "Giá trẻ em:";
+            // 
+            // txtGiaTreEm
+            // 
+            txtGiaTreEm.Location = new Point(510, 264);
+            txtGiaTreEm.Name = "txtGiaTreEm";
+            txtGiaTreEm.Size = new Size(120, 23);
+            txtGiaTreEm.TabIndex = 10;
+            // 
+            // lblGiaNguoiCaoTuoi
+            // 
+            lblGiaNguoiCaoTuoi.AutoSize = true;
+            lblGiaNguoiCaoTuoi.Location = new Point(0, 300);
+            lblGiaNguoiCaoTuoi.Name = "lblGiaNguoiCaoTuoi";
+            lblGiaNguoiCaoTuoi.Size = new Size(105, 15);
+            lblGiaNguoiCaoTuoi.TabIndex = 11;
+            lblGiaNguoiCaoTuoi.Text = "Giá người cao tuổi:";
+            // 
+            // txtGiaNguoiCaoTuoi
+            // 
+            txtGiaNguoiCaoTuoi.Location = new Point(120, 296);
+            txtGiaNguoiCaoTuoi.Name = "txtGiaNguoiCaoTuoi";
+            txtGiaNguoiCaoTuoi.Size = new Size(120, 23);
+            txtGiaNguoiCaoTuoi.TabIndex = 12;
+            // 
+            // lblSoLuong
+            // 
+            lblSoLuong.AutoSize = true;
+            lblSoLuong.Location = new Point(260, 300);
+            lblSoLuong.Name = "lblSoLuong";
+            lblSoLuong.Size = new Size(54, 15);
+            lblSoLuong.TabIndex = 13;
+            lblSoLuong.Text = "Số lượng:";
+            // 
+            // txtSoLuong
+            // 
+            txtSoLuong.Location = new Point(330, 296);
+            txtSoLuong.Name = "txtSoLuong";
+            txtSoLuong.Size = new Size(100, 23);
+            txtSoLuong.TabIndex = 14;
+            // 
+            // lblMoTa
+            // 
+            lblMoTa.AutoSize = true;
+            lblMoTa.Location = new Point(0, 332);
+            lblMoTa.Name = "lblMoTa";
+            lblMoTa.Size = new Size(40, 15);
+            lblMoTa.TabIndex = 15;
+            lblMoTa.Text = "Mô tả:";
+            // 
+            // txtMoTa
+            // 
+            txtMoTa.Location = new Point(80, 328);
+            txtMoTa.Name = "txtMoTa";
+            txtMoTa.Size = new Size(550, 23);
+            txtMoTa.TabIndex = 16;
+            // 
+            // lblThongTinVe
+            // 
+            lblThongTinVe.AutoSize = true;
+            lblThongTinVe.Location = new Point(0, 364);
+            lblThongTinVe.Name = "lblThongTinVe";
+            lblThongTinVe.Size = new Size(75, 15);
+            lblThongTinVe.TabIndex = 17;
+            lblThongTinVe.Text = "Thông tin vé:";
+            // 
+            // txtThongTinVe
+            // 
+            txtThongTinVe.Location = new Point(80, 360);
+            txtThongTinVe.Multiline = true;
+            txtThongTinVe.Name = "txtThongTinVe";
+            txtThongTinVe.Size = new Size(550, 60);
+            txtThongTinVe.TabIndex = 18;
+            // 
+            // btnThemVe
+            // 
+            btnThemVe.Location = new Point(0, 428);
+            btnThemVe.Name = "btnThemVe";
+            btnThemVe.Size = new Size(90, 28);
+            btnThemVe.TabIndex = 19;
+            btnThemVe.Text = "Thêm";
+            btnThemVe.UseVisualStyleBackColor = true;
+            btnThemVe.Click += btnThemVe_Click;
+            // 
+            // btnSuaVe
+            // 
+            btnSuaVe.Location = new Point(100, 428);
+            btnSuaVe.Name = "btnSuaVe";
+            btnSuaVe.Size = new Size(90, 28);
+            btnSuaVe.TabIndex = 20;
+            btnSuaVe.Text = "Sửa";
+            btnSuaVe.UseVisualStyleBackColor = true;
+            btnSuaVe.Click += btnSuaVe_Click;
+            // 
+            // btnXoaVe
+            // 
+            btnXoaVe.Location = new Point(200, 428);
+            btnXoaVe.Name = "btnXoaVe";
+            btnXoaVe.Size = new Size(90, 28);
+            btnXoaVe.TabIndex = 21;
+            btnXoaVe.Text = "Xóa";
+            btnXoaVe.UseVisualStyleBackColor = true;
+            btnXoaVe.Click += btnXoaVe_Click;
+            // 
+            // btnLamMoiVe
+            // 
+            btnLamMoiVe.Location = new Point(300, 428);
+            btnLamMoiVe.Name = "btnLamMoiVe";
+            btnLamMoiVe.Size = new Size(90, 28);
+            btnLamMoiVe.TabIndex = 22;
+            btnLamMoiVe.Text = "Làm mới";
+            btnLamMoiVe.UseVisualStyleBackColor = true;
+            btnLamMoiVe.Click += btnLamMoiVe_Click;
+            // 
+            // lblMatKhauMoi
+            // 
+            lblMatKhauMoi.AutoSize = true;
+            lblMatKhauMoi.Location = new Point(12, 20);
+            lblMatKhauMoi.Name = "lblMatKhauMoi";
+            lblMatKhauMoi.Size = new Size(86, 15);
+            lblMatKhauMoi.TabIndex = 0;
+            lblMatKhauMoi.Text = "Mật khẩu mới:";
+            // 
+            // txtMatKhauMoi
+            // 
+            txtMatKhauMoi.Location = new Point(112, 16);
+            txtMatKhauMoi.Name = "txtMatKhauMoi";
+            txtMatKhauMoi.Size = new Size(180, 23);
+            txtMatKhauMoi.TabIndex = 1;
+            txtMatKhauMoi.UseSystemPasswordChar = true;
+            // 
+            // btnXacNhanMatKhau
+            // 
+            btnXacNhanMatKhau.Location = new Point(304, 14);
+            btnXacNhanMatKhau.Name = "btnXacNhanMatKhau";
+            btnXacNhanMatKhau.Size = new Size(90, 28);
+            btnXacNhanMatKhau.TabIndex = 2;
+            btnXacNhanMatKhau.Text = "Xác nhận";
+            btnXacNhanMatKhau.UseVisualStyleBackColor = true;
+            btnXacNhanMatKhau.Click += btnXacNhanMatKhau_Click;
+            // 
+            // btnHuyMatKhau
+            // 
+            btnHuyMatKhau.Location = new Point(406, 14);
+            btnHuyMatKhau.Name = "btnHuyMatKhau";
+            btnHuyMatKhau.Size = new Size(80, 28);
+            btnHuyMatKhau.TabIndex = 3;
+            btnHuyMatKhau.Text = "Hủy";
+            btnHuyMatKhau.UseVisualStyleBackColor = true;
+            btnHuyMatKhau.Click += btnHuyMatKhau_Click;
+            // 
+            // frmDashboardQuanLy
+            // 
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1000, 500);
+            Controls.Add(pnlNoiDung);
+            Controls.Add(pnlMenu);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            Name = "frmDashboardQuanLy";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Dashboard Quản lý";
+            Load += frmDashboardQuanLy_Load;
+            pnlMenu.ResumeLayout(false);
+            pnlNoiDung.ResumeLayout(false);
+            pnlNguoiDung.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvNguoiDung).EndInit();
+            pnlNhapMatKhau.ResumeLayout(false);
+            pnlNhapMatKhau.PerformLayout();
+            pnlQuanLyVe.ResumeLayout(false);
+            pnlQuanLyVe.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvVe).EndInit();
+            ResumeLayout(false);
+        }
+    }
+}

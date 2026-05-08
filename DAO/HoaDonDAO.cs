@@ -38,6 +38,40 @@ namespace doanbanve.DAO
             return danhSach;
         }
 
+        public async Task<List<Models.ThongTinHoaDon>> LayDanhSachHoaDonQuanLy()
+        {
+            var danhSach = new List<Models.ThongTinHoaDon>();
+            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
+            const string cauLenh = @"SELECT h.MaHoaDon, h.NgayLap, h.TongTien, h.TienGiam, h.ThanhToan, h.TrangThai, n.HoTen
+                                    FROM HoaDon h
+                                    INNER JOIN NguoiDung n ON h.MaNguoiDung = n.MaNguoiDung
+                                    ORDER BY h.NgayLap DESC";
+
+            using var ketNoi = new SqlConnection(chuoiKetNoi);
+            using var lenh = new SqlCommand(cauLenh, ketNoi);
+
+            await ketNoi.OpenAsync();
+            using var doc = await lenh.ExecuteReaderAsync();
+            while (await doc.ReadAsync())
+            {
+                var tongTien = doc.GetDecimal(2);
+                var tienGiam = doc.GetDecimal(3);
+                danhSach.Add(new Models.ThongTinHoaDon
+                {
+                    MaHoaDon = doc.GetInt32(0),
+                    NgayLap = doc.GetDateTime(1),
+                    TongTien = tongTien,
+                    TienGiam = tienGiam,
+                    ThanhTien = tongTien - tienGiam,
+                    ThanhToan = doc.GetString(4),
+                    TrangThai = doc.GetString(5),
+                    HoTenNguoiDat = doc.GetString(6)
+                });
+            }
+
+            return danhSach;
+        }
+
         public async Task<int> ThemHoaDon(int maNguoiDung, decimal tongTien, int? maVoucher, decimal tienGiam, string thanhToan)
         {
             var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
@@ -153,6 +187,86 @@ namespace doanbanve.DAO
                 TrangThai = doc.GetString(5),
                 HoTenNguoiDat = doc.GetString(6)
             };
+        }
+
+        public async Task<Models.ThongKeDuLieu> LayThongKeDuLieu()
+        {
+            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
+            const string cauLenh = @"SELECT COUNT(*),
+                                           SUM(TongTien),
+                                           SUM(TienGiam),
+                                           SUM(TongTien - TienGiam)
+                                    FROM HoaDon
+                                    WHERE TrangThai = N'DaThanhToan'";
+
+            using var ketNoi = new SqlConnection(chuoiKetNoi);
+            using var lenh = new SqlCommand(cauLenh, ketNoi);
+
+            await ketNoi.OpenAsync();
+            using var doc = await lenh.ExecuteReaderAsync();
+            if (!await doc.ReadAsync())
+            {
+                return new Models.ThongKeDuLieu();
+            }
+
+            return new Models.ThongKeDuLieu
+            {
+                TongHoaDon = doc.IsDBNull(0) ? 0 : doc.GetInt32(0),
+                TongTien = doc.IsDBNull(1) ? 0 : doc.GetDecimal(1),
+                TongTienGiam = doc.IsDBNull(2) ? 0 : doc.GetDecimal(2),
+                TongThanhTien = doc.IsDBNull(3) ? 0 : doc.GetDecimal(3)
+            };
+        }
+
+        public async Task<int> LayTongVeDaBan()
+        {
+            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
+            const string cauLenh = @"SELECT SUM(SoLuongNguoiLon + SoLuongTreEm + SoLuongNguoiCaoTuoi)
+                                    FROM ChiTietHoaDon";
+
+            using var ketNoi = new SqlConnection(chuoiKetNoi);
+            using var lenh = new SqlCommand(cauLenh, ketNoi);
+
+            await ketNoi.OpenAsync();
+            var ketQua = await lenh.ExecuteScalarAsync();
+            if (ketQua == null || ketQua == DBNull.Value)
+            {
+                return 0;
+            }
+
+            return Convert.ToInt32(ketQua);
+        }
+
+        public async Task<List<Models.ThongKeTheoLoaiVe>> LayThongKeTheoLoaiVe()
+        {
+            var danhSach = new List<Models.ThongKeTheoLoaiVe>();
+            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
+            const string cauLenh = @"SELECT lv.MaLoaiVe, lv.TenLoaiVe,
+                                           SUM(ct.SoLuongNguoiLon + ct.SoLuongTreEm + ct.SoLuongNguoiCaoTuoi) AS SoVeDaBan,
+                                           SUM(ct.ThanhTien) AS TongThanhTien
+                                    FROM ChiTietHoaDon ct
+                                    INNER JOIN Ve v ON ct.MaVe = v.MaVe
+                                    INNER JOIN LoaiVe lv ON v.MaLoaiVe = lv.MaLoaiVe
+                                    GROUP BY lv.MaLoaiVe, lv.TenLoaiVe
+                                    ORDER BY TongThanhTien DESC";
+
+            using var ketNoi = new SqlConnection(chuoiKetNoi);
+            using var lenh = new SqlCommand(cauLenh, ketNoi);
+
+            await ketNoi.OpenAsync();
+            using var doc = await lenh.ExecuteReaderAsync();
+            while (await doc.ReadAsync())
+            {
+                danhSach.Add(new Models.ThongKeTheoLoaiVe
+                {
+                    MaLoaiVe = doc.GetInt32(0),
+                    TenLoaiVe = doc.GetString(1),
+                    SoVeDaBan = doc.IsDBNull(2) ? 0 : doc.GetInt32(2),
+                    TongThanhTien = doc.IsDBNull(3) ? 0 : doc.GetDecimal(3)
+                });
+            }
+
+            return danhSach;
         }
     }
 }

@@ -1,0 +1,432 @@
+﻿namespace doanbanve.Forms
+{
+    partial class frmDashboardQuanLy
+    {
+        private System.ComponentModel.IContainer components = null;
+        private Panel pnlMenu;
+        private Button btnMenuNguoiDung;
+        private Button btnMenuVe;
+        private Panel pnlNoiDung;
+        private Panel pnlNguoiDung;
+        private DataGridView dgvNguoiDung;
+        private Button btnResetMatKhau;
+        private Button btnXemThongTin;
+        private Panel pnlNhapMatKhau;
+        private Label lblMatKhauMoi;
+        private TextBox txtMatKhauMoi;
+        private Button btnXacNhanMatKhau;
+        private Button btnHuyMatKhau;
+        private Panel pnlQuanLyVe;
+        private DataGridView dgvVe;
+        private Button btnThemVe;
+        private Button btnSuaVe;
+        private Button btnXoaVe;
+        private Button btnLamMoiVe;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            pnlMenu = new Panel();
+            btnMenuNguoiDung = new Button();
+            btnMenuVe = new Button();
+            pnlNoiDung = new Panel();
+            pnlQuanLyVe = new Panel();
+            btnLamMoiVe = new Button();
+            btnXoaVe = new Button();
+            btnSuaVe = new Button();
+            btnThemVe = new Button();
+            dgvVe = new DataGridView();
+            pnlNguoiDung = new Panel();
+            pnlNhapMatKhau = new Panel();
+            btnHuyMatKhau = new Button();
+            btnXacNhanMatKhau = new Button();
+            txtMatKhauMoi = new TextBox();
+            lblMatKhauMoi = new Label();
+            btnXemThongTin = new Button();
+            btnResetMatKhau = new Button();
+            dgvNguoiDung = new DataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn11 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn12 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn13 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn14 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn15 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn16 = new DataGridViewTextBoxColumn();
+            pnlMenu.SuspendLayout();
+            pnlNoiDung.SuspendLayout();
+            pnlQuanLyVe.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvVe).BeginInit();
+            pnlNguoiDung.SuspendLayout();
+            pnlNhapMatKhau.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvNguoiDung).BeginInit();
+            SuspendLayout();
+            // 
+            // pnlMenu
+            // 
+            pnlMenu.BackColor = Color.FromArgb(245, 245, 245);
+            pnlMenu.Controls.Add(btnMenuNguoiDung);
+            pnlMenu.Controls.Add(btnMenuVe);
+            pnlMenu.Dock = DockStyle.Left;
+            pnlMenu.Location = new Point(0, 0);
+            pnlMenu.Name = "pnlMenu";
+            pnlMenu.Size = new Size(180, 500);
+            pnlMenu.TabIndex = 0;
+            // 
+            // btnMenuNguoiDung
+            // 
+            btnMenuNguoiDung.Dock = DockStyle.Top;
+            btnMenuNguoiDung.Location = new Point(0, 44);
+            btnMenuNguoiDung.Name = "btnMenuNguoiDung";
+            btnMenuNguoiDung.Size = new Size(180, 44);
+            btnMenuNguoiDung.TabIndex = 0;
+            btnMenuNguoiDung.Text = "Quản lý người dùng";
+            btnMenuNguoiDung.UseVisualStyleBackColor = true;
+            btnMenuNguoiDung.Click += btnMenuNguoiDung_Click;
+            // 
+            // btnMenuVe
+            // 
+            btnMenuVe.Dock = DockStyle.Top;
+            btnMenuVe.Location = new Point(0, 0);
+            btnMenuVe.Name = "btnMenuVe";
+            btnMenuVe.Size = new Size(180, 44);
+            btnMenuVe.TabIndex = 1;
+            btnMenuVe.Text = "Quản lý vé";
+            btnMenuVe.UseVisualStyleBackColor = true;
+            btnMenuVe.Click += btnMenuVe_Click;
+            // 
+            // pnlNoiDung
+            // 
+            pnlNoiDung.Controls.Add(pnlQuanLyVe);
+            pnlNoiDung.Controls.Add(pnlNguoiDung);
+            pnlNoiDung.Dock = DockStyle.Fill;
+            pnlNoiDung.Location = new Point(180, 0);
+            pnlNoiDung.Name = "pnlNoiDung";
+            pnlNoiDung.Padding = new Padding(16);
+            pnlNoiDung.Size = new Size(820, 500);
+            pnlNoiDung.TabIndex = 1;
+            // 
+            // pnlQuanLyVe
+            // 
+            pnlQuanLyVe.Controls.Add(btnLamMoiVe);
+            pnlQuanLyVe.Controls.Add(btnXoaVe);
+            pnlQuanLyVe.Controls.Add(btnSuaVe);
+            pnlQuanLyVe.Controls.Add(btnThemVe);
+            pnlQuanLyVe.Controls.Add(dgvVe);
+            pnlQuanLyVe.Dock = DockStyle.Fill;
+            pnlQuanLyVe.Location = new Point(16, 16);
+            pnlQuanLyVe.Name = "pnlQuanLyVe";
+            pnlQuanLyVe.Size = new Size(788, 468);
+            pnlQuanLyVe.TabIndex = 1;
+            pnlQuanLyVe.Visible = false;
+            // 
+            // btnLamMoiVe
+            // 
+            btnLamMoiVe.Location = new Point(302, 430);
+            btnLamMoiVe.Name = "btnLamMoiVe";
+            btnLamMoiVe.Size = new Size(90, 28);
+            btnLamMoiVe.TabIndex = 22;
+            btnLamMoiVe.Text = "Làm mới";
+            btnLamMoiVe.UseVisualStyleBackColor = true;
+            btnLamMoiVe.Click += btnLamMoiVe_Click;
+            // 
+            // btnXoaVe
+            // 
+            btnXoaVe.Location = new Point(202, 430);
+            btnXoaVe.Name = "btnXoaVe";
+            btnXoaVe.Size = new Size(90, 28);
+            btnXoaVe.TabIndex = 21;
+            btnXoaVe.Text = "Xóa";
+            btnXoaVe.UseVisualStyleBackColor = true;
+            btnXoaVe.Click += btnXoaVe_Click;
+            // 
+            // btnSuaVe
+            // 
+            btnSuaVe.Location = new Point(102, 430);
+            btnSuaVe.Name = "btnSuaVe";
+            btnSuaVe.Size = new Size(90, 28);
+            btnSuaVe.TabIndex = 20;
+            btnSuaVe.Text = "Sửa";
+            btnSuaVe.UseVisualStyleBackColor = true;
+            btnSuaVe.Click += btnSuaVe_Click;
+            // 
+            // btnThemVe
+            // 
+            btnThemVe.Location = new Point(2, 430);
+            btnThemVe.Name = "btnThemVe";
+            btnThemVe.Size = new Size(90, 28);
+            btnThemVe.TabIndex = 19;
+            btnThemVe.Text = "Thêm";
+            btnThemVe.UseVisualStyleBackColor = true;
+            btnThemVe.Click += btnThemVe_Click;
+            // 
+            // dgvVe
+            // 
+            dgvVe.AllowUserToAddRows = false;
+            dgvVe.AllowUserToDeleteRows = false;
+            dgvVe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvVe.ColumnHeadersHeight = 29;
+            dgvVe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvVe.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10, dataGridViewTextBoxColumn11, dataGridViewTextBoxColumn12, dataGridViewTextBoxColumn13, dataGridViewTextBoxColumn14, dataGridViewTextBoxColumn15, dataGridViewTextBoxColumn16 });
+            dgvVe.Location = new Point(0, 0);
+            dgvVe.Name = "dgvVe";
+            dgvVe.ReadOnly = true;
+            dgvVe.RowHeadersVisible = false;
+            dgvVe.RowHeadersWidth = 51;
+            dgvVe.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvVe.Size = new Size(788, 421);
+            dgvVe.TabIndex = 0;
+            // 
+            // pnlNguoiDung
+            // 
+            pnlNguoiDung.Controls.Add(pnlNhapMatKhau);
+            pnlNguoiDung.Controls.Add(btnXemThongTin);
+            pnlNguoiDung.Controls.Add(btnResetMatKhau);
+            pnlNguoiDung.Controls.Add(dgvNguoiDung);
+            pnlNguoiDung.Dock = DockStyle.Fill;
+            pnlNguoiDung.Location = new Point(16, 16);
+            pnlNguoiDung.Name = "pnlNguoiDung";
+            pnlNguoiDung.Size = new Size(788, 468);
+            pnlNguoiDung.TabIndex = 0;
+            // 
+            // pnlNhapMatKhau
+            // 
+            pnlNhapMatKhau.BorderStyle = BorderStyle.FixedSingle;
+            pnlNhapMatKhau.Controls.Add(btnHuyMatKhau);
+            pnlNhapMatKhau.Controls.Add(btnXacNhanMatKhau);
+            pnlNhapMatKhau.Controls.Add(txtMatKhauMoi);
+            pnlNhapMatKhau.Controls.Add(lblMatKhauMoi);
+            pnlNhapMatKhau.Location = new Point(0, 380);
+            pnlNhapMatKhau.Name = "pnlNhapMatKhau";
+            pnlNhapMatKhau.Size = new Size(520, 60);
+            pnlNhapMatKhau.TabIndex = 3;
+            pnlNhapMatKhau.Visible = false;
+            // 
+            // btnHuyMatKhau
+            // 
+            btnHuyMatKhau.Location = new Point(406, 14);
+            btnHuyMatKhau.Name = "btnHuyMatKhau";
+            btnHuyMatKhau.Size = new Size(80, 28);
+            btnHuyMatKhau.TabIndex = 3;
+            btnHuyMatKhau.Text = "Hủy";
+            btnHuyMatKhau.UseVisualStyleBackColor = true;
+            btnHuyMatKhau.Click += btnHuyMatKhau_Click;
+            // 
+            // btnXacNhanMatKhau
+            // 
+            btnXacNhanMatKhau.Location = new Point(304, 14);
+            btnXacNhanMatKhau.Name = "btnXacNhanMatKhau";
+            btnXacNhanMatKhau.Size = new Size(90, 28);
+            btnXacNhanMatKhau.TabIndex = 2;
+            btnXacNhanMatKhau.Text = "Xác nhận";
+            btnXacNhanMatKhau.UseVisualStyleBackColor = true;
+            btnXacNhanMatKhau.Click += btnXacNhanMatKhau_Click;
+            // 
+            // txtMatKhauMoi
+            // 
+            txtMatKhauMoi.Location = new Point(112, 16);
+            txtMatKhauMoi.Name = "txtMatKhauMoi";
+            txtMatKhauMoi.Size = new Size(180, 27);
+            txtMatKhauMoi.TabIndex = 1;
+            txtMatKhauMoi.UseSystemPasswordChar = true;
+            // 
+            // lblMatKhauMoi
+            // 
+            lblMatKhauMoi.AutoSize = true;
+            lblMatKhauMoi.Location = new Point(12, 20);
+            lblMatKhauMoi.Name = "lblMatKhauMoi";
+            lblMatKhauMoi.Size = new Size(103, 20);
+            lblMatKhauMoi.TabIndex = 0;
+            lblMatKhauMoi.Text = "Mật khẩu mới:";
+            // 
+            // btnXemThongTin
+            // 
+            btnXemThongTin.Location = new Point(156, 336);
+            btnXemThongTin.Name = "btnXemThongTin";
+            btnXemThongTin.Size = new Size(140, 32);
+            btnXemThongTin.TabIndex = 2;
+            btnXemThongTin.Text = "Xem thông tin";
+            btnXemThongTin.UseVisualStyleBackColor = true;
+            btnXemThongTin.Click += btnXemThongTin_Click;
+            // 
+            // btnResetMatKhau
+            // 
+            btnResetMatKhau.Location = new Point(0, 336);
+            btnResetMatKhau.Name = "btnResetMatKhau";
+            btnResetMatKhau.Size = new Size(140, 32);
+            btnResetMatKhau.TabIndex = 1;
+            btnResetMatKhau.Text = "Reset mật khẩu";
+            btnResetMatKhau.UseVisualStyleBackColor = true;
+            btnResetMatKhau.Click += btnResetMatKhau_Click;
+            // 
+            // dgvNguoiDung
+            // 
+            dgvNguoiDung.AllowUserToAddRows = false;
+            dgvNguoiDung.AllowUserToDeleteRows = false;
+            dgvNguoiDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvNguoiDung.ColumnHeadersHeight = 29;
+            dgvNguoiDung.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvNguoiDung.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6 });
+            dgvNguoiDung.Location = new Point(0, 0);
+            dgvNguoiDung.Name = "dgvNguoiDung";
+            dgvNguoiDung.ReadOnly = true;
+            dgvNguoiDung.RowHeadersVisible = false;
+            dgvNguoiDung.RowHeadersWidth = 51;
+            dgvNguoiDung.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvNguoiDung.Size = new Size(788, 320);
+            dgvNguoiDung.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            dataGridViewTextBoxColumn9.MinimumWidth = 6;
+            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            dataGridViewTextBoxColumn10.MinimumWidth = 6;
+            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            dataGridViewTextBoxColumn11.MinimumWidth = 6;
+            dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            dataGridViewTextBoxColumn12.MinimumWidth = 6;
+            dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            dataGridViewTextBoxColumn13.MinimumWidth = 6;
+            dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            dataGridViewTextBoxColumn13.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            dataGridViewTextBoxColumn14.MinimumWidth = 6;
+            dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            dataGridViewTextBoxColumn14.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            dataGridViewTextBoxColumn15.MinimumWidth = 6;
+            dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            dataGridViewTextBoxColumn16.MinimumWidth = 6;
+            dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // frmDashboardQuanLy
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1000, 500);
+            Controls.Add(pnlNoiDung);
+            Controls.Add(pnlMenu);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            Name = "frmDashboardQuanLy";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Dashboard Quản lý";
+            Load += frmDashboardQuanLy_Load;
+            pnlMenu.ResumeLayout(false);
+            pnlNoiDung.ResumeLayout(false);
+            pnlQuanLyVe.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvVe).EndInit();
+            pnlNguoiDung.ResumeLayout(false);
+            pnlNhapMatKhau.ResumeLayout(false);
+            pnlNhapMatKhau.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvNguoiDung).EndInit();
+            ResumeLayout(false);
+        }
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+    }
+}

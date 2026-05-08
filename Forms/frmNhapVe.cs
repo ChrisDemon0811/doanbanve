@@ -1,0 +1,119 @@
+using doanbanve.Controllers;
+using doanbanve.Models;
+
+namespace doanbanve.Forms
+{
+    public partial class frmNhapVe : Form
+    {
+        private readonly LoaiVeController loaiVeController = new();
+        public Ve? VeHienTai { get; private set; }
+
+        public frmNhapVe(Ve? ve)
+        {
+            InitializeComponent();
+            VeHienTai = ve;
+        }
+
+        private async void frmNhapVe_Load(object sender, EventArgs e)
+        {
+            await TaiDanhSachLoaiVe();
+            if (VeHienTai != null)
+            {
+                txtTenVe.Text = VeHienTai.TenVe;
+                cboLoaiVe.SelectedValue = VeHienTai.MaLoaiVe;
+                txtGiaVe.Text = VeHienTai.GiaVe.ToString();
+                txtGiaNguoiLon.Text = VeHienTai.GiaNguoiLon.ToString();
+                txtGiaTreEm.Text = VeHienTai.GiaTreEm.ToString();
+                txtGiaNguoiCaoTuoi.Text = VeHienTai.GiaNguoiCaoTuoi.ToString();
+                txtSoLuong.Text = VeHienTai.SoLuong.ToString();
+                txtMoTa.Text = VeHienTai.MoTa ?? string.Empty;
+                txtThongTinVe.Text = VeHienTai.ThongTinVe ?? string.Empty;
+            }
+        }
+
+        private async Task TaiDanhSachLoaiVe()
+        {
+            var danhSach = await loaiVeController.LayDanhSachLoaiVe();
+            cboLoaiVe.DataSource = danhSach;
+            cboLoaiVe.DisplayMember = "TenLoaiVe";
+            cboLoaiVe.ValueMember = "MaLoaiVe";
+            cboLoaiVe.SelectedIndex = -1;
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            if (!ThuThapDuLieuVe(out var ve))
+            {
+                return;
+            }
+
+            VeHienTai = ve;
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
+
+        private bool ThuThapDuLieuVe(out Ve ve)
+        {
+            ve = new Ve();
+            if (string.IsNullOrWhiteSpace(txtTenVe.Text))
+            {
+                MessageBox.Show("Vui lòng nhập tên vé.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (cboLoaiVe.SelectedValue == null)
+            {
+                MessageBox.Show("Vui lòng chọn loại vé.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (!decimal.TryParse(txtGiaVe.Text.Trim(), out var giaVe) || giaVe <= 0)
+            {
+                MessageBox.Show("Giá vé không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (!decimal.TryParse(txtGiaNguoiLon.Text.Trim(), out var giaNguoiLon) || giaNguoiLon <= 0)
+            {
+                MessageBox.Show("Giá người lớn không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (!decimal.TryParse(txtGiaTreEm.Text.Trim(), out var giaTreEm) || giaTreEm <= 0)
+            {
+                MessageBox.Show("Giá trẻ em không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (!decimal.TryParse(txtGiaNguoiCaoTuoi.Text.Trim(), out var giaNguoiCaoTuoi) || giaNguoiCaoTuoi <= 0)
+            {
+                MessageBox.Show("Giá người cao tuổi không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (!int.TryParse(txtSoLuong.Text.Trim(), out var soLuong) || soLuong < 0)
+            {
+                MessageBox.Show("Số lượng không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            ve.TenVe = txtTenVe.Text.Trim();
+            ve.MaLoaiVe = Convert.ToInt32(cboLoaiVe.SelectedValue);
+            ve.GiaVe = giaVe;
+            ve.GiaNguoiLon = giaNguoiLon;
+            ve.GiaTreEm = giaTreEm;
+            ve.GiaNguoiCaoTuoi = giaNguoiCaoTuoi;
+            ve.SoLuong = soLuong;
+            ve.MoTa = txtMoTa.Text.Trim();
+            ve.ThongTinVe = txtThongTinVe.Text.Trim();
+            ve.TrangThai = true;
+            return true;
+        }
+    }
+}

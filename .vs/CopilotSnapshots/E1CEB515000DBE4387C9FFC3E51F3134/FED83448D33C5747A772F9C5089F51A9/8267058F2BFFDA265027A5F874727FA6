@@ -1,0 +1,294 @@
+﻿using doanbanve.Controllers;
+using doanbanve.Models;
+
+namespace doanbanve.Forms
+{
+    public partial class frmDashboardQuanLy : Form
+    {
+        private readonly NguoiDungController nguoiDungController = new();
+        private readonly VeController veController = new();
+        private readonly LoaiVeController loaiVeController = new();
+
+        public frmDashboardQuanLy()
+        {
+            InitializeComponent();
+        }
+
+        private async void frmDashboardQuanLy_Load(object sender, EventArgs e)
+        {
+            CauHinhBang(dgvNguoiDung);
+            CauHinhBang(dgvVe);
+            await TaiDanhSachNguoiDung();
+            await TaiDanhSachLoaiVe();
+            await TaiDanhSachVe();
+            HienThiManHinhNguoiDung();
+        }
+
+        private void HienThiManHinhNguoiDung()
+        {
+            pnlNguoiDung.Visible = true;
+            pnlQuanLyVe.Visible = false;
+        }
+
+        private void HienThiManHinhVe()
+        {
+            pnlNguoiDung.Visible = false;
+            pnlQuanLyVe.Visible = true;
+        }
+
+        private void CauHinhBang(DataGridView bang)
+        {
+            bang.BackgroundColor = Color.White;
+            bang.EnableHeadersVisualStyles = false;
+            bang.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(230, 230, 230);
+            bang.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            bang.RowTemplate.Height = 28;
+            bang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            bang.MultiSelect = false;
+        }
+
+        private async Task TaiDanhSachNguoiDung()
+        {
+            dgvNguoiDung.Rows.Clear();
+            var danhSach = await nguoiDungController.LayDanhSachNguoiDung();
+            foreach (var nguoiDung in danhSach)
+            {
+                dgvNguoiDung.Rows.Add(
+                    nguoiDung.MaNguoiDung,
+                    nguoiDung.TaiKhoan,
+                    nguoiDung.HoTen,
+                    nguoiDung.Email,
+                    nguoiDung.SoDienThoai,
+                    nguoiDung.VaiTro);
+            }
+
+            dgvNguoiDung.ClearSelection();
+        }
+
+        private async Task TaiDanhSachLoaiVe()
+        {
+            var danhSach = await loaiVeController.LayDanhSachLoaiVe();
+            cboLoaiVe.DataSource = danhSach;
+            cboLoaiVe.DisplayMember = "TenLoaiVe";
+            cboLoaiVe.ValueMember = "MaLoaiVe";
+            cboLoaiVe.SelectedIndex = -1;
+        }
+
+        private async Task TaiDanhSachVe()
+        {
+            dgvVe.Rows.Clear();
+            var danhSach = await veController.LayDanhSachVeQuanLy();
+            foreach (var ve in danhSach)
+            {
+                dgvVe.Rows.Add(
+                    ve.MaVe,
+                    ve.TenVe,
+                    ve.MaLoaiVe,
+                    ve.GiaVe,
+                    ve.GiaNguoiLon,
+                    ve.GiaTreEm,
+                    ve.GiaNguoiCaoTuoi,
+                    ve.SoLuong,
+                    ve.MoTa,
+                    ve.ThongTinVe);
+            }
+
+            if (dgvVe.Columns.Count > 0)
+            {
+                dgvVe.ClearSelection();
+            }
+        }
+
+        private Ve? LayVeDangChon()
+        {
+            if (dgvVe.CurrentRow == null || dgvVe.CurrentRow.Index < 0)
+            {
+                return null;
+            }
+
+            if (dgvVe.CurrentRow.Cells.Count < 10)
+            {
+                return null;
+            }
+
+            return new Ve
+            {
+                MaVe = Convert.ToInt32(dgvVe.CurrentRow.Cells[0].Value ?? 0),
+                TenVe = dgvVe.CurrentRow.Cells[1].Value?.ToString() ?? string.Empty,
+                MaLoaiVe = Convert.ToInt32(dgvVe.CurrentRow.Cells[2].Value ?? 0),
+                GiaVe = Convert.ToDecimal(dgvVe.CurrentRow.Cells[3].Value ?? 0),
+                GiaNguoiLon = Convert.ToDecimal(dgvVe.CurrentRow.Cells[4].Value ?? 0),
+                GiaTreEm = Convert.ToDecimal(dgvVe.CurrentRow.Cells[5].Value ?? 0),
+                GiaNguoiCaoTuoi = Convert.ToDecimal(dgvVe.CurrentRow.Cells[6].Value ?? 0),
+                SoLuong = Convert.ToInt32(dgvVe.CurrentRow.Cells[7].Value ?? 0),
+                MoTa = dgvVe.CurrentRow.Cells[8].Value?.ToString(),
+                ThongTinVe = dgvVe.CurrentRow.Cells[9].Value?.ToString(),
+                TrangThai = true
+            };
+        }
+
+        private void btnXemThongTin_Click(object sender, EventArgs e)
+        {
+            if (dgvNguoiDung.CurrentRow == null)
+            {
+                return;
+            }
+
+            var hoTen = dgvNguoiDung.CurrentRow.Cells[2].Value?.ToString() ?? "";
+            var taiKhoan = dgvNguoiDung.CurrentRow.Cells[1].Value?.ToString() ?? "";
+            var email = dgvNguoiDung.CurrentRow.Cells[3].Value?.ToString() ?? "";
+            var soDienThoai = dgvNguoiDung.CurrentRow.Cells[4].Value?.ToString() ?? "";
+            var vaiTro = dgvNguoiDung.CurrentRow.Cells[5].Value?.ToString() ?? "";
+
+            MessageBox.Show($"Họ tên: {hoTen}\nTài khoản: {taiKhoan}\nEmail: {email}\nSố điện thoại: {soDienThoai}\nVai trò: {vaiTro}",
+                "Thông tin người dùng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private async void btnResetMatKhau_Click(object sender, EventArgs e)
+        {
+            if (dgvNguoiDung.CurrentRow == null)
+            {
+                return;
+            }
+
+            pnlNhapMatKhau.Visible = true;
+            txtMatKhauMoi.Focus();
+        }
+
+        private void btnHuyMatKhau_Click(object sender, EventArgs e)
+        {
+            txtMatKhauMoi.Clear();
+            pnlNhapMatKhau.Visible = false;
+        }
+
+        private async void btnXacNhanMatKhau_Click(object sender, EventArgs e)
+        {
+            if (dgvNguoiDung.CurrentRow == null)
+            {
+                return;
+            }
+
+            var giaTri = dgvNguoiDung.CurrentRow.Cells[0].Value?.ToString();
+            if (!int.TryParse(giaTri, out var maNguoiDung))
+            {
+                return;
+            }
+
+            var matKhauMoi = txtMatKhauMoi.Text.Trim();
+            if (string.IsNullOrWhiteSpace(matKhauMoi))
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu mới.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                await nguoiDungController.DatMatKhau(maNguoiDung, matKhauMoi);
+                MessageBox.Show("Đã reset mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMatKhauMoi.Clear();
+                pnlNhapMatKhau.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnMenuNguoiDung_Click(object sender, EventArgs e)
+        {
+            HienThiManHinhNguoiDung();
+        }
+
+        private void btnMenuVe_Click(object sender, EventArgs e)
+        {
+            HienThiManHinhVe();
+        }
+
+        private void dgvVe_SelectionChanged(object sender, EventArgs e)
+        {
+        }
+
+        private async void btnThemVe_Click(object sender, EventArgs e)
+        {
+            var formNhapVe = new frmNhapVe(null);
+            if (formNhapVe.ShowDialog() != DialogResult.OK || formNhapVe.VeHienTai == null)
+            {
+                return;
+            }
+
+            try
+            {
+                await veController.ThemVe(formNhapVe.VeHienTai);
+                await TaiDanhSachVe();
+                MessageBox.Show("Đã thêm vé.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnSuaVe_Click(object sender, EventArgs e)
+        {
+            var veHienTai = LayVeDangChon();
+            if (veHienTai == null)
+            {
+                return;
+            }
+
+            var formNhapVe = new frmNhapVe(veHienTai);
+            if (formNhapVe.ShowDialog() != DialogResult.OK || formNhapVe.VeHienTai == null)
+            {
+                return;
+            }
+
+            try
+            {
+                formNhapVe.VeHienTai.MaVe = veHienTai.MaVe;
+                await veController.SuaVe(formNhapVe.VeHienTai);
+                await TaiDanhSachVe();
+                MessageBox.Show("Đã cập nhật vé.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnXoaVe_Click(object sender, EventArgs e)
+        {
+            if (dgvVe.CurrentRow == null)
+            {
+                return;
+            }
+
+            var giaTri = dgvVe.CurrentRow.Cells[0].Value?.ToString();
+            if (!int.TryParse(giaTri, out var maVe))
+            {
+                return;
+            }
+
+            var xacNhan = MessageBox.Show("Bạn có chắc muốn xóa vé này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (xacNhan != DialogResult.Yes)
+            {
+                return;
+            }
+
+            try
+            {
+                await veController.XoaVe(maVe);
+                await TaiDanhSachVe();
+                MessageBox.Show("Đã xóa vé.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnLamMoiVe_Click(object sender, EventArgs e)
+        {
+            dgvVe.ClearSelection();
+        }
+    }
+}

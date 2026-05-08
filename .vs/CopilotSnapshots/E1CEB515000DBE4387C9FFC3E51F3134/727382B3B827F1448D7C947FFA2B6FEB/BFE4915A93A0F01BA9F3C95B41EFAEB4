@@ -1,0 +1,109 @@
+﻿namespace doanbanve.Forms
+{
+    partial class frmDashboardQuanLy
+    {
+        private System.ComponentModel.IContainer components = null;
+        private DataGridView dgvNguoiDung;
+        private TextBox txtMatKhauMoi;
+        private Button btnResetMatKhau;
+        private Button btnXemThongTin;
+        private Label lblMatKhauMoi;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            dgvNguoiDung = new DataGridView();
+            txtMatKhauMoi = new TextBox();
+            btnResetMatKhau = new Button();
+            btnXemThongTin = new Button();
+            lblMatKhauMoi = new Label();
+            ((System.ComponentModel.ISupportInitialize)dgvNguoiDung).BeginInit();
+            SuspendLayout();
+            // 
+            // dgvNguoiDung
+            // 
+            dgvNguoiDung.AllowUserToAddRows = false;
+            dgvNguoiDung.AllowUserToDeleteRows = false;
+            dgvNguoiDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvNguoiDung.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvNguoiDung.Columns.AddRange(new DataGridViewColumn[]
+            {
+                new DataGridViewTextBoxColumn { Name = "colMaNguoiDung", HeaderText = "Mã" },
+                new DataGridViewTextBoxColumn { Name = "colTaiKhoan", HeaderText = "Tài khoản" },
+                new DataGridViewTextBoxColumn { Name = "colHoTen", HeaderText = "Họ tên" },
+                new DataGridViewTextBoxColumn { Name = "colEmail", HeaderText = "Email" },
+                new DataGridViewTextBoxColumn { Name = "colSoDienThoai", HeaderText = "Số điện thoại" },
+                new DataGridViewTextBoxColumn { Name = "colVaiTro", HeaderText = "Vai trò" }
+            });
+            dgvNguoiDung.Location = new Point(16, 16);
+            dgvNguoiDung.Name = "dgvNguoiDung";
+            dgvNguoiDung.ReadOnly = true;
+            dgvNguoiDung.RowHeadersVisible = false;
+            dgvNguoiDung.Size = new Size(760, 300);
+            dgvNguoiDung.TabIndex = 0;
+            // 
+            // lblMatKhauMoi
+            // 
+            lblMatKhauMoi.AutoSize = true;
+            lblMatKhauMoi.Location = new Point(16, 336);
+            lblMatKhauMoi.Name = "lblMatKhauMoi";
+            lblMatKhauMoi.Size = new Size(86, 15);
+            lblMatKhauMoi.TabIndex = 1;
+            lblMatKhauMoi.Text = "Mật khẩu mới:";
+            // 
+            // txtMatKhauMoi
+            // 
+            txtMatKhauMoi.Location = new Point(120, 332);
+            txtMatKhauMoi.Name = "txtMatKhauMoi";
+            txtMatKhauMoi.Size = new Size(200, 23);
+            txtMatKhauMoi.TabIndex = 2;
+            // 
+            // btnResetMatKhau
+            // 
+            btnResetMatKhau.Location = new Point(336, 330);
+            btnResetMatKhau.Name = "btnResetMatKhau";
+            btnResetMatKhau.Size = new Size(120, 28);
+            btnResetMatKhau.TabIndex = 3;
+            btnResetMatKhau.Text = "Reset mật khẩu";
+            btnResetMatKhau.UseVisualStyleBackColor = true;
+            btnResetMatKhau.Click += btnResetMatKhau_Click;
+            // 
+            // btnXemThongTin
+            // 
+            btnXemThongTin.Location = new Point(472, 330);
+            btnXemThongTin.Name = "btnXemThongTin";
+            btnXemThongTin.Size = new Size(120, 28);
+            btnXemThongTin.TabIndex = 4;
+            btnXemThongTin.Text = "Xem thông tin";
+            btnXemThongTin.UseVisualStyleBackColor = true;
+            btnXemThongTin.Click += btnXemThongTin_Click;
+            // 
+            // frmDashboardQuanLy
+            // 
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 380);
+            Controls.Add(btnXemThongTin);
+            Controls.Add(btnResetMatKhau);
+            Controls.Add(txtMatKhauMoi);
+            Controls.Add(lblMatKhauMoi);
+            Controls.Add(dgvNguoiDung);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            Name = "frmDashboardQuanLy";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Dashboard Quản lý";
+            Load += frmDashboardQuanLy_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvNguoiDung).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+    }
+}

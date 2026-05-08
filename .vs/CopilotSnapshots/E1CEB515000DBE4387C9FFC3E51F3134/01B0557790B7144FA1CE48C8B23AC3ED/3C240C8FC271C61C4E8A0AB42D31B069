@@ -1,0 +1,170 @@
+﻿namespace doanbanve.Forms
+{
+    partial class frmDashboardQuanLy
+    {
+        private System.ComponentModel.IContainer components = null;
+        private Panel pnlMenu;
+        private Button btnMenuNguoiDung;
+        private Panel pnlNoiDung;
+        private Panel pnlNguoiDung;
+        private DataGridView dgvNguoiDung;
+        private Button btnResetMatKhau;
+        private Button btnXemThongTin;
+        private Panel pnlNhapMatKhau;
+        private Label lblMatKhauMoi;
+        private TextBox txtMatKhauMoi;
+        private Button btnXacNhanMatKhau;
+        private Button btnHuyMatKhau;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            pnlMenu = new Panel();
+            btnMenuNguoiDung = new Button();
+            pnlNoiDung = new Panel();
+            pnlNguoiDung = new Panel();
+            dgvNguoiDung = new DataGridView();
+            btnResetMatKhau = new Button();
+            btnXemThongTin = new Button();
+            pnlNhapMatKhau = new Panel();
+            lblMatKhauMoi = new Label();
+            txtMatKhauMoi = new TextBox();
+            btnXacNhanMatKhau = new Button();
+            btnHuyMatKhau = new Button();
+            pnlMenu.SuspendLayout();
+            pnlNoiDung.SuspendLayout();
+            pnlNguoiDung.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvNguoiDung).BeginInit();
+            pnlNhapMatKhau.SuspendLayout();
+            SuspendLayout();
+            // 
+            // pnlMenu
+            // 
+            pnlMenu.BackColor = Color.FromArgb(245, 245, 245);
+            pnlMenu.Controls.Add(btnMenuNguoiDung);
+            pnlMenu.Dock = DockStyle.Left;
+            pnlMenu.Location = new Point(0, 0);
+            pnlMenu.Name = "pnlMenu";
+            pnlMenu.Size = new Size(180, 500);
+            pnlMenu.TabIndex = 0;
+            // 
+            // btnMenuNguoiDung
+            // 
+            btnMenuNguoiDung.Dock = DockStyle.Top;
+            btnMenuNguoiDung.Location = new Point(0, 0);
+            btnMenuNguoiDung.Name = "btnMenuNguoiDung";
+            btnMenuNguoiDung.Size = new Size(180, 44);
+            btnMenuNguoiDung.TabIndex = 0;
+            btnMenuNguoiDung.Text = "Quản lý người dùng";
+            btnMenuNguoiDung.UseVisualStyleBackColor = true;
+            btnMenuNguoiDung.Click += btnMenuNguoiDung_Click;
+            // 
+            // pnlNoiDung
+            // 
+            pnlNoiDung.Controls.Add(pnlNguoiDung);
+            pnlNoiDung.Dock = DockStyle.Fill;
+            pnlNoiDung.Location = new Point(180, 0);
+            pnlNoiDung.Name = "pnlNoiDung";
+            pnlNoiDung.Padding = new Padding(16);
+            pnlNoiDung.Size = new Size(820, 500);
+            pnlNoiDung.TabIndex = 1;
+            // 
+            // pnlNguoiDung
+            // 
+            pnlNguoiDung.Controls.Add(pnlNhapMatKhau);
+            pnlNguoiDung.Controls.Add(btnXemThongTin);
+            pnlNguoiDung.Controls.Add(btnResetMatKhau);
+            pnlNguoiDung.Controls.Add(dgvNguoiDung);
+            pnlNguoiDung.Dock = DockStyle.Fill;
+            pnlNguoiDung.Location = new Point(16, 16);
+            pnlNguoiDung.Name = "pnlNguoiDung";
+            pnlNguoiDung.Size = new Size(788, 468);
+            pnlNguoiDung.TabIndex = 0;
+            // 
+            // dgvNguoiDung
+            // 
+            dgvNguoiDung.AllowUserToAddRows = false;
+            dgvNguoiDung.AllowUserToDeleteRows = false;
+            dgvNguoiDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvNguoiDung.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvNguoiDung.Columns.AddRange(new DataGridViewColumn[]
+            {
+                new DataGridViewTextBoxColumn { Name = "colMaNguoiDung", HeaderText = "Mã" },
+                new DataGridViewTextBoxColumn { Name = "colTaiKhoan", HeaderText = "Tài khoản" },
+                new DataGridViewTextBoxColumn { Name = "colHoTen", HeaderText = "Họ tên" },
+                new DataGridViewTextBoxColumn { Name = "colEmail", HeaderText = "Email" },
+                new DataGridViewTextBoxColumn { Name = "colSoDienThoai", HeaderText = "Số điện thoại" },
+                new DataGridViewTextBoxColumn { Name = "colVaiTro", HeaderText = "Vai trò" }
+            });
+            dgvNguoiDung.Location = new Point(16, 16);
+            dgvNguoiDung.Name = "dgvNguoiDung";
+            dgvNguoiDung.ReadOnly = true;
+            dgvNguoiDung.RowHeadersVisible = false;
+            dgvNguoiDung.Size = new Size(760, 300);
+            dgvNguoiDung.TabIndex = 0;
+            // 
+            // lblMatKhauMoi
+            // 
+            lblMatKhauMoi.AutoSize = true;
+            lblMatKhauMoi.Location = new Point(16, 336);
+            lblMatKhauMoi.Name = "lblMatKhauMoi";
+            lblMatKhauMoi.Size = new Size(86, 15);
+            lblMatKhauMoi.TabIndex = 1;
+            lblMatKhauMoi.Text = "Mật khẩu mới:";
+            // 
+            // txtMatKhauMoi
+            // 
+            txtMatKhauMoi.Location = new Point(120, 332);
+            txtMatKhauMoi.Name = "txtMatKhauMoi";
+            txtMatKhauMoi.Size = new Size(200, 23);
+            txtMatKhauMoi.TabIndex = 2;
+            // 
+            // btnResetMatKhau
+            // 
+            btnResetMatKhau.Location = new Point(336, 330);
+            btnResetMatKhau.Name = "btnResetMatKhau";
+            btnResetMatKhau.Size = new Size(120, 28);
+            btnResetMatKhau.TabIndex = 3;
+            btnResetMatKhau.Text = "Reset mật khẩu";
+            btnResetMatKhau.UseVisualStyleBackColor = true;
+            btnResetMatKhau.Click += btnResetMatKhau_Click;
+            // 
+            // btnXemThongTin
+            // 
+            btnXemThongTin.Location = new Point(472, 330);
+            btnXemThongTin.Name = "btnXemThongTin";
+            btnXemThongTin.Size = new Size(120, 28);
+            btnXemThongTin.TabIndex = 4;
+            btnXemThongTin.Text = "Xem thông tin";
+            btnXemThongTin.UseVisualStyleBackColor = true;
+            btnXemThongTin.Click += btnXemThongTin_Click;
+            // 
+            // frmDashboardQuanLy
+            // 
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 380);
+            Controls.Add(btnXemThongTin);
+            Controls.Add(btnResetMatKhau);
+            Controls.Add(txtMatKhauMoi);
+            Controls.Add(lblMatKhauMoi);
+            Controls.Add(dgvNguoiDung);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            Name = "frmDashboardQuanLy";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Dashboard Quản lý";
+            Load += frmDashboardQuanLy_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvNguoiDung).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+    }
+}

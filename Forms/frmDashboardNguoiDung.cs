@@ -38,6 +38,21 @@ namespace doanbanve.Forms
                 lblXinChao.Text = "Xin chào!";
                 lblThongTin.Text = string.Empty;
             }
+
+            ChuyenDashboardQuanLy();
+        }
+
+        private void ChuyenDashboardQuanLy()
+        {
+            if (Session.NguoiDungHienTai?.VaiTro != "QuanLy")
+            {
+                return;
+            }
+
+            var formQuanLy = new frmDashboardQuanLy();
+            Hide();
+            formQuanLy.FormClosed += (_, _) => Show();
+            formQuanLy.Show();
         }
 
         private async Task TaiDuLieuLoaiVe()
@@ -198,6 +213,12 @@ namespace doanbanve.Forms
         {
             var formThongTin = new frmThongTinNguoiDung();
             formThongTin.ShowDialog();
+        }
+
+        private void btnDoiMatKhau_Click(object sender, EventArgs e)
+        {
+            var formDoiMatKhau = new frmDoiMatKhau();
+            formDoiMatKhau.ShowDialog();
         }
     }
 }

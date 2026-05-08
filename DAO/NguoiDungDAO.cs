@@ -74,5 +74,53 @@ namespace doanbanve.DAO
             var ketQua = await lenh.ExecuteScalarAsync();
             return Convert.ToInt32(ketQua);
         }
+
+        public async Task<List<NguoiDung>> LayDanhSachNguoiDung()
+        {
+            var danhSach = new List<NguoiDung>();
+            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
+            const string cauLenh = @"SELECT MaNguoiDung, TaiKhoan, MatKhau, HoTen, Email, SoDienThoai, VaiTro, NgayDangKy, TrangThai
+                                 FROM NguoiDung
+                                 ORDER BY HoTen";
+
+            using var ketNoi = new SqlConnection(chuoiKetNoi);
+            using var lenh = new SqlCommand(cauLenh, ketNoi);
+
+            await ketNoi.OpenAsync();
+            using var doc = await lenh.ExecuteReaderAsync();
+            while (await doc.ReadAsync())
+            {
+                danhSach.Add(new NguoiDung
+                {
+                    MaNguoiDung = doc.GetInt32(0),
+                    TaiKhoan = doc.GetString(1),
+                    MatKhau = doc.GetString(2),
+                    HoTen = doc.GetString(3),
+                    Email = doc.IsDBNull(4) ? null : doc.GetString(4),
+                    SoDienThoai = doc.IsDBNull(5) ? null : doc.GetString(5),
+                    VaiTro = doc.GetString(6),
+                    NgayDangKy = doc.GetDateTime(7),
+                    TrangThai = doc.GetBoolean(8)
+                });
+            }
+
+            return danhSach;
+        }
+
+        public async Task DatMatKhau(int maNguoiDung, string matKhauMoi)
+        {
+            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
+            const string cauLenh = @"UPDATE NguoiDung
+                                 SET MatKhau = @MatKhau
+                                 WHERE MaNguoiDung = @MaNguoiDung";
+
+            using var ketNoi = new SqlConnection(chuoiKetNoi);
+            using var lenh = new SqlCommand(cauLenh, ketNoi);
+            lenh.Parameters.AddWithValue("@MatKhau", matKhauMoi);
+            lenh.Parameters.AddWithValue("@MaNguoiDung", maNguoiDung);
+
+            await ketNoi.OpenAsync();
+            await lenh.ExecuteNonQueryAsync();
+        }
     }
 }
