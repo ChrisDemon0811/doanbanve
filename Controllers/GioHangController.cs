@@ -22,9 +22,9 @@ namespace doanbanve.Controllers
             var mucCu = await chiTietGioHangDAO.LayTheoVeVaNgay(maGioHang, mucMoi.Ve.MaVe, mucMoi.NgaySuDung);
             if (mucCu != null)
             {
-                mucCu.SoLuongNguoiLon = mucMoi.SoLuongNguoiLon > 0 ? mucMoi.SoLuongNguoiLon : mucCu.SoLuongNguoiLon;
-                mucCu.SoLuongTreEm = mucMoi.SoLuongTreEm > 0 ? mucMoi.SoLuongTreEm : mucCu.SoLuongTreEm;
-                mucCu.SoLuongNguoiCaoTuoi = mucMoi.SoLuongNguoiCaoTuoi > 0 ? mucMoi.SoLuongNguoiCaoTuoi : mucCu.SoLuongNguoiCaoTuoi;
+                mucCu.SoLuongNguoiLon += mucMoi.SoLuongNguoiLon;
+                mucCu.SoLuongTreEm += mucMoi.SoLuongTreEm;
+                mucCu.SoLuongNguoiCaoTuoi += mucMoi.SoLuongNguoiCaoTuoi;
                 await chiTietGioHangDAO.CapNhat(mucCu);
                 return;
             }

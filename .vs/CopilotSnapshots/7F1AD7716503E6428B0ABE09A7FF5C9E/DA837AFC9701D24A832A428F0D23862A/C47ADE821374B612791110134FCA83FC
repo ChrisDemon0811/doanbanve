@@ -1,0 +1,45 @@
+﻿using doanbanve.DAO;
+using doanbanve.Models;
+
+namespace doanbanve.Controllers
+{
+    public class GioHangController
+    {
+        private readonly GioHangDAO gioHangDAO = new();
+        private readonly ChiTietGioHangDAO chiTietGioHangDAO = new();
+
+        public async Task<List<MucGioHang>> LayDanhSach(int maNguoiDung)
+        {
+            var maGioHang = await gioHangDAO.LayHoacTaoGioHang(maNguoiDung);
+            return await chiTietGioHangDAO.LayDanhSach(maGioHang);
+        }
+
+        public async Task ThemHoacGopMuc(int maNguoiDung, MucGioHang mucMoi)
+        {
+            var maGioHang = await gioHangDAO.LayHoacTaoGioHang(maNguoiDung);
+            mucMoi.MaGioHang = maGioHang;
+
+            var mucCu = await chiTietGioHangDAO.LayTheoVeVaNgay(maGioHang, mucMoi.Ve.MaVe, mucMoi.NgaySuDung);
+            if (mucCu != null)
+            {
+                mucCu.SoLuongNguoiLon = mucMoi.SoLuongNguoiLon > 0 ? mucMoi.SoLuongNguoiLon : mucCu.SoLuongNguoiLon;
+                mucCu.SoLuongTreEm = mucMoi.SoLuongTreEm > 0 ? mucMoi.SoLuongTreEm : mucCu.SoLuongTreEm;
+                mucCu.SoLuongNguoiCaoTuoi = mucMoi.SoLuongNguoiCaoTuoi > 0 ? mucMoi.SoLuongNguoiCaoTuoi : mucCu.SoLuongNguoiCaoTuoi;
+                await chiTietGioHangDAO.CapNhat(mucCu);
+                return;
+            }
+
+            await chiTietGioHangDAO.Them(mucMoi);
+        }
+
+        public async Task CapNhatMuc(int maNguoiDung, MucGioHang mucCapNhat)
+        {
+            await chiTietGioHangDAO.CapNhat(mucCapNhat);
+        }
+
+        public async Task XoaMuc(int maChiTietGioHang)
+        {
+            await chiTietGioHangDAO.Xoa(maChiTietGioHang);
+        }
+    }
+}

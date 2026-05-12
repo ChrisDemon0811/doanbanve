@@ -1,0 +1,237 @@
+using doanbanve.Controllers;
+using doanbanve.Models;
+using doanbanve.Utils;
+
+namespace doanbanve.Forms
+{
+    public partial class frmDashboardNguoiDung : Form
+    {
+        private readonly LoaiVeController loaiVeController = new();
+        private readonly VeController veController = new();
+
+        public frmDashboardNguoiDung()
+        {
+            InitializeComponent();
+        }
+
+        private async void frmDashboardNguoiDung_Load(object sender, EventArgs e)
+        {
+            HienThiThongTinDangNhap();
+            await TaiDuLieuLoaiVe();
+            await TaiDanhSachVe(null);
+        }
+
+        private void HienThiThongTinDangNhap()
+        {
+            var daDangNhap = Session.NguoiDungHienTai != null;
+            btnDangNhap.Visible = !daDangNhap;
+            btnDangKy.Visible = !daDangNhap;
+            btnDangXuat.Visible = daDangNhap;
+            btnDoiMatKhau.Visible = daDangNhap;
+            btnThongTinNguoiDung.Visible = daDangNhap;
+
+            if (daDangNhap)
+            {
+                lblXinChao.Text = $"Xin chào, {Session.NguoiDungHienTai!.HoTen}!";
+                lblThongTin.Text = $"Vai trò: {Session.NguoiDungHienTai!.VaiTro}";
+            }
+            else
+            {
+                lblXinChao.Text = "Xin chào!";
+                lblThongTin.Text = string.Empty;
+            }
+
+            ChuyenDashboardQuanLy();
+        }
+
+        private void ChuyenDashboardQuanLy()
+        {
+            if (Session.NguoiDungHienTai?.VaiTro != "QuanLy")
+            {
+                return;
+            }
+
+            var formQuanLy = new frmDashboardQuanLy();
+            Hide();
+            formQuanLy.FormClosed += (_, _) =>
+            {
+                if (formQuanLy.Tag?.ToString() == "DangXuat")
+                {
+                    Show();
+                    HienThiThongTinDangNhap();
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            };
+            formQuanLy.Show();
+        }
+
+        private async Task TaiDuLieuLoaiVe()
+        {
+            pnlLoaiVe.Controls.Clear();
+            var nutTatCa = TaoNutLoaiVe("Tất cả vé", null);
+            pnlLoaiVe.Controls.Add(nutTatCa);
+
+            try
+            {
+                var danhSachLoaiVe = await loaiVeController.LayDanhSachLoaiVe();
+                foreach (var loaiVe in danhSachLoaiVe)
+                {
+                    pnlLoaiVe.Controls.Add(TaoNutLoaiVe(loaiVe.TenLoaiVe, loaiVe));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private Button TaoNutLoaiVe(string tenLoai, LoaiVe? loaiVe)
+        {
+            var nutLoai = new Button
+            {
+                Text = tenLoai,
+                AutoSize = true,
+                Height = 36,
+                Padding = new Padding(16, 6, 16, 6),
+                Margin = new Padding(8, 8, 8, 8),
+                BackColor = Color.White,
+                FlatStyle = FlatStyle.Standard,
+                Tag = loaiVe?.MaLoaiVe
+            };
+            nutLoai.Click += async (_, _) => await TaiDanhSachVe(loaiVe?.MaLoaiVe);
+            return nutLoai;
+        }
+
+        private async Task TaiDanhSachVe(int? maLoaiVe)
+        {
+            pnlVe.Controls.Clear();
+            try
+            {
+                var danhSachVe = await veController.LayDanhSachVe(maLoaiVe);
+                foreach (var ve in danhSachVe)
+                {
+                    pnlVe.Controls.Add(TaoTheVe(ve));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private Panel TaoTheVe(Ve ve)
+        {
+            var theVe = new Panel
+            {
+                Width = 1040,
+                Height = 180,
+                BackColor = Color.White,
+                Margin = new Padding(8, 8, 8, 8),
+                BorderStyle = BorderStyle.FixedSingle
+            };
+
+            var lblTenVe = new Label
+            {
+                Text = ve.TenVe,
+                Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point),
+                Location = new Point(16, 16),
+                AutoSize = true
+            };
+
+            var lblMoTa = new Label
+            {
+                Text = string.IsNullOrWhiteSpace(ve.MoTa) ? "Đang cập nhật mô tả." : ve.MoTa,
+                Location = new Point(16, 48),
+                AutoSize = false,
+                Size = new Size(760, 60)
+            };
+
+            var lblGia = new Label
+            {
+                Text = $"Chỉ từ {ve.GiaVe.ToString("N0")} VNĐ",
+                ForeColor = Color.FromArgb(210, 85, 30),
+                Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point),
+                Location = new Point(820, 56),
+                AutoSize = true
+            };
+
+            var btnChon = new Button
+            {
+                Text = "Chọn",
+                Location = new Point(880, 120),
+                Size = new Size(100, 30),
+                BackColor = Color.FromArgb(210, 85, 30),
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat
+            };
+            btnChon.Click += (_, _) => MoFormChonVe(ve);
+
+            var btnThongTinVe = new Button
+            {
+                Text = "Thông tin vé",
+                Location = new Point(16, 120),
+                Size = new Size(120, 30)
+            };
+            btnThongTinVe.Click += (_, _) => MoThongTinVe(ve);
+
+            theVe.Controls.Add(lblTenVe);
+            theVe.Controls.Add(lblMoTa);
+            theVe.Controls.Add(lblGia);
+            theVe.Controls.Add(btnThongTinVe);
+            theVe.Controls.Add(btnChon);
+            return theVe;
+        }
+
+        private void MoFormChonVe(Ve ve)
+        {
+            var formChonVe = new frmChonVe(ve);
+            formChonVe.ShowDialog();
+        }
+
+        private void MoThongTinVe(Ve ve)
+        {
+            var formThongTin = new frmThongTinVe(ve.TenVe, ve.ThongTinVe);
+            formThongTin.ShowDialog();
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            Session.DangXuat();
+            HienThiThongTinDangNhap();
+        }
+
+        private void btnDangNhap_Click(object sender, EventArgs e)
+        {
+            var formDangNhap = new frmDangNhap();
+            formDangNhap.ShowDialog();
+            HienThiThongTinDangNhap();
+        }
+
+        private void btnDangKy_Click(object sender, EventArgs e)
+        {
+            var formDangKy = new frmDangKy();
+            formDangKy.ShowDialog();
+        }
+
+        private void btnGioHang_Click(object sender, EventArgs e)
+        {
+            var formGioHang = new frmGioHang();
+            formGioHang.ShowDialog();
+        }
+
+        private void btnThongTinNguoiDung_Click(object sender, EventArgs e)
+        {
+            var formThongTin = new frmThongTinNguoiDung();
+            formThongTin.ShowDialog();
+        }
+
+        private void btnDoiMatKhau_Click(object sender, EventArgs e)
+        {
+            var formDoiMatKhau = new frmDoiMatKhau();
+            formDoiMatKhau.ShowDialog();
+        }
+    }
+}

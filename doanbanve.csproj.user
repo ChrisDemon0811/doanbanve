@@ -4,52 +4,52 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\frmChiTietHoaDonQuanLy.cs">
+    <Compile Update="Forms\Admin\Dialogs\frmChiTietHoaDonQuanLy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\frmChiTietThanhToan.cs">
+    <Compile Update="Forms\Admin\Dialogs\frmDatMatKhauNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\frmChonVe.cs">
+    <Compile Update="Forms\Admin\Dialogs\frmNhapLoaiVe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\frmDangKy.cs">
+    <Compile Update="Forms\Admin\Dialogs\frmNhapVe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\frmDangNhap.cs">
+    <Compile Update="Forms\Admin\Dialogs\frmNhapVoucher.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\frmDashboardNguoiDung.cs">
+    <Compile Update="Forms\Admin\Forms\frmDashboardQuanLy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\frmDashboardQuanLy.cs">
+    <Compile Update="Forms\User\Dialogs\frmChiTietThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\frmDatMatKhauNguoiDung.cs">
+    <Compile Update="Forms\User\Dialogs\frmChonVe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\frmDoiMatKhau.cs">
+    <Compile Update="Forms\User\Dialogs\frmDangKy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\frmGioHang.cs">
+    <Compile Update="Forms\User\Dialogs\frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\frmNhapLoaiVe.cs">
+    <Compile Update="Forms\User\Dialogs\frmDoiMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\frmNhapVe.cs">
+    <Compile Update="Forms\User\Dialogs\frmThongTinNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\frmNhapVoucher.cs">
+    <Compile Update="Forms\User\Dialogs\frmThongTinVe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\frmThanhToan.cs">
+    <Compile Update="Forms\User\Forms\frmDashboardNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\frmThongTinNguoiDung.cs">
+    <Compile Update="Forms\User\Forms\frmGioHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\frmThongTinVe.cs">
+    <Compile Update="Forms\User\Forms\frmThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
