@@ -370,7 +370,7 @@ namespace doanbanve.Forms
                 return;
             }
 
-            using var formThongTin = new frmThongTinVe(ve.TenVe, ve.ThongTinVe);
+            using var formThongTin = new frmThongTinVe(ve);
             formThongTin.ShowDialog();
         }
 

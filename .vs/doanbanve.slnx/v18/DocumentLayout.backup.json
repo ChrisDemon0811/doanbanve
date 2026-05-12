@@ -1,130 +1,142 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\",
+  "WorkspaceRootPath": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\copilot-instructions.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:copilot-instructions.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\controllers\\thanhtoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\controllers\\thanhtoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:controllers\\thanhtoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\dao\\voucherdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\dao\\voucherdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:dao\\voucherdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\setup.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\setup.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:setup.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F3B8116B-2D03-45CC-9D11-99A49A649E4B}|doanbanve.csproj|C:\\Users\\PC\\Desktop\\project\\doanbanve\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{F3B8116B-2D03-45CC-9D11-99A49A649E4B}|doanbanve.csproj|D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F3B8116B-2D03-45CC-9D11-99A49A649E4B}|doanbanve.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\controllers\\nguoidungcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\controllers\\nguoidungcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:controllers\\nguoidungcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\models\\mucgiohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\models\\mucgiohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:models\\mucgiohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\dao\\loaivedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\dao\\loaivedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:dao\\loaivedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\controllers\\loaivecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\controllers\\loaivecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:controllers\\loaivecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\controllers\\vecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\controllers\\vecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:controllers\\vecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\dao\\nguoidungdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\dao\\nguoidungdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:dao\\nguoidungdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\models\\nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\models\\nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:models\\nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\models\\ve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\models\\ve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:models\\ve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\dao\\vedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\dao\\vedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:dao\\vedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\models\\loaive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\models\\loaive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:models\\loaive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\utils\\giohangtam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\utils\\giohangtam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:utils\\giohangtam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\utils\\cauhinhhethong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\copilot-instructions.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:copilot-instructions.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\utils\\cauhinhhethong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:utils\\cauhinhhethong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\doanbanve.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\doanbanve.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:doanbanve.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\utils\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\utils\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:utils\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\dao\\chitietgiohangdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\dao\\chitietgiohangdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:dao\\chitietgiohangdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\dao\\giohangdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\dao\\giohangdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:dao\\giohangdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\controllers\\hoadoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\controllers\\hoadoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:controllers\\hoadoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\models\\donhangdathanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\models\\donhangdathanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:models\\donhangdathanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\dao\\hoadondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\dao\\hoadondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:dao\\hoadondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\models\\thongtinhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\models\\thongtinhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:models\\thongtinhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\controllers\\vouchercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\controllers\\vouchercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:controllers\\vouchercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\models\\thongkedulieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\models\\thongkedulieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:models\\thongkedulieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\models\\thongketheoloaive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\models\\thongketheoloaive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:models\\thongketheoloaive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\user\\dialogs\\frmthongtinve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\user\\dialogs\\frmthongtinve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\admin\\forms\\frmdashboardquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\admin\\forms\\frmdashboardquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\admin\\forms\\frmdashboardquanly.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\admin\\forms\\frmdashboardquanly.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -134,7 +146,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -158,96 +170,76 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GioHangController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Controllers\\GioHangController.cs",
-              "RelativeDocumentMoniker": "Controllers\\GioHangController.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Controllers\\GioHangController.cs",
-              "RelativeToolTip": "Controllers\\GioHangController.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAIAwwC0AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 32,
+              "Title": "frmDashboardQuanLy.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Forms\\frmDashboardQuanLy.cs",
+              "RelativeDocumentMoniker": "Forms\\Admin\\Forms\\frmDashboardQuanLy.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Forms\\frmDashboardQuanLy.cs",
+              "RelativeToolTip": "Forms\\Admin\\Forms\\frmDashboardQuanLy.cs",
+              "ViewState": "AgIAAHMBAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T02:21:47.247Z",
+              "WhenOpened": "2026-05-12T08:02:09.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "frmThongTinVe.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Dialogs\\frmThongTinVe.cs",
+              "RelativeDocumentMoniker": "Forms\\User\\Dialogs\\frmThongTinVe.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Dialogs\\frmThongTinVe.cs",
+              "RelativeToolTip": "Forms\\User\\Dialogs\\frmThongTinVe.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-12T08:01:51.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-06T07:31:27.263Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "frmDashboardQuanLy.Designer.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Forms\\frmDashboardQuanLy.Designer.cs",
+              "RelativeDocumentMoniker": "Forms\\Admin\\Forms\\frmDashboardQuanLy.Designer.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Forms\\frmDashboardQuanLy.Designer.cs",
+              "RelativeToolTip": "Forms\\Admin\\Forms\\frmDashboardQuanLy.Designer.cs",
+              "ViewState": "AgIAAAkCAAAAAAAAAABBwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-12T08:02:16.112Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAACHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-05-06T07:31:27.263Z"
+              "Title": "ThanhToanController.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\ThanhToanController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ThanhToanController.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\ThanhToanController.cs",
+              "RelativeToolTip": "Controllers\\ThanhToanController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAASwBoAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T03:10:12.659Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "copilot-instructions.md",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\copilot-instructions.md",
-              "RelativeDocumentMoniker": "copilot-instructions.md",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\copilot-instructions.md",
-              "RelativeToolTip": "copilot-instructions.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE4AAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2026-05-06T06:54:12.693Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-06T07:46:52.163Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "ThongKeDuLieu.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\ThongKeDuLieu.cs",
-              "RelativeDocumentMoniker": "Models\\ThongKeDuLieu.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\ThongKeDuLieu.cs",
-              "RelativeToolTip": "Models\\ThongKeDuLieu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T08:16:18.265Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "ThongKeTheoLoaiVe.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\ThongKeTheoLoaiVe.cs",
-              "RelativeDocumentMoniker": "Models\\ThongKeTheoLoaiVe.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\ThongKeTheoLoaiVe.cs",
-              "RelativeToolTip": "Models\\ThongKeTheoLoaiVe.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T08:16:27.527Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "VoucherController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Controllers\\VoucherController.cs",
-              "RelativeDocumentMoniker": "Controllers\\VoucherController.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Controllers\\VoucherController.cs",
-              "RelativeToolTip": "Controllers\\VoucherController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T07:46:03.41Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "VoucherDAO.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\VoucherDAO.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\VoucherDAO.cs",
               "RelativeDocumentMoniker": "DAO\\VoucherDAO.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\VoucherDAO.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\VoucherDAO.cs",
               "RelativeToolTip": "DAO\\VoucherDAO.cs",
               "ViewState": "AgIAAJkAAAAAAAAAAIBJwKwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -255,23 +247,47 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ThanhToanController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Controllers\\ThanhToanController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ThanhToanController.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Controllers\\ThanhToanController.cs",
-              "RelativeToolTip": "Controllers\\ThanhToanController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAASwBoAAAAMAAAAAAAAAA==",
+              "DocumentIndex": 28,
+              "Title": "VoucherController.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\VoucherController.cs",
+              "RelativeDocumentMoniker": "Controllers\\VoucherController.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\VoucherController.cs",
+              "RelativeToolTip": "Controllers\\VoucherController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T03:10:12.659Z"
+              "WhenOpened": "2026-05-08T07:46:03.41Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 30,
+              "Title": "ThongKeTheoLoaiVe.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\ThongKeTheoLoaiVe.cs",
+              "RelativeDocumentMoniker": "Models\\ThongKeTheoLoaiVe.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\ThongKeTheoLoaiVe.cs",
+              "RelativeToolTip": "Models\\ThongKeTheoLoaiVe.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T08:16:27.527Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "ThongKeDuLieu.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\ThongKeDuLieu.cs",
+              "RelativeDocumentMoniker": "Models\\ThongKeDuLieu.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\ThongKeDuLieu.cs",
+              "RelativeToolTip": "Models\\ThongKeDuLieu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T08:16:18.265Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "setup.sql",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\setup.sql",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\setup.sql",
               "RelativeDocumentMoniker": "setup.sql",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\setup.sql",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\setup.sql",
               "RelativeToolTip": "setup.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
               "WhenOpened": "2026-05-06T07:31:24.175Z"
@@ -280,9 +296,9 @@
               "$type": "Document",
               "DocumentIndex": 27,
               "Title": "ThongTinHoaDon.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\ThongTinHoaDon.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\ThongTinHoaDon.cs",
               "RelativeDocumentMoniker": "Models\\ThongTinHoaDon.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\ThongTinHoaDon.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\ThongTinHoaDon.cs",
               "RelativeToolTip": "Models\\ThongTinHoaDon.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -292,9 +308,9 @@
               "$type": "Document",
               "DocumentIndex": 26,
               "Title": "HoaDonDAO.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\HoaDonDAO.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\HoaDonDAO.cs",
               "RelativeDocumentMoniker": "DAO\\HoaDonDAO.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\HoaDonDAO.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\HoaDonDAO.cs",
               "RelativeToolTip": "DAO\\HoaDonDAO.cs",
               "ViewState": "AgIAAAwBAAAAAAAAAIBJwBABAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -304,9 +320,9 @@
               "$type": "Document",
               "DocumentIndex": 25,
               "Title": "DonHangDaThanhToan.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\DonHangDaThanhToan.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\DonHangDaThanhToan.cs",
               "RelativeDocumentMoniker": "Models\\DonHangDaThanhToan.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\DonHangDaThanhToan.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\DonHangDaThanhToan.cs",
               "RelativeToolTip": "Models\\DonHangDaThanhToan.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -316,9 +332,9 @@
               "$type": "Document",
               "DocumentIndex": 24,
               "Title": "HoaDonController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Controllers\\HoaDonController.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\HoaDonController.cs",
               "RelativeDocumentMoniker": "Controllers\\HoaDonController.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Controllers\\HoaDonController.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\HoaDonController.cs",
               "RelativeToolTip": "Controllers\\HoaDonController.cs",
               "ViewState": "AgIAACkAAAAAAAAAAIBJwC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -327,10 +343,22 @@
             {
               "$type": "Document",
               "DocumentIndex": 23,
+              "Title": "GioHangController.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\GioHangController.cs",
+              "RelativeDocumentMoniker": "Controllers\\GioHangController.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\GioHangController.cs",
+              "RelativeToolTip": "Controllers\\GioHangController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T02:21:47.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "GioHangDAO.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\GioHangDAO.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\GioHangDAO.cs",
               "RelativeDocumentMoniker": "DAO\\GioHangDAO.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\GioHangDAO.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\GioHangDAO.cs",
               "RelativeToolTip": "DAO\\GioHangDAO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -338,11 +366,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 21,
               "Title": "ChiTietGioHangDAO.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\ChiTietGioHangDAO.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\ChiTietGioHangDAO.cs",
               "RelativeDocumentMoniker": "DAO\\ChiTietGioHangDAO.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\ChiTietGioHangDAO.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\ChiTietGioHangDAO.cs",
               "RelativeToolTip": "DAO\\ChiTietGioHangDAO.cs",
               "ViewState": "AgIAAJ8AAAAAAAAAAIBJwKMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -350,11 +378,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "NguoiDungController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Controllers\\NguoiDungController.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\NguoiDungController.cs",
               "RelativeDocumentMoniker": "Controllers\\NguoiDungController.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Controllers\\NguoiDungController.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\NguoiDungController.cs",
               "RelativeToolTip": "Controllers\\NguoiDungController.cs",
               "ViewState": "AgIAACsAAAAAAAAAAIBJwAkAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -362,11 +390,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T07:46:52.163Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "MucGioHang.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\MucGioHang.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\MucGioHang.cs",
               "RelativeDocumentMoniker": "Models\\MucGioHang.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\MucGioHang.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\MucGioHang.cs",
               "RelativeToolTip": "Models\\MucGioHang.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAABYwBkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -374,11 +414,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
               "Title": "LoaiVeDAO.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\LoaiVeDAO.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\LoaiVeDAO.cs",
               "RelativeDocumentMoniker": "DAO\\LoaiVeDAO.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\LoaiVeDAO.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\LoaiVeDAO.cs",
               "RelativeToolTip": "DAO\\LoaiVeDAO.cs",
               "ViewState": "AgIAAG0AAAAAAAAAAIBJwHEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -386,11 +426,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 9,
               "Title": "LoaiVeController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Controllers\\LoaiVeController.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\LoaiVeController.cs",
               "RelativeDocumentMoniker": "Controllers\\LoaiVeController.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Controllers\\LoaiVeController.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\LoaiVeController.cs",
               "RelativeToolTip": "Controllers\\LoaiVeController.cs",
               "ViewState": "AgIAAB8AAAAAAAAAAIBJwCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -398,11 +438,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 10,
               "Title": "VeController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Controllers\\VeController.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\VeController.cs",
               "RelativeDocumentMoniker": "Controllers\\VeController.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Controllers\\VeController.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\VeController.cs",
               "RelativeToolTip": "Controllers\\VeController.cs",
               "ViewState": "AgIAAB8AAAAAAAAAAIBJwCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -410,11 +450,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 11,
               "Title": "NguoiDungDAO.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\NguoiDungDAO.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\NguoiDungDAO.cs",
               "RelativeDocumentMoniker": "DAO\\NguoiDungDAO.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\NguoiDungDAO.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\NguoiDungDAO.cs",
               "RelativeToolTip": "DAO\\NguoiDungDAO.cs",
               "ViewState": "AgIAAHoAAAAAAAAAAIBJwH4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -422,11 +462,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 12,
               "Title": "NguoiDung.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\NguoiDung.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\NguoiDung.cs",
               "RelativeDocumentMoniker": "Models\\NguoiDung.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\NguoiDung.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\NguoiDung.cs",
               "RelativeToolTip": "Models\\NguoiDung.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -434,11 +474,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 13,
               "Title": "Ve.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\Ve.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\Ve.cs",
               "RelativeDocumentMoniker": "Models\\Ve.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\Ve.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\Ve.cs",
               "RelativeToolTip": "Models\\Ve.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAABYwBEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -446,11 +486,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 14,
               "Title": "VeDAO.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\VeDAO.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\VeDAO.cs",
               "RelativeDocumentMoniker": "DAO\\VeDAO.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\VeDAO.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\VeDAO.cs",
               "RelativeToolTip": "DAO\\VeDAO.cs",
               "ViewState": "AgIAAJsAAAAAAAAAAIBJwJ8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -458,11 +498,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 15,
               "Title": "LoaiVe.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\LoaiVe.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\LoaiVe.cs",
               "RelativeDocumentMoniker": "Models\\LoaiVe.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\LoaiVe.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\LoaiVe.cs",
               "RelativeToolTip": "Models\\LoaiVe.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -470,11 +510,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 16,
               "Title": "GioHangTam.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Utils\\GioHangTam.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Utils\\GioHangTam.cs",
               "RelativeDocumentMoniker": "Utils\\GioHangTam.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Utils\\GioHangTam.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Utils\\GioHangTam.cs",
               "RelativeToolTip": "Utils\\GioHangTam.cs",
               "ViewState": "AgIAACsAAAAAAAAAAIBJwC8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -482,11 +522,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 17,
+              "Title": "copilot-instructions.md",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\copilot-instructions.md",
+              "RelativeDocumentMoniker": "copilot-instructions.md",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\copilot-instructions.md",
+              "RelativeToolTip": "copilot-instructions.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE4AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-05-06T06:54:12.693Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "CauHinhHeThong.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Utils\\CauHinhHeThong.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Utils\\CauHinhHeThong.cs",
               "RelativeDocumentMoniker": "Utils\\CauHinhHeThong.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Utils\\CauHinhHeThong.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Utils\\CauHinhHeThong.cs",
               "RelativeToolTip": "Utils\\CauHinhHeThong.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -494,11 +546,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 19,
               "Title": "doanbanve.csproj",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\doanbanve.csproj",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\doanbanve.csproj",
               "RelativeDocumentMoniker": "doanbanve.csproj",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\doanbanve.csproj",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\doanbanve.csproj",
               "RelativeToolTip": "doanbanve.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
@@ -506,11 +558,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 20,
               "Title": "Session.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Utils\\Session.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Utils\\Session.cs",
               "RelativeDocumentMoniker": "Utils\\Session.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Utils\\Session.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Utils\\Session.cs",
               "RelativeToolTip": "Utils\\Session.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -518,11 +570,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Form1.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Form1.cs [Design]",
+              "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-06T06:50:33.167Z"
             }

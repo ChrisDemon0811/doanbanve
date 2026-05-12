@@ -1,0 +1,39 @@
+﻿namespace doanbanve.Forms
+{
+    public partial class frmThongTinVe : Form
+    {
+        public frmThongTinVe(string tieuDe, string? thongTinVe)
+        {
+            InitializeComponent();
+            Text = "Thông tin vé";
+            lblTieuDe.Text = tieuDe;
+            txtThongTinVe.Text = string.IsNullOrWhiteSpace(thongTinVe) ? "Đang cập nhật thông tin vé." : thongTinVe;
+        }
+
+        public frmThongTinVe(Models.Ve ve)
+        {
+            InitializeComponent();
+            Text = "Thông tin vé";
+            lblTieuDe.Text = ve.TenVe;
+            txtThongTinVe.Text = TaoNoiDungThongTin(ve);
+        }
+
+        private static string TaoNoiDungThongTin(Models.Ve ve)
+        {
+            var thongTin = string.IsNullOrWhiteSpace(ve.ThongTinVe)
+                ? "Đang cập nhật thông tin vé."
+                : ve.ThongTinVe;
+
+            return $"Mã vé: {ve.MaVe}\n" +
+                   $"Tên vé: {ve.TenVe}\n" +
+                   $"Loại vé: {ve.MaLoaiVe}\n" +
+                   $"Giá vé: {ve.GiaVe.ToString("N0")} VNĐ\n" +
+                   $"Giá người lớn: {ve.GiaNguoiLon.ToString("N0")} VNĐ\n" +
+                   $"Giá trẻ em: {ve.GiaTreEm.ToString("N0")} VNĐ\n" +
+                   $"Giá người cao tuổi: {ve.GiaNguoiCaoTuoi.ToString("N0")} VNĐ\n" +
+                   $"Số lượng: {ve.SoLuong}\n" +
+                   $"Mô tả: {ve.MoTa}\n\n" +
+                   $"Thông tin vé:\n{thongTin}";
+        }
+    }
+}
