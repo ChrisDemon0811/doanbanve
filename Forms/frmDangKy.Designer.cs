@@ -163,6 +163,7 @@ namespace doanbanve.Forms
             Name = "frmDangKy";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Đăng ký";
+            AcceptButton = btnDangKy;
             ResumeLayout(false);
             PerformLayout();
         }

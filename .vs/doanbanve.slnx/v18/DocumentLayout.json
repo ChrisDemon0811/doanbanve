@@ -3,7 +3,23 @@
   "WorkspaceRootPath": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\frmchitiethoadonquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\frmnhaploaive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\frmnhaploaive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\frmdashboardquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\frmdashboardquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\frmnhapve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\frmnhapve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\frmthongtinve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\frmthongtinve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\frmchitiethoadonquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\frmchitiethoadonquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -11,24 +27,8 @@
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\frmchitiethoadonquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\frmnhaploaive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\frmnhaploaive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\frmthongtinve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\frmthongtinve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\frmnhapve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\frmnhapve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\frmdashboardquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\frmdashboardquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\frmdashboardquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\frmdashboardquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\frmdashboardquanly.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -317,6 +317,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\models\\thongketheoloaive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:models\\thongketheoloaive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\frmdatmatkhaunguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\frmdatmatkhaunguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\frmdatmatkhaunguoidung.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\frmdatmatkhaunguoidung.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -326,7 +334,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -345,16 +353,91 @@
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 78,
-              "Title": "ThongKeTheoLoaiVe.cs",
-              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\ThongKeTheoLoaiVe.cs",
-              "RelativeDocumentMoniker": "Models\\ThongKeTheoLoaiVe.cs",
-              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\ThongKeTheoLoaiVe.cs",
-              "RelativeToolTip": "Models\\ThongKeTheoLoaiVe.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 80,
+              "Title": "frmDatMatKhauNguoiDung.Designer.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmDatMatKhauNguoiDung.Designer.cs",
+              "RelativeDocumentMoniker": "Forms\\frmDatMatKhauNguoiDung.Designer.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmDatMatKhauNguoiDung.Designer.cs",
+              "RelativeToolTip": "Forms\\frmDatMatKhauNguoiDung.Designer.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAABBwGEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T08:16:27.527Z"
+              "WhenOpened": "2026-05-12T01:49:41.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 79,
+              "Title": "frmDatMatKhauNguoiDung.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmDatMatKhauNguoiDung.cs",
+              "RelativeDocumentMoniker": "Forms\\frmDatMatKhauNguoiDung.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmDatMatKhauNguoiDung.cs",
+              "RelativeToolTip": "Forms\\frmDatMatKhauNguoiDung.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAABRwDMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-12T01:49:28.822Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmNhapLoaiVe.cs [Design]",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmNhapLoaiVe.cs",
+              "RelativeDocumentMoniker": "Forms\\frmNhapLoaiVe.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmNhapLoaiVe.cs [Design]",
+              "RelativeToolTip": "Forms\\frmNhapLoaiVe.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T07:35:32.598Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmDashboardQuanLy.cs [Design]",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmDashboardQuanLy.cs",
+              "RelativeDocumentMoniker": "Forms\\frmDashboardQuanLy.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmDashboardQuanLy.cs [Design]",
+              "RelativeToolTip": "Forms\\frmDashboardQuanLy.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T07:02:20.687Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmNhapVe.cs [Design]",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmNhapVe.cs",
+              "RelativeDocumentMoniker": "Forms\\frmNhapVe.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmNhapVe.cs [Design]",
+              "RelativeToolTip": "Forms\\frmNhapVe.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T07:26:24.587Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmThongTinVe.cs [Design]",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmThongTinVe.cs",
+              "RelativeDocumentMoniker": "Forms\\frmThongTinVe.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmThongTinVe.cs [Design]",
+              "RelativeToolTip": "Forms\\frmThongTinVe.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T03:51:07.716Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmChiTietHoaDonQuanLy.cs [Design]",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmChiTietHoaDonQuanLy.cs",
+              "RelativeDocumentMoniker": "Forms\\frmChiTietHoaDonQuanLy.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmChiTietHoaDonQuanLy.cs [Design]",
+              "RelativeToolTip": "Forms\\frmChiTietHoaDonQuanLy.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T08:12:25.369Z"
             },
             {
               "$type": "Document",
@@ -370,15 +453,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmChiTietHoaDonQuanLy.cs [Design]",
-              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmChiTietHoaDonQuanLy.cs",
-              "RelativeDocumentMoniker": "Forms\\frmChiTietHoaDonQuanLy.cs",
-              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmChiTietHoaDonQuanLy.cs [Design]",
-              "RelativeToolTip": "Forms\\frmChiTietHoaDonQuanLy.cs [Design]",
+              "DocumentIndex": 78,
+              "Title": "ThongKeTheoLoaiVe.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\ThongKeTheoLoaiVe.cs",
+              "RelativeDocumentMoniker": "Models\\ThongKeTheoLoaiVe.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\ThongKeTheoLoaiVe.cs",
+              "RelativeToolTip": "Models\\ThongKeTheoLoaiVe.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T08:12:25.369Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-05-08T08:16:27.527Z"
             },
             {
               "$type": "Document",
@@ -394,7 +477,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "frmChiTietHoaDonQuanLy.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmChiTietHoaDonQuanLy.cs",
               "RelativeDocumentMoniker": "Forms\\frmChiTietHoaDonQuanLy.cs",
@@ -426,8 +509,7 @@
               "RelativeToolTip": "Forms\\frmChiTietHoaDonQuanLy.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAKMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T08:09:02.13Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-08T08:09:02.13Z"
             },
             {
               "$type": "Document",
@@ -451,7 +533,8 @@
               "RelativeToolTip": "Forms\\frmNhapLoaiVe.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAGkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T07:32:03.896Z"
+              "WhenOpened": "2026-05-08T07:32:03.896Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -463,18 +546,17 @@
               "RelativeToolTip": "Forms\\frmNhapLoaiVe.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T07:32:03.845Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-08T07:32:03.845Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "frmDashboardQuanLy.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmDashboardQuanLy.cs",
               "RelativeDocumentMoniker": "Forms\\frmDashboardQuanLy.cs",
               "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmDashboardQuanLy.cs",
               "RelativeToolTip": "Forms\\frmDashboardQuanLy.cs",
-              "ViewState": "AgIAAJQBAAAAAAAAAAAawKQBAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAH8BAAAAAAAAAABBwIYBAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-08T06:47:30.422Z",
               "EditorCaption": ""
@@ -489,8 +571,7 @@
               "RelativeToolTip": "Forms\\frmNhapVe.cs",
               "ViewState": "AgIAADkAAAAAAAAAAIBJwHcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T07:22:59.878Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-08T07:22:59.878Z"
             },
             {
               "$type": "Document",
@@ -548,9 +629,10 @@
               "RelativeDocumentMoniker": "Forms\\frmDashboardQuanLy.Designer.cs",
               "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmDashboardQuanLy.Designer.cs",
               "RelativeToolTip": "Forms\\frmDashboardQuanLy.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHgCAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFUCAAAAAAAAAABBwFwCAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T06:47:30.547Z"
+              "WhenOpened": "2026-05-08T06:47:30.547Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -708,8 +790,7 @@
               "RelativeToolTip": "Forms\\frmThongTinVe.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T02:38:25.959Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-08T02:38:25.959Z"
             },
             {
               "$type": "Document",
@@ -888,9 +969,10 @@
               "RelativeDocumentMoniker": "Forms\\frmDangKy.Designer.cs",
               "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmDangKy.Designer.cs",
               "RelativeToolTip": "Forms\\frmDangKy.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKQAAAAAAAAAAIBJwKsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-06T07:46:33.515Z"
+              "WhenOpened": "2026-05-06T07:46:33.515Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -985,7 +1067,7 @@
               "RelativeDocumentMoniker": "Forms\\frmDashboardNguoiDung.cs",
               "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmDashboardNguoiDung.cs",
               "RelativeToolTip": "Forms\\frmDashboardNguoiDung.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAIBJwOAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAABBwO0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-06T07:46:39.343Z",
               "EditorCaption": ""
@@ -1059,9 +1141,10 @@
               "RelativeDocumentMoniker": "Forms\\frmDangNhap.Designer.cs",
               "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmDangNhap.Designer.cs",
               "RelativeToolTip": "Forms\\frmDangNhap.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHAAAAAAAAAAAIBJwHYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-06T07:46:08.554Z"
+              "WhenOpened": "2026-05-06T07:46:08.554Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1087,50 +1170,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-05-06T07:31:27.263Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmNhapLoaiVe.cs [Design]",
-              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmNhapLoaiVe.cs",
-              "RelativeDocumentMoniker": "Forms\\frmNhapLoaiVe.cs",
-              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmNhapLoaiVe.cs [Design]",
-              "RelativeToolTip": "Forms\\frmNhapLoaiVe.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T07:35:32.598Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmThongTinVe.cs [Design]",
-              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmThongTinVe.cs",
-              "RelativeDocumentMoniker": "Forms\\frmThongTinVe.cs",
-              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmThongTinVe.cs [Design]",
-              "RelativeToolTip": "Forms\\frmThongTinVe.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T03:51:07.716Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "frmNhapVe.cs [Design]",
-              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmNhapVe.cs",
-              "RelativeDocumentMoniker": "Forms\\frmNhapVe.cs",
-              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmNhapVe.cs [Design]",
-              "RelativeToolTip": "Forms\\frmNhapVe.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T07:26:24.587Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "frmDashboardQuanLy.cs [Design]",
-              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmDashboardQuanLy.cs",
-              "RelativeDocumentMoniker": "Forms\\frmDashboardQuanLy.cs",
-              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\frmDashboardQuanLy.cs [Design]",
-              "RelativeToolTip": "Forms\\frmDashboardQuanLy.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T07:02:20.687Z"
             },
             {
               "$type": "Document",
@@ -1285,10 +1324,6 @@
               "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-06T06:50:33.167Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             }
           ]
         }

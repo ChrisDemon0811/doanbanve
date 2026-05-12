@@ -27,6 +27,8 @@ namespace doanbanve.Forms
             btnDangNhap.Visible = !daDangNhap;
             btnDangKy.Visible = !daDangNhap;
             btnDangXuat.Visible = daDangNhap;
+            btnDoiMatKhau.Visible = daDangNhap;
+            btnThongTinNguoiDung.Visible = daDangNhap;
 
             if (daDangNhap)
             {
@@ -51,7 +53,18 @@ namespace doanbanve.Forms
 
             var formQuanLy = new frmDashboardQuanLy();
             Hide();
-            formQuanLy.FormClosed += (_, _) => Show();
+            formQuanLy.FormClosed += (_, _) =>
+            {
+                if (formQuanLy.Tag?.ToString() == "DangXuat")
+                {
+                    Show();
+                    HienThiThongTinDangNhap();
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            };
             formQuanLy.Show();
         }
 

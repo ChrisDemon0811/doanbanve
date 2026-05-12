@@ -25,6 +25,9 @@
     <Compile Update="Forms\frmDashboardQuanLy.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\frmDatMatKhauNguoiDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\frmDoiMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>

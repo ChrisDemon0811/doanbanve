@@ -1,5 +1,6 @@
 using doanbanve.Controllers;
 using doanbanve.Models;
+using doanbanve.Utils;
 
 namespace doanbanve.Forms
 {
@@ -373,48 +374,17 @@ namespace doanbanve.Forms
                 return;
             }
 
-            pnlNhapMatKhau.Visible = true;
-            txtMatKhauMoi.Focus();
-        }
-
-        private void btnHuyMatKhau_Click(object sender, EventArgs e)
-        {
-            txtMatKhauMoi.Clear();
-            pnlNhapMatKhau.Visible = false;
-        }
-
-        private async void btnXacNhanMatKhau_Click(object sender, EventArgs e)
-        {
-            if (dgvNguoiDung.CurrentRow == null)
-            {
-                return;
-            }
-
             var giaTri = dgvNguoiDung.CurrentRow.Cells[0].Value?.ToString();
             if (!int.TryParse(giaTri, out var maNguoiDung))
             {
                 return;
             }
 
-            var matKhauMoi = txtMatKhauMoi.Text.Trim();
-            if (string.IsNullOrWhiteSpace(matKhauMoi))
-            {
-                MessageBox.Show("Vui lòng nhập mật khẩu mới.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            try
-            {
-                await nguoiDungController.DatMatKhau(maNguoiDung, matKhauMoi);
-                MessageBox.Show("Đã reset mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtMatKhauMoi.Clear();
-                pnlNhapMatKhau.Visible = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            var taiKhoan = dgvNguoiDung.CurrentRow.Cells[1].Value?.ToString() ?? string.Empty;
+            using var formDatMatKhau = new frmDatMatKhauNguoiDung(maNguoiDung, taiKhoan);
+            formDatMatKhau.ShowDialog();
         }
+
 
         private void btnMenuNguoiDung_Click(object sender, EventArgs e)
         {
@@ -444,6 +414,19 @@ namespace doanbanve.Forms
         private void btnMenuThongKe_Click(object sender, EventArgs e)
         {
             HienThiManHinhThongKe();
+        }
+
+        private void btnDangXuatQuanLy_Click(object sender, EventArgs e)
+        {
+            var xacNhan = MessageBox.Show("Bạn có chắc muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (xacNhan != DialogResult.Yes)
+            {
+                return;
+            }
+
+            Session.DangXuat();
+            Tag = "DangXuat";
+            Close();
         }
 
         private void btnChiTietHoaDon_Click(object sender, EventArgs e)

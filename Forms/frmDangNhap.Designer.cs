@@ -111,6 +111,7 @@ namespace doanbanve.Forms
             Name = "frmDangNhap";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng nhập";
+            AcceptButton = btnDangNhap;
             ResumeLayout(false);
             PerformLayout();
         }

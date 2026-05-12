@@ -46,6 +46,7 @@ namespace doanbanve.Forms
         private Button btnThemVoucher;
         private Button btnSuaVoucher;
         private Button btnXoaVoucher;
+        private Button btnDangXuatQuanLy;
 
         protected override void Dispose(bool disposing)
         {
@@ -101,6 +102,7 @@ namespace doanbanve.Forms
             btnThemVoucher = new Button();
             btnSuaVoucher = new Button();
             btnXoaVoucher = new Button();
+            btnDangXuatQuanLy = new Button();
             pnlMenu.SuspendLayout();
             pnlNoiDung.SuspendLayout();
             pnlQuanLyLoaiVe.SuspendLayout();
@@ -121,6 +123,7 @@ namespace doanbanve.Forms
             // pnlMenu
             // 
             pnlMenu.BackColor = Color.FromArgb(245, 245, 245);
+            pnlMenu.Controls.Add(btnDangXuatQuanLy);
             pnlMenu.Controls.Add(btnMenuNguoiDung);
             pnlMenu.Controls.Add(btnMenuVe);
             pnlMenu.Controls.Add(btnMenuLoaiVe);
@@ -187,6 +190,28 @@ namespace doanbanve.Forms
             btnMenuHoaDon.Text = "Quản lý hóa đơn";
             btnMenuHoaDon.UseVisualStyleBackColor = true;
             btnMenuHoaDon.Click += btnMenuHoaDon_Click;
+            // 
+            // btnDangXuatQuanLy
+            // 
+            btnDangXuatQuanLy.Dock = DockStyle.Bottom;
+            btnDangXuatQuanLy.Location = new Point(0, 456);
+            btnDangXuatQuanLy.Name = "btnDangXuatQuanLy";
+            btnDangXuatQuanLy.Size = new Size(180, 44);
+            btnDangXuatQuanLy.TabIndex = 6;
+            btnDangXuatQuanLy.Text = "Đăng xuất";
+            btnDangXuatQuanLy.UseVisualStyleBackColor = true;
+            btnDangXuatQuanLy.Click += btnDangXuatQuanLy_Click;
+            // 
+            // btnMenuThongKe
+            // 
+            btnMenuThongKe.Dock = DockStyle.Top;
+            btnMenuThongKe.Location = new Point(0, 176);
+            btnMenuThongKe.Name = "btnMenuThongKe";
+            btnMenuThongKe.Size = new Size(180, 44);
+            btnMenuThongKe.TabIndex = 5;
+            btnMenuThongKe.Text = "Thống kê";
+            btnMenuThongKe.UseVisualStyleBackColor = true;
+            btnMenuThongKe.Click += btnMenuThongKe_Click;
             // 
             // pnlNoiDung
             // 
@@ -498,7 +523,6 @@ namespace doanbanve.Forms
             // 
             // pnlNguoiDung
             // 
-            pnlNguoiDung.Controls.Add(pnlNhapMatKhau);
             pnlNguoiDung.Controls.Add(btnXemThongTin);
             pnlNguoiDung.Controls.Add(btnResetMatKhau);
             pnlNguoiDung.Controls.Add(dgvNguoiDung);
@@ -507,56 +531,6 @@ namespace doanbanve.Forms
             pnlNguoiDung.Name = "pnlNguoiDung";
             pnlNguoiDung.Size = new Size(788, 468);
             pnlNguoiDung.TabIndex = 0;
-            // 
-            // pnlNhapMatKhau
-            // 
-            pnlNhapMatKhau.BorderStyle = BorderStyle.FixedSingle;
-            pnlNhapMatKhau.Controls.Add(btnHuyMatKhau);
-            pnlNhapMatKhau.Controls.Add(btnXacNhanMatKhau);
-            pnlNhapMatKhau.Controls.Add(txtMatKhauMoi);
-            pnlNhapMatKhau.Controls.Add(lblMatKhauMoi);
-            pnlNhapMatKhau.Location = new Point(0, 380);
-            pnlNhapMatKhau.Name = "pnlNhapMatKhau";
-            pnlNhapMatKhau.Size = new Size(520, 60);
-            pnlNhapMatKhau.TabIndex = 3;
-            pnlNhapMatKhau.Visible = false;
-            // 
-            // btnHuyMatKhau
-            // 
-            btnHuyMatKhau.Location = new Point(406, 14);
-            btnHuyMatKhau.Name = "btnHuyMatKhau";
-            btnHuyMatKhau.Size = new Size(80, 28);
-            btnHuyMatKhau.TabIndex = 3;
-            btnHuyMatKhau.Text = "Hủy";
-            btnHuyMatKhau.UseVisualStyleBackColor = true;
-            btnHuyMatKhau.Click += btnHuyMatKhau_Click;
-            // 
-            // btnXacNhanMatKhau
-            // 
-            btnXacNhanMatKhau.Location = new Point(304, 14);
-            btnXacNhanMatKhau.Name = "btnXacNhanMatKhau";
-            btnXacNhanMatKhau.Size = new Size(90, 28);
-            btnXacNhanMatKhau.TabIndex = 2;
-            btnXacNhanMatKhau.Text = "Xác nhận";
-            btnXacNhanMatKhau.UseVisualStyleBackColor = true;
-            btnXacNhanMatKhau.Click += btnXacNhanMatKhau_Click;
-            // 
-            // txtMatKhauMoi
-            // 
-            txtMatKhauMoi.Location = new Point(112, 16);
-            txtMatKhauMoi.Name = "txtMatKhauMoi";
-            txtMatKhauMoi.Size = new Size(180, 27);
-            txtMatKhauMoi.TabIndex = 1;
-            txtMatKhauMoi.UseSystemPasswordChar = true;
-            // 
-            // lblMatKhauMoi
-            // 
-            lblMatKhauMoi.AutoSize = true;
-            lblMatKhauMoi.Location = new Point(12, 20);
-            lblMatKhauMoi.Name = "lblMatKhauMoi";
-            lblMatKhauMoi.Size = new Size(103, 20);
-            lblMatKhauMoi.TabIndex = 0;
-            lblMatKhauMoi.Text = "Mật khẩu mới:";
             // 
             // btnXemThongTin
             // 
@@ -622,8 +596,6 @@ namespace doanbanve.Forms
             pnlThongKe.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvThongKeLoaiVe).EndInit();
             pnlNguoiDung.ResumeLayout(false);
-            pnlNhapMatKhau.ResumeLayout(false);
-            pnlNhapMatKhau.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvNguoiDung).EndInit();
             ResumeLayout(false);
         }
