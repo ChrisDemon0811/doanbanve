@@ -124,12 +124,12 @@ namespace doanbanve.Forms
             // 
             pnlMenu.BackColor = Color.FromArgb(245, 245, 245);
             pnlMenu.Controls.Add(btnDangXuatQuanLy);
-            pnlMenu.Controls.Add(btnMenuNguoiDung);
-            pnlMenu.Controls.Add(btnMenuVe);
-            pnlMenu.Controls.Add(btnMenuLoaiVe);
-            pnlMenu.Controls.Add(btnMenuVoucher);
-            pnlMenu.Controls.Add(btnMenuHoaDon);
             pnlMenu.Controls.Add(btnMenuThongKe);
+            pnlMenu.Controls.Add(btnMenuHoaDon);
+            pnlMenu.Controls.Add(btnMenuVoucher);
+            pnlMenu.Controls.Add(btnMenuLoaiVe);
+            pnlMenu.Controls.Add(btnMenuVe);
+            pnlMenu.Controls.Add(btnMenuNguoiDung);
             pnlMenu.Dock = DockStyle.Left;
             pnlMenu.Location = new Point(0, 0);
             pnlMenu.Name = "pnlMenu";
@@ -139,7 +139,7 @@ namespace doanbanve.Forms
             // btnMenuNguoiDung
             // 
             btnMenuNguoiDung.Dock = DockStyle.Top;
-            btnMenuNguoiDung.Location = new Point(0, 132);
+            btnMenuNguoiDung.Location = new Point(0, 0);
             btnMenuNguoiDung.Name = "btnMenuNguoiDung";
             btnMenuNguoiDung.Size = new Size(180, 44);
             btnMenuNguoiDung.TabIndex = 0;
@@ -150,7 +150,7 @@ namespace doanbanve.Forms
             // btnMenuVe
             // 
             btnMenuVe.Dock = DockStyle.Top;
-            btnMenuVe.Location = new Point(0, 88);
+            btnMenuVe.Location = new Point(0, 44);
             btnMenuVe.Name = "btnMenuVe";
             btnMenuVe.Size = new Size(180, 44);
             btnMenuVe.TabIndex = 1;
@@ -161,7 +161,7 @@ namespace doanbanve.Forms
             // btnMenuLoaiVe
             // 
             btnMenuLoaiVe.Dock = DockStyle.Top;
-            btnMenuLoaiVe.Location = new Point(0, 44);
+            btnMenuLoaiVe.Location = new Point(0, 88);
             btnMenuLoaiVe.Name = "btnMenuLoaiVe";
             btnMenuLoaiVe.Size = new Size(180, 44);
             btnMenuLoaiVe.TabIndex = 2;
@@ -172,7 +172,7 @@ namespace doanbanve.Forms
             // btnMenuVoucher
             // 
             btnMenuVoucher.Dock = DockStyle.Top;
-            btnMenuVoucher.Location = new Point(0, 0);
+            btnMenuVoucher.Location = new Point(0, 132);
             btnMenuVoucher.Name = "btnMenuVoucher";
             btnMenuVoucher.Size = new Size(180, 44);
             btnMenuVoucher.TabIndex = 3;
@@ -183,7 +183,7 @@ namespace doanbanve.Forms
             // btnMenuHoaDon
             // 
             btnMenuHoaDon.Dock = DockStyle.Top;
-            btnMenuHoaDon.Location = new Point(0, 220);
+            btnMenuHoaDon.Location = new Point(0, 176);
             btnMenuHoaDon.Name = "btnMenuHoaDon";
             btnMenuHoaDon.Size = new Size(180, 44);
             btnMenuHoaDon.TabIndex = 4;
@@ -205,7 +205,7 @@ namespace doanbanve.Forms
             // btnMenuThongKe
             // 
             btnMenuThongKe.Dock = DockStyle.Top;
-            btnMenuThongKe.Location = new Point(0, 176);
+            btnMenuThongKe.Location = new Point(0, 220);
             btnMenuThongKe.Name = "btnMenuThongKe";
             btnMenuThongKe.Size = new Size(180, 44);
             btnMenuThongKe.TabIndex = 5;
