@@ -27,19 +27,24 @@ namespace doanbanve.Controllers
             return await hoaDonDAO.LayThongTinHoaDon(maHoaDon);
         }
 
-        public async Task<ThongKeDuLieu> LayThongKeDuLieu()
+        public async Task<ThongKeDuLieu> LayThongKeDuLieu(DateTime? tuNgay, DateTime? denNgay)
         {
-            return await hoaDonDAO.LayThongKeDuLieu();
+            return await hoaDonDAO.LayThongKeDuLieu(tuNgay, denNgay);
         }
 
-        public async Task<int> LayTongVeDaBan()
+        public async Task<int> LayTongVeDaBan(DateTime? tuNgay, DateTime? denNgay)
         {
-            return await hoaDonDAO.LayTongVeDaBan();
+            return await hoaDonDAO.LayTongVeDaBan(tuNgay, denNgay);
         }
 
-        public async Task<List<ThongKeTheoLoaiVe>> LayThongKeTheoLoaiVe()
+        public async Task<List<ThongKeTheoLoaiVe>> LayThongKeTheoLoaiVe(DateTime? tuNgay, DateTime? denNgay)
         {
-            return await hoaDonDAO.LayThongKeTheoLoaiVe();
+            return await hoaDonDAO.LayThongKeTheoLoaiVe(tuNgay, denNgay);
+        }
+
+        public async Task<List<ThongKeDoanhThuNgay>> LayThongKeDoanhThuTheoNgay(DateTime? tuNgay, DateTime? denNgay)
+        {
+            return await hoaDonDAO.LayThongKeDoanhThuTheoNgay(tuNgay, denNgay);
         }
     }
 }

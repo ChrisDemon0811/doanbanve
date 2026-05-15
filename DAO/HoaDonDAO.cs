@@ -38,6 +38,38 @@ namespace doanbanve.DAO
             return danhSach;
         }
 
+        public async Task<List<Models.ThongKeDoanhThuNgay>> LayThongKeDoanhThuTheoNgay(DateTime? tuNgay, DateTime? denNgay)
+        {
+            var danhSach = new List<Models.ThongKeDoanhThuNgay>();
+            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
+            const string cauLenh = @"SELECT CAST(NgayLap AS DATE) AS Ngay,
+                                           SUM(TongTien - TienGiam) AS TongThanhTien
+                                    FROM HoaDon
+                                    WHERE TrangThai = N'DaThanhToan'
+                                      AND (@TuNgay IS NULL OR NgayLap >= @TuNgay)
+                                      AND (@DenNgay IS NULL OR NgayLap < DATEADD(DAY, 1, @DenNgay))
+                                    GROUP BY CAST(NgayLap AS DATE)
+                                    ORDER BY Ngay";
+
+            using var ketNoi = new SqlConnection(chuoiKetNoi);
+            using var lenh = new SqlCommand(cauLenh, ketNoi);
+            lenh.Parameters.AddWithValue("@TuNgay", (object?)tuNgay ?? DBNull.Value);
+            lenh.Parameters.AddWithValue("@DenNgay", (object?)denNgay ?? DBNull.Value);
+
+            await ketNoi.OpenAsync();
+            using var doc = await lenh.ExecuteReaderAsync();
+            while (await doc.ReadAsync())
+            {
+                danhSach.Add(new Models.ThongKeDoanhThuNgay
+                {
+                    Ngay = doc.GetDateTime(0),
+                    TongThanhTien = doc.IsDBNull(1) ? 0 : doc.GetDecimal(1)
+                });
+            }
+
+            return danhSach;
+        }
+
         public async Task<List<Models.ThongTinHoaDon>> LayDanhSachHoaDonQuanLy()
         {
             var danhSach = new List<Models.ThongTinHoaDon>();
@@ -189,7 +221,7 @@ namespace doanbanve.DAO
             };
         }
 
-        public async Task<Models.ThongKeDuLieu> LayThongKeDuLieu()
+        public async Task<Models.ThongKeDuLieu> LayThongKeDuLieu(DateTime? tuNgay, DateTime? denNgay)
         {
             var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
             const string cauLenh = @"SELECT COUNT(*),
@@ -197,10 +229,14 @@ namespace doanbanve.DAO
                                            SUM(TienGiam),
                                            SUM(TongTien - TienGiam)
                                     FROM HoaDon
-                                    WHERE TrangThai = N'DaThanhToan'";
+                                    WHERE TrangThai = N'DaThanhToan'
+                                      AND (@TuNgay IS NULL OR NgayLap >= @TuNgay)
+                                      AND (@DenNgay IS NULL OR NgayLap < DATEADD(DAY, 1, @DenNgay))";
 
             using var ketNoi = new SqlConnection(chuoiKetNoi);
             using var lenh = new SqlCommand(cauLenh, ketNoi);
+            lenh.Parameters.AddWithValue("@TuNgay", (object?)tuNgay ?? DBNull.Value);
+            lenh.Parameters.AddWithValue("@DenNgay", (object?)denNgay ?? DBNull.Value);
 
             await ketNoi.OpenAsync();
             using var doc = await lenh.ExecuteReaderAsync();
@@ -218,14 +254,20 @@ namespace doanbanve.DAO
             };
         }
 
-        public async Task<int> LayTongVeDaBan()
+        public async Task<int> LayTongVeDaBan(DateTime? tuNgay, DateTime? denNgay)
         {
             var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = @"SELECT SUM(SoLuongNguoiLon + SoLuongTreEm + SoLuongNguoiCaoTuoi)
-                                    FROM ChiTietHoaDon";
+            const string cauLenh = @"SELECT SUM(ct.SoLuongNguoiLon + ct.SoLuongTreEm + ct.SoLuongNguoiCaoTuoi)
+                                    FROM ChiTietHoaDon ct
+                                    INNER JOIN HoaDon h ON ct.MaHoaDon = h.MaHoaDon
+                                    WHERE h.TrangThai = N'DaThanhToan'
+                                      AND (@TuNgay IS NULL OR h.NgayLap >= @TuNgay)
+                                      AND (@DenNgay IS NULL OR h.NgayLap < DATEADD(DAY, 1, @DenNgay))";
 
             using var ketNoi = new SqlConnection(chuoiKetNoi);
             using var lenh = new SqlCommand(cauLenh, ketNoi);
+            lenh.Parameters.AddWithValue("@TuNgay", (object?)tuNgay ?? DBNull.Value);
+            lenh.Parameters.AddWithValue("@DenNgay", (object?)denNgay ?? DBNull.Value);
 
             await ketNoi.OpenAsync();
             var ketQua = await lenh.ExecuteScalarAsync();
@@ -237,7 +279,7 @@ namespace doanbanve.DAO
             return Convert.ToInt32(ketQua);
         }
 
-        public async Task<List<Models.ThongKeTheoLoaiVe>> LayThongKeTheoLoaiVe()
+        public async Task<List<Models.ThongKeTheoLoaiVe>> LayThongKeTheoLoaiVe(DateTime? tuNgay, DateTime? denNgay)
         {
             var danhSach = new List<Models.ThongKeTheoLoaiVe>();
             var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
@@ -247,11 +289,17 @@ namespace doanbanve.DAO
                                     FROM ChiTietHoaDon ct
                                     INNER JOIN Ve v ON ct.MaVe = v.MaVe
                                     INNER JOIN LoaiVe lv ON v.MaLoaiVe = lv.MaLoaiVe
+                                    INNER JOIN HoaDon h ON ct.MaHoaDon = h.MaHoaDon
+                                    WHERE h.TrangThai = N'DaThanhToan'
+                                      AND (@TuNgay IS NULL OR h.NgayLap >= @TuNgay)
+                                      AND (@DenNgay IS NULL OR h.NgayLap < DATEADD(DAY, 1, @DenNgay))
                                     GROUP BY lv.MaLoaiVe, lv.TenLoaiVe
                                     ORDER BY TongThanhTien DESC";
 
             using var ketNoi = new SqlConnection(chuoiKetNoi);
             using var lenh = new SqlCommand(cauLenh, ketNoi);
+            lenh.Parameters.AddWithValue("@TuNgay", (object?)tuNgay ?? DBNull.Value);
+            lenh.Parameters.AddWithValue("@DenNgay", (object?)denNgay ?? DBNull.Value);
 
             await ketNoi.OpenAsync();
             using var doc = await lenh.ExecuteReaderAsync();

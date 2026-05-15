@@ -29,7 +29,8 @@ namespace doanbanve.Forms
                 return;
             }
 
-            if (Session.NguoiDungHienTai.MatKhau != matKhauCu)
+            var matKhauCuMaHoa = Utils.MaHoaMatKhau.MaHoaMD5(matKhauCu);
+            if (Session.NguoiDungHienTai.MatKhau != matKhauCuMaHoa)
             {
                 MessageBox.Show("Mật khẩu hiện tại không đúng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -43,8 +44,9 @@ namespace doanbanve.Forms
 
             try
             {
+                var matKhauMoiMaHoa = Utils.MaHoaMatKhau.MaHoaMD5(matKhauMoi);
                 await nguoiDungController.DatMatKhau(Session.NguoiDungHienTai.MaNguoiDung, matKhauMoi);
-                Session.NguoiDungHienTai.MatKhau = matKhauMoi;
+                Session.NguoiDungHienTai.MatKhau = matKhauMoiMaHoa;
                 MessageBox.Show("Đổi mật khẩu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }

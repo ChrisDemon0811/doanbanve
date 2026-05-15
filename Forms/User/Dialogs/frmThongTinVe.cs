@@ -1,3 +1,5 @@
+using System.Drawing;
+
 namespace doanbanve.Forms
 {
     public partial class frmThongTinVe : Form
@@ -7,7 +9,7 @@ namespace doanbanve.Forms
             InitializeComponent();
             Text = "Thông tin vé";
             lblTieuDe.Text = tieuDe;
-            txtThongTinVe.Text = string.IsNullOrWhiteSpace(thongTinVe) ? "Đang cập nhật thông tin vé." : thongTinVe;
+            rtbThongTinVe.Text = string.IsNullOrWhiteSpace(thongTinVe) ? "Đang cập nhật thông tin vé." : thongTinVe;
             DatConTroThongTin();
         }
 
@@ -16,16 +18,49 @@ namespace doanbanve.Forms
             InitializeComponent();
             Text = "Thông tin vé";
             lblTieuDe.Text = ve.TenVe;
-            txtThongTinVe.Text = TaoNoiDungThongTin(ve);
+            if (!string.IsNullOrWhiteSpace(ve.ThongTinVe) && LaRtf(ve.ThongTinVe))
+            {
+                rtbThongTinVe.Rtf = ve.ThongTinVe;
+            }
+            else
+            {
+                rtbThongTinVe.Text = TaoNoiDungThongTin(ve);
+            }
+            TaiAnhVe(ve.AnhVe);
             DatConTroThongTin();
         }
 
         private void DatConTroThongTin()
         {
-            txtThongTinVe.SelectionStart = 0;
-            txtThongTinVe.SelectionLength = 0;
-            txtThongTinVe.HideSelection = true;
-            txtThongTinVe.TabStop = false;
+            rtbThongTinVe.SelectionStart = 0;
+            rtbThongTinVe.SelectionLength = 0;
+            rtbThongTinVe.HideSelection = true;
+            rtbThongTinVe.TabStop = false;
+        }
+
+        private void TaiAnhVe(string? duongDanAnh)
+        {
+            if (string.IsNullOrWhiteSpace(duongDanAnh))
+            {
+                picAnhVe.Image = null;
+                return;
+            }
+
+            var duongDanTuyetDoi = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "image", duongDanAnh);
+            if (File.Exists(duongDanTuyetDoi))
+            {
+                using var anh = Image.FromFile(duongDanTuyetDoi);
+                picAnhVe.Image = new Bitmap(anh);
+            }
+            else
+            {
+                picAnhVe.Image = null;
+            }
+        }
+
+        private static bool LaRtf(string giaTri)
+        {
+            return giaTri.TrimStart().StartsWith(@"{\rtf", StringComparison.OrdinalIgnoreCase);
         }
 
         private static string TaoNoiDungThongTin(Models.Ve ve)

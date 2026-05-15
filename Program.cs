@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace doanbanve
 {
     internal static class Program
@@ -8,6 +10,10 @@ namespace doanbanve
         [STAThread]
         static void Main()
         {
+            var vanHoaVietNam = CultureInfo.GetCultureInfo("vi-VN");
+            CultureInfo.DefaultThreadCurrentCulture = vanHoaVietNam;
+            CultureInfo.DefaultThreadCurrentUICulture = vanHoaVietNam;
+
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();

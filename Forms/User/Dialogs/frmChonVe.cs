@@ -20,6 +20,8 @@ namespace doanbanve.Forms
             lblTenVe.Text = ve.TenVe;
             dtpNgaySuDung.MinDate = DateTime.Today;
             dtpNgaySuDung.Value = DateTime.Today;
+            dtpNgaySuDung.Format = DateTimePickerFormat.Custom;
+            dtpNgaySuDung.CustomFormat = "dddd, dd/MM/yyyy";
             lblGiaNguoiLon.Text = ve.GiaNguoiLon.ToString("N0") + " VNĐ";
             lblGiaTreEm.Text = ve.GiaTreEm.ToString("N0") + " VNĐ";
             lblGiaNguoiCaoTuoi.Text = ve.GiaNguoiCaoTuoi.ToString("N0") + " VNĐ";

@@ -34,12 +34,23 @@ namespace doanbanve.Forms
         private Panel pnlQuanLyVoucher;
         private Panel pnlQuanLyHoaDon;
         private Panel pnlThongKe;
+        private Panel pnlBoLocThongKe;
+        private ComboBox cboLoaiThongKe;
+        private Label lblLoaiThongKe;
+        private DateTimePicker dtpTuNgay;
+        private DateTimePicker dtpDenNgay;
+        private Label lblTuNgay;
+        private Label lblDenNgay;
+        private Button btnApDungThongKe;
         private Label lblThongKeTongHoaDon;
         private Label lblThongKeTongTien;
         private Label lblThongKeTongGiam;
         private Label lblThongKeThanhTien;
         private Label lblThongKeTongVe;
+        private Label lblThongKeTrungBinhHoaDon;
+        private Label lblThongKeLoaiVeBanChay;
         private DataGridView dgvThongKeLoaiVe;
+        private Panel pnlBieuDo;
         private DataGridView dgvHoaDon;
         private Button btnChiTietHoaDon;
         private DataGridView dgvVoucher;
@@ -60,13 +71,40 @@ namespace doanbanve.Forms
         private void InitializeComponent()
         {
             pnlMenu = new Panel();
-            btnMenuNguoiDung = new Button();
-            btnMenuVe = new Button();
-            btnMenuLoaiVe = new Button();
-            btnMenuVoucher = new Button();
-            btnMenuHoaDon = new Button();
+            btnDangXuatQuanLy = new Button();
             btnMenuThongKe = new Button();
+            btnMenuHoaDon = new Button();
+            btnMenuVoucher = new Button();
+            btnMenuLoaiVe = new Button();
+            btnMenuVe = new Button();
+            btnMenuNguoiDung = new Button();
             pnlNoiDung = new Panel();
+            pnlThongKe = new Panel();
+            pnlBieuDo = new Panel();
+            dgvThongKeLoaiVe = new DataGridView();
+            lblThongKeTongVe = new Label();
+            lblThongKeThanhTien = new Label();
+            lblThongKeTongGiam = new Label();
+            lblThongKeTongTien = new Label();
+            lblThongKeTongHoaDon = new Label();
+            lblThongKeTrungBinhHoaDon = new Label();
+            lblThongKeLoaiVeBanChay = new Label();
+            pnlBoLocThongKe = new Panel();
+            btnApDungThongKe = new Button();
+            lblDenNgay = new Label();
+            dtpDenNgay = new DateTimePicker();
+            lblTuNgay = new Label();
+            dtpTuNgay = new DateTimePicker();
+            lblLoaiThongKe = new Label();
+            cboLoaiThongKe = new ComboBox();
+            pnlQuanLyHoaDon = new Panel();
+            btnChiTietHoaDon = new Button();
+            dgvHoaDon = new DataGridView();
+            pnlQuanLyVoucher = new Panel();
+            btnXoaVoucher = new Button();
+            btnSuaVoucher = new Button();
+            btnThemVoucher = new Button();
+            dgvVoucher = new DataGridView();
             pnlQuanLyLoaiVe = new Panel();
             btnXoaLoaiVe = new Button();
             btnSuaLoaiVe = new Button();
@@ -79,44 +117,28 @@ namespace doanbanve.Forms
             btnThemVe = new Button();
             dgvVe = new DataGridView();
             pnlNguoiDung = new Panel();
+            btnXemThongTin = new Button();
+            btnResetMatKhau = new Button();
+            dgvNguoiDung = new DataGridView();
             pnlNhapMatKhau = new Panel();
             btnHuyMatKhau = new Button();
             btnXacNhanMatKhau = new Button();
             txtMatKhauMoi = new TextBox();
             lblMatKhauMoi = new Label();
-            btnXemThongTin = new Button();
-            btnResetMatKhau = new Button();
-            dgvNguoiDung = new DataGridView();
-            pnlQuanLyVoucher = new Panel();
-            pnlQuanLyHoaDon = new Panel();
-            pnlThongKe = new Panel();
-            lblThongKeTongHoaDon = new Label();
-            lblThongKeTongTien = new Label();
-            lblThongKeTongGiam = new Label();
-            lblThongKeThanhTien = new Label();
-            lblThongKeTongVe = new Label();
-            dgvThongKeLoaiVe = new DataGridView();
-            dgvHoaDon = new DataGridView();
-            btnChiTietHoaDon = new Button();
-            dgvVoucher = new DataGridView();
-            btnThemVoucher = new Button();
-            btnSuaVoucher = new Button();
-            btnXoaVoucher = new Button();
-            btnDangXuatQuanLy = new Button();
             pnlMenu.SuspendLayout();
             pnlNoiDung.SuspendLayout();
+            pnlThongKe.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvThongKeLoaiVe).BeginInit();
+            pnlBoLocThongKe.SuspendLayout();
+            pnlQuanLyHoaDon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).BeginInit();
+            pnlQuanLyVoucher.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvVoucher).BeginInit();
             pnlQuanLyLoaiVe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvLoaiVe).BeginInit();
             pnlQuanLyVe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvVe).BeginInit();
-            pnlQuanLyVoucher.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvVoucher).BeginInit();
-            pnlQuanLyHoaDon.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).BeginInit();
-            pnlThongKe.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvThongKeLoaiVe).BeginInit();
             pnlNguoiDung.SuspendLayout();
-            pnlNhapMatKhau.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvNguoiDung).BeginInit();
             SuspendLayout();
             // 
@@ -136,67 +158,12 @@ namespace doanbanve.Forms
             pnlMenu.Size = new Size(200, 640);
             pnlMenu.TabIndex = 0;
             // 
-            // btnMenuNguoiDung
-            // 
-            btnMenuNguoiDung.Dock = DockStyle.Top;
-            btnMenuNguoiDung.Location = new Point(0, 0);
-            btnMenuNguoiDung.Name = "btnMenuNguoiDung";
-            btnMenuNguoiDung.Size = new Size(180, 44);
-            btnMenuNguoiDung.TabIndex = 0;
-            btnMenuNguoiDung.Text = "Quản lý người dùng";
-            btnMenuNguoiDung.UseVisualStyleBackColor = true;
-            btnMenuNguoiDung.Click += btnMenuNguoiDung_Click;
-            // 
-            // btnMenuVe
-            // 
-            btnMenuVe.Dock = DockStyle.Top;
-            btnMenuVe.Location = new Point(0, 44);
-            btnMenuVe.Name = "btnMenuVe";
-            btnMenuVe.Size = new Size(180, 44);
-            btnMenuVe.TabIndex = 1;
-            btnMenuVe.Text = "Quản lý vé";
-            btnMenuVe.UseVisualStyleBackColor = true;
-            btnMenuVe.Click += btnMenuVe_Click;
-            // 
-            // btnMenuLoaiVe
-            // 
-            btnMenuLoaiVe.Dock = DockStyle.Top;
-            btnMenuLoaiVe.Location = new Point(0, 88);
-            btnMenuLoaiVe.Name = "btnMenuLoaiVe";
-            btnMenuLoaiVe.Size = new Size(180, 44);
-            btnMenuLoaiVe.TabIndex = 2;
-            btnMenuLoaiVe.Text = "Phân loại vé";
-            btnMenuLoaiVe.UseVisualStyleBackColor = true;
-            btnMenuLoaiVe.Click += btnMenuLoaiVe_Click;
-            // 
-            // btnMenuVoucher
-            // 
-            btnMenuVoucher.Dock = DockStyle.Top;
-            btnMenuVoucher.Location = new Point(0, 132);
-            btnMenuVoucher.Name = "btnMenuVoucher";
-            btnMenuVoucher.Size = new Size(180, 44);
-            btnMenuVoucher.TabIndex = 3;
-            btnMenuVoucher.Text = "Quản lý voucher";
-            btnMenuVoucher.UseVisualStyleBackColor = true;
-            btnMenuVoucher.Click += btnMenuVoucher_Click;
-            // 
-            // btnMenuHoaDon
-            // 
-            btnMenuHoaDon.Dock = DockStyle.Top;
-            btnMenuHoaDon.Location = new Point(0, 176);
-            btnMenuHoaDon.Name = "btnMenuHoaDon";
-            btnMenuHoaDon.Size = new Size(180, 44);
-            btnMenuHoaDon.TabIndex = 4;
-            btnMenuHoaDon.Text = "Quản lý hóa đơn";
-            btnMenuHoaDon.UseVisualStyleBackColor = true;
-            btnMenuHoaDon.Click += btnMenuHoaDon_Click;
-            // 
             // btnDangXuatQuanLy
             // 
             btnDangXuatQuanLy.Dock = DockStyle.Bottom;
-            btnDangXuatQuanLy.Location = new Point(0, 456);
+            btnDangXuatQuanLy.Location = new Point(0, 596);
             btnDangXuatQuanLy.Name = "btnDangXuatQuanLy";
-            btnDangXuatQuanLy.Size = new Size(180, 44);
+            btnDangXuatQuanLy.Size = new Size(200, 44);
             btnDangXuatQuanLy.TabIndex = 6;
             btnDangXuatQuanLy.Text = "Đăng xuất";
             btnDangXuatQuanLy.UseVisualStyleBackColor = true;
@@ -207,11 +174,66 @@ namespace doanbanve.Forms
             btnMenuThongKe.Dock = DockStyle.Top;
             btnMenuThongKe.Location = new Point(0, 220);
             btnMenuThongKe.Name = "btnMenuThongKe";
-            btnMenuThongKe.Size = new Size(180, 44);
+            btnMenuThongKe.Size = new Size(200, 44);
             btnMenuThongKe.TabIndex = 5;
             btnMenuThongKe.Text = "Thống kê";
             btnMenuThongKe.UseVisualStyleBackColor = true;
             btnMenuThongKe.Click += btnMenuThongKe_Click;
+            // 
+            // btnMenuHoaDon
+            // 
+            btnMenuHoaDon.Dock = DockStyle.Top;
+            btnMenuHoaDon.Location = new Point(0, 176);
+            btnMenuHoaDon.Name = "btnMenuHoaDon";
+            btnMenuHoaDon.Size = new Size(200, 44);
+            btnMenuHoaDon.TabIndex = 4;
+            btnMenuHoaDon.Text = "Quản lý hóa đơn";
+            btnMenuHoaDon.UseVisualStyleBackColor = true;
+            btnMenuHoaDon.Click += btnMenuHoaDon_Click;
+            // 
+            // btnMenuVoucher
+            // 
+            btnMenuVoucher.Dock = DockStyle.Top;
+            btnMenuVoucher.Location = new Point(0, 132);
+            btnMenuVoucher.Name = "btnMenuVoucher";
+            btnMenuVoucher.Size = new Size(200, 44);
+            btnMenuVoucher.TabIndex = 3;
+            btnMenuVoucher.Text = "Quản lý voucher";
+            btnMenuVoucher.UseVisualStyleBackColor = true;
+            btnMenuVoucher.Click += btnMenuVoucher_Click;
+            // 
+            // btnMenuLoaiVe
+            // 
+            btnMenuLoaiVe.Dock = DockStyle.Top;
+            btnMenuLoaiVe.Location = new Point(0, 88);
+            btnMenuLoaiVe.Name = "btnMenuLoaiVe";
+            btnMenuLoaiVe.Size = new Size(200, 44);
+            btnMenuLoaiVe.TabIndex = 2;
+            btnMenuLoaiVe.Text = "Phân loại vé";
+            btnMenuLoaiVe.UseVisualStyleBackColor = true;
+            btnMenuLoaiVe.Click += btnMenuLoaiVe_Click;
+            // 
+            // btnMenuVe
+            // 
+            btnMenuVe.Dock = DockStyle.Top;
+            btnMenuVe.Location = new Point(0, 44);
+            btnMenuVe.Name = "btnMenuVe";
+            btnMenuVe.Size = new Size(200, 44);
+            btnMenuVe.TabIndex = 1;
+            btnMenuVe.Text = "Quản lý vé";
+            btnMenuVe.UseVisualStyleBackColor = true;
+            btnMenuVe.Click += btnMenuVe_Click;
+            // 
+            // btnMenuNguoiDung
+            // 
+            btnMenuNguoiDung.Dock = DockStyle.Top;
+            btnMenuNguoiDung.Location = new Point(0, 0);
+            btnMenuNguoiDung.Name = "btnMenuNguoiDung";
+            btnMenuNguoiDung.Size = new Size(200, 44);
+            btnMenuNguoiDung.TabIndex = 0;
+            btnMenuNguoiDung.Text = "Quản lý người dùng";
+            btnMenuNguoiDung.UseVisualStyleBackColor = true;
+            btnMenuNguoiDung.Click += btnMenuNguoiDung_Click;
             // 
             // pnlNoiDung
             // 
@@ -222,7 +244,7 @@ namespace doanbanve.Forms
             pnlNoiDung.Controls.Add(pnlQuanLyVe);
             pnlNoiDung.Controls.Add(pnlNguoiDung);
             pnlNoiDung.Dock = DockStyle.Fill;
-            pnlNoiDung.Location = new Point(180, 0);
+            pnlNoiDung.Location = new Point(200, 0);
             pnlNoiDung.Name = "pnlNoiDung";
             pnlNoiDung.Padding = new Padding(16);
             pnlNoiDung.Size = new Size(1000, 640);
@@ -230,12 +252,16 @@ namespace doanbanve.Forms
             // 
             // pnlThongKe
             // 
+            pnlThongKe.Controls.Add(pnlBieuDo);
             pnlThongKe.Controls.Add(dgvThongKeLoaiVe);
             pnlThongKe.Controls.Add(lblThongKeTongVe);
             pnlThongKe.Controls.Add(lblThongKeThanhTien);
             pnlThongKe.Controls.Add(lblThongKeTongGiam);
             pnlThongKe.Controls.Add(lblThongKeTongTien);
             pnlThongKe.Controls.Add(lblThongKeTongHoaDon);
+            pnlThongKe.Controls.Add(lblThongKeTrungBinhHoaDon);
+            pnlThongKe.Controls.Add(lblThongKeLoaiVeBanChay);
+            pnlThongKe.Controls.Add(pnlBoLocThongKe);
             pnlThongKe.Dock = DockStyle.Fill;
             pnlThongKe.Location = new Point(16, 16);
             pnlThongKe.Name = "pnlThongKe";
@@ -243,64 +269,171 @@ namespace doanbanve.Forms
             pnlThongKe.TabIndex = 5;
             pnlThongKe.Visible = false;
             // 
-            // lblThongKeTongHoaDon
+            // pnlBieuDo
             // 
-            lblThongKeTongHoaDon.AutoSize = true;
-            lblThongKeTongHoaDon.Location = new Point(0, 0);
-            lblThongKeTongHoaDon.Name = "lblThongKeTongHoaDon";
-            lblThongKeTongHoaDon.Size = new Size(108, 20);
-            lblThongKeTongHoaDon.TabIndex = 0;
-            lblThongKeTongHoaDon.Text = "Tổng hóa đơn:";
-            // 
-            // lblThongKeTongTien
-            // 
-            lblThongKeTongTien.AutoSize = true;
-            lblThongKeTongTien.Location = new Point(0, 28);
-            lblThongKeTongTien.Name = "lblThongKeTongTien";
-            lblThongKeTongTien.Size = new Size(74, 20);
-            lblThongKeTongTien.TabIndex = 1;
-            lblThongKeTongTien.Text = "Tổng tiền:";
-            // 
-            // lblThongKeTongGiam
-            // 
-            lblThongKeTongGiam.AutoSize = true;
-            lblThongKeTongGiam.Location = new Point(0, 56);
-            lblThongKeTongGiam.Name = "lblThongKeTongGiam";
-            lblThongKeTongGiam.Size = new Size(104, 20);
-            lblThongKeTongGiam.TabIndex = 2;
-            lblThongKeTongGiam.Text = "Tổng giảm giá:";
-            // 
-            // lblThongKeThanhTien
-            // 
-            lblThongKeThanhTien.AutoSize = true;
-            lblThongKeThanhTien.Location = new Point(0, 84);
-            lblThongKeThanhTien.Name = "lblThongKeThanhTien";
-            lblThongKeThanhTien.Size = new Size(90, 20);
-            lblThongKeThanhTien.TabIndex = 3;
-            lblThongKeThanhTien.Text = "Thành tiền:";
-            // 
-            // lblThongKeTongVe
-            // 
-            lblThongKeTongVe.AutoSize = true;
-            lblThongKeTongVe.Location = new Point(0, 112);
-            lblThongKeTongVe.Name = "lblThongKeTongVe";
-            lblThongKeTongVe.Size = new Size(88, 20);
-            lblThongKeTongVe.TabIndex = 4;
-            lblThongKeTongVe.Text = "Tổng vé bán:";
+            pnlBieuDo.BackColor = Color.White;
+            pnlBieuDo.BorderStyle = BorderStyle.FixedSingle;
+            pnlBieuDo.Location = new Point(280, 64);
+            pnlBieuDo.Name = "pnlBieuDo";
+            pnlBieuDo.Size = new Size(680, 324);
+            pnlBieuDo.TabIndex = 6;
             // 
             // dgvThongKeLoaiVe
             // 
             dgvThongKeLoaiVe.AllowUserToAddRows = false;
             dgvThongKeLoaiVe.AllowUserToDeleteRows = false;
             dgvThongKeLoaiVe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvThongKeLoaiVe.ColumnHeadersHeight = 29;
             dgvThongKeLoaiVe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvThongKeLoaiVe.Location = new Point(0, 148);
+            dgvThongKeLoaiVe.Location = new Point(0, 400);
             dgvThongKeLoaiVe.Name = "dgvThongKeLoaiVe";
             dgvThongKeLoaiVe.ReadOnly = true;
             dgvThongKeLoaiVe.RowHeadersVisible = false;
+            dgvThongKeLoaiVe.RowHeadersWidth = 51;
             dgvThongKeLoaiVe.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvThongKeLoaiVe.Size = new Size(968, 450);
+            dgvThongKeLoaiVe.Size = new Size(968, 208);
             dgvThongKeLoaiVe.TabIndex = 5;
+            // 
+            // lblThongKeTongVe
+            // 
+            lblThongKeTongVe.AutoSize = true;
+            lblThongKeTongVe.Location = new Point(12, 172);
+            lblThongKeTongVe.Name = "lblThongKeTongVe";
+            lblThongKeTongVe.Size = new Size(94, 20);
+            lblThongKeTongVe.TabIndex = 4;
+            lblThongKeTongVe.Text = "Tổng vé bán:";
+            // 
+            // lblThongKeThanhTien
+            // 
+            lblThongKeThanhTien.AutoSize = true;
+            lblThongKeThanhTien.Location = new Point(12, 144);
+            lblThongKeThanhTien.Name = "lblThongKeThanhTien";
+            lblThongKeThanhTien.Size = new Size(81, 20);
+            lblThongKeThanhTien.TabIndex = 3;
+            lblThongKeThanhTien.Text = "Thành tiền:";
+            // 
+            // lblThongKeTongGiam
+            // 
+            lblThongKeTongGiam.AutoSize = true;
+            lblThongKeTongGiam.Location = new Point(12, 116);
+            lblThongKeTongGiam.Name = "lblThongKeTongGiam";
+            lblThongKeTongGiam.Size = new Size(109, 20);
+            lblThongKeTongGiam.TabIndex = 2;
+            lblThongKeTongGiam.Text = "Tổng giảm giá:";
+            // 
+            // lblThongKeTongTien
+            // 
+            lblThongKeTongTien.AutoSize = true;
+            lblThongKeTongTien.Location = new Point(12, 88);
+            lblThongKeTongTien.Name = "lblThongKeTongTien";
+            lblThongKeTongTien.Size = new Size(75, 20);
+            lblThongKeTongTien.TabIndex = 1;
+            lblThongKeTongTien.Text = "Tổng tiền:";
+            // 
+            // lblThongKeTongHoaDon
+            // 
+            lblThongKeTongHoaDon.AutoSize = true;
+            lblThongKeTongHoaDon.Location = new Point(12, 60);
+            lblThongKeTongHoaDon.Name = "lblThongKeTongHoaDon";
+            lblThongKeTongHoaDon.Size = new Size(105, 20);
+            lblThongKeTongHoaDon.TabIndex = 0;
+            lblThongKeTongHoaDon.Text = "Tổng hóa đơn:";
+            // 
+            // lblThongKeTrungBinhHoaDon
+            // 
+            lblThongKeTrungBinhHoaDon.AutoSize = true;
+            lblThongKeTrungBinhHoaDon.Location = new Point(12, 200);
+            lblThongKeTrungBinhHoaDon.Name = "lblThongKeTrungBinhHoaDon";
+            lblThongKeTrungBinhHoaDon.Size = new Size(90, 20);
+            lblThongKeTrungBinhHoaDon.TabIndex = 7;
+            lblThongKeTrungBinhHoaDon.Text = "TB/hóa đơn:";
+            // 
+            // lblThongKeLoaiVeBanChay
+            // 
+            lblThongKeLoaiVeBanChay.AutoSize = true;
+            lblThongKeLoaiVeBanChay.Location = new Point(12, 228);
+            lblThongKeLoaiVeBanChay.Name = "lblThongKeLoaiVeBanChay";
+            lblThongKeLoaiVeBanChay.Size = new Size(122, 20);
+            lblThongKeLoaiVeBanChay.TabIndex = 8;
+            lblThongKeLoaiVeBanChay.Text = "Loại vé bán chạy:";
+            // 
+            // pnlBoLocThongKe
+            // 
+            pnlBoLocThongKe.BackColor = Color.FromArgb(245, 245, 245);
+            pnlBoLocThongKe.BorderStyle = BorderStyle.FixedSingle;
+            pnlBoLocThongKe.Controls.Add(btnApDungThongKe);
+            pnlBoLocThongKe.Controls.Add(lblDenNgay);
+            pnlBoLocThongKe.Controls.Add(dtpDenNgay);
+            pnlBoLocThongKe.Controls.Add(lblTuNgay);
+            pnlBoLocThongKe.Controls.Add(dtpTuNgay);
+            pnlBoLocThongKe.Controls.Add(lblLoaiThongKe);
+            pnlBoLocThongKe.Controls.Add(cboLoaiThongKe);
+            pnlBoLocThongKe.Location = new Point(0, 0);
+            pnlBoLocThongKe.Name = "pnlBoLocThongKe";
+            pnlBoLocThongKe.Size = new Size(968, 56);
+            pnlBoLocThongKe.TabIndex = 0;
+            // 
+            // btnApDungThongKe
+            // 
+            btnApDungThongKe.Location = new Point(806, 11);
+            btnApDungThongKe.Name = "btnApDungThongKe";
+            btnApDungThongKe.Size = new Size(140, 32);
+            btnApDungThongKe.TabIndex = 6;
+            btnApDungThongKe.Text = "Áp dụng";
+            btnApDungThongKe.UseVisualStyleBackColor = true;
+            btnApDungThongKe.Click += btnApDungThongKe_Click;
+            // 
+            // lblDenNgay
+            // 
+            lblDenNgay.AutoSize = true;
+            lblDenNgay.Location = new Point(529, 18);
+            lblDenNgay.Name = "lblDenNgay";
+            lblDenNgay.Size = new Size(75, 20);
+            lblDenNgay.TabIndex = 5;
+            lblDenNgay.Text = "Đến ngày:";
+            // 
+            // dtpDenNgay
+            // 
+            dtpDenNgay.Format = DateTimePickerFormat.Short;
+            dtpDenNgay.Location = new Point(610, 13);
+            dtpDenNgay.Name = "dtpDenNgay";
+            dtpDenNgay.Size = new Size(190, 27);
+            dtpDenNgay.TabIndex = 4;
+            // 
+            // lblTuNgay
+            // 
+            lblTuNgay.AutoSize = true;
+            lblTuNgay.Location = new Point(268, 15);
+            lblTuNgay.Name = "lblTuNgay";
+            lblTuNgay.Size = new Size(65, 20);
+            lblTuNgay.TabIndex = 3;
+            lblTuNgay.Text = "Từ ngày:";
+            // 
+            // dtpTuNgay
+            // 
+            dtpTuNgay.Format = DateTimePickerFormat.Short;
+            dtpTuNgay.Location = new Point(339, 13);
+            dtpTuNgay.Name = "dtpTuNgay";
+            dtpTuNgay.Size = new Size(184, 27);
+            dtpTuNgay.TabIndex = 2;
+            // 
+            // lblLoaiThongKe
+            // 
+            lblLoaiThongKe.AutoSize = true;
+            lblLoaiThongKe.Location = new Point(16, 16);
+            lblLoaiThongKe.Name = "lblLoaiThongKe";
+            lblLoaiThongKe.Size = new Size(102, 20);
+            lblLoaiThongKe.TabIndex = 1;
+            lblLoaiThongKe.Text = "Loại thống kê:";
+            // 
+            // cboLoaiThongKe
+            // 
+            cboLoaiThongKe.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboLoaiThongKe.Location = new Point(124, 12);
+            cboLoaiThongKe.Name = "cboLoaiThongKe";
+            cboLoaiThongKe.Size = new Size(125, 28);
+            cboLoaiThongKe.TabIndex = 0;
+            cboLoaiThongKe.SelectedIndexChanged += cboLoaiThongKe_SelectedIndexChanged;
             // 
             // pnlQuanLyHoaDon
             // 
@@ -313,20 +446,6 @@ namespace doanbanve.Forms
             pnlQuanLyHoaDon.TabIndex = 4;
             pnlQuanLyHoaDon.Visible = false;
             // 
-            // dgvHoaDon
-            // 
-            dgvHoaDon.AllowUserToAddRows = false;
-            dgvHoaDon.AllowUserToDeleteRows = false;
-            dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvHoaDon.Location = new Point(0, 0);
-            dgvHoaDon.Name = "dgvHoaDon";
-            dgvHoaDon.ReadOnly = true;
-            dgvHoaDon.RowHeadersVisible = false;
-            dgvHoaDon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvHoaDon.Size = new Size(968, 520);
-            dgvHoaDon.TabIndex = 0;
-            // 
             // btnChiTietHoaDon
             // 
             btnChiTietHoaDon.Location = new Point(0, 540);
@@ -336,6 +455,81 @@ namespace doanbanve.Forms
             btnChiTietHoaDon.Text = "Chi tiết hóa đơn";
             btnChiTietHoaDon.UseVisualStyleBackColor = true;
             btnChiTietHoaDon.Click += btnChiTietHoaDon_Click;
+            // 
+            // dgvHoaDon
+            // 
+            dgvHoaDon.AllowUserToAddRows = false;
+            dgvHoaDon.AllowUserToDeleteRows = false;
+            dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvHoaDon.ColumnHeadersHeight = 29;
+            dgvHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvHoaDon.Location = new Point(0, 0);
+            dgvHoaDon.Name = "dgvHoaDon";
+            dgvHoaDon.ReadOnly = true;
+            dgvHoaDon.RowHeadersVisible = false;
+            dgvHoaDon.RowHeadersWidth = 51;
+            dgvHoaDon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvHoaDon.Size = new Size(968, 520);
+            dgvHoaDon.TabIndex = 0;
+            // 
+            // pnlQuanLyVoucher
+            // 
+            pnlQuanLyVoucher.Controls.Add(btnXoaVoucher);
+            pnlQuanLyVoucher.Controls.Add(btnSuaVoucher);
+            pnlQuanLyVoucher.Controls.Add(btnThemVoucher);
+            pnlQuanLyVoucher.Controls.Add(dgvVoucher);
+            pnlQuanLyVoucher.Dock = DockStyle.Fill;
+            pnlQuanLyVoucher.Location = new Point(16, 16);
+            pnlQuanLyVoucher.Name = "pnlQuanLyVoucher";
+            pnlQuanLyVoucher.Size = new Size(968, 608);
+            pnlQuanLyVoucher.TabIndex = 3;
+            pnlQuanLyVoucher.Visible = false;
+            // 
+            // btnXoaVoucher
+            // 
+            btnXoaVoucher.Location = new Point(200, 444);
+            btnXoaVoucher.Name = "btnXoaVoucher";
+            btnXoaVoucher.Size = new Size(90, 28);
+            btnXoaVoucher.TabIndex = 3;
+            btnXoaVoucher.Text = "Xóa";
+            btnXoaVoucher.UseVisualStyleBackColor = true;
+            btnXoaVoucher.Click += btnXoaVoucher_Click;
+            // 
+            // btnSuaVoucher
+            // 
+            btnSuaVoucher.Location = new Point(100, 444);
+            btnSuaVoucher.Name = "btnSuaVoucher";
+            btnSuaVoucher.Size = new Size(90, 28);
+            btnSuaVoucher.TabIndex = 2;
+            btnSuaVoucher.Text = "Sửa";
+            btnSuaVoucher.UseVisualStyleBackColor = true;
+            btnSuaVoucher.Click += btnSuaVoucher_Click;
+            // 
+            // btnThemVoucher
+            // 
+            btnThemVoucher.Location = new Point(0, 444);
+            btnThemVoucher.Name = "btnThemVoucher";
+            btnThemVoucher.Size = new Size(90, 28);
+            btnThemVoucher.TabIndex = 1;
+            btnThemVoucher.Text = "Thêm";
+            btnThemVoucher.UseVisualStyleBackColor = true;
+            btnThemVoucher.Click += btnThemVoucher_Click;
+            // 
+            // dgvVoucher
+            // 
+            dgvVoucher.AllowUserToAddRows = false;
+            dgvVoucher.AllowUserToDeleteRows = false;
+            dgvVoucher.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvVoucher.ColumnHeadersHeight = 29;
+            dgvVoucher.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvVoucher.Location = new Point(0, 0);
+            dgvVoucher.Name = "dgvVoucher";
+            dgvVoucher.ReadOnly = true;
+            dgvVoucher.RowHeadersVisible = false;
+            dgvVoucher.RowHeadersWidth = 51;
+            dgvVoucher.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvVoucher.Size = new Size(968, 420);
+            dgvVoucher.TabIndex = 0;
             // 
             // pnlQuanLyLoaiVe
             // 
@@ -349,6 +543,7 @@ namespace doanbanve.Forms
             pnlQuanLyLoaiVe.Size = new Size(968, 608);
             pnlQuanLyLoaiVe.TabIndex = 2;
             pnlQuanLyLoaiVe.Visible = false;
+            // 
             // btnXoaLoaiVe
             // 
             btnXoaLoaiVe.Location = new Point(206, 564);
@@ -384,6 +579,7 @@ namespace doanbanve.Forms
             dgvLoaiVe.AllowUserToAddRows = false;
             dgvLoaiVe.AllowUserToDeleteRows = false;
             dgvLoaiVe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvLoaiVe.ColumnHeadersHeight = 29;
             dgvLoaiVe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvLoaiVe.Location = new Point(0, 0);
             dgvLoaiVe.Name = "dgvLoaiVe";
@@ -407,63 +603,6 @@ namespace doanbanve.Forms
             pnlQuanLyVe.Size = new Size(968, 608);
             pnlQuanLyVe.TabIndex = 1;
             pnlQuanLyVe.Visible = false;
-            // 
-            // pnlQuanLyVoucher
-            // 
-            pnlQuanLyVoucher.Controls.Add(btnXoaVoucher);
-            pnlQuanLyVoucher.Controls.Add(btnSuaVoucher);
-            pnlQuanLyVoucher.Controls.Add(btnThemVoucher);
-            pnlQuanLyVoucher.Controls.Add(dgvVoucher);
-            pnlQuanLyVoucher.Dock = DockStyle.Fill;
-            pnlQuanLyVoucher.Location = new Point(16, 16);
-            pnlQuanLyVoucher.Name = "pnlQuanLyVoucher";
-            pnlQuanLyVoucher.Size = new Size(968, 608);
-            pnlQuanLyVoucher.TabIndex = 3;
-            pnlQuanLyVoucher.Visible = false;
-            // 
-            // dgvVoucher
-            // 
-            dgvVoucher.AllowUserToAddRows = false;
-            dgvVoucher.AllowUserToDeleteRows = false;
-            dgvVoucher.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvVoucher.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvVoucher.Location = new Point(0, 0);
-            dgvVoucher.Name = "dgvVoucher";
-            dgvVoucher.ReadOnly = true;
-            dgvVoucher.RowHeadersVisible = false;
-            dgvVoucher.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvVoucher.Size = new Size(968, 420);
-            dgvVoucher.TabIndex = 0;
-            // 
-            // btnThemVoucher
-            // 
-            btnThemVoucher.Location = new Point(0, 444);
-            btnThemVoucher.Name = "btnThemVoucher";
-            btnThemVoucher.Size = new Size(90, 28);
-            btnThemVoucher.TabIndex = 1;
-            btnThemVoucher.Text = "Thêm";
-            btnThemVoucher.UseVisualStyleBackColor = true;
-            btnThemVoucher.Click += btnThemVoucher_Click;
-            // 
-            // btnSuaVoucher
-            // 
-            btnSuaVoucher.Location = new Point(100, 444);
-            btnSuaVoucher.Name = "btnSuaVoucher";
-            btnSuaVoucher.Size = new Size(90, 28);
-            btnSuaVoucher.TabIndex = 2;
-            btnSuaVoucher.Text = "Sửa";
-            btnSuaVoucher.UseVisualStyleBackColor = true;
-            btnSuaVoucher.Click += btnSuaVoucher_Click;
-            // 
-            // btnXoaVoucher
-            // 
-            btnXoaVoucher.Location = new Point(200, 444);
-            btnXoaVoucher.Name = "btnXoaVoucher";
-            btnXoaVoucher.Size = new Size(90, 28);
-            btnXoaVoucher.TabIndex = 3;
-            btnXoaVoucher.Text = "Xóa";
-            btnXoaVoucher.UseVisualStyleBackColor = true;
-            btnXoaVoucher.Click += btnXoaVoucher_Click;
             // 
             // btnLamMoiVe
             // 
@@ -510,6 +649,7 @@ namespace doanbanve.Forms
             dgvVe.AllowUserToAddRows = false;
             dgvVe.AllowUserToDeleteRows = false;
             dgvVe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvVe.ColumnHeadersHeight = 29;
             dgvVe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvVe.Location = new Point(0, 0);
             dgvVe.Name = "dgvVe";
@@ -520,7 +660,6 @@ namespace doanbanve.Forms
             dgvVe.Size = new Size(968, 540);
             dgvVe.TabIndex = 0;
             dgvVe.CellContentClick += dgvVe_ThongTinVe_Click;
-            // 
             // 
             // pnlNguoiDung
             // 
@@ -569,6 +708,40 @@ namespace doanbanve.Forms
             dgvNguoiDung.Size = new Size(968, 500);
             dgvNguoiDung.TabIndex = 0;
             // 
+            // pnlNhapMatKhau
+            // 
+            pnlNhapMatKhau.Location = new Point(0, 0);
+            pnlNhapMatKhau.Name = "pnlNhapMatKhau";
+            pnlNhapMatKhau.Size = new Size(200, 100);
+            pnlNhapMatKhau.TabIndex = 0;
+            // 
+            // btnHuyMatKhau
+            // 
+            btnHuyMatKhau.Location = new Point(0, 0);
+            btnHuyMatKhau.Name = "btnHuyMatKhau";
+            btnHuyMatKhau.Size = new Size(75, 23);
+            btnHuyMatKhau.TabIndex = 0;
+            // 
+            // btnXacNhanMatKhau
+            // 
+            btnXacNhanMatKhau.Location = new Point(0, 0);
+            btnXacNhanMatKhau.Name = "btnXacNhanMatKhau";
+            btnXacNhanMatKhau.Size = new Size(75, 23);
+            btnXacNhanMatKhau.TabIndex = 0;
+            // 
+            // txtMatKhauMoi
+            // 
+            txtMatKhauMoi.Location = new Point(0, 0);
+            txtMatKhauMoi.Name = "txtMatKhauMoi";
+            txtMatKhauMoi.Size = new Size(100, 27);
+            txtMatKhauMoi.TabIndex = 0;
+            // 
+            // lblMatKhauMoi
+            // 
+            lblMatKhauMoi.Location = new Point(0, 0);
+            lblMatKhauMoi.Name = "lblMatKhauMoi";
+            lblMatKhauMoi.Size = new Size(100, 23);
+            lblMatKhauMoi.TabIndex = 0;
             // 
             // frmDashboardQuanLy
             // 
@@ -585,17 +758,19 @@ namespace doanbanve.Forms
             Load += frmDashboardQuanLy_Load;
             pnlMenu.ResumeLayout(false);
             pnlNoiDung.ResumeLayout(false);
+            pnlThongKe.ResumeLayout(false);
+            pnlThongKe.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvThongKeLoaiVe).EndInit();
+            pnlBoLocThongKe.ResumeLayout(false);
+            pnlBoLocThongKe.PerformLayout();
+            pnlQuanLyHoaDon.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).EndInit();
+            pnlQuanLyVoucher.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvVoucher).EndInit();
             pnlQuanLyLoaiVe.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvLoaiVe).EndInit();
             pnlQuanLyVe.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvVe).EndInit();
-            pnlQuanLyVoucher.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvVoucher).EndInit();
-            pnlQuanLyHoaDon.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).EndInit();
-            pnlThongKe.ResumeLayout(false);
-            pnlThongKe.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvThongKeLoaiVe).EndInit();
             pnlNguoiDung.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvNguoiDung).EndInit();
             ResumeLayout(false);

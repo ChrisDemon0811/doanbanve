@@ -1,11 +1,13 @@
 using doanbanve.Controllers;
 using doanbanve.Models;
+using System.Drawing;
 
 namespace doanbanve.Forms
 {
     public partial class frmNhapVe : Form
     {
         private readonly LoaiVeController loaiVeController = new();
+        private string? duongDanAnh;
         public Ve? VeHienTai { get; private set; }
 
         public frmNhapVe(Ve? ve)
@@ -27,7 +29,46 @@ namespace doanbanve.Forms
                 txtGiaNguoiCaoTuoi.Text = VeHienTai.GiaNguoiCaoTuoi.ToString();
                 txtSoLuong.Text = VeHienTai.SoLuong.ToString();
                 txtMoTa.Text = VeHienTai.MoTa ?? string.Empty;
-                txtThongTinVe.Text = VeHienTai.ThongTinVe ?? string.Empty;
+                var noiDung = VeHienTai.ThongTinVe ?? string.Empty;
+                if (LaRtf(noiDung))
+                {
+                    rtbThongTinVe.Rtf = noiDung;
+                }
+                else
+                {
+                    rtbThongTinVe.Text = noiDung;
+                }
+                duongDanAnh = VeHienTai.AnhVe;
+                TaiAnhVe();
+            }
+
+            NapCoChu();
+        }
+
+        private void NapCoChu()
+        {
+            cboCoChu.Items.Clear();
+            cboCoChu.Items.AddRange(new object[] { "10", "11", "12", "14", "16", "18", "20", "24", "28" });
+            cboCoChu.SelectedIndex = 2;
+        }
+
+        private void TaiAnhVe()
+        {
+            if (string.IsNullOrWhiteSpace(duongDanAnh))
+            {
+                picAnhVe.Image = null;
+                return;
+            }
+
+            var duongDanTuyetDoi = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "image", duongDanAnh);
+            if (File.Exists(duongDanTuyetDoi))
+            {
+                using var anh = Image.FromFile(duongDanTuyetDoi);
+                picAnhVe.Image = new Bitmap(anh);
+            }
+            else
+            {
+                picAnhVe.Image = null;
             }
         }
 
@@ -111,9 +152,106 @@ namespace doanbanve.Forms
             ve.GiaNguoiCaoTuoi = giaNguoiCaoTuoi;
             ve.SoLuong = soLuong;
             ve.MoTa = txtMoTa.Text.Trim();
-            ve.ThongTinVe = txtThongTinVe.Text.Trim();
+            ve.ThongTinVe = rtbThongTinVe.Rtf;
+            ve.AnhVe = duongDanAnh;
             ve.TrangThai = true;
             return true;
+        }
+
+        private void btnChonAnh_Click(object sender, EventArgs e)
+        {
+            using var hopThoai = new OpenFileDialog
+            {
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp",
+                Title = "Chọn ảnh vé"
+            };
+
+            if (hopThoai.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            try
+            {
+                var thuMucAnh = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "image");
+                if (!Directory.Exists(thuMucAnh))
+                {
+                    Directory.CreateDirectory(thuMucAnh);
+                }
+
+                var tenFile = $"ve_{DateTime.Now:yyyyMMddHHmmss}_{Path.GetFileName(hopThoai.FileName)}";
+                var duongDanDich = Path.Combine(thuMucAnh, tenFile);
+                File.Copy(hopThoai.FileName, duongDanDich, true);
+                duongDanAnh = tenFile;
+                TaiAnhVe();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDam_Click(object sender, EventArgs e)
+        {
+            ApDungDinhDang(FontStyle.Bold);
+        }
+
+        private void btnNghieng_Click(object sender, EventArgs e)
+        {
+            ApDungDinhDang(FontStyle.Italic);
+        }
+
+        private void btnGachChan_Click(object sender, EventArgs e)
+        {
+            ApDungDinhDang(FontStyle.Underline);
+        }
+
+        private void btnCanTrai_Click(object sender, EventArgs e)
+        {
+            rtbThongTinVe.SelectionAlignment = HorizontalAlignment.Left;
+        }
+
+        private void btnCanGiua_Click(object sender, EventArgs e)
+        {
+            rtbThongTinVe.SelectionAlignment = HorizontalAlignment.Center;
+        }
+
+        private void btnCanPhai_Click(object sender, EventArgs e)
+        {
+            rtbThongTinVe.SelectionAlignment = HorizontalAlignment.Right;
+        }
+
+        private void btnGachDauDong_Click(object sender, EventArgs e)
+        {
+            rtbThongTinVe.SelectionBullet = !rtbThongTinVe.SelectionBullet;
+        }
+
+        private void cboCoChu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboCoChu.SelectedItem == null)
+            {
+                return;
+            }
+
+            if (!float.TryParse(cboCoChu.SelectedItem.ToString(), out var coChu))
+            {
+                return;
+            }
+
+            var fontHienTai = rtbThongTinVe.SelectionFont ?? rtbThongTinVe.Font;
+            rtbThongTinVe.SelectionFont = new Font(fontHienTai.FontFamily, coChu, fontHienTai.Style);
+        }
+
+        private void ApDungDinhDang(FontStyle kieuChu)
+        {
+            var fontHienTai = rtbThongTinVe.SelectionFont ?? rtbThongTinVe.Font;
+            var kieuMoi = fontHienTai.Style ^ kieuChu;
+            rtbThongTinVe.SelectionFont = new Font(fontHienTai.FontFamily, fontHienTai.Size, kieuMoi);
+        }
+
+        private static bool LaRtf(string giaTri)
+        {
+            return giaTri.TrimStart().StartsWith(@"{\rtf", StringComparison.OrdinalIgnoreCase);
         }
     }
 }

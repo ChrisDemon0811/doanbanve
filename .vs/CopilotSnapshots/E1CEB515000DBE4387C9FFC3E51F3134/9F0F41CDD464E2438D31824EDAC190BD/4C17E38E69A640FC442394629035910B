@@ -1,0 +1,385 @@
+﻿namespace doanbanve.Forms
+{
+    partial class frmNhapVe
+    {
+        private System.ComponentModel.IContainer components = null;
+        private Label lblTenVe;
+        private TextBox txtTenVe;
+        private Label lblLoaiVe;
+        private ComboBox cboLoaiVe;
+        private Label lblGiaVe;
+        private TextBox txtGiaVe;
+        private Label lblGiaNguoiLon;
+        private TextBox txtGiaNguoiLon;
+        private Label lblGiaTreEm;
+        private TextBox txtGiaTreEm;
+        private Label lblGiaNguoiCaoTuoi;
+        private TextBox txtGiaNguoiCaoTuoi;
+        private Label lblSoLuong;
+        private TextBox txtSoLuong;
+        private Label lblMoTa;
+        private TextBox txtMoTa;
+        private Label lblThongTinVe;
+        private RichTextBox rtbThongTinVe;
+        private Label lblAnhVe;
+        private PictureBox picAnhVe;
+        private Button btnChonAnh;
+        private ToolStrip toolDinhDang;
+        private ToolStripButton btnDam;
+        private ToolStripButton btnNghieng;
+        private ToolStripButton btnGachChan;
+        private ToolStripButton btnCanTrai;
+        private ToolStripButton btnCanGiua;
+        private ToolStripButton btnCanPhai;
+        private ToolStripComboBox cboCoChu;
+        private Button btnLuu;
+        private Button btnHuy;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            lblTenVe = new Label();
+            txtTenVe = new TextBox();
+            lblLoaiVe = new Label();
+            cboLoaiVe = new ComboBox();
+            lblGiaVe = new Label();
+            txtGiaVe = new TextBox();
+            lblGiaNguoiLon = new Label();
+            txtGiaNguoiLon = new TextBox();
+            lblGiaTreEm = new Label();
+            txtGiaTreEm = new TextBox();
+            lblGiaNguoiCaoTuoi = new Label();
+            txtGiaNguoiCaoTuoi = new TextBox();
+            lblSoLuong = new Label();
+            txtSoLuong = new TextBox();
+            lblMoTa = new Label();
+            txtMoTa = new TextBox();
+            lblThongTinVe = new Label();
+            rtbThongTinVe = new RichTextBox();
+            lblAnhVe = new Label();
+            picAnhVe = new PictureBox();
+            btnChonAnh = new Button();
+            toolDinhDang = new ToolStrip();
+            btnDam = new ToolStripButton();
+            btnNghieng = new ToolStripButton();
+            btnGachChan = new ToolStripButton();
+            btnCanTrai = new ToolStripButton();
+            btnCanGiua = new ToolStripButton();
+            btnCanPhai = new ToolStripButton();
+            cboCoChu = new ToolStripComboBox();
+            btnLuu = new Button();
+            btnHuy = new Button();
+            ((System.ComponentModel.ISupportInitialize)picAnhVe).BeginInit();
+            toolDinhDang.SuspendLayout();
+            SuspendLayout();
+            // 
+            // lblTenVe
+            // 
+            lblTenVe.AutoSize = true;
+            lblTenVe.Location = new Point(20, 20);
+            lblTenVe.Name = "lblTenVe";
+            lblTenVe.Size = new Size(54, 20);
+            lblTenVe.TabIndex = 0;
+            lblTenVe.Text = "Tên vé:";
+            // 
+            // txtTenVe
+            // 
+            txtTenVe.Location = new Point(100, 16);
+            txtTenVe.Name = "txtTenVe";
+            txtTenVe.Size = new Size(220, 27);
+            txtTenVe.TabIndex = 1;
+            // 
+            // lblLoaiVe
+            // 
+            lblLoaiVe.AutoSize = true;
+            lblLoaiVe.Location = new Point(340, 20);
+            lblLoaiVe.Name = "lblLoaiVe";
+            lblLoaiVe.Size = new Size(59, 20);
+            lblLoaiVe.TabIndex = 2;
+            lblLoaiVe.Text = "Loại vé:";
+            // 
+            // cboLoaiVe
+            // 
+            cboLoaiVe.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboLoaiVe.Location = new Point(400, 16);
+            cboLoaiVe.Name = "cboLoaiVe";
+            cboLoaiVe.Size = new Size(200, 28);
+            cboLoaiVe.TabIndex = 3;
+            // 
+            // lblGiaVe
+            // 
+            lblGiaVe.AutoSize = true;
+            lblGiaVe.Location = new Point(20, 56);
+            lblGiaVe.Name = "lblGiaVe";
+            lblGiaVe.Size = new Size(53, 20);
+            lblGiaVe.TabIndex = 4;
+            lblGiaVe.Text = "Giá vé:";
+            // 
+            // txtGiaVe
+            // 
+            txtGiaVe.Location = new Point(100, 52);
+            txtGiaVe.Name = "txtGiaVe";
+            txtGiaVe.Size = new Size(134, 27);
+            txtGiaVe.TabIndex = 5;
+            // 
+            // lblGiaNguoiLon
+            // 
+            lblGiaNguoiLon.AutoSize = true;
+            lblGiaNguoiLon.Location = new Point(240, 56);
+            lblGiaNguoiLon.Name = "lblGiaNguoiLon";
+            lblGiaNguoiLon.Size = new Size(102, 20);
+            lblGiaNguoiLon.TabIndex = 6;
+            lblGiaNguoiLon.Text = "Giá người lớn:";
+            // 
+            // txtGiaNguoiLon
+            // 
+            txtGiaNguoiLon.Location = new Point(340, 52);
+            txtGiaNguoiLon.Name = "txtGiaNguoiLon";
+            txtGiaNguoiLon.Size = new Size(124, 27);
+            txtGiaNguoiLon.TabIndex = 7;
+            // 
+            // lblGiaTreEm
+            // 
+            lblGiaTreEm.AutoSize = true;
+            lblGiaTreEm.Location = new Point(470, 56);
+            lblGiaTreEm.Name = "lblGiaTreEm";
+            lblGiaTreEm.Size = new Size(81, 20);
+            lblGiaTreEm.TabIndex = 8;
+            lblGiaTreEm.Text = "Giá trẻ em:";
+            // 
+            // txtGiaTreEm
+            // 
+            txtGiaTreEm.Location = new Point(550, 52);
+            txtGiaTreEm.Name = "txtGiaTreEm";
+            txtGiaTreEm.Size = new Size(110, 27);
+            txtGiaTreEm.TabIndex = 9;
+            // 
+            // lblGiaNguoiCaoTuoi
+            // 
+            lblGiaNguoiCaoTuoi.AutoSize = true;
+            lblGiaNguoiCaoTuoi.Location = new Point(20, 92);
+            lblGiaNguoiCaoTuoi.Name = "lblGiaNguoiCaoTuoi";
+            lblGiaNguoiCaoTuoi.Size = new Size(135, 20);
+            lblGiaNguoiCaoTuoi.TabIndex = 10;
+            lblGiaNguoiCaoTuoi.Text = "Giá người cao tuổi:";
+            // 
+            // txtGiaNguoiCaoTuoi
+            // 
+            txtGiaNguoiCaoTuoi.Location = new Point(154, 88);
+            txtGiaNguoiCaoTuoi.Name = "txtGiaNguoiCaoTuoi";
+            txtGiaNguoiCaoTuoi.Size = new Size(118, 27);
+            txtGiaNguoiCaoTuoi.TabIndex = 11;
+            // 
+            // lblSoLuong
+            // 
+            lblSoLuong.AutoSize = true;
+            lblSoLuong.Location = new Point(270, 92);
+            lblSoLuong.Name = "lblSoLuong";
+            lblSoLuong.Size = new Size(72, 20);
+            lblSoLuong.TabIndex = 12;
+            lblSoLuong.Text = "Số lượng:";
+            // 
+            // txtSoLuong
+            // 
+            txtSoLuong.Location = new Point(340, 88);
+            txtSoLuong.Name = "txtSoLuong";
+            txtSoLuong.Size = new Size(120, 27);
+            txtSoLuong.TabIndex = 13;
+            // 
+            // lblMoTa
+            // 
+            lblMoTa.AutoSize = true;
+            lblMoTa.Location = new Point(20, 128);
+            lblMoTa.Name = "lblMoTa";
+            lblMoTa.Size = new Size(51, 20);
+            lblMoTa.TabIndex = 14;
+            lblMoTa.Text = "Mô tả:";
+            // 
+            // txtMoTa
+            // 
+            txtMoTa.Location = new Point(100, 124);
+            txtMoTa.Name = "txtMoTa";
+            txtMoTa.Size = new Size(560, 27);
+            txtMoTa.TabIndex = 15;
+            // 
+            // lblAnhVe
+            // 
+            lblAnhVe.AutoSize = true;
+            lblAnhVe.Location = new Point(20, 164);
+            lblAnhVe.Name = "lblAnhVe";
+            lblAnhVe.Size = new Size(55, 20);
+            lblAnhVe.TabIndex = 16;
+            lblAnhVe.Text = "Ảnh vé:";
+            // 
+            // picAnhVe
+            // 
+            picAnhVe.BackColor = Color.FromArgb(245, 245, 245);
+            picAnhVe.BorderStyle = BorderStyle.FixedSingle;
+            picAnhVe.Location = new Point(100, 164);
+            picAnhVe.Name = "picAnhVe";
+            picAnhVe.Size = new Size(200, 120);
+            picAnhVe.SizeMode = PictureBoxSizeMode.Zoom;
+            picAnhVe.TabIndex = 17;
+            picAnhVe.TabStop = false;
+            // 
+            // btnChonAnh
+            // 
+            btnChonAnh.Location = new Point(320, 164);
+            btnChonAnh.Name = "btnChonAnh";
+            btnChonAnh.Size = new Size(90, 28);
+            btnChonAnh.TabIndex = 18;
+            btnChonAnh.Text = "Chọn ảnh";
+            btnChonAnh.UseVisualStyleBackColor = true;
+            btnChonAnh.Click += btnChonAnh_Click;
+            // 
+            // lblThongTinVe
+            // 
+            lblThongTinVe.AutoSize = true;
+            lblThongTinVe.Location = new Point(20, 296);
+            lblThongTinVe.Name = "lblThongTinVe";
+            lblThongTinVe.Size = new Size(94, 20);
+            lblThongTinVe.TabIndex = 19;
+            lblThongTinVe.Text = "Thông tin vé:";
+            // 
+            // toolDinhDang
+            // 
+            toolDinhDang.Items.AddRange(new ToolStripItem[] { btnDam, btnNghieng, btnGachChan, btnCanTrai, btnCanGiua, btnCanPhai, cboCoChu });
+            toolDinhDang.Location = new Point(0, 0);
+            toolDinhDang.Name = "toolDinhDang";
+            toolDinhDang.Size = new Size(690, 27);
+            toolDinhDang.TabIndex = 20;
+            toolDinhDang.Text = "toolStrip1";
+            // 
+            // btnDam
+            // 
+            btnDam.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnDam.Name = "btnDam";
+            btnDam.Size = new Size(23, 24);
+            btnDam.Text = "B";
+            btnDam.Click += btnDam_Click;
+            // 
+            // btnNghieng
+            // 
+            btnNghieng.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnNghieng.Name = "btnNghieng";
+            btnNghieng.Size = new Size(23, 24);
+            btnNghieng.Text = "I";
+            btnNghieng.Click += btnNghieng_Click;
+            // 
+            // btnGachChan
+            // 
+            btnGachChan.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnGachChan.Name = "btnGachChan";
+            btnGachChan.Size = new Size(23, 24);
+            btnGachChan.Text = "U";
+            btnGachChan.Click += btnGachChan_Click;
+            // 
+            // btnCanTrai
+            // 
+            btnCanTrai.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnCanTrai.Name = "btnCanTrai";
+            btnCanTrai.Size = new Size(23, 24);
+            btnCanTrai.Text = "L";
+            btnCanTrai.Click += btnCanTrai_Click;
+            // 
+            // btnCanGiua
+            // 
+            btnCanGiua.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnCanGiua.Name = "btnCanGiua";
+            btnCanGiua.Size = new Size(23, 24);
+            btnCanGiua.Text = "C";
+            btnCanGiua.Click += btnCanGiua_Click;
+            // 
+            // btnCanPhai
+            // 
+            btnCanPhai.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnCanPhai.Name = "btnCanPhai";
+            btnCanPhai.Size = new Size(23, 24);
+            btnCanPhai.Text = "R";
+            btnCanPhai.Click += btnCanPhai_Click;
+            // 
+            // cboCoChu
+            // 
+            cboCoChu.Name = "cboCoChu";
+            cboCoChu.Size = new Size(75, 27);
+            cboCoChu.SelectedIndexChanged += cboCoChu_SelectedIndexChanged;
+            // 
+            // rtbThongTinVe
+            // 
+            rtbThongTinVe.Location = new Point(120, 320);
+            rtbThongTinVe.Name = "rtbThongTinVe";
+            rtbThongTinVe.Size = new Size(540, 220);
+            rtbThongTinVe.TabIndex = 21;
+            rtbThongTinVe.Text = "";
+            // 
+            // btnLuu
+            // 
+            btnLuu.Location = new Point(460, 556);
+            btnLuu.Name = "btnLuu";
+            btnLuu.Size = new Size(90, 28);
+            btnLuu.TabIndex = 22;
+            btnLuu.Text = "Lưu";
+            btnLuu.UseVisualStyleBackColor = true;
+            btnLuu.Click += btnLuu_Click;
+            // 
+            // btnHuy
+            // 
+            btnHuy.Location = new Point(570, 556);
+            btnHuy.Name = "btnHuy";
+            btnHuy.Size = new Size(90, 28);
+            btnHuy.TabIndex = 23;
+            btnHuy.Text = "Hủy";
+            btnHuy.UseVisualStyleBackColor = true;
+            btnHuy.Click += btnHuy_Click;
+            // 
+            // frmNhapVe
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(690, 606);
+            Controls.Add(toolDinhDang);
+            Controls.Add(btnHuy);
+            Controls.Add(btnLuu);
+            Controls.Add(rtbThongTinVe);
+            Controls.Add(lblThongTinVe);
+            Controls.Add(btnChonAnh);
+            Controls.Add(picAnhVe);
+            Controls.Add(lblAnhVe);
+            Controls.Add(txtMoTa);
+            Controls.Add(lblMoTa);
+            Controls.Add(txtSoLuong);
+            Controls.Add(lblSoLuong);
+            Controls.Add(txtGiaNguoiCaoTuoi);
+            Controls.Add(lblGiaNguoiCaoTuoi);
+            Controls.Add(txtGiaTreEm);
+            Controls.Add(lblGiaTreEm);
+            Controls.Add(txtGiaNguoiLon);
+            Controls.Add(lblGiaNguoiLon);
+            Controls.Add(txtGiaVe);
+            Controls.Add(lblGiaVe);
+            Controls.Add(cboLoaiVe);
+            Controls.Add(lblLoaiVe);
+            Controls.Add(txtTenVe);
+            Controls.Add(lblTenVe);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            Name = "frmNhapVe";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Thông tin vé";
+            Load += frmNhapVe_Load;
+            ((System.ComponentModel.ISupportInitialize)picAnhVe).EndInit();
+            toolDinhDang.ResumeLayout(false);
+            toolDinhDang.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+    }
+}

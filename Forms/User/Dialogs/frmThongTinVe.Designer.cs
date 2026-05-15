@@ -4,7 +4,8 @@ namespace doanbanve.Forms
     {
         private System.ComponentModel.IContainer components = null;
         private Label lblTieuDe;
-        private TextBox txtThongTinVe;
+        private PictureBox picAnhVe;
+        private RichTextBox rtbThongTinVe;
 
         protected override void Dispose(bool disposing)
         {
@@ -18,7 +19,9 @@ namespace doanbanve.Forms
         private void InitializeComponent()
         {
             lblTieuDe = new Label();
-            txtThongTinVe = new TextBox();
+            picAnhVe = new PictureBox();
+            rtbThongTinVe = new RichTextBox();
+            ((System.ComponentModel.ISupportInitialize)picAnhVe).BeginInit();
             SuspendLayout();
             // 
             // lblTieuDe
@@ -31,26 +34,39 @@ namespace doanbanve.Forms
             lblTieuDe.TabIndex = 0;
             lblTieuDe.Text = "Thông tin vé";
             // 
-            // txtThongTinVe
+            // picAnhVe
             // 
-            txtThongTinVe.Location = new Point(16, 48);
-            txtThongTinVe.Multiline = true;
-            txtThongTinVe.Name = "txtThongTinVe";
-            txtThongTinVe.ReadOnly = true;
-            txtThongTinVe.ScrollBars = ScrollBars.Vertical;
-            txtThongTinVe.Size = new Size(760, 420);
-            txtThongTinVe.TabIndex = 1;
+            picAnhVe.BackColor = Color.FromArgb(245, 245, 245);
+            picAnhVe.BorderStyle = BorderStyle.FixedSingle;
+            picAnhVe.Location = new Point(16, 48);
+            picAnhVe.Name = "picAnhVe";
+            picAnhVe.Size = new Size(760, 220);
+            picAnhVe.SizeMode = PictureBoxSizeMode.StretchImage;
+            picAnhVe.TabIndex = 1;
+            picAnhVe.TabStop = false;
+            // 
+            // rtbThongTinVe
+            // 
+            rtbThongTinVe.Location = new Point(16, 280);
+            rtbThongTinVe.Name = "rtbThongTinVe";
+            rtbThongTinVe.ReadOnly = true;
+            rtbThongTinVe.ScrollBars = RichTextBoxScrollBars.Vertical;
+            rtbThongTinVe.Size = new Size(760, 280);
+            rtbThongTinVe.TabIndex = 2;
+            rtbThongTinVe.Text = "";
             // 
             // frmThongTinVe
             // 
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 490);
-            Controls.Add(txtThongTinVe);
+            ClientSize = new Size(800, 580);
+            Controls.Add(rtbThongTinVe);
+            Controls.Add(picAnhVe);
             Controls.Add(lblTieuDe);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             Name = "frmThongTinVe";
             StartPosition = FormStartPosition.CenterParent;
+            ((System.ComponentModel.ISupportInitialize)picAnhVe).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

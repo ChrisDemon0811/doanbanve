@@ -12,6 +12,7 @@ namespace doanbanve.Models
         public int SoLuong { get; set; }
         public string? MoTa { get; set; }
         public string? ThongTinVe { get; set; }
+        public string? AnhVe { get; set; }
         public bool TrangThai { get; set; }
     }
 }

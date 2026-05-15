@@ -8,9 +8,13 @@ namespace doanbanve.Forms
         {
             InitializeComponent();
             VoucherHienTai = voucher;
+            dtpNgayBatDau.Format = DateTimePickerFormat.Custom;
+            dtpNgayKetThuc.Format = DateTimePickerFormat.Custom;
             dtpNgayBatDau.MinDate = DateTime.Today;
             dtpNgayKetThuc.MinDate = DateTime.Today.AddDays(1);
             dtpNgayBatDau.ValueChanged += dtpNgayBatDau_ValueChanged;
+            dtpNgayBatDau.ValueChanged += DtpNgay_ValueChanged;
+            dtpNgayKetThuc.ValueChanged += DtpNgay_ValueChanged;
         }
 
         private void frmNhapVoucher_Load(object sender, EventArgs e)
@@ -40,9 +44,12 @@ namespace doanbanve.Forms
                 dtpNgayBatDau.Value = DateTime.Today;
                 dtpNgayKetThuc.Value = DateTime.Today.AddDays(1);
             }
+
+            ApDungDinhDangNgayTiengViet(dtpNgayBatDau);
+            ApDungDinhDangNgayTiengViet(dtpNgayKetThuc);
         }
 
-        private void dtpNgayBatDau_ValueChanged(object sender, EventArgs e)
+        private void dtpNgayBatDau_ValueChanged(object? sender, EventArgs e)
         {
             var ngayToiThieu = dtpNgayBatDau.Value.Date.AddDays(1);
             dtpNgayKetThuc.MinDate = ngayToiThieu;
@@ -50,6 +57,32 @@ namespace doanbanve.Forms
             {
                 dtpNgayKetThuc.Value = ngayToiThieu;
             }
+        }
+
+        private void DtpNgay_ValueChanged(object? sender, EventArgs e)
+        {
+            if (sender is not DateTimePicker picker)
+            {
+                return;
+            }
+
+            ApDungDinhDangNgayTiengViet(picker);
+        }
+
+        private static void ApDungDinhDangNgayTiengViet(DateTimePicker picker)
+        {
+            var tenThu = picker.Value.DayOfWeek switch
+            {
+                DayOfWeek.Monday => "Thứ hai",
+                DayOfWeek.Tuesday => "Thứ ba",
+                DayOfWeek.Wednesday => "Thứ tư",
+                DayOfWeek.Thursday => "Thứ năm",
+                DayOfWeek.Friday => "Thứ sáu",
+                DayOfWeek.Saturday => "Thứ bảy",
+                _ => "Chủ nhật"
+            };
+
+            picker.CustomFormat = $"'{tenThu}', dd/MM/yyyy";
         }
 
         private void btnLuu_Click(object sender, EventArgs e)

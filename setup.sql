@@ -51,6 +51,7 @@ CREATE TABLE Ve
     SoLuong INT NOT NULL,
     MoTa NVARCHAR(500) NULL,
     ThongTinVe NVARCHAR(MAX) NULL,
+    AnhVe NVARCHAR(255) NULL,
     TrangThai BIT NOT NULL DEFAULT 1,
     CONSTRAINT FK_Ve_LoaiVe FOREIGN KEY (MaLoaiVe) REFERENCES LoaiVe(MaLoaiVe)
 );
@@ -143,9 +144,9 @@ CREATE INDEX IX_Ve_MaLoaiVe ON Ve(MaLoaiVe);
 
 INSERT INTO NguoiDung (TaiKhoan, MatKhau, HoTen, Email, SoDienThoai, VaiTro, TrangThai)
 VALUES
-    (N'user01', N'123456', N'Nguyen Van A', N'user01@gmail.com', N'0900000001', N'NguoiDung', 1),
-    (N'user02', N'123456', N'Tran Thi B', N'user02@gmail.com', N'0900000002', N'NguoiDung', 1),
-    (N'quanly01', N'123456', N'Le Van Quan', N'quanly01@gmail.com', N'0900000003', N'QuanLy', 1);
+    (N'user01', N'e10adc3949ba59abbe56e057f20f883e', N'Nguyen Van A', N'user01@gmail.com', N'0900000001', N'NguoiDung', 1),
+    (N'user02', N'e10adc3949ba59abbe56e057f20f883e', N'Tran Thi B', N'user02@gmail.com', N'0900000002', N'NguoiDung', 1),
+    (N'quanly01', N'e10adc3949ba59abbe56e057f20f883e', N'Le Van Quan', N'quanly01@gmail.com', N'0900000003', N'QuanLy', 1);
 
 
 INSERT INTO LoaiVe (TenLoaiVe, MoTa, TrangThai)
@@ -160,12 +161,12 @@ GO
 -- MaLoaiVe 1 = Vé tham quan
 -- MaLoaiVe 2 = Vé vui chơi
 -- MaLoaiVe 3 = Vé Combo
-INSERT INTO Ve (MaLoaiVe, TenVe, GiaVe, GiaNguoiLon, GiaTreEm, GiaNguoiCaoTuoi, SoLuong, MoTa, ThongTinVe, TrangThai)
+INSERT INTO Ve (MaLoaiVe, TenVe, GiaVe, GiaNguoiLon, GiaTreEm, GiaNguoiCaoTuoi, SoLuong, MoTa, ThongTinVe, AnhVe, TrangThai)
 VALUES 
-    (1, N'Vé tham quan Người lớn', 200000.00, 200000.00, 150000.00, 170000.00, 1000, N'Dành cho khách cao trên 1m4', N'BAO GỒM:\n- Vé vào cổng trong ngày\n- Tham quan khu vực chính\n\nHƯỚNG DẪN:\n- Xuất trình vé QR tại cổng\n- Vé chỉ sử dụng 01 lần', 1),
-    (1, N'Vé tham quan Trẻ em', 100000.00, 120000.00, 100000.00, 110000.00, 1000, N'Dành cho khách cao từ 1m đến 1m4', N'BAO GỒM:\n- Vé vào cổng trẻ em\n- Tham quan khu vực chính\n\nHƯỚNG DẪN:\n- Trẻ em đi cùng người lớn\n- Vé chỉ sử dụng 01 lần', 1),
-    (2, N'Vé tàu lượn siêu tốc', 50000.00, 50000.00, 40000.00, 45000.00, 500, N'Trò chơi cảm giác mạnh', N'BAO GỒM:\n- Tham gia trò chơi tàu lượn\n\nLƯU Ý:\n- Tuân thủ quy định chiều cao\n- Không phù hợp người sợ độ cao', 1),
-    (3, N'Combo Trọn gói VIP', 450000.00, 450000.00, 350000.00, 400000.00, 200, N'Bao gồm tất cả dịch vụ, miễn xếp hàng', N'BAO GỒM:\n- Vé vào cổng + tất cả trò chơi\n- Ưu tiên xếp hàng\n\nHƯỚNG DẪN:\n- Xuất trình QR tại quầy VIP\n- Vé chỉ sử dụng 01 lần', 1);
+    (1, N'Vé tham quan Người lớn', 200000.00, 200000.00, 150000.00, 170000.00, 1000, N'Dành cho khách cao trên 1m4', N'BAO GỒM:\n- Vé vào cổng trong ngày\n- Tham quan khu vực chính\n\nHƯỚNG DẪN:\n- Xuất trình vé QR tại cổng\n- Vé chỉ sử dụng 01 lần', NULL, 1),
+    (1, N'Vé tham quan Trẻ em', 100000.00, 120000.00, 100000.00, 110000.00, 1000, N'Dành cho khách cao từ 1m đến 1m4', N'BAO GỒM:\n- Vé vào cổng trẻ em\n- Tham quan khu vực chính\n\nHƯỚNG DẪN:\n- Trẻ em đi cùng người lớn\n- Vé chỉ sử dụng 01 lần', NULL, 1),
+    (2, N'Vé tàu lượn siêu tốc', 50000.00, 50000.00, 40000.00, 45000.00, 500, N'Trò chơi cảm giác mạnh', N'BAO GỒM:\n- Tham gia trò chơi tàu lượn\n\nLƯU Ý:\n- Tuân thủ quy định chiều cao\n- Không phù hợp người sợ độ cao', NULL, 1),
+    (3, N'Combo Trọn gói VIP', 450000.00, 450000.00, 350000.00, 400000.00, 200, N'Bao gồm tất cả dịch vụ, miễn xếp hàng', N'BAO GỒM:\n- Vé vào cổng + tất cả trò chơi\n- Ưu tiên xếp hàng\n\nHƯỚNG DẪN:\n- Xuất trình QR tại quầy VIP\n- Vé chỉ sử dụng 01 lần', NULL, 1);
 GO
 
 -- 3. Thêm dữ liệu mẫu cho bảng ChiTietVe (Vé áp dụng cho các ngày cụ thể)

@@ -1,0 +1,85 @@
+﻿using System.Drawing;
+
+namespace doanbanve.Forms
+{
+    public partial class frmThongTinVe : Form
+    {
+        public frmThongTinVe(string tieuDe, string? thongTinVe)
+        {
+            InitializeComponent();
+            Text = "Thông tin vé";
+            lblTieuDe.Text = tieuDe;
+            rtbThongTinVe.Text = string.IsNullOrWhiteSpace(thongTinVe) ? "Đang cập nhật thông tin vé." : thongTinVe;
+            DatConTroThongTin();
+        }
+
+        public frmThongTinVe(Models.Ve ve)
+        {
+            InitializeComponent();
+            Text = "Thông tin vé";
+            lblTieuDe.Text = ve.TenVe;
+            if (!string.IsNullOrWhiteSpace(ve.ThongTinVe))
+            {
+                rtbThongTinVe.Rtf = ve.ThongTinVe;
+            }
+            else
+            {
+                rtbThongTinVe.Text = TaoNoiDungThongTin(ve);
+            }
+            TaiAnhVe(ve.AnhVe);
+            DatConTroThongTin();
+        }
+
+        private void DatConTroThongTin()
+        {
+            rtbThongTinVe.SelectionStart = 0;
+            rtbThongTinVe.SelectionLength = 0;
+            rtbThongTinVe.HideSelection = true;
+            rtbThongTinVe.TabStop = false;
+        }
+
+        private void TaiAnhVe(string? duongDanAnh)
+        {
+            if (string.IsNullOrWhiteSpace(duongDanAnh))
+            {
+                picAnhVe.Image = null;
+                return;
+            }
+
+            var duongDanTuyetDoi = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "image", duongDanAnh);
+            if (File.Exists(duongDanTuyetDoi))
+            {
+                using var anh = Image.FromFile(duongDanTuyetDoi);
+                picAnhVe.Image = new Bitmap(anh);
+            }
+            else
+            {
+                picAnhVe.Image = null;
+            }
+        }
+
+        private static string TaoNoiDungThongTin(Models.Ve ve)
+        {
+            var thongTin = string.IsNullOrWhiteSpace(ve.ThongTinVe)
+                ? "Đang cập nhật thông tin vé."
+                : ve.ThongTinVe;
+            var moTa = string.IsNullOrWhiteSpace(ve.MoTa) ? "Đang cập nhật." : ve.MoTa;
+
+            return string.Join(Environment.NewLine, new[]
+            {
+                $"Mã vé: {ve.MaVe}",
+                $"Tên vé: {ve.TenVe}",
+                $"Loại vé: {ve.MaLoaiVe}",
+                $"Giá vé: {ve.GiaVe.ToString("N0")} VNĐ",
+                $"Giá người lớn: {ve.GiaNguoiLon.ToString("N0")} VNĐ",
+                $"Giá trẻ em: {ve.GiaTreEm.ToString("N0")} VNĐ",
+                $"Giá người cao tuổi: {ve.GiaNguoiCaoTuoi.ToString("N0")} VNĐ",
+                $"Số lượng: {ve.SoLuong}",
+                $"Mô tả: {moTa}",
+                "",
+                "Thông tin vé:",
+                thongTin
+            });
+        }
+    }
+}

@@ -12,7 +12,7 @@ namespace doanbanve.DAO
         {
             var danhSach = new List<Ve>();
             var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            var cauLenh = new StringBuilder(@"SELECT MaVe, MaLoaiVe, TenVe, GiaVe, GiaNguoiLon, GiaTreEm, GiaNguoiCaoTuoi, SoLuong, MoTa, ThongTinVe, TrangThai
+            var cauLenh = new StringBuilder(@"SELECT MaVe, MaLoaiVe, TenVe, GiaVe, GiaNguoiLon, GiaTreEm, GiaNguoiCaoTuoi, SoLuong, MoTa, ThongTinVe, AnhVe, TrangThai
                                             FROM Ve
                                             WHERE TrangThai = 1");
 
@@ -46,7 +46,8 @@ namespace doanbanve.DAO
                     SoLuong = doc.GetInt32(7),
                     MoTa = doc.IsDBNull(8) ? null : doc.GetString(8),
                     ThongTinVe = doc.IsDBNull(9) ? null : doc.GetString(9),
-                    TrangThai = doc.GetBoolean(10)
+                    AnhVe = doc.IsDBNull(10) ? null : doc.GetString(10),
+                    TrangThai = doc.GetBoolean(11)
                 });
             }
 
@@ -57,7 +58,7 @@ namespace doanbanve.DAO
         {
             var danhSach = new List<Ve>();
             var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = @"SELECT MaVe, MaLoaiVe, TenVe, GiaVe, GiaNguoiLon, GiaTreEm, GiaNguoiCaoTuoi, SoLuong, MoTa, ThongTinVe, TrangThai
+            const string cauLenh = @"SELECT MaVe, MaLoaiVe, TenVe, GiaVe, GiaNguoiLon, GiaTreEm, GiaNguoiCaoTuoi, SoLuong, MoTa, ThongTinVe, AnhVe, TrangThai
                                     FROM Ve
                                     ORDER BY TenVe";
 
@@ -80,7 +81,8 @@ namespace doanbanve.DAO
                     SoLuong = doc.GetInt32(7),
                     MoTa = doc.IsDBNull(8) ? null : doc.GetString(8),
                     ThongTinVe = doc.IsDBNull(9) ? null : doc.GetString(9),
-                    TrangThai = doc.GetBoolean(10)
+                    AnhVe = doc.IsDBNull(10) ? null : doc.GetString(10),
+                    TrangThai = doc.GetBoolean(11)
                 });
             }
 
@@ -90,8 +92,8 @@ namespace doanbanve.DAO
         public async Task<int> ThemVe(Ve ve)
         {
             var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = @"INSERT INTO Ve (MaLoaiVe, TenVe, GiaVe, GiaNguoiLon, GiaTreEm, GiaNguoiCaoTuoi, SoLuong, MoTa, ThongTinVe, TrangThai)
-                                    VALUES (@MaLoaiVe, @TenVe, @GiaVe, @GiaNguoiLon, @GiaTreEm, @GiaNguoiCaoTuoi, @SoLuong, @MoTa, @ThongTinVe, 1);
+            const string cauLenh = @"INSERT INTO Ve (MaLoaiVe, TenVe, GiaVe, GiaNguoiLon, GiaTreEm, GiaNguoiCaoTuoi, SoLuong, MoTa, ThongTinVe, AnhVe, TrangThai)
+                                    VALUES (@MaLoaiVe, @TenVe, @GiaVe, @GiaNguoiLon, @GiaTreEm, @GiaNguoiCaoTuoi, @SoLuong, @MoTa, @ThongTinVe, @AnhVe, 1);
                                     SELECT SCOPE_IDENTITY();";
 
             using var ketNoi = new SqlConnection(chuoiKetNoi);
@@ -105,6 +107,7 @@ namespace doanbanve.DAO
             lenh.Parameters.AddWithValue("@SoLuong", ve.SoLuong);
             lenh.Parameters.AddWithValue("@MoTa", (object?)ve.MoTa ?? DBNull.Value);
             lenh.Parameters.AddWithValue("@ThongTinVe", (object?)ve.ThongTinVe ?? DBNull.Value);
+            lenh.Parameters.AddWithValue("@AnhVe", (object?)ve.AnhVe ?? DBNull.Value);
 
             await ketNoi.OpenAsync();
             var ketQua = await lenh.ExecuteScalarAsync();
@@ -123,7 +126,8 @@ namespace doanbanve.DAO
                                         GiaNguoiCaoTuoi = @GiaNguoiCaoTuoi,
                                         SoLuong = @SoLuong,
                                         MoTa = @MoTa,
-                                        ThongTinVe = @ThongTinVe
+                                         ThongTinVe = @ThongTinVe,
+                                         AnhVe = @AnhVe
                                     WHERE MaVe = @MaVe";
 
             using var ketNoi = new SqlConnection(chuoiKetNoi);
@@ -138,6 +142,7 @@ namespace doanbanve.DAO
             lenh.Parameters.AddWithValue("@SoLuong", ve.SoLuong);
             lenh.Parameters.AddWithValue("@MoTa", (object?)ve.MoTa ?? DBNull.Value);
             lenh.Parameters.AddWithValue("@ThongTinVe", (object?)ve.ThongTinVe ?? DBNull.Value);
+            lenh.Parameters.AddWithValue("@AnhVe", (object?)ve.AnhVe ?? DBNull.Value);
 
             await ketNoi.OpenAsync();
             await lenh.ExecuteNonQueryAsync();

@@ -9,7 +9,8 @@ namespace doanbanve.Controllers
 
         public async Task<NguoiDung?> DangNhap(string taiKhoan, string matKhau)
         {
-            return await nguoiDungDAO.LayTheoTaiKhoanMatKhau(taiKhoan, matKhau);
+            var matKhauMaHoa = Utils.MaHoaMatKhau.MaHoaMD5(matKhau);
+            return await nguoiDungDAO.LayTheoTaiKhoanMatKhau(taiKhoan, matKhauMaHoa);
         }
 
         public async Task<(bool ThanhCong, string ThongBao)> DangKy(NguoiDung nguoiDung)
@@ -30,6 +31,7 @@ namespace doanbanve.Controllers
                 return (false, "Tài khoản đã tồn tại.");
             }
 
+            nguoiDung.MatKhau = Utils.MaHoaMatKhau.MaHoaMD5(nguoiDung.MatKhau);
             await nguoiDungDAO.ThemNguoiDung(nguoiDung);
             return (true, "Đăng ký thành công.");
         }
@@ -41,7 +43,8 @@ namespace doanbanve.Controllers
 
         public async Task DatMatKhau(int maNguoiDung, string matKhauMoi)
         {
-            await nguoiDungDAO.DatMatKhau(maNguoiDung, matKhauMoi);
+            var matKhauMaHoa = Utils.MaHoaMatKhau.MaHoaMD5(matKhauMoi);
+            await nguoiDungDAO.DatMatKhau(maNguoiDung, matKhauMaHoa);
         }
     }
 }

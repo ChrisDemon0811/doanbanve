@@ -193,7 +193,7 @@ namespace doanbanve.Forms
 
         private void MoThongTinVe(Ve ve)
         {
-            var formThongTin = new frmThongTinVe(ve.TenVe, ve.ThongTinVe);
+            var formThongTin = new frmThongTinVe(ve);
             formThongTin.ShowDialog();
         }
 
@@ -208,30 +208,36 @@ namespace doanbanve.Forms
             var formDangNhap = new frmDangNhap();
             formDangNhap.ShowDialog();
             HienThiThongTinDangNhap();
+            _ = TaiDuLieuLoaiVe();
+            _ = TaiDanhSachVe(null);
         }
 
         private void btnDangKy_Click(object sender, EventArgs e)
         {
             var formDangKy = new frmDangKy();
             formDangKy.ShowDialog();
+            HienThiThongTinDangNhap();
         }
 
         private void btnGioHang_Click(object sender, EventArgs e)
         {
             var formGioHang = new frmGioHang();
             formGioHang.ShowDialog();
+            _ = TaiDanhSachVe(null);
         }
 
         private void btnThongTinNguoiDung_Click(object sender, EventArgs e)
         {
             var formThongTin = new frmThongTinNguoiDung();
             formThongTin.ShowDialog();
+            HienThiThongTinDangNhap();
         }
 
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
             var formDoiMatKhau = new frmDoiMatKhau();
             formDoiMatKhau.ShowDialog();
+            HienThiThongTinDangNhap();
         }
     }
 }

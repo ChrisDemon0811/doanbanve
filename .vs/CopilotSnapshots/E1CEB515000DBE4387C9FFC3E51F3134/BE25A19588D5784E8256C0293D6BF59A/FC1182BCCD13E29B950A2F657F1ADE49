@@ -1,0 +1,47 @@
+﻿using doanbanve.DAO;
+using doanbanve.Models;
+
+namespace doanbanve.Controllers
+{
+    public class NguoiDungController
+    {
+        private readonly NguoiDungDAO nguoiDungDAO = new();
+
+        public async Task<NguoiDung?> DangNhap(string taiKhoan, string matKhau)
+        {
+            return await nguoiDungDAO.LayTheoTaiKhoanMatKhau(taiKhoan, matKhau);
+        }
+
+        public async Task<(bool ThanhCong, string ThongBao)> DangKy(NguoiDung nguoiDung)
+        {
+            if (string.IsNullOrWhiteSpace(nguoiDung.TaiKhoan) || string.IsNullOrWhiteSpace(nguoiDung.MatKhau))
+            {
+                return (false, "Vui lòng nhập tài khoản và mật khẩu.");
+            }
+
+            if (string.IsNullOrWhiteSpace(nguoiDung.HoTen))
+            {
+                return (false, "Vui lòng nhập họ tên.");
+            }
+
+            var tonTai = await nguoiDungDAO.KiemTraTaiKhoanTonTai(nguoiDung.TaiKhoan);
+            if (tonTai)
+            {
+                return (false, "Tài khoản đã tồn tại.");
+            }
+
+            await nguoiDungDAO.ThemNguoiDung(nguoiDung);
+            return (true, "Đăng ký thành công.");
+        }
+
+        public async Task<List<NguoiDung>> LayDanhSachNguoiDung()
+        {
+            return await nguoiDungDAO.LayDanhSachNguoiDung();
+        }
+
+        public async Task DatMatKhau(int maNguoiDung, string matKhauMoi)
+        {
+            await nguoiDungDAO.DatMatKhau(maNguoiDung, matKhauMoi);
+        }
+    }
+}

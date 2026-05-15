@@ -20,7 +20,19 @@ namespace doanbanve.Forms
         private Label lblMoTa;
         private TextBox txtMoTa;
         private Label lblThongTinVe;
-        private TextBox txtThongTinVe;
+        private RichTextBox rtbThongTinVe;
+        private Label lblAnhVe;
+        private PictureBox picAnhVe;
+        private Button btnChonAnh;
+        private ToolStrip toolDinhDang;
+        private ToolStripButton btnDam;
+        private ToolStripButton btnNghieng;
+        private ToolStripButton btnGachChan;
+        private ToolStripButton btnCanTrai;
+        private ToolStripButton btnCanGiua;
+        private ToolStripButton btnCanPhai;
+        private ToolStripButton btnGachDauDong;
+        private ToolStripComboBox cboCoChu;
         private Button btnLuu;
         private Button btnHuy;
 
@@ -52,9 +64,23 @@ namespace doanbanve.Forms
             lblMoTa = new Label();
             txtMoTa = new TextBox();
             lblThongTinVe = new Label();
-            txtThongTinVe = new TextBox();
+            rtbThongTinVe = new RichTextBox();
+            lblAnhVe = new Label();
+            picAnhVe = new PictureBox();
+            btnChonAnh = new Button();
+            toolDinhDang = new ToolStrip();
+            btnDam = new ToolStripButton();
+            btnNghieng = new ToolStripButton();
+            btnGachChan = new ToolStripButton();
+            btnCanTrai = new ToolStripButton();
+            btnCanGiua = new ToolStripButton();
+            btnCanPhai = new ToolStripButton();
+            btnGachDauDong = new ToolStripButton();
+            cboCoChu = new ToolStripComboBox();
             btnLuu = new Button();
             btnHuy = new Button();
+            ((System.ComponentModel.ISupportInitialize)picAnhVe).BeginInit();
+            toolDinhDang.SuspendLayout();
             SuspendLayout();
             // 
             // lblTenVe
@@ -189,36 +215,139 @@ namespace doanbanve.Forms
             // lblThongTinVe
             // 
             lblThongTinVe.AutoSize = true;
-            lblThongTinVe.Location = new Point(20, 164);
+            lblThongTinVe.Location = new Point(20, 296);
             lblThongTinVe.Name = "lblThongTinVe";
             lblThongTinVe.Size = new Size(94, 20);
-            lblThongTinVe.TabIndex = 16;
+            lblThongTinVe.TabIndex = 19;
             lblThongTinVe.Text = "Thông tin vé:";
             // 
-            // txtThongTinVe
+            // rtbThongTinVe
             // 
-            txtThongTinVe.Location = new Point(120, 160);
-            txtThongTinVe.Multiline = true;
-            txtThongTinVe.Name = "txtThongTinVe";
-            txtThongTinVe.Size = new Size(540, 255);
-            txtThongTinVe.TabIndex = 17;
+            rtbThongTinVe.Location = new Point(120, 324);
+            rtbThongTinVe.Name = "rtbThongTinVe";
+            rtbThongTinVe.Size = new Size(540, 220);
+            rtbThongTinVe.TabIndex = 21;
+            rtbThongTinVe.Text = "";
+            // 
+            // lblAnhVe
+            // 
+            lblAnhVe.AutoSize = true;
+            lblAnhVe.Location = new Point(20, 164);
+            lblAnhVe.Name = "lblAnhVe";
+            lblAnhVe.Size = new Size(57, 20);
+            lblAnhVe.TabIndex = 16;
+            lblAnhVe.Text = "Ảnh vé:";
+            // 
+            // picAnhVe
+            // 
+            picAnhVe.BackColor = Color.FromArgb(245, 245, 245);
+            picAnhVe.BorderStyle = BorderStyle.FixedSingle;
+            picAnhVe.Location = new Point(100, 164);
+            picAnhVe.Name = "picAnhVe";
+            picAnhVe.Size = new Size(200, 120);
+            picAnhVe.SizeMode = PictureBoxSizeMode.Zoom;
+            picAnhVe.TabIndex = 17;
+            picAnhVe.TabStop = false;
+            // 
+            // btnChonAnh
+            // 
+            btnChonAnh.Location = new Point(320, 164);
+            btnChonAnh.Name = "btnChonAnh";
+            btnChonAnh.Size = new Size(90, 28);
+            btnChonAnh.TabIndex = 18;
+            btnChonAnh.Text = "Chọn ảnh";
+            btnChonAnh.UseVisualStyleBackColor = true;
+            btnChonAnh.Click += btnChonAnh_Click;
+            // 
+            // toolDinhDang
+            // 
+            toolDinhDang.Dock = DockStyle.None;
+            toolDinhDang.ImageScalingSize = new Size(20, 20);
+            toolDinhDang.Items.AddRange(new ToolStripItem[] { btnDam, btnNghieng, btnGachChan, btnCanTrai, btnCanGiua, btnCanPhai, btnGachDauDong, cboCoChu });
+            toolDinhDang.Location = new Point(120, 292);
+            toolDinhDang.Name = "toolDinhDang";
+            toolDinhDang.Size = new Size(334, 32);
+            toolDinhDang.TabIndex = 20;
+            toolDinhDang.Text = "toolStrip1";
+            // 
+            // btnDam
+            // 
+            btnDam.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnDam.Name = "btnDam";
+            btnDam.Size = new Size(29, 29);
+            btnDam.Text = "B";
+            btnDam.Click += btnDam_Click;
+            // 
+            // btnNghieng
+            // 
+            btnNghieng.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnNghieng.Name = "btnNghieng";
+            btnNghieng.Size = new Size(29, 29);
+            btnNghieng.Text = "I";
+            btnNghieng.Click += btnNghieng_Click;
+            // 
+            // btnGachChan
+            // 
+            btnGachChan.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnGachChan.Name = "btnGachChan";
+            btnGachChan.Size = new Size(29, 29);
+            btnGachChan.Text = "U";
+            btnGachChan.Click += btnGachChan_Click;
+            // 
+            // btnCanTrai
+            // 
+            btnCanTrai.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnCanTrai.Name = "btnCanTrai";
+            btnCanTrai.Size = new Size(29, 29);
+            btnCanTrai.Text = "L";
+            btnCanTrai.Click += btnCanTrai_Click;
+            // 
+            // btnCanGiua
+            // 
+            btnCanGiua.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnCanGiua.Name = "btnCanGiua";
+            btnCanGiua.Size = new Size(29, 29);
+            btnCanGiua.Text = "C";
+            btnCanGiua.Click += btnCanGiua_Click;
+            // 
+            // btnCanPhai
+            // 
+            btnCanPhai.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnCanPhai.Name = "btnCanPhai";
+            btnCanPhai.Size = new Size(29, 29);
+            btnCanPhai.Text = "R";
+            btnCanPhai.Click += btnCanPhai_Click;
+            // 
+            // btnGachDauDong
+            // 
+            btnGachDauDong.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnGachDauDong.Name = "btnGachDauDong";
+            btnGachDauDong.Size = new Size(29, 29);
+            btnGachDauDong.Text = "•";
+            btnGachDauDong.Click += btnGachDauDong_Click;
+            // 
+            // cboCoChu
+            // 
+            cboCoChu.Name = "cboCoChu";
+            cboCoChu.Size = new Size(75, 32);
+            cboCoChu.SelectedIndexChanged += cboCoChu_SelectedIndexChanged;
             // 
             // btnLuu
             // 
-            btnLuu.Location = new Point(460, 436);
+            btnLuu.Location = new Point(460, 556);
             btnLuu.Name = "btnLuu";
             btnLuu.Size = new Size(90, 28);
-            btnLuu.TabIndex = 18;
+            btnLuu.TabIndex = 22;
             btnLuu.Text = "Lưu";
             btnLuu.UseVisualStyleBackColor = true;
             btnLuu.Click += btnLuu_Click;
             // 
             // btnHuy
             // 
-            btnHuy.Location = new Point(570, 436);
+            btnHuy.Location = new Point(570, 556);
             btnHuy.Name = "btnHuy";
             btnHuy.Size = new Size(90, 28);
-            btnHuy.TabIndex = 19;
+            btnHuy.TabIndex = 23;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
             btnHuy.Click += btnHuy_Click;
@@ -227,11 +356,15 @@ namespace doanbanve.Forms
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(690, 476);
+            ClientSize = new Size(690, 606);
+            Controls.Add(toolDinhDang);
             Controls.Add(btnHuy);
             Controls.Add(btnLuu);
-            Controls.Add(txtThongTinVe);
+            Controls.Add(rtbThongTinVe);
             Controls.Add(lblThongTinVe);
+            Controls.Add(btnChonAnh);
+            Controls.Add(picAnhVe);
+            Controls.Add(lblAnhVe);
             Controls.Add(txtMoTa);
             Controls.Add(lblMoTa);
             Controls.Add(txtSoLuong);
@@ -254,6 +387,9 @@ namespace doanbanve.Forms
             StartPosition = FormStartPosition.CenterParent;
             Text = "Thông tin vé";
             Load += frmNhapVe_Load;
+            ((System.ComponentModel.ISupportInitialize)picAnhVe).EndInit();
+            toolDinhDang.ResumeLayout(false);
+            toolDinhDang.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
