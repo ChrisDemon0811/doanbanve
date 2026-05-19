@@ -1,0 +1,76 @@
+﻿using doanbanve.Utils;
+
+namespace doanbanve.Forms
+{
+    public partial class frmDashboardQuanLy
+    {
+        private async Task TaiDanhSachNguoiDung()
+        {
+            dgvNguoiDung.Rows.Clear();
+            if (dgvNguoiDung.Columns.Count > 0)
+            {
+                dgvNguoiDung.Columns.Clear();
+            }
+
+            dgvNguoiDung.Columns.AddRange(new DataGridViewColumn[]
+            {
+                new DataGridViewTextBoxColumn { Name = "colMaNguoiDung", HeaderText = "Mã" },
+                new DataGridViewTextBoxColumn { Name = "colTaiKhoan", HeaderText = "Tài khoản" },
+                new DataGridViewTextBoxColumn { Name = "colHoTen", HeaderText = "Họ tên" },
+                new DataGridViewTextBoxColumn { Name = "colEmail", HeaderText = "Email" },
+                new DataGridViewTextBoxColumn { Name = "colSoDienThoai", HeaderText = "Số điện thoại" },
+                new DataGridViewTextBoxColumn { Name = "colVaiTro", HeaderText = "Vai trò" }
+            });
+
+            dgvNguoiDung.Rows.Clear();
+            var danhSach = await nguoiDungController.LayDanhSachNguoiDung();
+            foreach (var nguoiDung in danhSach)
+            {
+                dgvNguoiDung.Rows.Add(
+                    nguoiDung.MaNguoiDung,
+                    nguoiDung.TaiKhoan,
+                    nguoiDung.HoTen,
+                    nguoiDung.Email,
+                    nguoiDung.SoDienThoai,
+                    nguoiDung.VaiTro);
+            }
+
+            dgvNguoiDung.ClearSelection();
+        }
+
+        private void btnXemThongTin_Click(object sender, EventArgs e)
+        {
+            if (dgvNguoiDung.CurrentRow == null)
+            {
+                return;
+            }
+
+            var hoTen = dgvNguoiDung.CurrentRow.Cells[2].Value?.ToString() ?? "";
+            var taiKhoan = dgvNguoiDung.CurrentRow.Cells[1].Value?.ToString() ?? "";
+            var email = dgvNguoiDung.CurrentRow.Cells[3].Value?.ToString() ?? "";
+            var soDienThoai = dgvNguoiDung.CurrentRow.Cells[4].Value?.ToString() ?? "";
+            var vaiTro = dgvNguoiDung.CurrentRow.Cells[5].Value?.ToString() ?? "";
+
+            MessageBox.Show($"Họ tên: {hoTen}\nTài khoản: {taiKhoan}\nEmail: {email}\nSố điện thoại: {soDienThoai}\nVai trò: {vaiTro}",
+                "Thông tin người dùng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private async void btnResetMatKhau_Click(object sender, EventArgs e)
+        {
+            if (dgvNguoiDung.CurrentRow == null)
+            {
+                return;
+            }
+
+            var giaTri = dgvNguoiDung.CurrentRow.Cells[0].Value?.ToString();
+            if (!int.TryParse(giaTri, out var maNguoiDung))
+            {
+                return;
+            }
+
+            var taiKhoan = dgvNguoiDung.CurrentRow.Cells[1].Value?.ToString() ?? string.Empty;
+            using var formDatMatKhau = new frmDatMatKhauNguoiDung(maNguoiDung, taiKhoan);
+            formDatMatKhau.ShowDialog();
+        }
+    }
+}

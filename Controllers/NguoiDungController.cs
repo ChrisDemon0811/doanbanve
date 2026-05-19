@@ -46,5 +46,10 @@ namespace doanbanve.Controllers
             var matKhauMaHoa = Utils.MaHoaMatKhau.MaHoaMD5(matKhauMoi);
             await nguoiDungDAO.DatMatKhau(maNguoiDung, matKhauMaHoa);
         }
+
+        public async Task CapNhatThongTin(int maNguoiDung, string hoTen, string? email, string? soDienThoai)
+        {
+            await nguoiDungDAO.CapNhatThongTin(maNguoiDung, hoTen, email, soDienThoai);
+        }
     }
 }

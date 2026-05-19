@@ -1,0 +1,76 @@
+﻿namespace doanbanve.Forms
+{
+    partial class ucQuanLyNguoiDung
+    {
+        private System.ComponentModel.IContainer components = null;
+        private DataGridView dgvNguoiDung;
+        private Button btnResetMatKhau;
+        private Button btnXemThongTin;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            dgvNguoiDung = new DataGridView();
+            btnResetMatKhau = new Button();
+            btnXemThongTin = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvNguoiDung).BeginInit();
+            SuspendLayout();
+            // 
+            // dgvNguoiDung
+            // 
+            dgvNguoiDung.AllowUserToAddRows = false;
+            dgvNguoiDung.AllowUserToDeleteRows = false;
+            dgvNguoiDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvNguoiDung.ColumnHeadersHeight = 29;
+            dgvNguoiDung.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvNguoiDung.Location = new Point(0, 0);
+            dgvNguoiDung.Name = "dgvNguoiDung";
+            dgvNguoiDung.ReadOnly = true;
+            dgvNguoiDung.RowHeadersVisible = false;
+            dgvNguoiDung.RowHeadersWidth = 51;
+            dgvNguoiDung.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvNguoiDung.Size = new Size(968, 500);
+            dgvNguoiDung.TabIndex = 0;
+            // 
+            // btnResetMatKhau
+            // 
+            btnResetMatKhau.Location = new Point(0, 516);
+            btnResetMatKhau.Name = "btnResetMatKhau";
+            btnResetMatKhau.Size = new Size(140, 32);
+            btnResetMatKhau.TabIndex = 1;
+            btnResetMatKhau.Text = "Reset mật khẩu";
+            btnResetMatKhau.UseVisualStyleBackColor = true;
+            btnResetMatKhau.Click += btnResetMatKhau_Click;
+            // 
+            // btnXemThongTin
+            // 
+            btnXemThongTin.Location = new Point(156, 516);
+            btnXemThongTin.Name = "btnXemThongTin";
+            btnXemThongTin.Size = new Size(140, 32);
+            btnXemThongTin.TabIndex = 2;
+            btnXemThongTin.Text = "Xem thông tin";
+            btnXemThongTin.UseVisualStyleBackColor = true;
+            btnXemThongTin.Click += btnXemThongTin_Click;
+            // 
+            // ucQuanLyNguoiDung
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnXemThongTin);
+            Controls.Add(btnResetMatKhau);
+            Controls.Add(dgvNguoiDung);
+            Name = "ucQuanLyNguoiDung";
+            Size = new Size(968, 608);
+            ((System.ComponentModel.ISupportInitialize)dgvNguoiDung).EndInit();
+            ResumeLayout(false);
+        }
+    }
+}

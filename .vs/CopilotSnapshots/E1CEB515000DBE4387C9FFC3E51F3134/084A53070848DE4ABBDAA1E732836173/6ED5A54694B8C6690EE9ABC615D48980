@@ -1,0 +1,89 @@
+﻿namespace doanbanve.Forms
+{
+    partial class ucQuanLyVoucher
+    {
+        private System.ComponentModel.IContainer components = null;
+        private DataGridView dgvVoucher;
+        private Button btnThemVoucher;
+        private Button btnSuaVoucher;
+        private Button btnXoaVoucher;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            dgvVoucher = new DataGridView();
+            btnThemVoucher = new Button();
+            btnSuaVoucher = new Button();
+            btnXoaVoucher = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvVoucher).BeginInit();
+            SuspendLayout();
+            // 
+            // dgvVoucher
+            // 
+            dgvVoucher.AllowUserToAddRows = false;
+            dgvVoucher.AllowUserToDeleteRows = false;
+            dgvVoucher.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvVoucher.ColumnHeadersHeight = 29;
+            dgvVoucher.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvVoucher.Location = new Point(0, 0);
+            dgvVoucher.Name = "dgvVoucher";
+            dgvVoucher.ReadOnly = true;
+            dgvVoucher.RowHeadersVisible = false;
+            dgvVoucher.RowHeadersWidth = 51;
+            dgvVoucher.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvVoucher.Size = new Size(968, 420);
+            dgvVoucher.TabIndex = 0;
+            // 
+            // btnThemVoucher
+            // 
+            btnThemVoucher.Location = new Point(0, 444);
+            btnThemVoucher.Name = "btnThemVoucher";
+            btnThemVoucher.Size = new Size(90, 28);
+            btnThemVoucher.TabIndex = 1;
+            btnThemVoucher.Text = "Thêm";
+            btnThemVoucher.UseVisualStyleBackColor = true;
+            btnThemVoucher.Click += btnThemVoucher_Click;
+            // 
+            // btnSuaVoucher
+            // 
+            btnSuaVoucher.Location = new Point(100, 444);
+            btnSuaVoucher.Name = "btnSuaVoucher";
+            btnSuaVoucher.Size = new Size(90, 28);
+            btnSuaVoucher.TabIndex = 2;
+            btnSuaVoucher.Text = "Sửa";
+            btnSuaVoucher.UseVisualStyleBackColor = true;
+            btnSuaVoucher.Click += btnSuaVoucher_Click;
+            // 
+            // btnXoaVoucher
+            // 
+            btnXoaVoucher.Location = new Point(200, 444);
+            btnXoaVoucher.Name = "btnXoaVoucher";
+            btnXoaVoucher.Size = new Size(90, 28);
+            btnXoaVoucher.TabIndex = 3;
+            btnXoaVoucher.Text = "Xóa";
+            btnXoaVoucher.UseVisualStyleBackColor = true;
+            btnXoaVoucher.Click += btnXoaVoucher_Click;
+            // 
+            // ucQuanLyVoucher
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnXoaVoucher);
+            Controls.Add(btnSuaVoucher);
+            Controls.Add(btnThemVoucher);
+            Controls.Add(dgvVoucher);
+            Name = "ucQuanLyVoucher";
+            Size = new Size(968, 608);
+            ((System.ComponentModel.ISupportInitialize)dgvVoucher).EndInit();
+            ResumeLayout(false);
+        }
+    }
+}

@@ -14,6 +14,11 @@
         },
         "runtime": {
           "doanbanve.dll": {}
+        },
+        "resources": {
+          "Ve/doanbanve.resources.dll": {
+            "locale": "Ve"
+          }
         }
       },
       "Azure.Core/1.38.0": {

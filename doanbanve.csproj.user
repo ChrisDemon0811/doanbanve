@@ -4,6 +4,21 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Admin\Controls\ucPhanLoaiVe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Forms\Admin\Controls\ucQuanLyHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Forms\Admin\Controls\ucQuanLyNguoiDung.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Forms\Admin\Controls\ucQuanLyVe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Forms\Admin\Controls\ucQuanLyVoucher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Forms\Admin\Dialogs\frmChiTietHoaDonQuanLy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -20,6 +35,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Admin\Forms\frmDashboardQuanLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\User\Dialogs\frmCapNhatThongTinNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\User\Dialogs\frmChiTietThanhToan.cs">

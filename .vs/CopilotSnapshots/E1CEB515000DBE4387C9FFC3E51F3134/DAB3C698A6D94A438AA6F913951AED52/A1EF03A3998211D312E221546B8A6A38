@@ -1,0 +1,103 @@
+﻿namespace doanbanve.Forms
+{
+    partial class ucQuanLyVe
+    {
+        private System.ComponentModel.IContainer components = null;
+        private DataGridView dgvVe;
+        private Button btnThemVe;
+        private Button btnSuaVe;
+        private Button btnXoaVe;
+        private Button btnLamMoiVe;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            dgvVe = new DataGridView();
+            btnThemVe = new Button();
+            btnSuaVe = new Button();
+            btnXoaVe = new Button();
+            btnLamMoiVe = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvVe).BeginInit();
+            SuspendLayout();
+            // 
+            // dgvVe
+            // 
+            dgvVe.AllowUserToAddRows = false;
+            dgvVe.AllowUserToDeleteRows = false;
+            dgvVe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvVe.ColumnHeadersHeight = 29;
+            dgvVe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvVe.Location = new Point(0, 0);
+            dgvVe.Name = "dgvVe";
+            dgvVe.ReadOnly = true;
+            dgvVe.RowHeadersVisible = false;
+            dgvVe.RowHeadersWidth = 51;
+            dgvVe.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvVe.Size = new Size(968, 540);
+            dgvVe.TabIndex = 0;
+            dgvVe.CellContentClick += dgvVe_ThongTinVe_Click;
+            // 
+            // btnThemVe
+            // 
+            btnThemVe.Location = new Point(2, 564);
+            btnThemVe.Name = "btnThemVe";
+            btnThemVe.Size = new Size(90, 28);
+            btnThemVe.TabIndex = 1;
+            btnThemVe.Text = "Thêm";
+            btnThemVe.UseVisualStyleBackColor = true;
+            btnThemVe.Click += btnThemVe_Click;
+            // 
+            // btnSuaVe
+            // 
+            btnSuaVe.Location = new Point(102, 564);
+            btnSuaVe.Name = "btnSuaVe";
+            btnSuaVe.Size = new Size(90, 28);
+            btnSuaVe.TabIndex = 2;
+            btnSuaVe.Text = "Sửa";
+            btnSuaVe.UseVisualStyleBackColor = true;
+            btnSuaVe.Click += btnSuaVe_Click;
+            // 
+            // btnXoaVe
+            // 
+            btnXoaVe.Location = new Point(202, 564);
+            btnXoaVe.Name = "btnXoaVe";
+            btnXoaVe.Size = new Size(90, 28);
+            btnXoaVe.TabIndex = 3;
+            btnXoaVe.Text = "Xóa";
+            btnXoaVe.UseVisualStyleBackColor = true;
+            btnXoaVe.Click += btnXoaVe_Click;
+            // 
+            // btnLamMoiVe
+            // 
+            btnLamMoiVe.Location = new Point(302, 564);
+            btnLamMoiVe.Name = "btnLamMoiVe";
+            btnLamMoiVe.Size = new Size(90, 28);
+            btnLamMoiVe.TabIndex = 4;
+            btnLamMoiVe.Text = "Làm mới";
+            btnLamMoiVe.UseVisualStyleBackColor = true;
+            btnLamMoiVe.Click += btnLamMoiVe_Click;
+            // 
+            // ucQuanLyVe
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnLamMoiVe);
+            Controls.Add(btnXoaVe);
+            Controls.Add(btnSuaVe);
+            Controls.Add(btnThemVe);
+            Controls.Add(dgvVe);
+            Name = "ucQuanLyVe";
+            Size = new Size(968, 608);
+            ((System.ComponentModel.ISupportInitialize)dgvVe).EndInit();
+            ResumeLayout(false);
+        }
+    }
+}

@@ -1,0 +1,149 @@
+﻿using doanbanve.Controllers;
+using doanbanve.Models;
+
+namespace doanbanve.Forms
+{
+    public partial class ucPhanLoaiVe : UserControl
+    {
+        private readonly LoaiVeController loaiVeController = new();
+
+        public ucPhanLoaiVe()
+        {
+            InitializeComponent();
+            CauHinhBang(dgvLoaiVe);
+        }
+
+        public async Task TaiDuLieu()
+        {
+            dgvLoaiVe.Rows.Clear();
+            if (dgvLoaiVe.Columns.Count > 0)
+            {
+                dgvLoaiVe.Columns.Clear();
+            }
+
+            dgvLoaiVe.Columns.AddRange(new DataGridViewColumn[]
+            {
+                new DataGridViewTextBoxColumn { Name = "colMaLoaiVe", HeaderText = "Mã" },
+                new DataGridViewTextBoxColumn { Name = "colTenLoaiVe", HeaderText = "Tên loại vé" },
+                new DataGridViewTextBoxColumn { Name = "colMoTaLoaiVe", HeaderText = "Mô tả" }
+            });
+
+            var danhSach = await loaiVeController.LayDanhSachLoaiVeQuanLy();
+            foreach (var loaiVe in danhSach)
+            {
+                dgvLoaiVe.Rows.Add(
+                    loaiVe.MaLoaiVe,
+                    loaiVe.TenLoaiVe,
+                    loaiVe.MoTa);
+            }
+
+            dgvLoaiVe.ClearSelection();
+        }
+
+        private void CauHinhBang(DataGridView bang)
+        {
+            bang.BackgroundColor = Color.White;
+            bang.EnableHeadersVisualStyles = false;
+            bang.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(230, 230, 230);
+            bang.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            bang.ColumnHeadersDefaultCellStyle.SelectionBackColor = bang.ColumnHeadersDefaultCellStyle.BackColor;
+            bang.ColumnHeadersDefaultCellStyle.SelectionForeColor = bang.ColumnHeadersDefaultCellStyle.ForeColor;
+            bang.RowTemplate.Height = 28;
+            bang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            bang.MultiSelect = false;
+        }
+
+        private async void btnThemLoaiVe_Click(object sender, EventArgs e)
+        {
+            var formNhap = new frmNhapLoaiVe(null);
+            var ketQua = formNhap.ShowDialog();
+            if (ketQua != DialogResult.OK || formNhap.LoaiVeHienTai == null)
+            {
+                return;
+            }
+
+            try
+            {
+                await loaiVeController.ThemLoaiVe(formNhap.LoaiVeHienTai);
+                await TaiDuLieu();
+                MessageBox.Show("Đã thêm loại vé.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnSuaLoaiVe_Click(object sender, EventArgs e)
+        {
+            if (dgvLoaiVe.CurrentRow == null)
+            {
+                return;
+            }
+
+            var giaTri = dgvLoaiVe.CurrentRow.Cells[0].Value?.ToString();
+            if (!int.TryParse(giaTri, out var maLoaiVe))
+            {
+                return;
+            }
+
+            var loaiVe = new LoaiVe
+            {
+                MaLoaiVe = maLoaiVe,
+                TenLoaiVe = dgvLoaiVe.CurrentRow.Cells[1].Value?.ToString() ?? string.Empty,
+                MoTa = dgvLoaiVe.CurrentRow.Cells[2].Value?.ToString(),
+                TrangThai = true
+            };
+
+            var formNhap = new frmNhapLoaiVe(loaiVe);
+            var ketQua = formNhap.ShowDialog();
+            if (ketQua != DialogResult.OK || formNhap.LoaiVeHienTai == null)
+            {
+                return;
+            }
+
+            formNhap.LoaiVeHienTai.MaLoaiVe = maLoaiVe;
+            try
+            {
+                await loaiVeController.SuaLoaiVe(formNhap.LoaiVeHienTai);
+                await TaiDuLieu();
+                MessageBox.Show("Đã cập nhật loại vé.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnXoaLoaiVe_Click(object sender, EventArgs e)
+        {
+            if (dgvLoaiVe.CurrentRow == null)
+            {
+                return;
+            }
+
+            var giaTri = dgvLoaiVe.CurrentRow.Cells[0].Value?.ToString();
+            if (!int.TryParse(giaTri, out var maLoaiVe))
+            {
+                return;
+            }
+
+            var xacNhan = MessageBox.Show("Bạn có chắc muốn xóa loại vé này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (xacNhan != DialogResult.Yes)
+            {
+                return;
+            }
+
+            try
+            {
+                await loaiVeController.XoaLoaiVe(maLoaiVe);
+                await TaiDuLieu();
+                MessageBox.Show("Đã xóa loại vé.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+}

@@ -1,0 +1,160 @@
+﻿using doanbanve.Controllers;
+
+namespace doanbanve.Forms
+{
+    public partial class ucQuanLyVoucher : UserControl
+    {
+        private readonly VoucherController voucherController = new();
+
+        public ucQuanLyVoucher()
+        {
+            InitializeComponent();
+            CauHinhBang(dgvVoucher);
+        }
+
+        public async Task TaiDuLieu()
+        {
+            dgvVoucher.Rows.Clear();
+            if (dgvVoucher.Columns.Count > 0)
+            {
+                dgvVoucher.Columns.Clear();
+            }
+
+            dgvVoucher.Columns.AddRange(new DataGridViewColumn[]
+            {
+                new DataGridViewTextBoxColumn { Name = "colMaVoucher", HeaderText = "Mã" },
+                new DataGridViewTextBoxColumn { Name = "colMaGiamGia", HeaderText = "Mã giảm giá" },
+                new DataGridViewTextBoxColumn { Name = "colTenVoucher", HeaderText = "Tên voucher" },
+                new DataGridViewTextBoxColumn { Name = "colKieuGiamGia", HeaderText = "Kiểu" },
+                new DataGridViewTextBoxColumn { Name = "colGiaTriGiam", HeaderText = "Giá trị" },
+                new DataGridViewTextBoxColumn { Name = "colNgayBatDau", HeaderText = "Bắt đầu" },
+                new DataGridViewTextBoxColumn { Name = "colNgayKetThuc", HeaderText = "Kết thúc" },
+                new DataGridViewTextBoxColumn { Name = "colSoLuong", HeaderText = "Số lượng" }
+            });
+
+            var danhSach = await voucherController.LayDanhSachVoucher();
+            foreach (var voucher in danhSach)
+            {
+                dgvVoucher.Rows.Add(
+                    voucher.MaVoucher,
+                    voucher.MaGiamGia,
+                    voucher.TenVoucher,
+                    voucher.KieuGiamGia,
+                    voucher.GiaTriGiam,
+                    voucher.NgayBatDau.ToString("dd/MM/yyyy"),
+                    voucher.NgayKetThuc.ToString("dd/MM/yyyy"),
+                    voucher.SoLuong);
+            }
+
+            dgvVoucher.ClearSelection();
+        }
+
+        private void CauHinhBang(DataGridView bang)
+        {
+            bang.BackgroundColor = Color.White;
+            bang.EnableHeadersVisualStyles = false;
+            bang.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(230, 230, 230);
+            bang.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            bang.ColumnHeadersDefaultCellStyle.SelectionBackColor = bang.ColumnHeadersDefaultCellStyle.BackColor;
+            bang.ColumnHeadersDefaultCellStyle.SelectionForeColor = bang.ColumnHeadersDefaultCellStyle.ForeColor;
+            bang.RowTemplate.Height = 28;
+            bang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            bang.MultiSelect = false;
+        }
+
+        private async void btnThemVoucher_Click(object sender, EventArgs e)
+        {
+            var formNhap = new frmNhapVoucher(null);
+            if (formNhap.ShowDialog() != DialogResult.OK || formNhap.VoucherHienTai == null)
+            {
+                return;
+            }
+
+            try
+            {
+                var v = formNhap.VoucherHienTai.Value;
+                await voucherController.ThemVoucher(v.MaGiamGia, v.TenVoucher, v.KieuGiamGia, v.GiaTriGiam, v.NgayBatDau, v.NgayKetThuc, v.SoLuong);
+                await TaiDuLieu();
+                MessageBox.Show("Đã thêm voucher.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnSuaVoucher_Click(object sender, EventArgs e)
+        {
+            if (dgvVoucher.CurrentRow == null)
+            {
+                return;
+            }
+
+            var giaTri = dgvVoucher.CurrentRow.Cells[0].Value?.ToString();
+            if (!int.TryParse(giaTri, out var maVoucher))
+            {
+                return;
+            }
+
+            var voucher = (
+                maVoucher,
+                dgvVoucher.CurrentRow.Cells[1].Value?.ToString() ?? string.Empty,
+                dgvVoucher.CurrentRow.Cells[2].Value?.ToString() ?? string.Empty,
+                dgvVoucher.CurrentRow.Cells[3].Value?.ToString() ?? "PhanTram",
+                Convert.ToDecimal(dgvVoucher.CurrentRow.Cells[4].Value ?? 0),
+                DateTime.Parse(dgvVoucher.CurrentRow.Cells[5].Value?.ToString() ?? DateTime.Today.ToString()),
+                DateTime.Parse(dgvVoucher.CurrentRow.Cells[6].Value?.ToString() ?? DateTime.Today.ToString()),
+                Convert.ToInt32(dgvVoucher.CurrentRow.Cells[7].Value ?? 0)
+            );
+
+            var formNhap = new frmNhapVoucher(voucher);
+            if (formNhap.ShowDialog() != DialogResult.OK || formNhap.VoucherHienTai == null)
+            {
+                return;
+            }
+
+            try
+            {
+                var v = formNhap.VoucherHienTai.Value;
+                await voucherController.SuaVoucher(maVoucher, v.MaGiamGia, v.TenVoucher, v.KieuGiamGia, v.GiaTriGiam, v.NgayBatDau, v.NgayKetThuc, v.SoLuong);
+                await TaiDuLieu();
+                MessageBox.Show("Đã cập nhật voucher.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnXoaVoucher_Click(object sender, EventArgs e)
+        {
+            if (dgvVoucher.CurrentRow == null)
+            {
+                return;
+            }
+
+            var giaTri = dgvVoucher.CurrentRow.Cells[0].Value?.ToString();
+            if (!int.TryParse(giaTri, out var maVoucher))
+            {
+                return;
+            }
+
+            var xacNhan = MessageBox.Show("Bạn có chắc muốn xóa voucher này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (xacNhan != DialogResult.Yes)
+            {
+                return;
+            }
+
+            try
+            {
+                await voucherController.XoaVoucher(maVoucher);
+                await TaiDuLieu();
+                MessageBox.Show("Đã xóa voucher.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+}

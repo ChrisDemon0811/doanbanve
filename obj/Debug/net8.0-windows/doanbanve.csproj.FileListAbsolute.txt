@@ -148,3 +148,15 @@ C:\Users\PC\Desktop\project\doanbanve\obj\Debug\net8.0-windows\refint\doanbanve.
 C:\Users\PC\Desktop\project\doanbanve\obj\Debug\net8.0-windows\doanbanve.pdb
 C:\Users\PC\Desktop\project\doanbanve\obj\Debug\net8.0-windows\doanbanve.genruntimeconfig.cache
 C:\Users\PC\Desktop\project\doanbanve\obj\Debug\net8.0-windows\ref\doanbanve.dll
+D:\Study\Lập trình windows\doanbanve\bin\Debug\net8.0-windows\Ve\doanbanve.resources.dll
+D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.Admin.Forms.frmDashboardQuanLy.HoaDon.resources
+D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.Admin.Forms.frmDashboardQuanLy.LoaiVe.resources
+D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.Admin.Forms.frmDashboardQuanLy.NguoiDung.resources
+D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.Admin.Forms.frmDashboardQuanLy.Voucher.resources
+D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.frmDashboardQuanLy.Ve.resources
+D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\Ve\doanbanve.resources.dll
+D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.ucPhanLoaiVe.resources
+D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.ucQuanLyHoaDon.resources
+D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.ucQuanLyNguoiDung.resources
+D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.ucQuanLyVe.resources
+D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.ucQuanLyVoucher.resources

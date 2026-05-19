@@ -176,7 +176,7 @@ namespace doanbanve.Forms
 
             try
             {
-                var phuongThuc = cboThanhToan.SelectedItem?.ToString() ?? "";
+                var phuongThuc = LayGiaTriThanhToan();
                 await thanhToanController.LuuHoaDon(Session.NguoiDungHienTai.MaNguoiDung, danhSachMuc, maVoucher, tienGiam, phuongThuc);
                 MessageBox.Show("Thanh toán thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
@@ -185,6 +185,18 @@ namespace doanbanve.Forms
             {
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private string LayGiaTriThanhToan()
+        {
+            var phuongThuc = cboThanhToan.SelectedItem?.ToString() ?? string.Empty;
+            return phuongThuc switch
+            {
+                "Thẻ ngân hàng" => "TheNganHang",
+                "Thẻ tín dụng/Ghi nợ quốc tế" => "TheQuocTe",
+                "Ví điện tử" => "ViDienTu",
+                _ => "Khac"
+            };
         }
     }
 }

@@ -1,0 +1,89 @@
+﻿namespace doanbanve.Forms
+{
+    partial class ucPhanLoaiVe
+    {
+        private System.ComponentModel.IContainer components = null;
+        private DataGridView dgvLoaiVe;
+        private Button btnThemLoaiVe;
+        private Button btnSuaLoaiVe;
+        private Button btnXoaLoaiVe;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            dgvLoaiVe = new DataGridView();
+            btnThemLoaiVe = new Button();
+            btnSuaLoaiVe = new Button();
+            btnXoaLoaiVe = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvLoaiVe).BeginInit();
+            SuspendLayout();
+            // 
+            // dgvLoaiVe
+            // 
+            dgvLoaiVe.AllowUserToAddRows = false;
+            dgvLoaiVe.AllowUserToDeleteRows = false;
+            dgvLoaiVe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvLoaiVe.ColumnHeadersHeight = 29;
+            dgvLoaiVe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvLoaiVe.Location = new Point(0, 0);
+            dgvLoaiVe.Name = "dgvLoaiVe";
+            dgvLoaiVe.ReadOnly = true;
+            dgvLoaiVe.RowHeadersVisible = false;
+            dgvLoaiVe.RowHeadersWidth = 51;
+            dgvLoaiVe.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvLoaiVe.Size = new Size(968, 540);
+            dgvLoaiVe.TabIndex = 0;
+            // 
+            // btnThemLoaiVe
+            // 
+            btnThemLoaiVe.Location = new Point(6, 564);
+            btnThemLoaiVe.Name = "btnThemLoaiVe";
+            btnThemLoaiVe.Size = new Size(90, 28);
+            btnThemLoaiVe.TabIndex = 1;
+            btnThemLoaiVe.Text = "Thêm";
+            btnThemLoaiVe.UseVisualStyleBackColor = true;
+            btnThemLoaiVe.Click += btnThemLoaiVe_Click;
+            // 
+            // btnSuaLoaiVe
+            // 
+            btnSuaLoaiVe.Location = new Point(106, 564);
+            btnSuaLoaiVe.Name = "btnSuaLoaiVe";
+            btnSuaLoaiVe.Size = new Size(90, 28);
+            btnSuaLoaiVe.TabIndex = 2;
+            btnSuaLoaiVe.Text = "Sửa";
+            btnSuaLoaiVe.UseVisualStyleBackColor = true;
+            btnSuaLoaiVe.Click += btnSuaLoaiVe_Click;
+            // 
+            // btnXoaLoaiVe
+            // 
+            btnXoaLoaiVe.Location = new Point(206, 564);
+            btnXoaLoaiVe.Name = "btnXoaLoaiVe";
+            btnXoaLoaiVe.Size = new Size(90, 28);
+            btnXoaLoaiVe.TabIndex = 3;
+            btnXoaLoaiVe.Text = "Xóa";
+            btnXoaLoaiVe.UseVisualStyleBackColor = true;
+            btnXoaLoaiVe.Click += btnXoaLoaiVe_Click;
+            // 
+            // ucPhanLoaiVe
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnXoaLoaiVe);
+            Controls.Add(btnSuaLoaiVe);
+            Controls.Add(btnThemLoaiVe);
+            Controls.Add(dgvLoaiVe);
+            Name = "ucPhanLoaiVe";
+            Size = new Size(968, 608);
+            ((System.ComponentModel.ISupportInitialize)dgvLoaiVe).EndInit();
+            ResumeLayout(false);
+        }
+    }
+}

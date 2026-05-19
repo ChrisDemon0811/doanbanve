@@ -1,0 +1,63 @@
+﻿namespace doanbanve.Forms
+{
+    partial class ucQuanLyHoaDon
+    {
+        private System.ComponentModel.IContainer components = null;
+        private DataGridView dgvHoaDon;
+        private Button btnChiTietHoaDon;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            dgvHoaDon = new DataGridView();
+            btnChiTietHoaDon = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).BeginInit();
+            SuspendLayout();
+            // 
+            // dgvHoaDon
+            // 
+            dgvHoaDon.AllowUserToAddRows = false;
+            dgvHoaDon.AllowUserToDeleteRows = false;
+            dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvHoaDon.ColumnHeadersHeight = 29;
+            dgvHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvHoaDon.Location = new Point(0, 0);
+            dgvHoaDon.Name = "dgvHoaDon";
+            dgvHoaDon.ReadOnly = true;
+            dgvHoaDon.RowHeadersVisible = false;
+            dgvHoaDon.RowHeadersWidth = 51;
+            dgvHoaDon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvHoaDon.Size = new Size(968, 520);
+            dgvHoaDon.TabIndex = 0;
+            // 
+            // btnChiTietHoaDon
+            // 
+            btnChiTietHoaDon.Location = new Point(0, 540);
+            btnChiTietHoaDon.Name = "btnChiTietHoaDon";
+            btnChiTietHoaDon.Size = new Size(140, 28);
+            btnChiTietHoaDon.TabIndex = 1;
+            btnChiTietHoaDon.Text = "Chi tiết hóa đơn";
+            btnChiTietHoaDon.UseVisualStyleBackColor = true;
+            btnChiTietHoaDon.Click += btnChiTietHoaDon_Click;
+            // 
+            // ucQuanLyHoaDon
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnChiTietHoaDon);
+            Controls.Add(dgvHoaDon);
+            Name = "ucQuanLyHoaDon";
+            Size = new Size(968, 608);
+            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).EndInit();
+            ResumeLayout(false);
+        }
+    }
+}

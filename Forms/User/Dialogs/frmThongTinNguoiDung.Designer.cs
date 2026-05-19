@@ -16,6 +16,7 @@ namespace doanbanve.Forms
         private Label lblEmail;
         private Label lblSoDienThoai;
         private Label lblVaiTro;
+        private Button btnCapNhatThongTin;
         private FlowLayoutPanel pnlDonHangDanhSach;
 
         protected override void Dispose(bool disposing)
@@ -41,6 +42,7 @@ namespace doanbanve.Forms
             lblEmailText = new Label();
             lblTaiKhoanText = new Label();
             lblHoTenText = new Label();
+            btnCapNhatThongTin = new Button();
             tabDonHang = new TabPage();
             pnlDonHangDanhSach = new FlowLayoutPanel();
             tabThongTin.SuspendLayout();
@@ -61,6 +63,7 @@ namespace doanbanve.Forms
             // 
             // tabThongTinNguoiDung
             // 
+            tabThongTinNguoiDung.Controls.Add(btnCapNhatThongTin);
             tabThongTinNguoiDung.Controls.Add(lblVaiTro);
             tabThongTinNguoiDung.Controls.Add(lblSoDienThoai);
             tabThongTinNguoiDung.Controls.Add(lblEmail);
@@ -118,9 +121,10 @@ namespace doanbanve.Forms
             // lblHoTen
             // 
             lblHoTen.AutoSize = true;
-            lblHoTen.Location = new Point(140, 24);
+            lblHoTen.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            lblHoTen.Location = new Point(180, 28);
             lblHoTen.Name = "lblHoTen";
-            lblHoTen.Size = new Size(15, 20);
+            lblHoTen.Size = new Size(18, 25);
             lblHoTen.TabIndex = 5;
             lblHoTen.Text = "-";
             // 
@@ -163,11 +167,21 @@ namespace doanbanve.Forms
             // lblHoTenText
             // 
             lblHoTenText.AutoSize = true;
-            lblHoTenText.Location = new Point(24, 24);
+            lblHoTenText.Location = new Point(40, 30);
             lblHoTenText.Name = "lblHoTenText";
             lblHoTenText.Size = new Size(57, 20);
             lblHoTenText.TabIndex = 0;
             lblHoTenText.Text = "Họ tên:";
+            // 
+            // btnCapNhatThongTin
+            // 
+            btnCapNhatThongTin.Location = new Point(40, 230);
+            btnCapNhatThongTin.Name = "btnCapNhatThongTin";
+            btnCapNhatThongTin.Size = new Size(160, 32);
+            btnCapNhatThongTin.TabIndex = 10;
+            btnCapNhatThongTin.Text = "Cập nhật thông tin";
+            btnCapNhatThongTin.UseVisualStyleBackColor = true;
+            btnCapNhatThongTin.Click += btnCapNhatThongTin_Click;
             // 
             // tabDonHang
             // 
@@ -195,7 +209,7 @@ namespace doanbanve.Forms
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 475);
+            ClientSize = new Size(820, 480);
             Controls.Add(tabThongTin);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;

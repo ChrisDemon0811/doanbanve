@@ -11,28 +11,11 @@ namespace doanbanve.Forms
         private Button btnMenuHoaDon;
         private Button btnMenuThongKe;
         private Panel pnlNoiDung;
-        private Panel pnlNguoiDung;
-        private DataGridView dgvNguoiDung;
-        private Button btnResetMatKhau;
-        private Button btnXemThongTin;
-        private Panel pnlNhapMatKhau;
-        private Label lblMatKhauMoi;
-        private TextBox txtMatKhauMoi;
-        private Button btnXacNhanMatKhau;
-        private Button btnHuyMatKhau;
-        private Panel pnlQuanLyVe;
-        private DataGridView dgvVe;
-        private Button btnThemVe;
-        private Button btnSuaVe;
-        private Button btnXoaVe;
-        private Button btnLamMoiVe;
-        private Panel pnlQuanLyLoaiVe;
-        private DataGridView dgvLoaiVe;
-        private Button btnThemLoaiVe;
-        private Button btnSuaLoaiVe;
-        private Button btnXoaLoaiVe;
-        private Panel pnlQuanLyVoucher;
-        private Panel pnlQuanLyHoaDon;
+        private ucQuanLyNguoiDung ucNguoiDung;
+        private ucQuanLyVe ucQuanLyVe;
+        private ucPhanLoaiVe ucPhanLoaiVe;
+        private ucQuanLyVoucher ucQuanLyVoucher;
+        private ucQuanLyHoaDon ucQuanLyHoaDon;
         private Panel pnlThongKe;
         private Panel pnlBoLocThongKe;
         private ComboBox cboLoaiThongKe;
@@ -97,49 +80,16 @@ namespace doanbanve.Forms
             dtpTuNgay = new DateTimePicker();
             lblLoaiThongKe = new Label();
             cboLoaiThongKe = new ComboBox();
-            pnlQuanLyHoaDon = new Panel();
-            btnChiTietHoaDon = new Button();
-            dgvHoaDon = new DataGridView();
-            pnlQuanLyVoucher = new Panel();
-            btnXoaVoucher = new Button();
-            btnSuaVoucher = new Button();
-            btnThemVoucher = new Button();
-            dgvVoucher = new DataGridView();
-            pnlQuanLyLoaiVe = new Panel();
-            btnXoaLoaiVe = new Button();
-            btnSuaLoaiVe = new Button();
-            btnThemLoaiVe = new Button();
-            dgvLoaiVe = new DataGridView();
-            pnlQuanLyVe = new Panel();
-            btnLamMoiVe = new Button();
-            btnXoaVe = new Button();
-            btnSuaVe = new Button();
-            btnThemVe = new Button();
-            dgvVe = new DataGridView();
-            pnlNguoiDung = new Panel();
-            btnXemThongTin = new Button();
-            btnResetMatKhau = new Button();
-            dgvNguoiDung = new DataGridView();
-            pnlNhapMatKhau = new Panel();
-            btnHuyMatKhau = new Button();
-            btnXacNhanMatKhau = new Button();
-            txtMatKhauMoi = new TextBox();
-            lblMatKhauMoi = new Label();
+            ucQuanLyHoaDon = new ucQuanLyHoaDon();
+            ucQuanLyVoucher = new ucQuanLyVoucher();
+            ucPhanLoaiVe = new ucPhanLoaiVe();
+            ucQuanLyVe = new ucQuanLyVe();
+            ucNguoiDung = new ucQuanLyNguoiDung();
             pnlMenu.SuspendLayout();
             pnlNoiDung.SuspendLayout();
             pnlThongKe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvThongKeLoaiVe).BeginInit();
             pnlBoLocThongKe.SuspendLayout();
-            pnlQuanLyHoaDon.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).BeginInit();
-            pnlQuanLyVoucher.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvVoucher).BeginInit();
-            pnlQuanLyLoaiVe.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvLoaiVe).BeginInit();
-            pnlQuanLyVe.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvVe).BeginInit();
-            pnlNguoiDung.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvNguoiDung).BeginInit();
             SuspendLayout();
             // 
             // pnlMenu
@@ -238,17 +188,61 @@ namespace doanbanve.Forms
             // pnlNoiDung
             // 
             pnlNoiDung.Controls.Add(pnlThongKe);
-            pnlNoiDung.Controls.Add(pnlQuanLyHoaDon);
-            pnlNoiDung.Controls.Add(pnlQuanLyVoucher);
-            pnlNoiDung.Controls.Add(pnlQuanLyLoaiVe);
-            pnlNoiDung.Controls.Add(pnlQuanLyVe);
-            pnlNoiDung.Controls.Add(pnlNguoiDung);
+            pnlNoiDung.Controls.Add(ucQuanLyHoaDon);
+            pnlNoiDung.Controls.Add(ucQuanLyVoucher);
+            pnlNoiDung.Controls.Add(ucPhanLoaiVe);
+            pnlNoiDung.Controls.Add(ucQuanLyVe);
+            pnlNoiDung.Controls.Add(ucNguoiDung);
             pnlNoiDung.Dock = DockStyle.Fill;
             pnlNoiDung.Location = new Point(200, 0);
             pnlNoiDung.Name = "pnlNoiDung";
             pnlNoiDung.Padding = new Padding(16);
             pnlNoiDung.Size = new Size(1000, 640);
             pnlNoiDung.TabIndex = 1;
+            // 
+            // ucQuanLyHoaDon
+            // 
+            ucQuanLyHoaDon.Dock = DockStyle.Fill;
+            ucQuanLyHoaDon.Location = new Point(16, 16);
+            ucQuanLyHoaDon.Name = "ucQuanLyHoaDon";
+            ucQuanLyHoaDon.Size = new Size(968, 608);
+            ucQuanLyHoaDon.TabIndex = 4;
+            ucQuanLyHoaDon.Visible = false;
+            // 
+            // ucQuanLyVoucher
+            // 
+            ucQuanLyVoucher.Dock = DockStyle.Fill;
+            ucQuanLyVoucher.Location = new Point(16, 16);
+            ucQuanLyVoucher.Name = "ucQuanLyVoucher";
+            ucQuanLyVoucher.Size = new Size(968, 608);
+            ucQuanLyVoucher.TabIndex = 3;
+            ucQuanLyVoucher.Visible = false;
+            // 
+            // ucPhanLoaiVe
+            // 
+            ucPhanLoaiVe.Dock = DockStyle.Fill;
+            ucPhanLoaiVe.Location = new Point(16, 16);
+            ucPhanLoaiVe.Name = "ucPhanLoaiVe";
+            ucPhanLoaiVe.Size = new Size(968, 608);
+            ucPhanLoaiVe.TabIndex = 2;
+            ucPhanLoaiVe.Visible = false;
+            // 
+            // ucQuanLyVe
+            // 
+            ucQuanLyVe.Dock = DockStyle.Fill;
+            ucQuanLyVe.Location = new Point(16, 16);
+            ucQuanLyVe.Name = "ucQuanLyVe";
+            ucQuanLyVe.Size = new Size(968, 608);
+            ucQuanLyVe.TabIndex = 1;
+            ucQuanLyVe.Visible = false;
+            // 
+            // ucNguoiDung
+            // 
+            ucNguoiDung.Dock = DockStyle.Fill;
+            ucNguoiDung.Location = new Point(16, 16);
+            ucNguoiDung.Name = "ucNguoiDung";
+            ucNguoiDung.Size = new Size(968, 608);
+            ucNguoiDung.TabIndex = 0;
             // 
             // pnlThongKe
             // 
@@ -435,313 +429,6 @@ namespace doanbanve.Forms
             cboLoaiThongKe.TabIndex = 0;
             cboLoaiThongKe.SelectedIndexChanged += cboLoaiThongKe_SelectedIndexChanged;
             // 
-            // pnlQuanLyHoaDon
-            // 
-            pnlQuanLyHoaDon.Controls.Add(btnChiTietHoaDon);
-            pnlQuanLyHoaDon.Controls.Add(dgvHoaDon);
-            pnlQuanLyHoaDon.Dock = DockStyle.Fill;
-            pnlQuanLyHoaDon.Location = new Point(16, 16);
-            pnlQuanLyHoaDon.Name = "pnlQuanLyHoaDon";
-            pnlQuanLyHoaDon.Size = new Size(968, 608);
-            pnlQuanLyHoaDon.TabIndex = 4;
-            pnlQuanLyHoaDon.Visible = false;
-            // 
-            // btnChiTietHoaDon
-            // 
-            btnChiTietHoaDon.Location = new Point(0, 540);
-            btnChiTietHoaDon.Name = "btnChiTietHoaDon";
-            btnChiTietHoaDon.Size = new Size(140, 28);
-            btnChiTietHoaDon.TabIndex = 1;
-            btnChiTietHoaDon.Text = "Chi tiết hóa đơn";
-            btnChiTietHoaDon.UseVisualStyleBackColor = true;
-            btnChiTietHoaDon.Click += btnChiTietHoaDon_Click;
-            // 
-            // dgvHoaDon
-            // 
-            dgvHoaDon.AllowUserToAddRows = false;
-            dgvHoaDon.AllowUserToDeleteRows = false;
-            dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvHoaDon.ColumnHeadersHeight = 29;
-            dgvHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvHoaDon.Location = new Point(0, 0);
-            dgvHoaDon.Name = "dgvHoaDon";
-            dgvHoaDon.ReadOnly = true;
-            dgvHoaDon.RowHeadersVisible = false;
-            dgvHoaDon.RowHeadersWidth = 51;
-            dgvHoaDon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvHoaDon.Size = new Size(968, 520);
-            dgvHoaDon.TabIndex = 0;
-            // 
-            // pnlQuanLyVoucher
-            // 
-            pnlQuanLyVoucher.Controls.Add(btnXoaVoucher);
-            pnlQuanLyVoucher.Controls.Add(btnSuaVoucher);
-            pnlQuanLyVoucher.Controls.Add(btnThemVoucher);
-            pnlQuanLyVoucher.Controls.Add(dgvVoucher);
-            pnlQuanLyVoucher.Dock = DockStyle.Fill;
-            pnlQuanLyVoucher.Location = new Point(16, 16);
-            pnlQuanLyVoucher.Name = "pnlQuanLyVoucher";
-            pnlQuanLyVoucher.Size = new Size(968, 608);
-            pnlQuanLyVoucher.TabIndex = 3;
-            pnlQuanLyVoucher.Visible = false;
-            // 
-            // btnXoaVoucher
-            // 
-            btnXoaVoucher.Location = new Point(200, 444);
-            btnXoaVoucher.Name = "btnXoaVoucher";
-            btnXoaVoucher.Size = new Size(90, 28);
-            btnXoaVoucher.TabIndex = 3;
-            btnXoaVoucher.Text = "Xóa";
-            btnXoaVoucher.UseVisualStyleBackColor = true;
-            btnXoaVoucher.Click += btnXoaVoucher_Click;
-            // 
-            // btnSuaVoucher
-            // 
-            btnSuaVoucher.Location = new Point(100, 444);
-            btnSuaVoucher.Name = "btnSuaVoucher";
-            btnSuaVoucher.Size = new Size(90, 28);
-            btnSuaVoucher.TabIndex = 2;
-            btnSuaVoucher.Text = "Sửa";
-            btnSuaVoucher.UseVisualStyleBackColor = true;
-            btnSuaVoucher.Click += btnSuaVoucher_Click;
-            // 
-            // btnThemVoucher
-            // 
-            btnThemVoucher.Location = new Point(0, 444);
-            btnThemVoucher.Name = "btnThemVoucher";
-            btnThemVoucher.Size = new Size(90, 28);
-            btnThemVoucher.TabIndex = 1;
-            btnThemVoucher.Text = "Thêm";
-            btnThemVoucher.UseVisualStyleBackColor = true;
-            btnThemVoucher.Click += btnThemVoucher_Click;
-            // 
-            // dgvVoucher
-            // 
-            dgvVoucher.AllowUserToAddRows = false;
-            dgvVoucher.AllowUserToDeleteRows = false;
-            dgvVoucher.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvVoucher.ColumnHeadersHeight = 29;
-            dgvVoucher.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvVoucher.Location = new Point(0, 0);
-            dgvVoucher.Name = "dgvVoucher";
-            dgvVoucher.ReadOnly = true;
-            dgvVoucher.RowHeadersVisible = false;
-            dgvVoucher.RowHeadersWidth = 51;
-            dgvVoucher.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvVoucher.Size = new Size(968, 420);
-            dgvVoucher.TabIndex = 0;
-            // 
-            // pnlQuanLyLoaiVe
-            // 
-            pnlQuanLyLoaiVe.Controls.Add(btnXoaLoaiVe);
-            pnlQuanLyLoaiVe.Controls.Add(btnSuaLoaiVe);
-            pnlQuanLyLoaiVe.Controls.Add(btnThemLoaiVe);
-            pnlQuanLyLoaiVe.Controls.Add(dgvLoaiVe);
-            pnlQuanLyLoaiVe.Dock = DockStyle.Fill;
-            pnlQuanLyLoaiVe.Location = new Point(16, 16);
-            pnlQuanLyLoaiVe.Name = "pnlQuanLyLoaiVe";
-            pnlQuanLyLoaiVe.Size = new Size(968, 608);
-            pnlQuanLyLoaiVe.TabIndex = 2;
-            pnlQuanLyLoaiVe.Visible = false;
-            // 
-            // btnXoaLoaiVe
-            // 
-            btnXoaLoaiVe.Location = new Point(206, 564);
-            btnXoaLoaiVe.Name = "btnXoaLoaiVe";
-            btnXoaLoaiVe.Size = new Size(90, 28);
-            btnXoaLoaiVe.TabIndex = 3;
-            btnXoaLoaiVe.Text = "Xóa";
-            btnXoaLoaiVe.UseVisualStyleBackColor = true;
-            btnXoaLoaiVe.Click += btnXoaLoaiVe_Click;
-            // 
-            // btnSuaLoaiVe
-            // 
-            btnSuaLoaiVe.Location = new Point(106, 564);
-            btnSuaLoaiVe.Name = "btnSuaLoaiVe";
-            btnSuaLoaiVe.Size = new Size(90, 28);
-            btnSuaLoaiVe.TabIndex = 2;
-            btnSuaLoaiVe.Text = "Sửa";
-            btnSuaLoaiVe.UseVisualStyleBackColor = true;
-            btnSuaLoaiVe.Click += btnSuaLoaiVe_Click;
-            // 
-            // btnThemLoaiVe
-            // 
-            btnThemLoaiVe.Location = new Point(6, 564);
-            btnThemLoaiVe.Name = "btnThemLoaiVe";
-            btnThemLoaiVe.Size = new Size(90, 28);
-            btnThemLoaiVe.TabIndex = 1;
-            btnThemLoaiVe.Text = "Thêm";
-            btnThemLoaiVe.UseVisualStyleBackColor = true;
-            btnThemLoaiVe.Click += btnThemLoaiVe_Click;
-            // 
-            // dgvLoaiVe
-            // 
-            dgvLoaiVe.AllowUserToAddRows = false;
-            dgvLoaiVe.AllowUserToDeleteRows = false;
-            dgvLoaiVe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvLoaiVe.ColumnHeadersHeight = 29;
-            dgvLoaiVe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvLoaiVe.Location = new Point(0, 0);
-            dgvLoaiVe.Name = "dgvLoaiVe";
-            dgvLoaiVe.ReadOnly = true;
-            dgvLoaiVe.RowHeadersVisible = false;
-            dgvLoaiVe.RowHeadersWidth = 51;
-            dgvLoaiVe.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvLoaiVe.Size = new Size(968, 540);
-            dgvLoaiVe.TabIndex = 0;
-            // 
-            // pnlQuanLyVe
-            // 
-            pnlQuanLyVe.Controls.Add(btnLamMoiVe);
-            pnlQuanLyVe.Controls.Add(btnXoaVe);
-            pnlQuanLyVe.Controls.Add(btnSuaVe);
-            pnlQuanLyVe.Controls.Add(btnThemVe);
-            pnlQuanLyVe.Controls.Add(dgvVe);
-            pnlQuanLyVe.Dock = DockStyle.Fill;
-            pnlQuanLyVe.Location = new Point(16, 16);
-            pnlQuanLyVe.Name = "pnlQuanLyVe";
-            pnlQuanLyVe.Size = new Size(968, 608);
-            pnlQuanLyVe.TabIndex = 1;
-            pnlQuanLyVe.Visible = false;
-            // 
-            // btnLamMoiVe
-            // 
-            btnLamMoiVe.Location = new Point(302, 564);
-            btnLamMoiVe.Name = "btnLamMoiVe";
-            btnLamMoiVe.Size = new Size(90, 28);
-            btnLamMoiVe.TabIndex = 22;
-            btnLamMoiVe.Text = "Làm mới";
-            btnLamMoiVe.UseVisualStyleBackColor = true;
-            btnLamMoiVe.Click += btnLamMoiVe_Click;
-            // 
-            // btnXoaVe
-            // 
-            btnXoaVe.Location = new Point(202, 564);
-            btnXoaVe.Name = "btnXoaVe";
-            btnXoaVe.Size = new Size(90, 28);
-            btnXoaVe.TabIndex = 21;
-            btnXoaVe.Text = "Xóa";
-            btnXoaVe.UseVisualStyleBackColor = true;
-            btnXoaVe.Click += btnXoaVe_Click;
-            // 
-            // btnSuaVe
-            // 
-            btnSuaVe.Location = new Point(102, 564);
-            btnSuaVe.Name = "btnSuaVe";
-            btnSuaVe.Size = new Size(90, 28);
-            btnSuaVe.TabIndex = 20;
-            btnSuaVe.Text = "Sửa";
-            btnSuaVe.UseVisualStyleBackColor = true;
-            btnSuaVe.Click += btnSuaVe_Click;
-            // 
-            // btnThemVe
-            // 
-            btnThemVe.Location = new Point(2, 564);
-            btnThemVe.Name = "btnThemVe";
-            btnThemVe.Size = new Size(90, 28);
-            btnThemVe.TabIndex = 19;
-            btnThemVe.Text = "Thêm";
-            btnThemVe.UseVisualStyleBackColor = true;
-            btnThemVe.Click += btnThemVe_Click;
-            // 
-            // dgvVe
-            // 
-            dgvVe.AllowUserToAddRows = false;
-            dgvVe.AllowUserToDeleteRows = false;
-            dgvVe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvVe.ColumnHeadersHeight = 29;
-            dgvVe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvVe.Location = new Point(0, 0);
-            dgvVe.Name = "dgvVe";
-            dgvVe.ReadOnly = true;
-            dgvVe.RowHeadersVisible = false;
-            dgvVe.RowHeadersWidth = 51;
-            dgvVe.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvVe.Size = new Size(968, 540);
-            dgvVe.TabIndex = 0;
-            dgvVe.CellContentClick += dgvVe_ThongTinVe_Click;
-            // 
-            // pnlNguoiDung
-            // 
-            pnlNguoiDung.Controls.Add(btnXemThongTin);
-            pnlNguoiDung.Controls.Add(btnResetMatKhau);
-            pnlNguoiDung.Controls.Add(dgvNguoiDung);
-            pnlNguoiDung.Dock = DockStyle.Fill;
-            pnlNguoiDung.Location = new Point(16, 16);
-            pnlNguoiDung.Name = "pnlNguoiDung";
-            pnlNguoiDung.Size = new Size(968, 608);
-            pnlNguoiDung.TabIndex = 0;
-            // 
-            // btnXemThongTin
-            // 
-            btnXemThongTin.Location = new Point(156, 516);
-            btnXemThongTin.Name = "btnXemThongTin";
-            btnXemThongTin.Size = new Size(140, 32);
-            btnXemThongTin.TabIndex = 2;
-            btnXemThongTin.Text = "Xem thông tin";
-            btnXemThongTin.UseVisualStyleBackColor = true;
-            btnXemThongTin.Click += btnXemThongTin_Click;
-            // 
-            // btnResetMatKhau
-            // 
-            btnResetMatKhau.Location = new Point(0, 516);
-            btnResetMatKhau.Name = "btnResetMatKhau";
-            btnResetMatKhau.Size = new Size(140, 32);
-            btnResetMatKhau.TabIndex = 1;
-            btnResetMatKhau.Text = "Reset mật khẩu";
-            btnResetMatKhau.UseVisualStyleBackColor = true;
-            btnResetMatKhau.Click += btnResetMatKhau_Click;
-            // 
-            // dgvNguoiDung
-            // 
-            dgvNguoiDung.AllowUserToAddRows = false;
-            dgvNguoiDung.AllowUserToDeleteRows = false;
-            dgvNguoiDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvNguoiDung.ColumnHeadersHeight = 29;
-            dgvNguoiDung.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvNguoiDung.Location = new Point(0, 0);
-            dgvNguoiDung.Name = "dgvNguoiDung";
-            dgvNguoiDung.ReadOnly = true;
-            dgvNguoiDung.RowHeadersVisible = false;
-            dgvNguoiDung.RowHeadersWidth = 51;
-            dgvNguoiDung.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvNguoiDung.Size = new Size(968, 500);
-            dgvNguoiDung.TabIndex = 0;
-            // 
-            // pnlNhapMatKhau
-            // 
-            pnlNhapMatKhau.Location = new Point(0, 0);
-            pnlNhapMatKhau.Name = "pnlNhapMatKhau";
-            pnlNhapMatKhau.Size = new Size(200, 100);
-            pnlNhapMatKhau.TabIndex = 0;
-            // 
-            // btnHuyMatKhau
-            // 
-            btnHuyMatKhau.Location = new Point(0, 0);
-            btnHuyMatKhau.Name = "btnHuyMatKhau";
-            btnHuyMatKhau.Size = new Size(75, 23);
-            btnHuyMatKhau.TabIndex = 0;
-            // 
-            // btnXacNhanMatKhau
-            // 
-            btnXacNhanMatKhau.Location = new Point(0, 0);
-            btnXacNhanMatKhau.Name = "btnXacNhanMatKhau";
-            btnXacNhanMatKhau.Size = new Size(75, 23);
-            btnXacNhanMatKhau.TabIndex = 0;
-            // 
-            // txtMatKhauMoi
-            // 
-            txtMatKhauMoi.Location = new Point(0, 0);
-            txtMatKhauMoi.Name = "txtMatKhauMoi";
-            txtMatKhauMoi.Size = new Size(100, 27);
-            txtMatKhauMoi.TabIndex = 0;
-            // 
-            // lblMatKhauMoi
-            // 
-            lblMatKhauMoi.Location = new Point(0, 0);
-            lblMatKhauMoi.Name = "lblMatKhauMoi";
-            lblMatKhauMoi.Size = new Size(100, 23);
-            lblMatKhauMoi.TabIndex = 0;
             // 
             // frmDashboardQuanLy
             // 
@@ -763,16 +450,6 @@ namespace doanbanve.Forms
             ((System.ComponentModel.ISupportInitialize)dgvThongKeLoaiVe).EndInit();
             pnlBoLocThongKe.ResumeLayout(false);
             pnlBoLocThongKe.PerformLayout();
-            pnlQuanLyHoaDon.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).EndInit();
-            pnlQuanLyVoucher.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvVoucher).EndInit();
-            pnlQuanLyLoaiVe.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvLoaiVe).EndInit();
-            pnlQuanLyVe.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvVe).EndInit();
-            pnlNguoiDung.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvNguoiDung).EndInit();
             ResumeLayout(false);
         }
 

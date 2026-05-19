@@ -30,6 +30,24 @@ namespace doanbanve.Forms
             await TaiDanhSachHoaDon();
         }
 
+        private void btnCapNhatThongTin_Click(object sender, EventArgs e)
+        {
+            using var formCapNhat = new frmCapNhatThongTinNguoiDung();
+            if (formCapNhat.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            if (Session.NguoiDungHienTai == null)
+            {
+                return;
+            }
+
+            lblHoTen.Text = Session.NguoiDungHienTai.HoTen;
+            lblEmail.Text = Session.NguoiDungHienTai.Email ?? "Chưa cập nhật";
+            lblSoDienThoai.Text = Session.NguoiDungHienTai.SoDienThoai ?? "Chưa cập nhật";
+        }
+
         private async Task TaiDanhSachHoaDon()
         {
             if (Session.NguoiDungHienTai == null)

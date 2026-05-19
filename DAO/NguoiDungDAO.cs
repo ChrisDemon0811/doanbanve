@@ -122,5 +122,25 @@ namespace doanbanve.DAO
             await ketNoi.OpenAsync();
             await lenh.ExecuteNonQueryAsync();
         }
+
+        public async Task CapNhatThongTin(int maNguoiDung, string hoTen, string? email, string? soDienThoai)
+        {
+            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
+            const string cauLenh = @"UPDATE NguoiDung
+                                 SET HoTen = @HoTen,
+                                     Email = @Email,
+                                     SoDienThoai = @SoDienThoai
+                                 WHERE MaNguoiDung = @MaNguoiDung";
+
+            using var ketNoi = new SqlConnection(chuoiKetNoi);
+            using var lenh = new SqlCommand(cauLenh, ketNoi);
+            lenh.Parameters.AddWithValue("@HoTen", hoTen);
+            lenh.Parameters.AddWithValue("@Email", (object?)email ?? DBNull.Value);
+            lenh.Parameters.AddWithValue("@SoDienThoai", (object?)soDienThoai ?? DBNull.Value);
+            lenh.Parameters.AddWithValue("@MaNguoiDung", maNguoiDung);
+
+            await ketNoi.OpenAsync();
+            await lenh.ExecuteNonQueryAsync();
+        }
     }
 }

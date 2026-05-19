@@ -1,0 +1,82 @@
+﻿using doanbanve.Controllers;
+
+namespace doanbanve.Forms
+{
+    public partial class ucQuanLyHoaDon : UserControl
+    {
+        private readonly HoaDonController hoaDonController = new();
+
+        public ucQuanLyHoaDon()
+        {
+            InitializeComponent();
+            CauHinhBang(dgvHoaDon);
+        }
+
+        public async Task TaiDuLieu()
+        {
+            dgvHoaDon.Rows.Clear();
+            if (dgvHoaDon.Columns.Count > 0)
+            {
+                dgvHoaDon.Columns.Clear();
+            }
+
+            dgvHoaDon.Columns.AddRange(new DataGridViewColumn[]
+            {
+                new DataGridViewTextBoxColumn { Name = "colMaHoaDon", HeaderText = "Mã" },
+                new DataGridViewTextBoxColumn { Name = "colNguoiDat", HeaderText = "Người đặt" },
+                new DataGridViewTextBoxColumn { Name = "colNgayLap", HeaderText = "Ngày lập" },
+                new DataGridViewTextBoxColumn { Name = "colTongTien", HeaderText = "Tổng tiền" },
+                new DataGridViewTextBoxColumn { Name = "colGiamGia", HeaderText = "Giảm giá" },
+                new DataGridViewTextBoxColumn { Name = "colThanhTien", HeaderText = "Thành tiền" },
+                new DataGridViewTextBoxColumn { Name = "colThanhToan", HeaderText = "Thanh toán" },
+                new DataGridViewTextBoxColumn { Name = "colTrangThai", HeaderText = "Trạng thái" }
+            });
+
+            var danhSach = await hoaDonController.LayDanhSachHoaDonQuanLy();
+            foreach (var hoaDon in danhSach)
+            {
+                dgvHoaDon.Rows.Add(
+                    hoaDon.MaHoaDon,
+                    hoaDon.HoTenNguoiDat,
+                    hoaDon.NgayLap.ToString("dd/MM/yyyy HH:mm"),
+                    hoaDon.TongTien.ToString("N0") + " VNĐ",
+                    hoaDon.TienGiam.ToString("N0") + " VNĐ",
+                    hoaDon.ThanhTien.ToString("N0") + " VNĐ",
+                    hoaDon.ThanhToan,
+                    hoaDon.TrangThai);
+            }
+
+            dgvHoaDon.ClearSelection();
+        }
+
+        private void CauHinhBang(DataGridView bang)
+        {
+            bang.BackgroundColor = Color.White;
+            bang.EnableHeadersVisualStyles = false;
+            bang.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(230, 230, 230);
+            bang.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            bang.ColumnHeadersDefaultCellStyle.SelectionBackColor = bang.ColumnHeadersDefaultCellStyle.BackColor;
+            bang.ColumnHeadersDefaultCellStyle.SelectionForeColor = bang.ColumnHeadersDefaultCellStyle.ForeColor;
+            bang.RowTemplate.Height = 28;
+            bang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            bang.MultiSelect = false;
+        }
+
+        private void btnChiTietHoaDon_Click(object sender, EventArgs e)
+        {
+            if (dgvHoaDon.CurrentRow == null)
+            {
+                return;
+            }
+
+            var giaTri = dgvHoaDon.CurrentRow.Cells[0].Value?.ToString();
+            if (!int.TryParse(giaTri, out var maHoaDon))
+            {
+                return;
+            }
+
+            using var formChiTiet = new frmChiTietHoaDonQuanLy(maHoaDon);
+            formChiTiet.ShowDialog();
+        }
+    }
+}
