@@ -1,7 +1,6 @@
-using System.Data;
-using Microsoft.Data.SqlClient;
+using doanbanve.Data;
 using doanbanve.Models;
-using doanbanve.Utils;
+using Microsoft.EntityFrameworkCore;
 
 namespace doanbanve.DAO
 {
@@ -9,312 +8,255 @@ namespace doanbanve.DAO
     {
         public async Task<List<DonHangDaThanhToan>> LayDanhSachDaThanhToan(int maNguoiDung)
         {
-            var danhSach = new List<DonHangDaThanhToan>();
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = @"SELECT MaHoaDon, NgayLap, TongTien, TienGiam, (TongTien - TienGiam) AS ThanhTien, ThanhToan
-                                    FROM HoaDon
-                                    WHERE MaNguoiDung = @MaNguoiDung AND TrangThai = N'DaThanhToan'
-                                    ORDER BY NgayLap DESC";
-
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh, ketNoi);
-            lenh.Parameters.AddWithValue("@MaNguoiDung", maNguoiDung);
-
-            await ketNoi.OpenAsync();
-            using var doc = await lenh.ExecuteReaderAsync();
-            while (await doc.ReadAsync())
-            {
-                danhSach.Add(new DonHangDaThanhToan
+            using var db = DuLieuContext.TaoMoi();
+            return await db.HoaDon
+                .AsNoTracking()
+                .Where(x => x.MaNguoiDung == maNguoiDung && x.TrangThai == "DaThanhToan")
+                .OrderByDescending(x => x.NgayLap)
+                .Select(x => new DonHangDaThanhToan
                 {
-                    MaHoaDon = doc.GetInt32(0),
-                    NgayLap = doc.GetDateTime(1),
-                    TongTien = doc.GetDecimal(2),
-                    TienGiam = doc.GetDecimal(3),
-                    ThanhTien = doc.GetDecimal(4),
-                    ThanhToan = doc.GetString(5)
-                });
-            }
-
-            return danhSach;
+                    MaHoaDon = x.MaHoaDon,
+                    NgayLap = x.NgayLap,
+                    TongTien = x.TongTien,
+                    TienGiam = x.TienGiam,
+                    ThanhTien = x.TongTien - x.TienGiam,
+                    ThanhToan = x.ThanhToan
+                })
+                .ToListAsync();
         }
 
-        public async Task<List<Models.ThongKeDoanhThuNgay>> LayThongKeDoanhThuTheoNgay(DateTime? tuNgay, DateTime? denNgay)
+        public async Task<List<ThongKeDoanhThuNgay>> LayThongKeDoanhThuTheoNgay(DateTime? tuNgay, DateTime? denNgay)
         {
-            var danhSach = new List<Models.ThongKeDoanhThuNgay>();
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = @"SELECT CAST(NgayLap AS DATE) AS Ngay,
-                                           SUM(TongTien - TienGiam) AS TongThanhTien
-                                    FROM HoaDon
-                                    WHERE TrangThai = N'DaThanhToan'
-                                      AND (@TuNgay IS NULL OR NgayLap >= @TuNgay)
-                                      AND (@DenNgay IS NULL OR NgayLap < DATEADD(DAY, 1, @DenNgay))
-                                    GROUP BY CAST(NgayLap AS DATE)
-                                    ORDER BY Ngay";
+            using var db = DuLieuContext.TaoMoi();
+            var truyVan = ApDungBoLocNgay(
+                db.HoaDon
+                    .AsNoTracking()
+                    .Where(x => x.TrangThai == "DaThanhToan"),
+                tuNgay,
+                denNgay);
 
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh, ketNoi);
-            lenh.Parameters.AddWithValue("@TuNgay", (object?)tuNgay ?? DBNull.Value);
-            lenh.Parameters.AddWithValue("@DenNgay", (object?)denNgay ?? DBNull.Value);
-
-            await ketNoi.OpenAsync();
-            using var doc = await lenh.ExecuteReaderAsync();
-            while (await doc.ReadAsync())
-            {
-                danhSach.Add(new Models.ThongKeDoanhThuNgay
+            return await truyVan
+                .GroupBy(x => x.NgayLap.Date)
+                .Select(g => new ThongKeDoanhThuNgay
                 {
-                    Ngay = doc.GetDateTime(0),
-                    TongThanhTien = doc.IsDBNull(1) ? 0 : doc.GetDecimal(1)
-                });
-            }
-
-            return danhSach;
+                    Ngay = g.Key,
+                    TongThanhTien = g.Sum(x => x.TongTien - x.TienGiam)
+                })
+                .OrderBy(x => x.Ngay)
+                .ToListAsync();
         }
 
-        public async Task<List<Models.ThongTinHoaDon>> LayDanhSachHoaDonQuanLy()
+        public async Task<List<ThongTinHoaDon>> LayDanhSachHoaDonQuanLy()
         {
-            var danhSach = new List<Models.ThongTinHoaDon>();
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = @"SELECT h.MaHoaDon, h.NgayLap, h.TongTien, h.TienGiam, h.ThanhToan, h.TrangThai, n.HoTen
-                                    FROM HoaDon h
-                                    INNER JOIN NguoiDung n ON h.MaNguoiDung = n.MaNguoiDung
-                                    ORDER BY h.NgayLap DESC";
-
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh, ketNoi);
-
-            await ketNoi.OpenAsync();
-            using var doc = await lenh.ExecuteReaderAsync();
-            while (await doc.ReadAsync())
-            {
-                var tongTien = doc.GetDecimal(2);
-                var tienGiam = doc.GetDecimal(3);
-                danhSach.Add(new Models.ThongTinHoaDon
+            using var db = DuLieuContext.TaoMoi();
+            return await (
+                from hoaDon in db.HoaDon.AsNoTracking()
+                join nguoiDung in db.NguoiDung.AsNoTracking() on hoaDon.MaNguoiDung equals nguoiDung.MaNguoiDung
+                orderby hoaDon.NgayLap descending
+                select new ThongTinHoaDon
                 {
-                    MaHoaDon = doc.GetInt32(0),
-                    NgayLap = doc.GetDateTime(1),
-                    TongTien = tongTien,
-                    TienGiam = tienGiam,
-                    ThanhTien = tongTien - tienGiam,
-                    ThanhToan = doc.GetString(4),
-                    TrangThai = doc.GetString(5),
-                    HoTenNguoiDat = doc.GetString(6)
-                });
-            }
-
-            return danhSach;
+                    MaHoaDon = hoaDon.MaHoaDon,
+                    NgayLap = hoaDon.NgayLap,
+                    TongTien = hoaDon.TongTien,
+                    TienGiam = hoaDon.TienGiam,
+                    ThanhTien = hoaDon.TongTien - hoaDon.TienGiam,
+                    ThanhToan = hoaDon.ThanhToan,
+                    TrangThai = hoaDon.TrangThai,
+                    HoTenNguoiDat = nguoiDung.HoTen
+                }).ToListAsync();
         }
 
         public async Task<int> ThemHoaDon(int maNguoiDung, decimal tongTien, int? maVoucher, decimal tienGiam, string thanhToan)
         {
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = @"INSERT INTO HoaDon (MaNguoiDung, NgayLap, TongTien, MaVoucher, TienGiam, ThanhToan, TrangThai)
-                                    VALUES (@MaNguoiDung, GETDATE(), @TongTien, @MaVoucher, @TienGiam, @ThanhToan, N'DaThanhToan');
-                                    SELECT SCOPE_IDENTITY();";
-
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh, ketNoi);
-            lenh.Parameters.AddWithValue("@MaNguoiDung", maNguoiDung);
-            lenh.Parameters.AddWithValue("@TongTien", tongTien);
-            lenh.Parameters.AddWithValue("@MaVoucher", (object?)maVoucher ?? DBNull.Value);
-            lenh.Parameters.AddWithValue("@TienGiam", tienGiam);
-            lenh.Parameters.AddWithValue("@ThanhToan", thanhToan);
-
-            await ketNoi.OpenAsync();
-            var ketQua = await lenh.ExecuteScalarAsync();
-            return Convert.ToInt32(ketQua);
-        }
-
-        public async Task ThemChiTietHoaDon(int maHoaDon, Models.MucGioHang muc)
-        {
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = @"INSERT INTO ChiTietHoaDon (MaHoaDon, MaVe, NgaySuDung, SoLuongNguoiLon, SoLuongTreEm, SoLuongNguoiCaoTuoi, DonGiaNguoiLon, DonGiaTreEm, DonGiaNguoiCaoTuoi, ThanhTien)
-                                    VALUES (@MaHoaDon, @MaVe, @NgaySuDung, @SoLuongNguoiLon, @SoLuongTreEm, @SoLuongNguoiCaoTuoi, @DonGiaNguoiLon, @DonGiaTreEm, @DonGiaNguoiCaoTuoi, @ThanhTien);";
-
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh, ketNoi);
-            lenh.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
-            lenh.Parameters.AddWithValue("@MaVe", muc.Ve.MaVe);
-            lenh.Parameters.AddWithValue("@NgaySuDung", muc.NgaySuDung.Date);
-            lenh.Parameters.AddWithValue("@SoLuongNguoiLon", muc.SoLuongNguoiLon);
-            lenh.Parameters.AddWithValue("@SoLuongTreEm", muc.SoLuongTreEm);
-            lenh.Parameters.AddWithValue("@SoLuongNguoiCaoTuoi", muc.SoLuongNguoiCaoTuoi);
-            lenh.Parameters.AddWithValue("@DonGiaNguoiLon", muc.Ve.GiaNguoiLon);
-            lenh.Parameters.AddWithValue("@DonGiaTreEm", muc.Ve.GiaTreEm);
-            lenh.Parameters.AddWithValue("@DonGiaNguoiCaoTuoi", muc.Ve.GiaNguoiCaoTuoi);
-            lenh.Parameters.AddWithValue("@ThanhTien", muc.TinhTongTien());
-
-            await ketNoi.OpenAsync();
-            await lenh.ExecuteNonQueryAsync();
-        }
-
-        public async Task<List<Models.MucGioHang>> LayChiTietHoaDon(int maHoaDon)
-        {
-            var danhSach = new List<Models.MucGioHang>();
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = @"SELECT c.MaVe, c.NgaySuDung, c.SoLuongNguoiLon, c.SoLuongTreEm, c.SoLuongNguoiCaoTuoi,
-                                           c.DonGiaNguoiLon, c.DonGiaTreEm, c.DonGiaNguoiCaoTuoi,
-                                           v.TenVe, v.ThongTinVe
-                                    FROM ChiTietHoaDon c
-                                    INNER JOIN Ve v ON c.MaVe = v.MaVe
-                                    WHERE c.MaHoaDon = @MaHoaDon";
-
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh, ketNoi);
-            lenh.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
-
-            await ketNoi.OpenAsync();
-            using var doc = await lenh.ExecuteReaderAsync();
-            while (await doc.ReadAsync())
+            using var db = DuLieuContext.TaoMoi();
+            var hoaDon = new HoaDonDuLieu
             {
-                danhSach.Add(new Models.MucGioHang
-                {
-                    Ve = new Models.Ve
-                    {
-                        MaVe = doc.GetInt32(0),
-                        TenVe = doc.GetString(8),
-                        GiaNguoiLon = doc.GetDecimal(5),
-                        GiaTreEm = doc.GetDecimal(6),
-                        GiaNguoiCaoTuoi = doc.GetDecimal(7),
-                        ThongTinVe = doc.IsDBNull(9) ? null : doc.GetString(9)
-                    },
-                    NgaySuDung = doc.GetDateTime(1),
-                    SoLuongNguoiLon = doc.GetInt32(2),
-                    SoLuongTreEm = doc.GetInt32(3),
-                    SoLuongNguoiCaoTuoi = doc.GetInt32(4)
-                });
-            }
-
-            return danhSach;
-        }
-
-        public async Task<Models.ThongTinHoaDon?> LayThongTinHoaDon(int maHoaDon)
-        {
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = @"SELECT h.MaHoaDon, h.NgayLap, h.TongTien, h.TienGiam, h.ThanhToan, h.TrangThai, n.HoTen
-                                    FROM HoaDon h
-                                    INNER JOIN NguoiDung n ON h.MaNguoiDung = n.MaNguoiDung
-                                    WHERE h.MaHoaDon = @MaHoaDon";
-
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh, ketNoi);
-            lenh.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
-
-            await ketNoi.OpenAsync();
-            using var doc = await lenh.ExecuteReaderAsync();
-            if (!await doc.ReadAsync())
-            {
-                return null;
-            }
-
-            var tongTien = doc.GetDecimal(2);
-            var tienGiam = doc.GetDecimal(3);
-            return new Models.ThongTinHoaDon
-            {
-                MaHoaDon = doc.GetInt32(0),
-                NgayLap = doc.GetDateTime(1),
+                MaNguoiDung = maNguoiDung,
+                NgayLap = DateTime.Now,
                 TongTien = tongTien,
+                MaVoucher = maVoucher,
                 TienGiam = tienGiam,
-                ThanhTien = tongTien - tienGiam,
-                ThanhToan = doc.GetString(4),
-                TrangThai = doc.GetString(5),
-                HoTenNguoiDat = doc.GetString(6)
+                ThanhToan = thanhToan,
+                TrangThai = "DaThanhToan"
             };
+
+            db.HoaDon.Add(hoaDon);
+            await db.SaveChangesAsync();
+            return hoaDon.MaHoaDon;
         }
 
-        public async Task<Models.ThongKeDuLieu> LayThongKeDuLieu(DateTime? tuNgay, DateTime? denNgay)
+        public async Task ThemChiTietHoaDon(int maHoaDon, MucGioHang muc)
         {
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = @"SELECT COUNT(*),
-                                           SUM(TongTien),
-                                           SUM(TienGiam),
-                                           SUM(TongTien - TienGiam)
-                                    FROM HoaDon
-                                    WHERE TrangThai = N'DaThanhToan'
-                                      AND (@TuNgay IS NULL OR NgayLap >= @TuNgay)
-                                      AND (@DenNgay IS NULL OR NgayLap < DATEADD(DAY, 1, @DenNgay))";
-
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh, ketNoi);
-            lenh.Parameters.AddWithValue("@TuNgay", (object?)tuNgay ?? DBNull.Value);
-            lenh.Parameters.AddWithValue("@DenNgay", (object?)denNgay ?? DBNull.Value);
-
-            await ketNoi.OpenAsync();
-            using var doc = await lenh.ExecuteReaderAsync();
-            if (!await doc.ReadAsync())
+            using var db = DuLieuContext.TaoMoi();
+            var chiTiet = new ChiTietHoaDonDuLieu
             {
-                return new Models.ThongKeDuLieu();
-            }
+                MaHoaDon = maHoaDon,
+                MaVe = muc.Ve.MaVe,
+                NgaySuDung = muc.NgaySuDung.Date,
+                SoLuongNguoiLon = muc.SoLuongNguoiLon,
+                SoLuongTreEm = muc.SoLuongTreEm,
+                SoLuongNguoiCaoTuoi = muc.SoLuongNguoiCaoTuoi,
+                DonGiaNguoiLon = muc.Ve.GiaNguoiLon,
+                DonGiaTreEm = muc.Ve.GiaTreEm,
+                DonGiaNguoiCaoTuoi = muc.Ve.GiaNguoiCaoTuoi,
+                ThanhTien = muc.TinhTongTien()
+            };
 
-            return new Models.ThongKeDuLieu
+            db.ChiTietHoaDon.Add(chiTiet);
+            await db.SaveChangesAsync();
+        }
+
+        public async Task<List<MucGioHang>> LayChiTietHoaDon(int maHoaDon)
+        {
+            using var db = DuLieuContext.TaoMoi();
+            return await (
+                from chiTiet in db.ChiTietHoaDon.AsNoTracking()
+                join ve in db.Ve.AsNoTracking() on chiTiet.MaVe equals ve.MaVe
+                where chiTiet.MaHoaDon == maHoaDon
+                select new MucGioHang
+                {
+                    Ve = new Ve
+                    {
+                        MaVe = chiTiet.MaVe,
+                        TenVe = ve.TenVe,
+                        GiaNguoiLon = chiTiet.DonGiaNguoiLon,
+                        GiaTreEm = chiTiet.DonGiaTreEm,
+                        GiaNguoiCaoTuoi = chiTiet.DonGiaNguoiCaoTuoi,
+                        ThongTinVe = ve.ThongTinVe,
+                        AnhVe = ve.AnhVe
+                    },
+                    NgaySuDung = chiTiet.NgaySuDung,
+                    SoLuongNguoiLon = chiTiet.SoLuongNguoiLon,
+                    SoLuongTreEm = chiTiet.SoLuongTreEm,
+                    SoLuongNguoiCaoTuoi = chiTiet.SoLuongNguoiCaoTuoi
+                }).ToListAsync();
+        }
+
+        public async Task<ThongTinHoaDon?> LayThongTinHoaDon(int maHoaDon)
+        {
+            using var db = DuLieuContext.TaoMoi();
+            return await (
+                from hoaDon in db.HoaDon.AsNoTracking()
+                join nguoiDung in db.NguoiDung.AsNoTracking() on hoaDon.MaNguoiDung equals nguoiDung.MaNguoiDung
+                where hoaDon.MaHoaDon == maHoaDon
+                select new ThongTinHoaDon
+                {
+                    MaHoaDon = hoaDon.MaHoaDon,
+                    NgayLap = hoaDon.NgayLap,
+                    TongTien = hoaDon.TongTien,
+                    TienGiam = hoaDon.TienGiam,
+                    ThanhTien = hoaDon.TongTien - hoaDon.TienGiam,
+                    ThanhToan = hoaDon.ThanhToan,
+                    TrangThai = hoaDon.TrangThai,
+                    HoTenNguoiDat = nguoiDung.HoTen
+                }).FirstOrDefaultAsync();
+        }
+
+        public async Task<ThongKeDuLieu> LayThongKeDuLieu(DateTime? tuNgay, DateTime? denNgay)
+        {
+            using var db = DuLieuContext.TaoMoi();
+            var truyVan = ApDungBoLocNgay(
+                db.HoaDon
+                    .AsNoTracking()
+                    .Where(x => x.TrangThai == "DaThanhToan"),
+                tuNgay,
+                denNgay);
+
+            var tongHoaDon = await truyVan.CountAsync();
+            var tongTien = await truyVan.SumAsync(x => (decimal?)x.TongTien) ?? 0;
+            var tongTienGiam = await truyVan.SumAsync(x => (decimal?)x.TienGiam) ?? 0;
+            var tongThanhTien = await truyVan.SumAsync(x => (decimal?)(x.TongTien - x.TienGiam)) ?? 0;
+
+            return new ThongKeDuLieu
             {
-                TongHoaDon = doc.IsDBNull(0) ? 0 : doc.GetInt32(0),
-                TongTien = doc.IsDBNull(1) ? 0 : doc.GetDecimal(1),
-                TongTienGiam = doc.IsDBNull(2) ? 0 : doc.GetDecimal(2),
-                TongThanhTien = doc.IsDBNull(3) ? 0 : doc.GetDecimal(3)
+                TongHoaDon = tongHoaDon,
+                TongTien = tongTien,
+                TongTienGiam = tongTienGiam,
+                TongThanhTien = tongThanhTien
             };
         }
 
         public async Task<int> LayTongVeDaBan(DateTime? tuNgay, DateTime? denNgay)
         {
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = @"SELECT SUM(ct.SoLuongNguoiLon + ct.SoLuongTreEm + ct.SoLuongNguoiCaoTuoi)
-                                    FROM ChiTietHoaDon ct
-                                    INNER JOIN HoaDon h ON ct.MaHoaDon = h.MaHoaDon
-                                    WHERE h.TrangThai = N'DaThanhToan'
-                                      AND (@TuNgay IS NULL OR h.NgayLap >= @TuNgay)
-                                      AND (@DenNgay IS NULL OR h.NgayLap < DATEADD(DAY, 1, @DenNgay))";
+            using var db = DuLieuContext.TaoMoi();
+            var truyVan = from chiTiet in db.ChiTietHoaDon.AsNoTracking()
+                          join hoaDon in db.HoaDon.AsNoTracking() on chiTiet.MaHoaDon equals hoaDon.MaHoaDon
+                          where hoaDon.TrangThai == "DaThanhToan"
+                          select new
+                          {
+                              hoaDon.NgayLap,
+                              TongSoLuong = chiTiet.SoLuongNguoiLon + chiTiet.SoLuongTreEm + chiTiet.SoLuongNguoiCaoTuoi
+                          };
 
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh, ketNoi);
-            lenh.Parameters.AddWithValue("@TuNgay", (object?)tuNgay ?? DBNull.Value);
-            lenh.Parameters.AddWithValue("@DenNgay", (object?)denNgay ?? DBNull.Value);
-
-            await ketNoi.OpenAsync();
-            var ketQua = await lenh.ExecuteScalarAsync();
-            if (ketQua == null || ketQua == DBNull.Value)
+            if (tuNgay.HasValue)
             {
-                return 0;
+                truyVan = truyVan.Where(x => x.NgayLap >= tuNgay.Value);
             }
 
-            return Convert.ToInt32(ketQua);
+            if (denNgay.HasValue)
+            {
+                var mocDenNgay = denNgay.Value.Date.AddDays(1);
+                truyVan = truyVan.Where(x => x.NgayLap < mocDenNgay);
+            }
+
+            return await truyVan.SumAsync(x => (int?)x.TongSoLuong) ?? 0;
         }
 
-        public async Task<List<Models.ThongKeTheoLoaiVe>> LayThongKeTheoLoaiVe(DateTime? tuNgay, DateTime? denNgay)
+        public async Task<List<ThongKeTheoLoaiVe>> LayThongKeTheoLoaiVe(DateTime? tuNgay, DateTime? denNgay)
         {
-            var danhSach = new List<Models.ThongKeTheoLoaiVe>();
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = @"SELECT lv.MaLoaiVe, lv.TenLoaiVe,
-                                           SUM(ct.SoLuongNguoiLon + ct.SoLuongTreEm + ct.SoLuongNguoiCaoTuoi) AS SoVeDaBan,
-                                           SUM(ct.ThanhTien) AS TongThanhTien
-                                    FROM ChiTietHoaDon ct
-                                    INNER JOIN Ve v ON ct.MaVe = v.MaVe
-                                    INNER JOIN LoaiVe lv ON v.MaLoaiVe = lv.MaLoaiVe
-                                    INNER JOIN HoaDon h ON ct.MaHoaDon = h.MaHoaDon
-                                    WHERE h.TrangThai = N'DaThanhToan'
-                                      AND (@TuNgay IS NULL OR h.NgayLap >= @TuNgay)
-                                      AND (@DenNgay IS NULL OR h.NgayLap < DATEADD(DAY, 1, @DenNgay))
-                                    GROUP BY lv.MaLoaiVe, lv.TenLoaiVe
-                                    ORDER BY TongThanhTien DESC";
+            using var db = DuLieuContext.TaoMoi();
+            var truyVan = from chiTiet in db.ChiTietHoaDon.AsNoTracking()
+                          join ve in db.Ve.AsNoTracking() on chiTiet.MaVe equals ve.MaVe
+                          join loaiVe in db.LoaiVe.AsNoTracking() on ve.MaLoaiVe equals loaiVe.MaLoaiVe
+                          join hoaDon in db.HoaDon.AsNoTracking() on chiTiet.MaHoaDon equals hoaDon.MaHoaDon
+                          where hoaDon.TrangThai == "DaThanhToan"
+                          select new
+                          {
+                              loaiVe.MaLoaiVe,
+                              loaiVe.TenLoaiVe,
+                              hoaDon.NgayLap,
+                              SoVeDaBan = chiTiet.SoLuongNguoiLon + chiTiet.SoLuongTreEm + chiTiet.SoLuongNguoiCaoTuoi,
+                              chiTiet.ThanhTien
+                          };
 
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh, ketNoi);
-            lenh.Parameters.AddWithValue("@TuNgay", (object?)tuNgay ?? DBNull.Value);
-            lenh.Parameters.AddWithValue("@DenNgay", (object?)denNgay ?? DBNull.Value);
-
-            await ketNoi.OpenAsync();
-            using var doc = await lenh.ExecuteReaderAsync();
-            while (await doc.ReadAsync())
+            if (tuNgay.HasValue)
             {
-                danhSach.Add(new Models.ThongKeTheoLoaiVe
-                {
-                    MaLoaiVe = doc.GetInt32(0),
-                    TenLoaiVe = doc.GetString(1),
-                    SoVeDaBan = doc.IsDBNull(2) ? 0 : doc.GetInt32(2),
-                    TongThanhTien = doc.IsDBNull(3) ? 0 : doc.GetDecimal(3)
-                });
+                truyVan = truyVan.Where(x => x.NgayLap >= tuNgay.Value);
             }
 
-            return danhSach;
+            if (denNgay.HasValue)
+            {
+                var mocDenNgay = denNgay.Value.Date.AddDays(1);
+                truyVan = truyVan.Where(x => x.NgayLap < mocDenNgay);
+            }
+
+            return await truyVan
+                .GroupBy(x => new { x.MaLoaiVe, x.TenLoaiVe })
+                .Select(g => new ThongKeTheoLoaiVe
+                {
+                    MaLoaiVe = g.Key.MaLoaiVe,
+                    TenLoaiVe = g.Key.TenLoaiVe,
+                    SoVeDaBan = g.Sum(x => x.SoVeDaBan),
+                    TongThanhTien = g.Sum(x => x.ThanhTien)
+                })
+                .OrderByDescending(x => x.TongThanhTien)
+                .ToListAsync();
+        }
+
+        private static IQueryable<HoaDonDuLieu> ApDungBoLocNgay(IQueryable<HoaDonDuLieu> truyVan, DateTime? tuNgay, DateTime? denNgay)
+        {
+            if (tuNgay.HasValue)
+            {
+                truyVan = truyVan.Where(x => x.NgayLap >= tuNgay.Value);
+            }
+
+            if (denNgay.HasValue)
+            {
+                var mocDenNgay = denNgay.Value.Date.AddDays(1);
+                truyVan = truyVan.Where(x => x.NgayLap < mocDenNgay);
+            }
+
+            return truyVan;
         }
     }
 }

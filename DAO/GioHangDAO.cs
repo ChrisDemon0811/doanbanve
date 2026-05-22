@@ -1,5 +1,5 @@
-using Microsoft.Data.SqlClient;
-using doanbanve.Utils;
+using doanbanve.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace doanbanve.DAO
 {
@@ -7,25 +7,28 @@ namespace doanbanve.DAO
     {
         public async Task<int> LayHoacTaoGioHang(int maNguoiDung)
         {
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenhLay = "SELECT TOP 1 MaGioHang FROM GioHang WHERE MaNguoiDung = @MaNguoiDung ORDER BY MaGioHang DESC";
-            const string cauLenhThem = "INSERT INTO GioHang (MaNguoiDung) VALUES (@MaNguoiDung); SELECT SCOPE_IDENTITY();";
+            using var db = DuLieuContext.TaoMoi();
+            var maGioHang = await db.GioHang
+                .AsNoTracking()
+                .Where(x => x.MaNguoiDung == maNguoiDung)
+                .OrderByDescending(x => x.MaGioHang)
+                .Select(x => (int?)x.MaGioHang)
+                .FirstOrDefaultAsync();
 
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenhLay = new SqlCommand(cauLenhLay, ketNoi);
-            lenhLay.Parameters.AddWithValue("@MaNguoiDung", maNguoiDung);
-
-            await ketNoi.OpenAsync();
-            var ketQua = await lenhLay.ExecuteScalarAsync();
-            if (ketQua != null && int.TryParse(ketQua.ToString(), out var maGioHang))
+            if (maGioHang.HasValue)
             {
-                return maGioHang;
+                return maGioHang.Value;
             }
 
-            using var lenhThem = new SqlCommand(cauLenhThem, ketNoi);
-            lenhThem.Parameters.AddWithValue("@MaNguoiDung", maNguoiDung);
-            var ketQuaThem = await lenhThem.ExecuteScalarAsync();
-            return Convert.ToInt32(ketQuaThem);
+            var gioHang = new GioHangDuLieu
+            {
+                MaNguoiDung = maNguoiDung,
+                NgayTao = DateTime.Now
+            };
+
+            db.GioHang.Add(gioHang);
+            await db.SaveChangesAsync();
+            return gioHang.MaGioHang;
         }
     }
 }

@@ -1,8 +1,6 @@
-using System.Data;
-using System.Text;
-using Microsoft.Data.SqlClient;
+using doanbanve.Data;
 using doanbanve.Models;
-using doanbanve.Utils;
+using Microsoft.EntityFrameworkCore;
 
 namespace doanbanve.DAO
 {
@@ -10,155 +8,97 @@ namespace doanbanve.DAO
     {
         public async Task<List<Ve>> LayDanhSachVe(int? maLoaiVe)
         {
-            var danhSach = new List<Ve>();
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            var cauLenh = new StringBuilder(@"SELECT MaVe, MaLoaiVe, TenVe, GiaVe, GiaNguoiLon, GiaTreEm, GiaNguoiCaoTuoi, SoLuong, MoTa, ThongTinVe, AnhVe, TrangThai
-                                            FROM Ve
-                                            WHERE TrangThai = 1");
+            using var db = DuLieuContext.TaoMoi();
+            var truyVan = db.Ve
+                .AsNoTracking()
+                .Where(x => x.TrangThai);
 
             if (maLoaiVe.HasValue && maLoaiVe.Value > 0)
             {
-                cauLenh.Append(" AND MaLoaiVe = @MaLoaiVe");
+                truyVan = truyVan.Where(x => x.MaLoaiVe == maLoaiVe.Value);
             }
 
-            cauLenh.Append(" ORDER BY TenVe");
-
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh.ToString(), ketNoi);
-            if (maLoaiVe.HasValue && maLoaiVe.Value > 0)
-            {
-                lenh.Parameters.AddWithValue("@MaLoaiVe", maLoaiVe.Value);
-            }
-
-            await ketNoi.OpenAsync();
-            using var doc = await lenh.ExecuteReaderAsync();
-            while (await doc.ReadAsync())
-            {
-                danhSach.Add(new Ve
-                {
-                    MaVe = doc.GetInt32(0),
-                    MaLoaiVe = doc.GetInt32(1),
-                    TenVe = doc.GetString(2),
-                    GiaVe = doc.GetDecimal(3),
-                    GiaNguoiLon = doc.GetDecimal(4),
-                    GiaTreEm = doc.GetDecimal(5),
-                    GiaNguoiCaoTuoi = doc.GetDecimal(6),
-                    SoLuong = doc.GetInt32(7),
-                    MoTa = doc.IsDBNull(8) ? null : doc.GetString(8),
-                    ThongTinVe = doc.IsDBNull(9) ? null : doc.GetString(9),
-                    AnhVe = doc.IsDBNull(10) ? null : doc.GetString(10),
-                    TrangThai = doc.GetBoolean(11)
-                });
-            }
-
-            return danhSach;
+            return await truyVan
+                .OrderBy(x => x.GiaVe)
+                .ToListAsync();
         }
 
         public async Task<List<Ve>> LayDanhSachVeQuanLy()
         {
-            var danhSach = new List<Ve>();
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = @"SELECT MaVe, MaLoaiVe, TenVe, GiaVe, GiaNguoiLon, GiaTreEm, GiaNguoiCaoTuoi, SoLuong, MoTa, ThongTinVe, AnhVe, TrangThai
-                                    FROM Ve
-                                    ORDER BY TenVe";
-
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh, ketNoi);
-
-            await ketNoi.OpenAsync();
-            using var doc = await lenh.ExecuteReaderAsync();
-            while (await doc.ReadAsync())
-            {
-                danhSach.Add(new Ve
-                {
-                    MaVe = doc.GetInt32(0),
-                    MaLoaiVe = doc.GetInt32(1),
-                    TenVe = doc.GetString(2),
-                    GiaVe = doc.GetDecimal(3),
-                    GiaNguoiLon = doc.GetDecimal(4),
-                    GiaTreEm = doc.GetDecimal(5),
-                    GiaNguoiCaoTuoi = doc.GetDecimal(6),
-                    SoLuong = doc.GetInt32(7),
-                    MoTa = doc.IsDBNull(8) ? null : doc.GetString(8),
-                    ThongTinVe = doc.IsDBNull(9) ? null : doc.GetString(9),
-                    AnhVe = doc.IsDBNull(10) ? null : doc.GetString(10),
-                    TrangThai = doc.GetBoolean(11)
-                });
-            }
-
-            return danhSach;
+            using var db = DuLieuContext.TaoMoi();
+            return await db.Ve
+                .AsNoTracking()
+                .Where(x => x.TrangThai)
+                .OrderBy(x => x.GiaVe)
+                .ToListAsync();
         }
 
         public async Task<int> ThemVe(Ve ve)
         {
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = @"INSERT INTO Ve (MaLoaiVe, TenVe, GiaVe, GiaNguoiLon, GiaTreEm, GiaNguoiCaoTuoi, SoLuong, MoTa, ThongTinVe, AnhVe, TrangThai)
-                                    VALUES (@MaLoaiVe, @TenVe, @GiaVe, @GiaNguoiLon, @GiaTreEm, @GiaNguoiCaoTuoi, @SoLuong, @MoTa, @ThongTinVe, @AnhVe, 1);
-                                    SELECT SCOPE_IDENTITY();";
-
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh, ketNoi);
-            lenh.Parameters.AddWithValue("@MaLoaiVe", ve.MaLoaiVe);
-            lenh.Parameters.AddWithValue("@TenVe", ve.TenVe);
-            lenh.Parameters.AddWithValue("@GiaVe", ve.GiaVe);
-            lenh.Parameters.AddWithValue("@GiaNguoiLon", ve.GiaNguoiLon);
-            lenh.Parameters.AddWithValue("@GiaTreEm", ve.GiaTreEm);
-            lenh.Parameters.AddWithValue("@GiaNguoiCaoTuoi", ve.GiaNguoiCaoTuoi);
-            lenh.Parameters.AddWithValue("@SoLuong", ve.SoLuong);
-            lenh.Parameters.AddWithValue("@MoTa", (object?)ve.MoTa ?? DBNull.Value);
-            lenh.Parameters.AddWithValue("@ThongTinVe", (object?)ve.ThongTinVe ?? DBNull.Value);
-            lenh.Parameters.AddWithValue("@AnhVe", (object?)ve.AnhVe ?? DBNull.Value);
-
-            await ketNoi.OpenAsync();
-            var ketQua = await lenh.ExecuteScalarAsync();
-            return Convert.ToInt32(ketQua);
+            using var db = DuLieuContext.TaoMoi();
+            ve.TrangThai = true;
+            db.Ve.Add(ve);
+            await db.SaveChangesAsync();
+            return ve.MaVe;
         }
 
         public async Task SuaVe(Ve ve)
         {
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = @"UPDATE Ve
-                                    SET MaLoaiVe = @MaLoaiVe,
-                                        TenVe = @TenVe,
-                                        GiaVe = @GiaVe,
-                                        GiaNguoiLon = @GiaNguoiLon,
-                                        GiaTreEm = @GiaTreEm,
-                                        GiaNguoiCaoTuoi = @GiaNguoiCaoTuoi,
-                                        SoLuong = @SoLuong,
-                                        MoTa = @MoTa,
-                                         ThongTinVe = @ThongTinVe,
-                                         AnhVe = @AnhVe
-                                    WHERE MaVe = @MaVe";
+            using var db = DuLieuContext.TaoMoi();
+            var duLieu = await db.Ve.FirstOrDefaultAsync(x => x.MaVe == ve.MaVe);
+            if (duLieu == null)
+            {
+                return;
+            }
 
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh, ketNoi);
-            lenh.Parameters.AddWithValue("@MaVe", ve.MaVe);
-            lenh.Parameters.AddWithValue("@MaLoaiVe", ve.MaLoaiVe);
-            lenh.Parameters.AddWithValue("@TenVe", ve.TenVe);
-            lenh.Parameters.AddWithValue("@GiaVe", ve.GiaVe);
-            lenh.Parameters.AddWithValue("@GiaNguoiLon", ve.GiaNguoiLon);
-            lenh.Parameters.AddWithValue("@GiaTreEm", ve.GiaTreEm);
-            lenh.Parameters.AddWithValue("@GiaNguoiCaoTuoi", ve.GiaNguoiCaoTuoi);
-            lenh.Parameters.AddWithValue("@SoLuong", ve.SoLuong);
-            lenh.Parameters.AddWithValue("@MoTa", (object?)ve.MoTa ?? DBNull.Value);
-            lenh.Parameters.AddWithValue("@ThongTinVe", (object?)ve.ThongTinVe ?? DBNull.Value);
-            lenh.Parameters.AddWithValue("@AnhVe", (object?)ve.AnhVe ?? DBNull.Value);
-
-            await ketNoi.OpenAsync();
-            await lenh.ExecuteNonQueryAsync();
+            duLieu.MaLoaiVe = ve.MaLoaiVe;
+            duLieu.TenVe = ve.TenVe;
+            duLieu.GiaVe = ve.GiaVe;
+            duLieu.GiaNguoiLon = ve.GiaNguoiLon;
+            duLieu.GiaTreEm = ve.GiaTreEm;
+            duLieu.GiaNguoiCaoTuoi = ve.GiaNguoiCaoTuoi;
+            duLieu.SoLuong = ve.SoLuong;
+            duLieu.MoTa = ve.MoTa;
+            duLieu.ThongTinVe = ve.ThongTinVe;
+            duLieu.AnhVe = ve.AnhVe;
+            await db.SaveChangesAsync();
         }
 
         public async Task XoaVe(int maVe)
         {
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = "DELETE FROM Ve WHERE MaVe = @MaVe";
+            using var db = DuLieuContext.TaoMoi();
+            using var giaoDich = await db.Database.BeginTransactionAsync();
 
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh, ketNoi);
-            lenh.Parameters.AddWithValue("@MaVe", maVe);
+            var danhSachMaChiTietVe = await db.ChiTietVe
+                .Where(x => x.MaVe == maVe)
+                .Select(x => x.MaChiTietVe)
+                .ToListAsync();
 
-            await ketNoi.OpenAsync();
-            await lenh.ExecuteNonQueryAsync();
+            var chiTietGioHangCanXoa = await db.ChiTietGioHang
+                .Where(x => x.MaVe == maVe ||
+                            (x.MaChiTietVe.HasValue && danhSachMaChiTietVe.Contains(x.MaChiTietVe.Value)))
+                .ToListAsync();
+            db.ChiTietGioHang.RemoveRange(chiTietGioHangCanXoa);
+
+            var chiTietHoaDonCanXoa = await db.ChiTietHoaDon
+                .Where(x => x.MaVe == maVe ||
+                            (x.MaChiTietVe.HasValue && danhSachMaChiTietVe.Contains(x.MaChiTietVe.Value)))
+                .ToListAsync();
+            db.ChiTietHoaDon.RemoveRange(chiTietHoaDonCanXoa);
+
+            var chiTietVeCanXoa = await db.ChiTietVe
+                .Where(x => x.MaVe == maVe)
+                .ToListAsync();
+            db.ChiTietVe.RemoveRange(chiTietVeCanXoa);
+
+            var ve = await db.Ve.FirstOrDefaultAsync(x => x.MaVe == maVe);
+            if (ve != null)
+            {
+                db.Ve.Remove(ve);
+            }
+
+            await db.SaveChangesAsync();
+            await giaoDich.CommitAsync();
         }
     }
 }

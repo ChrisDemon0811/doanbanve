@@ -153,7 +153,7 @@ namespace doanbanve.Forms
                 return;
             }
 
-            var formThongTin = new frmThongTinVe(muc.Ve.TenVe, muc.Ve.ThongTinVe);
+            var formThongTin = new frmThongTinVe(muc.Ve);
             formThongTin.ShowDialog();
         }
     }

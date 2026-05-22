@@ -34,12 +34,6 @@ namespace doanbanve.Forms
         private Label lblThongKeLoaiVeBanChay;
         private DataGridView dgvThongKeLoaiVe;
         private Panel pnlBieuDo;
-        private DataGridView dgvHoaDon;
-        private Button btnChiTietHoaDon;
-        private DataGridView dgvVoucher;
-        private Button btnThemVoucher;
-        private Button btnSuaVoucher;
-        private Button btnXoaVoucher;
         private Button btnDangXuatQuanLy;
 
         protected override void Dispose(bool disposing)

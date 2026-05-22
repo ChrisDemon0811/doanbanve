@@ -1,7 +1,6 @@
-using System.Data;
-using Microsoft.Data.SqlClient;
+using doanbanve.Data;
 using doanbanve.Models;
-using doanbanve.Utils;
+using Microsoft.EntityFrameworkCore;
 
 namespace doanbanve.DAO
 {
@@ -9,155 +8,127 @@ namespace doanbanve.DAO
     {
         public async Task<List<MucGioHang>> LayDanhSach(int maGioHang)
         {
-            var danhSach = new List<MucGioHang>();
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = @"SELECT c.MaChiTietGioHang, c.MaGioHang, c.MaVe, c.NgaySuDung, c.SoLuongNguoiLon, c.SoLuongTreEm, c.SoLuongNguoiCaoTuoi,
-                                           v.TenVe, v.GiaNguoiLon, v.GiaTreEm, v.GiaNguoiCaoTuoi, v.MoTa, v.ThongTinVe
-                                    FROM ChiTietGioHang c
-                                    INNER JOIN Ve v ON c.MaVe = v.MaVe
-                                    WHERE c.MaGioHang = @MaGioHang
-                                    ORDER BY c.MaChiTietGioHang DESC";
-
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh, ketNoi);
-            lenh.Parameters.AddWithValue("@MaGioHang", maGioHang);
-
-            await ketNoi.OpenAsync();
-            using var doc = await lenh.ExecuteReaderAsync();
-            while (await doc.ReadAsync())
-            {
-                danhSach.Add(new MucGioHang
+            using var db = DuLieuContext.TaoMoi();
+            return await (
+                from chiTiet in db.ChiTietGioHang.AsNoTracking()
+                join ve in db.Ve.AsNoTracking() on chiTiet.MaVe equals ve.MaVe
+                where chiTiet.MaGioHang == maGioHang
+                orderby chiTiet.MaChiTietGioHang descending
+                select new MucGioHang
                 {
-                    MaChiTietGioHang = doc.GetInt32(0),
-                    MaGioHang = doc.GetInt32(1),
+                    MaChiTietGioHang = chiTiet.MaChiTietGioHang,
+                    MaGioHang = chiTiet.MaGioHang,
                     Ve = new Ve
                     {
-                        MaVe = doc.GetInt32(2),
-                        TenVe = doc.GetString(7),
-                        GiaNguoiLon = doc.GetDecimal(8),
-                        GiaTreEm = doc.GetDecimal(9),
-                        GiaNguoiCaoTuoi = doc.GetDecimal(10),
-                        MoTa = doc.IsDBNull(11) ? null : doc.GetString(11),
-                        ThongTinVe = doc.IsDBNull(12) ? null : doc.GetString(12)
+                        MaVe = chiTiet.MaVe,
+                        TenVe = ve.TenVe,
+                        GiaNguoiLon = ve.GiaNguoiLon,
+                        GiaTreEm = ve.GiaTreEm,
+                        GiaNguoiCaoTuoi = ve.GiaNguoiCaoTuoi,
+                        MoTa = ve.MoTa,
+                        ThongTinVe = ve.ThongTinVe
                     },
-                    NgaySuDung = doc.GetDateTime(3),
-                    SoLuongNguoiLon = doc.GetInt32(4),
-                    SoLuongTreEm = doc.GetInt32(5),
-                    SoLuongNguoiCaoTuoi = doc.GetInt32(6)
-                });
-            }
-
-            return danhSach;
+                    NgaySuDung = chiTiet.NgaySuDung,
+                    SoLuongNguoiLon = chiTiet.SoLuongNguoiLon,
+                    SoLuongTreEm = chiTiet.SoLuongTreEm,
+                    SoLuongNguoiCaoTuoi = chiTiet.SoLuongNguoiCaoTuoi
+                }).ToListAsync();
         }
 
         public async Task<MucGioHang?> LayTheoVeVaNgay(int maGioHang, int maVe, DateTime ngaySuDung)
         {
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = @"SELECT MaChiTietGioHang, MaGioHang, MaVe, NgaySuDung, SoLuongNguoiLon, SoLuongTreEm, SoLuongNguoiCaoTuoi
-                                    FROM ChiTietGioHang
-                                    WHERE MaGioHang = @MaGioHang AND MaVe = @MaVe AND NgaySuDung = @NgaySuDung";
+            using var db = DuLieuContext.TaoMoi();
+            var duLieu = await db.ChiTietGioHang
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x =>
+                    x.MaGioHang == maGioHang &&
+                    x.MaVe == maVe &&
+                    x.NgaySuDung == ngaySuDung.Date);
 
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh, ketNoi);
-            lenh.Parameters.AddWithValue("@MaGioHang", maGioHang);
-            lenh.Parameters.AddWithValue("@MaVe", maVe);
-            lenh.Parameters.AddWithValue("@NgaySuDung", ngaySuDung.Date);
-
-            await ketNoi.OpenAsync();
-            using var doc = await lenh.ExecuteReaderAsync(CommandBehavior.SingleRow);
-            if (!await doc.ReadAsync())
+            if (duLieu == null)
             {
                 return null;
             }
 
             return new MucGioHang
             {
-                MaChiTietGioHang = doc.GetInt32(0),
-                MaGioHang = doc.GetInt32(1),
-                Ve = new Ve { MaVe = doc.GetInt32(2) },
-                NgaySuDung = doc.GetDateTime(3),
-                SoLuongNguoiLon = doc.GetInt32(4),
-                SoLuongTreEm = doc.GetInt32(5),
-                SoLuongNguoiCaoTuoi = doc.GetInt32(6)
+                MaChiTietGioHang = duLieu.MaChiTietGioHang,
+                MaGioHang = duLieu.MaGioHang,
+                Ve = new Ve { MaVe = duLieu.MaVe },
+                NgaySuDung = duLieu.NgaySuDung,
+                SoLuongNguoiLon = duLieu.SoLuongNguoiLon,
+                SoLuongTreEm = duLieu.SoLuongTreEm,
+                SoLuongNguoiCaoTuoi = duLieu.SoLuongNguoiCaoTuoi
             };
         }
 
         public async Task<int> Them(MucGioHang muc)
         {
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = @"INSERT INTO ChiTietGioHang (MaGioHang, MaVe, NgaySuDung, SoLuongNguoiLon, SoLuongTreEm, SoLuongNguoiCaoTuoi, DonGiaNguoiLon, DonGiaTreEm, DonGiaNguoiCaoTuoi)
-                                    VALUES (@MaGioHang, @MaVe, @NgaySuDung, @SoLuongNguoiLon, @SoLuongTreEm, @SoLuongNguoiCaoTuoi, @DonGiaNguoiLon, @DonGiaTreEm, @DonGiaNguoiCaoTuoi);
-                                    SELECT SCOPE_IDENTITY();";
+            using var db = DuLieuContext.TaoMoi();
+            var chiTiet = new ChiTietGioHangDuLieu
+            {
+                MaGioHang = muc.MaGioHang,
+                MaVe = muc.Ve.MaVe,
+                NgaySuDung = muc.NgaySuDung.Date,
+                SoLuongNguoiLon = muc.SoLuongNguoiLon,
+                SoLuongTreEm = muc.SoLuongTreEm,
+                SoLuongNguoiCaoTuoi = muc.SoLuongNguoiCaoTuoi,
+                DonGiaNguoiLon = muc.Ve.GiaNguoiLon,
+                DonGiaTreEm = muc.Ve.GiaTreEm,
+                DonGiaNguoiCaoTuoi = muc.Ve.GiaNguoiCaoTuoi
+            };
 
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh, ketNoi);
-            lenh.Parameters.AddWithValue("@MaGioHang", muc.MaGioHang);
-            lenh.Parameters.AddWithValue("@MaVe", muc.Ve.MaVe);
-            lenh.Parameters.AddWithValue("@NgaySuDung", muc.NgaySuDung.Date);
-            lenh.Parameters.AddWithValue("@SoLuongNguoiLon", muc.SoLuongNguoiLon);
-            lenh.Parameters.AddWithValue("@SoLuongTreEm", muc.SoLuongTreEm);
-            lenh.Parameters.AddWithValue("@SoLuongNguoiCaoTuoi", muc.SoLuongNguoiCaoTuoi);
-            lenh.Parameters.AddWithValue("@DonGiaNguoiLon", muc.Ve.GiaNguoiLon);
-            lenh.Parameters.AddWithValue("@DonGiaTreEm", muc.Ve.GiaTreEm);
-            lenh.Parameters.AddWithValue("@DonGiaNguoiCaoTuoi", muc.Ve.GiaNguoiCaoTuoi);
-
-            await ketNoi.OpenAsync();
-            var ketQua = await lenh.ExecuteScalarAsync();
-            return Convert.ToInt32(ketQua);
+            db.ChiTietGioHang.Add(chiTiet);
+            await db.SaveChangesAsync();
+            return chiTiet.MaChiTietGioHang;
         }
 
         public async Task CapNhat(MucGioHang muc)
         {
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = @"UPDATE ChiTietGioHang
-                                    SET NgaySuDung = @NgaySuDung,
-                                        SoLuongNguoiLon = @SoLuongNguoiLon,
-                                        SoLuongTreEm = @SoLuongTreEm,
-                                        SoLuongNguoiCaoTuoi = @SoLuongNguoiCaoTuoi,
-                                        DonGiaNguoiLon = @DonGiaNguoiLon,
-                                        DonGiaTreEm = @DonGiaTreEm,
-                                        DonGiaNguoiCaoTuoi = @DonGiaNguoiCaoTuoi
-                                    WHERE MaChiTietGioHang = @MaChiTietGioHang";
+            using var db = DuLieuContext.TaoMoi();
+            var duLieu = await db.ChiTietGioHang.FirstOrDefaultAsync(x => x.MaChiTietGioHang == muc.MaChiTietGioHang);
+            if (duLieu == null)
+            {
+                return;
+            }
 
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh, ketNoi);
-            lenh.Parameters.AddWithValue("@MaChiTietGioHang", muc.MaChiTietGioHang);
-            lenh.Parameters.AddWithValue("@NgaySuDung", muc.NgaySuDung.Date);
-            lenh.Parameters.AddWithValue("@SoLuongNguoiLon", muc.SoLuongNguoiLon);
-            lenh.Parameters.AddWithValue("@SoLuongTreEm", muc.SoLuongTreEm);
-            lenh.Parameters.AddWithValue("@SoLuongNguoiCaoTuoi", muc.SoLuongNguoiCaoTuoi);
-            lenh.Parameters.AddWithValue("@DonGiaNguoiLon", muc.Ve.GiaNguoiLon);
-            lenh.Parameters.AddWithValue("@DonGiaTreEm", muc.Ve.GiaTreEm);
-            lenh.Parameters.AddWithValue("@DonGiaNguoiCaoTuoi", muc.Ve.GiaNguoiCaoTuoi);
-
-            await ketNoi.OpenAsync();
-            await lenh.ExecuteNonQueryAsync();
+            duLieu.NgaySuDung = muc.NgaySuDung.Date;
+            duLieu.SoLuongNguoiLon = muc.SoLuongNguoiLon;
+            duLieu.SoLuongTreEm = muc.SoLuongTreEm;
+            duLieu.SoLuongNguoiCaoTuoi = muc.SoLuongNguoiCaoTuoi;
+            duLieu.DonGiaNguoiLon = muc.Ve.GiaNguoiLon;
+            duLieu.DonGiaTreEm = muc.Ve.GiaTreEm;
+            duLieu.DonGiaNguoiCaoTuoi = muc.Ve.GiaNguoiCaoTuoi;
+            await db.SaveChangesAsync();
         }
 
         public async Task Xoa(int maChiTietGioHang)
         {
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = "DELETE FROM ChiTietGioHang WHERE MaChiTietGioHang = @MaChiTietGioHang";
+            using var db = DuLieuContext.TaoMoi();
+            var duLieu = await db.ChiTietGioHang.FirstOrDefaultAsync(x => x.MaChiTietGioHang == maChiTietGioHang);
+            if (duLieu == null)
+            {
+                return;
+            }
 
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh, ketNoi);
-            lenh.Parameters.AddWithValue("@MaChiTietGioHang", maChiTietGioHang);
-
-            await ketNoi.OpenAsync();
-            await lenh.ExecuteNonQueryAsync();
+            db.ChiTietGioHang.Remove(duLieu);
+            await db.SaveChangesAsync();
         }
 
         public async Task XoaTheoGioHang(int maGioHang)
         {
-            var chuoiKetNoi = CauHinhHeThong.LayChuoiKetNoi();
-            const string cauLenh = "DELETE FROM ChiTietGioHang WHERE MaGioHang = @MaGioHang";
+            using var db = DuLieuContext.TaoMoi();
+            var danhSach = await db.ChiTietGioHang
+                .Where(x => x.MaGioHang == maGioHang)
+                .ToListAsync();
 
-            using var ketNoi = new SqlConnection(chuoiKetNoi);
-            using var lenh = new SqlCommand(cauLenh, ketNoi);
-            lenh.Parameters.AddWithValue("@MaGioHang", maGioHang);
+            if (danhSach.Count == 0)
+            {
+                return;
+            }
 
-            await ketNoi.OpenAsync();
-            await lenh.ExecuteNonQueryAsync();
+            db.ChiTietGioHang.RemoveRange(danhSach);
+            await db.SaveChangesAsync();
         }
     }
 }

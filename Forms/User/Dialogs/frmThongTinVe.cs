@@ -9,7 +9,14 @@ namespace doanbanve.Forms
             InitializeComponent();
             Text = "Thông tin vé";
             lblTieuDe.Text = tieuDe;
-            rtbThongTinVe.Text = string.IsNullOrWhiteSpace(thongTinVe) ? "Đang cập nhật thông tin vé." : thongTinVe;
+            if (!string.IsNullOrWhiteSpace(thongTinVe) && LaRtf(thongTinVe))
+            {
+                rtbThongTinVe.Rtf = thongTinVe;
+            }
+            else
+            {
+                rtbThongTinVe.Text = string.IsNullOrWhiteSpace(thongTinVe) ? "Đang cập nhật thông tin vé." : thongTinVe;
+            }
             DatConTroThongTin();
         }
 

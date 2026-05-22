@@ -1,3 +1,7 @@
+using doanbanve.Data;
+using doanbanve.Utils;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System.Globalization;
 
 namespace doanbanve
@@ -13,6 +17,13 @@ namespace doanbanve
             var vanHoaVietNam = CultureInfo.GetCultureInfo("vi-VN");
             CultureInfo.DefaultThreadCurrentCulture = vanHoaVietNam;
             CultureInfo.DefaultThreadCurrentUICulture = vanHoaVietNam;
+
+            var dichVu = new ServiceCollection();
+            dichVu.AddDbContextFactory<DuLieuContext>(tuyChon =>
+                tuyChon.UseSqlServer(CauHinhHeThong.LayChuoiKetNoi()));
+
+            using var boCungCap = dichVu.BuildServiceProvider();
+            DuLieuContext.CauHinhBoTaoContext(boCungCap.GetRequiredService<IDbContextFactory<DuLieuContext>>());
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.

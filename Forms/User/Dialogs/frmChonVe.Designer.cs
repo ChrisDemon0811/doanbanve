@@ -41,37 +41,37 @@ namespace doanbanve.Forms
             lblNgaySuDung = new Label();
             dtpNgaySuDung = new DateTimePicker();
             grpSoLuong = new GroupBox();
-            lblNguoiLon = new Label();
-            lblTreEm = new Label();
-            lblNguoiCaoTuoi = new Label();
-            nudNguoiLon = new NumericUpDown();
-            nudTreEm = new NumericUpDown();
-            nudNguoiCaoTuoi = new NumericUpDown();
-            btnCongNguoiLon = new Button();
-            btnTruNguoiLon = new Button();
-            btnCongTreEm = new Button();
-            btnTruTreEm = new Button();
-            btnCongNguoiCaoTuoi = new Button();
-            btnTruNguoiCaoTuoi = new Button();
-            lblGiaNguoiLon = new Label();
-            lblGiaTreEm = new Label();
             lblGiaNguoiCaoTuoi = new Label();
+            lblGiaTreEm = new Label();
+            lblGiaNguoiLon = new Label();
+            btnTruNguoiCaoTuoi = new Button();
+            btnCongNguoiCaoTuoi = new Button();
+            btnTruTreEm = new Button();
+            btnCongTreEm = new Button();
+            btnTruNguoiLon = new Button();
+            btnCongNguoiLon = new Button();
+            nudNguoiCaoTuoi = new NumericUpDown();
+            nudTreEm = new NumericUpDown();
+            nudNguoiLon = new NumericUpDown();
+            lblNguoiCaoTuoi = new Label();
+            lblTreEm = new Label();
+            lblNguoiLon = new Label();
             lblTongTien = new Label();
             btnThemGioHang = new Button();
             btnDatNgay = new Button();
             grpSoLuong.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)nudNguoiLon).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)nudTreEm).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudNguoiCaoTuoi).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudTreEm).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudNguoiLon).BeginInit();
             SuspendLayout();
             // 
             // lblTenVe
             // 
             lblTenVe.AutoSize = true;
-            lblTenVe.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTenVe.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblTenVe.Location = new Point(24, 20);
             lblTenVe.Name = "lblTenVe";
-            lblTenVe.Size = new Size(121, 25);
+            lblTenVe.Size = new Size(87, 32);
             lblTenVe.TabIndex = 0;
             lblTenVe.Text = "Tên vé";
             // 
@@ -80,7 +80,7 @@ namespace doanbanve.Forms
             lblNgaySuDung.AutoSize = true;
             lblNgaySuDung.Location = new Point(24, 64);
             lblNgaySuDung.Name = "lblNgaySuDung";
-            lblNgaySuDung.Size = new Size(86, 15);
+            lblNgaySuDung.Size = new Size(82, 20);
             lblNgaySuDung.TabIndex = 1;
             lblNgaySuDung.Text = "Chọn ngày:";
             // 
@@ -88,7 +88,7 @@ namespace doanbanve.Forms
             // 
             dtpNgaySuDung.Location = new Point(132, 60);
             dtpNgaySuDung.Name = "dtpNgaySuDung";
-            dtpNgaySuDung.Size = new Size(200, 23);
+            dtpNgaySuDung.Size = new Size(227, 27);
             dtpNgaySuDung.TabIndex = 2;
             // 
             // grpSoLuong
@@ -110,115 +110,41 @@ namespace doanbanve.Forms
             grpSoLuong.Controls.Add(lblNguoiLon);
             grpSoLuong.Location = new Point(24, 100);
             grpSoLuong.Name = "grpSoLuong";
-            grpSoLuong.Size = new Size(520, 160);
+            grpSoLuong.Size = new Size(813, 160);
             grpSoLuong.TabIndex = 3;
             grpSoLuong.TabStop = false;
             grpSoLuong.Text = "Số lượng mua";
             // 
-            // lblNguoiLon
+            // lblGiaNguoiCaoTuoi
             // 
-            lblNguoiLon.AutoSize = true;
-            lblNguoiLon.Location = new Point(16, 32);
-            lblNguoiLon.Name = "lblNguoiLon";
-            lblNguoiLon.Size = new Size(62, 15);
-            lblNguoiLon.TabIndex = 0;
-            lblNguoiLon.Text = "Người lớn";
+            lblGiaNguoiCaoTuoi.AutoSize = true;
+            lblGiaNguoiCaoTuoi.Location = new Point(665, 114);
+            lblGiaNguoiCaoTuoi.Name = "lblGiaNguoiCaoTuoi";
+            lblGiaNguoiCaoTuoi.Size = new Size(52, 20);
+            lblGiaNguoiCaoTuoi.TabIndex = 14;
+            lblGiaNguoiCaoTuoi.Text = "0 VNĐ";
             // 
-            // lblTreEm
+            // lblGiaTreEm
             // 
-            lblTreEm.AutoSize = true;
-            lblTreEm.Location = new Point(16, 72);
-            lblTreEm.Name = "lblTreEm";
-            lblTreEm.Size = new Size(43, 15);
-            lblTreEm.TabIndex = 1;
-            lblTreEm.Text = "Trẻ em";
+            lblGiaTreEm.AutoSize = true;
+            lblGiaTreEm.Location = new Point(665, 74);
+            lblGiaTreEm.Name = "lblGiaTreEm";
+            lblGiaTreEm.Size = new Size(52, 20);
+            lblGiaTreEm.TabIndex = 13;
+            lblGiaTreEm.Text = "0 VNĐ";
             // 
-            // lblNguoiCaoTuoi
+            // lblGiaNguoiLon
             // 
-            lblNguoiCaoTuoi.AutoSize = true;
-            lblNguoiCaoTuoi.Location = new Point(16, 112);
-            lblNguoiCaoTuoi.Name = "lblNguoiCaoTuoi";
-            lblNguoiCaoTuoi.Size = new Size(88, 15);
-            lblNguoiCaoTuoi.TabIndex = 2;
-            lblNguoiCaoTuoi.Text = "Người cao tuổi";
-            // 
-            // nudNguoiLon
-            // 
-            nudNguoiLon.Location = new Point(160, 28);
-            nudNguoiLon.Name = "nudNguoiLon";
-            nudNguoiLon.Size = new Size(60, 23);
-            nudNguoiLon.TabIndex = 3;
-            nudNguoiLon.ValueChanged += nudNguoiLon_ValueChanged;
-            // 
-            // nudTreEm
-            // 
-            nudTreEm.Location = new Point(160, 68);
-            nudTreEm.Name = "nudTreEm";
-            nudTreEm.Size = new Size(60, 23);
-            nudTreEm.TabIndex = 4;
-            nudTreEm.ValueChanged += nudTreEm_ValueChanged;
-            // 
-            // nudNguoiCaoTuoi
-            // 
-            nudNguoiCaoTuoi.Location = new Point(160, 108);
-            nudNguoiCaoTuoi.Name = "nudNguoiCaoTuoi";
-            nudNguoiCaoTuoi.Size = new Size(60, 23);
-            nudNguoiCaoTuoi.TabIndex = 5;
-            nudNguoiCaoTuoi.ValueChanged += nudNguoiCaoTuoi_ValueChanged;
-            // 
-            // btnCongNguoiLon
-            // 
-            btnCongNguoiLon.Location = new Point(232, 26);
-            btnCongNguoiLon.Name = "btnCongNguoiLon";
-            btnCongNguoiLon.Size = new Size(32, 26);
-            btnCongNguoiLon.TabIndex = 6;
-            btnCongNguoiLon.Text = "+";
-            btnCongNguoiLon.UseVisualStyleBackColor = true;
-            btnCongNguoiLon.Click += btnCongNguoiLon_Click;
-            // 
-            // btnTruNguoiLon
-            // 
-            btnTruNguoiLon.Location = new Point(272, 26);
-            btnTruNguoiLon.Name = "btnTruNguoiLon";
-            btnTruNguoiLon.Size = new Size(32, 26);
-            btnTruNguoiLon.TabIndex = 7;
-            btnTruNguoiLon.Text = "-";
-            btnTruNguoiLon.UseVisualStyleBackColor = true;
-            btnTruNguoiLon.Click += btnTruNguoiLon_Click;
-            // 
-            // btnCongTreEm
-            // 
-            btnCongTreEm.Location = new Point(232, 66);
-            btnCongTreEm.Name = "btnCongTreEm";
-            btnCongTreEm.Size = new Size(32, 26);
-            btnCongTreEm.TabIndex = 8;
-            btnCongTreEm.Text = "+";
-            btnCongTreEm.UseVisualStyleBackColor = true;
-            btnCongTreEm.Click += btnCongTreEm_Click;
-            // 
-            // btnTruTreEm
-            // 
-            btnTruTreEm.Location = new Point(272, 66);
-            btnTruTreEm.Name = "btnTruTreEm";
-            btnTruTreEm.Size = new Size(32, 26);
-            btnTruTreEm.TabIndex = 9;
-            btnTruTreEm.Text = "-";
-            btnTruTreEm.UseVisualStyleBackColor = true;
-            btnTruTreEm.Click += btnTruTreEm_Click;
-            // 
-            // btnCongNguoiCaoTuoi
-            // 
-            btnCongNguoiCaoTuoi.Location = new Point(232, 106);
-            btnCongNguoiCaoTuoi.Name = "btnCongNguoiCaoTuoi";
-            btnCongNguoiCaoTuoi.Size = new Size(32, 26);
-            btnCongNguoiCaoTuoi.TabIndex = 10;
-            btnCongNguoiCaoTuoi.Text = "+";
-            btnCongNguoiCaoTuoi.UseVisualStyleBackColor = true;
-            btnCongNguoiCaoTuoi.Click += btnCongNguoiCaoTuoi_Click;
+            lblGiaNguoiLon.AutoSize = true;
+            lblGiaNguoiLon.Location = new Point(665, 34);
+            lblGiaNguoiLon.Name = "lblGiaNguoiLon";
+            lblGiaNguoiLon.Size = new Size(52, 20);
+            lblGiaNguoiLon.TabIndex = 12;
+            lblGiaNguoiLon.Text = "0 VNĐ";
             // 
             // btnTruNguoiCaoTuoi
             // 
-            btnTruNguoiCaoTuoi.Location = new Point(272, 106);
+            btnTruNguoiCaoTuoi.Location = new Point(617, 108);
             btnTruNguoiCaoTuoi.Name = "btnTruNguoiCaoTuoi";
             btnTruNguoiCaoTuoi.Size = new Size(32, 26);
             btnTruNguoiCaoTuoi.TabIndex = 11;
@@ -226,46 +152,120 @@ namespace doanbanve.Forms
             btnTruNguoiCaoTuoi.UseVisualStyleBackColor = true;
             btnTruNguoiCaoTuoi.Click += btnTruNguoiCaoTuoi_Click;
             // 
-            // lblGiaNguoiLon
+            // btnCongNguoiCaoTuoi
             // 
-            lblGiaNguoiLon.AutoSize = true;
-            lblGiaNguoiLon.Location = new Point(320, 32);
-            lblGiaNguoiLon.Name = "lblGiaNguoiLon";
-            lblGiaNguoiLon.Size = new Size(76, 15);
-            lblGiaNguoiLon.TabIndex = 12;
-            lblGiaNguoiLon.Text = "0 VNĐ";
+            btnCongNguoiCaoTuoi.Location = new Point(577, 108);
+            btnCongNguoiCaoTuoi.Name = "btnCongNguoiCaoTuoi";
+            btnCongNguoiCaoTuoi.Size = new Size(32, 26);
+            btnCongNguoiCaoTuoi.TabIndex = 10;
+            btnCongNguoiCaoTuoi.Text = "+";
+            btnCongNguoiCaoTuoi.UseVisualStyleBackColor = true;
+            btnCongNguoiCaoTuoi.Click += btnCongNguoiCaoTuoi_Click;
             // 
-            // lblGiaTreEm
+            // btnTruTreEm
             // 
-            lblGiaTreEm.AutoSize = true;
-            lblGiaTreEm.Location = new Point(320, 72);
-            lblGiaTreEm.Name = "lblGiaTreEm";
-            lblGiaTreEm.Size = new Size(76, 15);
-            lblGiaTreEm.TabIndex = 13;
-            lblGiaTreEm.Text = "0 VNĐ";
+            btnTruTreEm.Location = new Point(617, 68);
+            btnTruTreEm.Name = "btnTruTreEm";
+            btnTruTreEm.Size = new Size(32, 26);
+            btnTruTreEm.TabIndex = 9;
+            btnTruTreEm.Text = "-";
+            btnTruTreEm.UseVisualStyleBackColor = true;
+            btnTruTreEm.Click += btnTruTreEm_Click;
             // 
-            // lblGiaNguoiCaoTuoi
+            // btnCongTreEm
             // 
-            lblGiaNguoiCaoTuoi.AutoSize = true;
-            lblGiaNguoiCaoTuoi.Location = new Point(320, 112);
-            lblGiaNguoiCaoTuoi.Name = "lblGiaNguoiCaoTuoi";
-            lblGiaNguoiCaoTuoi.Size = new Size(76, 15);
-            lblGiaNguoiCaoTuoi.TabIndex = 14;
-            lblGiaNguoiCaoTuoi.Text = "0 VNĐ";
+            btnCongTreEm.Location = new Point(577, 68);
+            btnCongTreEm.Name = "btnCongTreEm";
+            btnCongTreEm.Size = new Size(32, 26);
+            btnCongTreEm.TabIndex = 8;
+            btnCongTreEm.Text = "+";
+            btnCongTreEm.UseVisualStyleBackColor = true;
+            btnCongTreEm.Click += btnCongTreEm_Click;
+            // 
+            // btnTruNguoiLon
+            // 
+            btnTruNguoiLon.Location = new Point(617, 28);
+            btnTruNguoiLon.Name = "btnTruNguoiLon";
+            btnTruNguoiLon.Size = new Size(32, 26);
+            btnTruNguoiLon.TabIndex = 7;
+            btnTruNguoiLon.Text = "-";
+            btnTruNguoiLon.UseVisualStyleBackColor = true;
+            btnTruNguoiLon.Click += btnTruNguoiLon_Click;
+            // 
+            // btnCongNguoiLon
+            // 
+            btnCongNguoiLon.Location = new Point(577, 28);
+            btnCongNguoiLon.Name = "btnCongNguoiLon";
+            btnCongNguoiLon.Size = new Size(32, 26);
+            btnCongNguoiLon.TabIndex = 6;
+            btnCongNguoiLon.Text = "+";
+            btnCongNguoiLon.UseVisualStyleBackColor = true;
+            btnCongNguoiLon.Click += btnCongNguoiLon_Click;
+            // 
+            // nudNguoiCaoTuoi
+            // 
+            nudNguoiCaoTuoi.Location = new Point(505, 110);
+            nudNguoiCaoTuoi.Name = "nudNguoiCaoTuoi";
+            nudNguoiCaoTuoi.Size = new Size(60, 27);
+            nudNguoiCaoTuoi.TabIndex = 5;
+            nudNguoiCaoTuoi.ValueChanged += nudNguoiCaoTuoi_ValueChanged;
+            // 
+            // nudTreEm
+            // 
+            nudTreEm.Location = new Point(505, 70);
+            nudTreEm.Name = "nudTreEm";
+            nudTreEm.Size = new Size(60, 27);
+            nudTreEm.TabIndex = 4;
+            nudTreEm.ValueChanged += nudTreEm_ValueChanged;
+            // 
+            // nudNguoiLon
+            // 
+            nudNguoiLon.Location = new Point(505, 30);
+            nudNguoiLon.Name = "nudNguoiLon";
+            nudNguoiLon.Size = new Size(60, 27);
+            nudNguoiLon.TabIndex = 3;
+            nudNguoiLon.ValueChanged += nudNguoiLon_ValueChanged;
+            // 
+            // lblNguoiCaoTuoi
+            // 
+            lblNguoiCaoTuoi.AutoSize = true;
+            lblNguoiCaoTuoi.Location = new Point(16, 112);
+            lblNguoiCaoTuoi.Name = "lblNguoiCaoTuoi";
+            lblNguoiCaoTuoi.Size = new Size(109, 20);
+            lblNguoiCaoTuoi.TabIndex = 2;
+            lblNguoiCaoTuoi.Text = "Người cao tuổi";
+            // 
+            // lblTreEm
+            // 
+            lblTreEm.AutoSize = true;
+            lblTreEm.Location = new Point(16, 72);
+            lblTreEm.Name = "lblTreEm";
+            lblTreEm.Size = new Size(54, 20);
+            lblTreEm.TabIndex = 1;
+            lblTreEm.Text = "Trẻ em";
+            // 
+            // lblNguoiLon
+            // 
+            lblNguoiLon.AutoSize = true;
+            lblNguoiLon.Location = new Point(16, 32);
+            lblNguoiLon.Name = "lblNguoiLon";
+            lblNguoiLon.Size = new Size(76, 20);
+            lblNguoiLon.TabIndex = 0;
+            lblNguoiLon.Text = "Người lớn";
             // 
             // lblTongTien
             // 
             lblTongTien.AutoSize = true;
-            lblTongTien.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTongTien.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblTongTien.Location = new Point(24, 276);
             lblTongTien.Name = "lblTongTien";
-            lblTongTien.Size = new Size(96, 21);
+            lblTongTien.Size = new Size(74, 28);
             lblTongTien.TabIndex = 4;
             lblTongTien.Text = "0 VNĐ";
             // 
             // btnThemGioHang
             // 
-            btnThemGioHang.Location = new Point(280, 320);
+            btnThemGioHang.Location = new Point(536, 328);
             btnThemGioHang.Name = "btnThemGioHang";
             btnThemGioHang.Size = new Size(120, 32);
             btnThemGioHang.TabIndex = 5;
@@ -275,7 +275,7 @@ namespace doanbanve.Forms
             // 
             // btnDatNgay
             // 
-            btnDatNgay.Location = new Point(416, 320);
+            btnDatNgay.Location = new Point(672, 328);
             btnDatNgay.Name = "btnDatNgay";
             btnDatNgay.Size = new Size(120, 32);
             btnDatNgay.TabIndex = 6;
@@ -285,8 +285,9 @@ namespace doanbanve.Forms
             // 
             // frmChonVe
             // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(680, 430);
+            ClientSize = new Size(864, 430);
             Controls.Add(btnDatNgay);
             Controls.Add(btnThemGioHang);
             Controls.Add(lblTongTien);
@@ -302,9 +303,9 @@ namespace doanbanve.Forms
             Load += frmChonVe_Load;
             grpSoLuong.ResumeLayout(false);
             grpSoLuong.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)nudNguoiLon).EndInit();
-            ((System.ComponentModel.ISupportInitialize)nudTreEm).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudNguoiCaoTuoi).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudTreEm).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudNguoiLon).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
