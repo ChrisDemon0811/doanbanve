@@ -151,7 +151,7 @@ namespace doanbanve.Forms
 
         private void MoThongTinVe(Models.Ve ve)
         {
-            var formThongTin = new frmThongTinVe(ve.TenVe, ve.ThongTinVe);
+            var formThongTin = new frmThongTinVe(ve);
             formThongTin.ShowDialog();
         }
     }

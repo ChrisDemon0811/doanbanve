@@ -46,5 +46,10 @@ namespace doanbanve.Controllers
         {
             return await hoaDonDAO.LayThongKeDoanhThuTheoNgay(tuNgay, denNgay);
         }
+
+        public async Task<List<ThongKeDoanhThuNgay>> LayThongKeDoanhThuTheoThang(DateTime? tuNgay, DateTime? denNgay)
+        {
+            return await hoaDonDAO.LayThongKeDoanhThuTheoThang(tuNgay, denNgay);
+        }
     }
 }

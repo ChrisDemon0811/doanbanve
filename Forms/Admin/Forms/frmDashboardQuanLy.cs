@@ -233,25 +233,13 @@ namespace doanbanve.Forms
 
         private async Task TaiBieuDo()
         {
-            var duLieuTheoNgay = await hoaDonController.LayThongKeDoanhThuTheoNgay(tuNgayThongKe, denNgayThongKe);
-
             if (cboLoaiThongKe.SelectedIndex == 1)
             {
-                danhSachBieuDo = duLieuTheoNgay
-                    .GroupBy(x => new DateTime(x.Ngay.Year, x.Ngay.Month, 1))
-                    .Select(g => new ThongKeDoanhThuNgay
-                    {
-                        Ngay = g.Key,
-                        TongThanhTien = g.Sum(x => x.TongThanhTien)
-                    })
-                    .OrderBy(x => x.Ngay)
-                    .ToList();
+                danhSachBieuDo = await hoaDonController.LayThongKeDoanhThuTheoThang(tuNgayThongKe, denNgayThongKe);
             }
             else
             {
-                danhSachBieuDo = duLieuTheoNgay
-                    .OrderBy(x => x.Ngay)
-                    .ToList();
+                danhSachBieuDo = await hoaDonController.LayThongKeDoanhThuTheoNgay(tuNgayThongKe, denNgayThongKe);
             }
 
             pnlBieuDo.Invalidate();

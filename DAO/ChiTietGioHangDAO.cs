@@ -26,7 +26,8 @@ namespace doanbanve.DAO
                         GiaTreEm = ve.GiaTreEm,
                         GiaNguoiCaoTuoi = ve.GiaNguoiCaoTuoi,
                         MoTa = ve.MoTa,
-                        ThongTinVe = ve.ThongTinVe
+                        ThongTinVe = ve.ThongTinVe,
+                        AnhVe = ve.AnhVe
                     },
                     NgaySuDung = chiTiet.NgaySuDung,
                     SoLuongNguoiLon = chiTiet.SoLuongNguoiLon,

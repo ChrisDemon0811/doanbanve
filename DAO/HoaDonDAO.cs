@@ -46,6 +46,37 @@ namespace doanbanve.DAO
                 .ToListAsync();
         }
 
+        public async Task<List<ThongKeDoanhThuNgay>> LayThongKeDoanhThuTheoThang(DateTime? tuNgay, DateTime? denNgay)
+        {
+            using var db = DuLieuContext.TaoMoi();
+            var truyVan = ApDungBoLocNgay(
+                db.HoaDon
+                    .AsNoTracking()
+                    .Where(x => x.TrangThai == "DaThanhToan"),
+                tuNgay,
+                denNgay);
+
+            var duLieuTheoThang = await truyVan
+                .GroupBy(x => new { x.NgayLap.Year, x.NgayLap.Month })
+                .Select(g => new
+                {
+                    g.Key.Year,
+                    g.Key.Month,
+                    TongThanhTien = g.Sum(x => x.TongTien - x.TienGiam)
+                })
+                .OrderBy(x => x.Year)
+                .ThenBy(x => x.Month)
+                .ToListAsync();
+
+            return duLieuTheoThang
+                .Select(x => new ThongKeDoanhThuNgay
+                {
+                    Ngay = new DateTime(x.Year, x.Month, 1),
+                    TongThanhTien = x.TongThanhTien
+                })
+                .ToList();
+        }
+
         public async Task<List<ThongTinHoaDon>> LayDanhSachHoaDonQuanLy()
         {
             using var db = DuLieuContext.TaoMoi();
