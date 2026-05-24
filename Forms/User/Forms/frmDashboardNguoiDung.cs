@@ -8,6 +8,8 @@ namespace doanbanve.Forms
     {
         private readonly LoaiVeController loaiVeController = new();
         private readonly VeController veController = new();
+        private int? maLoaiVeDangLoc;
+        private string tuKhoaTimKiemVe = string.Empty;
 
         public frmDashboardNguoiDung()
         {
@@ -18,7 +20,8 @@ namespace doanbanve.Forms
         {
             HienThiThongTinDangNhap();
             await TaiDuLieuLoaiVe();
-            await TaiDanhSachVe(null);
+            maLoaiVeDangLoc = null;
+            await TaiDanhSachVeHienTai();
         }
 
         private void HienThiThongTinDangNhap()
@@ -101,16 +104,34 @@ namespace doanbanve.Forms
                 FlatStyle = FlatStyle.Standard,
                 Tag = loaiVe?.MaLoaiVe
             };
-            nutLoai.Click += async (_, _) => await TaiDanhSachVe(loaiVe?.MaLoaiVe);
+            nutLoai.Click += async (_, _) =>
+            {
+                maLoaiVeDangLoc = loaiVe?.MaLoaiVe;
+                await TaiDanhSachVeHienTai();
+            };
             return nutLoai;
         }
 
-        private async Task TaiDanhSachVe(int? maLoaiVe)
+        private async Task TaiDanhSachVeHienTai()
         {
             pnlVe.Controls.Clear();
             try
             {
-                var danhSachVe = await veController.LayDanhSachVe(maLoaiVe);
+                var danhSachVe = await veController.LayDanhSachVe(maLoaiVeDangLoc);
+                var tuKhoa = tuKhoaTimKiemVe.Trim();
+                if (!string.IsNullOrWhiteSpace(tuKhoa))
+                {
+                    danhSachVe = danhSachVe
+                        .Where(ve => KhopTuKhoaTimKiem(ve, tuKhoa))
+                        .ToList();
+                }
+
+                if (danhSachVe.Count == 0)
+                {
+                    pnlVe.Controls.Add(TaoNhanKhongCoKetQua());
+                    return;
+                }
+
                 foreach (var ve in danhSachVe)
                 {
                     pnlVe.Controls.Add(TaoTheVe(ve));
@@ -127,7 +148,7 @@ namespace doanbanve.Forms
             var theVe = new Panel
             {
                 Width = 1040,
-                Height = 180,
+                Height = 200,
                 BackColor = Color.White,
                 Margin = new Padding(8, 8, 8, 8),
                 BorderStyle = BorderStyle.FixedSingle
@@ -158,10 +179,17 @@ namespace doanbanve.Forms
                 AutoSize = true
             };
 
+            var lblSoLuongCon = new Label
+            {
+                Text = $"Còn lại: {ve.SoLuong} vé",
+                Location = new Point(16, 116),
+                AutoSize = true
+            };
+
             var btnChon = new Button
             {
                 Text = "Chọn",
-                Location = new Point(880, 120),
+                Location = new Point(880, 140),
                 Size = new Size(100, 30),
                 BackColor = Color.FromArgb(210, 85, 30),
                 ForeColor = Color.White,
@@ -172,7 +200,7 @@ namespace doanbanve.Forms
             var btnThongTinVe = new Button
             {
                 Text = "Thông tin vé",
-                Location = new Point(16, 120),
+                Location = new Point(16, 140),
                 Size = new Size(120, 30)
             };
             btnThongTinVe.Click += (_, _) => MoThongTinVe(ve);
@@ -180,9 +208,35 @@ namespace doanbanve.Forms
             theVe.Controls.Add(lblTenVe);
             theVe.Controls.Add(lblMoTa);
             theVe.Controls.Add(lblGia);
+            theVe.Controls.Add(lblSoLuongCon);
             theVe.Controls.Add(btnThongTinVe);
             theVe.Controls.Add(btnChon);
             return theVe;
+        }
+
+        private Label TaoNhanKhongCoKetQua()
+        {
+            return new Label
+            {
+                Text = "Khong tim thay ve phu hop.",
+                AutoSize = true,
+                Location = new Point(16, 16),
+                Font = new Font("Segoe UI", 10F, FontStyle.Italic, GraphicsUnit.Point),
+                ForeColor = Color.FromArgb(90, 90, 90)
+            };
+        }
+
+        private static bool KhopTuKhoaTimKiem(Ve ve, string tuKhoa)
+        {
+            return CoChua(ve.TenVe, tuKhoa)
+                || CoChua(ve.MoTa, tuKhoa)
+                || CoChua(ve.ThongTinVe, tuKhoa);
+        }
+
+        private static bool CoChua(string? noiDung, string tuKhoa)
+        {
+            return !string.IsNullOrWhiteSpace(noiDung)
+                && noiDung.Contains(tuKhoa, StringComparison.CurrentCultureIgnoreCase);
         }
 
         private void MoFormChonVe(Ve ve)
@@ -209,7 +263,7 @@ namespace doanbanve.Forms
             formDangNhap.ShowDialog();
             HienThiThongTinDangNhap();
             _ = TaiDuLieuLoaiVe();
-            _ = TaiDanhSachVe(null);
+            _ = TaiDanhSachVeHienTai();
         }
 
         private void btnDangKy_Click(object sender, EventArgs e)
@@ -223,7 +277,7 @@ namespace doanbanve.Forms
         {
             var formGioHang = new frmGioHang();
             formGioHang.ShowDialog();
-            _ = TaiDanhSachVe(null);
+            _ = TaiDanhSachVeHienTai();
         }
 
         private void btnThongTinNguoiDung_Click(object sender, EventArgs e)
@@ -238,6 +292,18 @@ namespace doanbanve.Forms
             var formDoiMatKhau = new frmDoiMatKhau();
             formDoiMatKhau.ShowDialog();
             HienThiThongTinDangNhap();
+        }
+
+        private void txtTimKiemVe_TextChanged(object sender, EventArgs e)
+        {
+            tuKhoaTimKiemVe = txtTimKiemVe.Text;
+            _ = TaiDanhSachVeHienTai();
+        }
+
+        private void btnXoaTimKiemVe_Click(object sender, EventArgs e)
+        {
+            txtTimKiemVe.Clear();
+            txtTimKiemVe.Focus();
         }
     }
 }

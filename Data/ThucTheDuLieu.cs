@@ -20,20 +20,10 @@ namespace doanbanve.Data
         public DateTime NgayTao { get; set; }
     }
 
-    public class ChiTietVeDuLieu
-    {
-        public int MaChiTietVe { get; set; }
-        public int MaVe { get; set; }
-        public DateTime NgaySuDung { get; set; }
-        public int SoLuongToiDa { get; set; }
-        public int SoLuongDaDat { get; set; }
-    }
-
     public class ChiTietGioHangDuLieu
     {
         public int MaChiTietGioHang { get; set; }
         public int MaGioHang { get; set; }
-        public int? MaChiTietVe { get; set; }
         public int MaVe { get; set; }
         public DateTime NgaySuDung { get; set; }
         public int SoLuongNguoiLon { get; set; }
@@ -60,7 +50,6 @@ namespace doanbanve.Data
     {
         public int MaChiTietHoaDon { get; set; }
         public int MaHoaDon { get; set; }
-        public int? MaChiTietVe { get; set; }
         public int MaVe { get; set; }
         public DateTime NgaySuDung { get; set; }
         public int SoLuongNguoiLon { get; set; }

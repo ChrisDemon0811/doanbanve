@@ -116,6 +116,110 @@ namespace doanbanve.DAO
             return hoaDon.MaHoaDon;
         }
 
+        public async Task<int> LuuHoaDonVaCapNhatTonKho(int maNguoiDung, List<MucGioHang> danhSachMuc, int? maVoucher, decimal tienGiam, string thanhToan)
+        {
+            if (danhSachMuc == null || danhSachMuc.Count == 0)
+            {
+                throw new InvalidOperationException("Giỏ hàng đang trống.");
+            }
+
+            using var db = DuLieuContext.TaoMoi();
+            using var giaoDich = await db.Database.BeginTransactionAsync();
+
+            try
+            {
+                var soLuongTheoVe = danhSachMuc
+                    .GroupBy(x => x.Ve.MaVe)
+                    .Select(g => new
+                    {
+                        MaVe = g.Key,
+                        SoLuongCanTru = g.Sum(m => m.TinhTongSoLuong())
+                    })
+                    .Where(x => x.SoLuongCanTru > 0)
+                    .ToList();
+
+                foreach (var mucTruKho in soLuongTheoVe)
+                {
+                    var soDongCapNhat = await db.Ve
+                        .Where(x => x.MaVe == mucTruKho.MaVe &&
+                                    x.TrangThai &&
+                                    x.SoLuong >= mucTruKho.SoLuongCanTru)
+                        .ExecuteUpdateAsync(setters => setters
+                            .SetProperty(x => x.SoLuong, x => x.SoLuong - mucTruKho.SoLuongCanTru));
+
+                    if (soDongCapNhat == 0)
+                    {
+                        var tenVe = await db.Ve
+                            .AsNoTracking()
+                            .Where(x => x.MaVe == mucTruKho.MaVe)
+                            .Select(x => x.TenVe)
+                            .FirstOrDefaultAsync();
+
+                        throw new InvalidOperationException(
+                            $"Vé '{tenVe ?? mucTruKho.MaVe.ToString()}' không đủ số lượng để thanh toán.");
+                    }
+                }
+
+                if (maVoucher.HasValue)
+                {
+                    var homNay = DateTime.Today;
+                    var soDongCapNhatVoucher = await db.Voucher
+                        .Where(x => x.MaVoucher == maVoucher.Value &&
+                                    x.TrangThai &&
+                                    x.SoLuong > 0 &&
+                                    x.NgayBatDau <= homNay &&
+                                    x.NgayKetThuc >= homNay)
+                        .ExecuteUpdateAsync(setters => setters
+                            .SetProperty(x => x.SoLuong, x => x.SoLuong - 1));
+
+                    if (soDongCapNhatVoucher == 0)
+                    {
+                        throw new InvalidOperationException("Voucher không còn lượt sử dụng hoặc đã hết hạn.");
+                    }
+                }
+
+                var tongTien = danhSachMuc.Sum(m => m.TinhTongTien());
+                var hoaDon = new HoaDonDuLieu
+                {
+                    MaNguoiDung = maNguoiDung,
+                    NgayLap = DateTime.Now,
+                    TongTien = tongTien,
+                    MaVoucher = maVoucher,
+                    TienGiam = tienGiam,
+                    ThanhToan = thanhToan,
+                    TrangThai = "DaThanhToan"
+                };
+
+                db.HoaDon.Add(hoaDon);
+                await db.SaveChangesAsync();
+
+                var danhSachChiTiet = danhSachMuc.Select(muc => new ChiTietHoaDonDuLieu
+                {
+                    MaHoaDon = hoaDon.MaHoaDon,
+                    MaVe = muc.Ve.MaVe,
+                    NgaySuDung = muc.NgaySuDung.Date,
+                    SoLuongNguoiLon = muc.SoLuongNguoiLon,
+                    SoLuongTreEm = muc.SoLuongTreEm,
+                    SoLuongNguoiCaoTuoi = muc.SoLuongNguoiCaoTuoi,
+                    DonGiaNguoiLon = muc.Ve.GiaNguoiLon,
+                    DonGiaTreEm = muc.Ve.GiaTreEm,
+                    DonGiaNguoiCaoTuoi = muc.Ve.GiaNguoiCaoTuoi,
+                    ThanhTien = muc.TinhTongTien()
+                }).ToList();
+
+                db.ChiTietHoaDon.AddRange(danhSachChiTiet);
+                await db.SaveChangesAsync();
+
+                await giaoDich.CommitAsync();
+                return hoaDon.MaHoaDon;
+            }
+            catch
+            {
+                await giaoDich.RollbackAsync();
+                throw;
+            }
+        }
+
         public async Task ThemChiTietHoaDon(int maHoaDon, MucGioHang muc)
         {
             using var db = DuLieuContext.TaoMoi();

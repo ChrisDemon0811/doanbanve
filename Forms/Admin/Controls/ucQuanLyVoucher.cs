@@ -8,6 +8,7 @@ namespace doanbanve.Forms
         private readonly Color mauNenMacDinh = Color.White;
         private readonly Color mauNenChon = Color.FromArgb(230, 243, 255);
         private Panel? theVoucherDangChon;
+        private List<VoucherHienThi> danhSachVoucherHienThi = new();
 
         private sealed record VoucherHienThi(
             int MaVoucher,
@@ -28,25 +29,65 @@ namespace doanbanve.Forms
 
         public async Task TaiDuLieu()
         {
+            var danhSach = await voucherController.LayDanhSachVoucher();
+            danhSachVoucherHienThi = danhSach.Select(voucher => new VoucherHienThi(
+                voucher.MaVoucher,
+                voucher.MaGiamGia,
+                voucher.TenVoucher,
+                voucher.KieuGiamGia,
+                voucher.GiaTriGiam,
+                voucher.NgayBatDau,
+                voucher.NgayKetThuc,
+                voucher.SoLuong,
+                voucher.TrangThai)).ToList();
+
+            HienThiDanhSachVoucher();
+        }
+
+        private void HienThiDanhSachVoucher()
+        {
             flpDanhSachVoucher.SuspendLayout();
             flpDanhSachVoucher.Controls.Clear();
             theVoucherDangChon = null;
-            var danhSach = await voucherController.LayDanhSachVoucher();
-            foreach (var voucher in danhSach)
+
+            var tuKhoa = txtTimKiemVoucher.Text.Trim();
+            IEnumerable<VoucherHienThi> danhSachLoc = danhSachVoucherHienThi;
+            if (!string.IsNullOrWhiteSpace(tuKhoa))
             {
-                var hienThi = new VoucherHienThi(
-                    voucher.MaVoucher,
-                    voucher.MaGiamGia,
-                    voucher.TenVoucher,
-                    voucher.KieuGiamGia,
-                    voucher.GiaTriGiam,
-                    voucher.NgayBatDau,
-                    voucher.NgayKetThuc,
-                    voucher.SoLuong,
-                    voucher.TrangThai);
-                flpDanhSachVoucher.Controls.Add(TaoTheVoucher(hienThi));
+                danhSachLoc = danhSachLoc.Where(voucher => KhopTuKhoaTimKiem(voucher, tuKhoa));
             }
+
+            foreach (var voucher in danhSachLoc)
+            {
+                flpDanhSachVoucher.Controls.Add(TaoTheVoucher(voucher));
+            }
+
+            if (flpDanhSachVoucher.Controls.Count == 0)
+            {
+                flpDanhSachVoucher.Controls.Add(new Label
+                {
+                    Text = "Không tìm thấy voucher phù hợp.",
+                    AutoSize = true,
+                    Margin = new Padding(12),
+                    ForeColor = Color.FromArgb(90, 90, 90)
+                });
+            }
+
             flpDanhSachVoucher.ResumeLayout();
+        }
+
+        private static bool KhopTuKhoaTimKiem(VoucherHienThi voucher, string tuKhoa)
+        {
+            return CoChua(voucher.MaGiamGia, tuKhoa)
+                || CoChua(voucher.TenVoucher, tuKhoa)
+                || CoChua(voucher.KieuGiamGia, tuKhoa)
+                || CoChua(voucher.SoLuong.ToString(), tuKhoa);
+        }
+
+        private static bool CoChua(string? noiDung, string tuKhoa)
+        {
+            return !string.IsNullOrWhiteSpace(noiDung)
+                && noiDung.Contains(tuKhoa, StringComparison.CurrentCultureIgnoreCase);
         }
 
         private Panel TaoTheVoucher(VoucherHienThi voucher)
@@ -243,6 +284,17 @@ namespace doanbanve.Forms
             {
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtTimKiemVoucher_TextChanged(object sender, EventArgs e)
+        {
+            HienThiDanhSachVoucher();
+        }
+
+        private void btnXoaLocVoucher_Click(object sender, EventArgs e)
+        {
+            txtTimKiemVoucher.Clear();
+            txtTimKiemVoucher.Focus();
         }
     }
 }

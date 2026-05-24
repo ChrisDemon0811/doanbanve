@@ -9,8 +9,8 @@ namespace doanbanve.Forms
         private readonly GioHangController gioHangController = new();
         private readonly ThanhToanController thanhToanController = new();
         private List<MucGioHang> danhSachMuc = new();
-        private decimal tienGiam = 0;
-        private int? maVoucher = null;
+        private decimal tienGiam;
+        private int? maVoucher;
 
         public frmThanhToan()
         {
@@ -53,9 +53,9 @@ namespace doanbanve.Forms
         private void CapNhatTongTien()
         {
             var tongTien = danhSachMuc.Sum(m => m.TinhTongTien());
-            lblTongTien.Text = tongTien.ToString("N0") + " VNĐ";
-            lblTienGiam.Text = tienGiam.ToString("N0") + " VNĐ";
-            lblThanhTien.Text = (tongTien - tienGiam).ToString("N0") + " VNĐ";
+            lblTongTien.Text = tongTien.ToString("N0") + " VN\u0110";
+            lblTienGiam.Text = tienGiam.ToString("N0") + " VN\u0110";
+            lblThanhTien.Text = (tongTien - tienGiam).ToString("N0") + " VN\u0110";
         }
 
         private Panel TaoTheThanhToan(MucGioHang muc)
@@ -63,7 +63,7 @@ namespace doanbanve.Forms
             var theMuc = new Panel
             {
                 Width = 700,
-                Height = 120,
+                Height = 140,
                 BackColor = Color.White,
                 Margin = new Padding(8),
                 BorderStyle = BorderStyle.FixedSingle
@@ -84,30 +84,37 @@ namespace doanbanve.Forms
                 AutoSize = true
             };
 
+            var lblSoLuongCon = new Label
+            {
+                Text = $"Còn lại: {muc.Ve.SoLuong} vé",
+                Location = new Point(16, 64),
+                AutoSize = true
+            };
+
             var lblNguoiLon = new Label
             {
-                Text = $"Người lớn: {muc.SoLuongNguoiLon} x {muc.Ve.GiaNguoiLon.ToString("N0")} VNĐ",
-                Location = new Point(16, 68),
+                Text = $"Người lớn: {muc.SoLuongNguoiLon} x {muc.Ve.GiaNguoiLon.ToString("N0")} VN\u0110",
+                Location = new Point(16, 84),
                 AutoSize = true
             };
 
             var lblTreEm = new Label
             {
-                Text = $"Trẻ em: {muc.SoLuongTreEm} x {muc.Ve.GiaTreEm.ToString("N0")} VNĐ",
-                Location = new Point(16, 88),
+                Text = $"Trẻ em: {muc.SoLuongTreEm} x {muc.Ve.GiaTreEm.ToString("N0")} VN\u0110",
+                Location = new Point(16, 104),
                 AutoSize = true
             };
 
             var lblNguoiCaoTuoi = new Label
             {
-                Text = $"Người cao tuổi: {muc.SoLuongNguoiCaoTuoi} x {muc.Ve.GiaNguoiCaoTuoi.ToString("N0")} VNĐ",
-                Location = new Point(280, 88),
+                Text = $"Người cao tuổi: {muc.SoLuongNguoiCaoTuoi} x {muc.Ve.GiaNguoiCaoTuoi.ToString("N0")} VN\u0110",
+                Location = new Point(280, 104),
                 AutoSize = true
             };
 
             var lblGia = new Label
             {
-                Text = muc.TinhTongTien().ToString("N0") + " VNĐ",
+                Text = muc.TinhTongTien().ToString("N0") + " VN\u0110",
                 ForeColor = Color.FromArgb(210, 85, 30),
                 Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point),
                 Location = new Point(560, 48),
@@ -117,13 +124,14 @@ namespace doanbanve.Forms
             var btnThongTinVe = new Button
             {
                 Text = "Thông tin vé",
-                Location = new Point(560, 76),
+                Location = new Point(560, 100),
                 Size = new Size(110, 28)
             };
             btnThongTinVe.Click += (_, _) => MoThongTinVe(muc.Ve);
 
             theMuc.Controls.Add(lblTenVe);
             theMuc.Controls.Add(lblNgaySuDung);
+            theMuc.Controls.Add(lblSoLuongCon);
             theMuc.Controls.Add(lblNguoiLon);
             theMuc.Controls.Add(lblTreEm);
             theMuc.Controls.Add(lblNguoiCaoTuoi);
@@ -134,7 +142,7 @@ namespace doanbanve.Forms
 
         private void MoThongTinVe(Ve ve)
         {
-            var formThongTin = new frmThongTinVe(ve.TenVe, ve.ThongTinVe);
+            var formThongTin = new frmThongTinVe(ve);
             formThongTin.ShowDialog();
         }
 
@@ -170,15 +178,21 @@ namespace doanbanve.Forms
 
             if (!danhSachMuc.Any())
             {
-                MessageBox.Show("Giỏ hàng đang trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Gio hang dang trong.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
                 var phuongThuc = LayGiaTriThanhToan();
-                await thanhToanController.LuuHoaDon(Session.NguoiDungHienTai.MaNguoiDung, danhSachMuc, maVoucher, tienGiam, phuongThuc);
-                MessageBox.Show("Thanh toán thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                await thanhToanController.LuuHoaDon(
+                    Session.NguoiDungHienTai.MaNguoiDung,
+                    danhSachMuc,
+                    maVoucher,
+                    tienGiam,
+                    phuongThuc);
+
+                MessageBox.Show("Thanh toán thanh công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
             catch (Exception ex)
@@ -189,12 +203,11 @@ namespace doanbanve.Forms
 
         private string LayGiaTriThanhToan()
         {
-            var phuongThuc = cboThanhToan.SelectedItem?.ToString() ?? string.Empty;
-            return phuongThuc switch
+            return cboThanhToan.SelectedIndex switch
             {
-                "Thẻ ngân hàng" => "TheNganHang",
-                "Thẻ tín dụng/Ghi nợ quốc tế" => "TheQuocTe",
-                "Ví điện tử" => "ViDienTu",
+                0 => "TheNganHang",
+                1 => "TheQuocTe",
+                2 => "ViDienTu",
                 _ => "Khac"
             };
         }

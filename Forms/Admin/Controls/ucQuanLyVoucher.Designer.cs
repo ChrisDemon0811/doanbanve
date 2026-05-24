@@ -7,6 +7,9 @@ namespace doanbanve.Forms
         private Button btnThemVoucher;
         private Button btnSuaVoucher;
         private Button btnXoaVoucher;
+        private Label lblTimKiemVoucher;
+        private TextBox txtTimKiemVoucher;
+        private Button btnXoaLocVoucher;
 
         protected override void Dispose(bool disposing)
         {
@@ -23,16 +26,19 @@ namespace doanbanve.Forms
             btnThemVoucher = new Button();
             btnSuaVoucher = new Button();
             btnXoaVoucher = new Button();
+            lblTimKiemVoucher = new Label();
+            txtTimKiemVoucher = new TextBox();
+            btnXoaLocVoucher = new Button();
             SuspendLayout();
             // 
             // flpDanhSachVoucher
             // 
             flpDanhSachVoucher.AutoScroll = true;
             flpDanhSachVoucher.FlowDirection = FlowDirection.TopDown;
-            flpDanhSachVoucher.Location = new Point(0, 0);
+            flpDanhSachVoucher.Location = new Point(0, 44);
             flpDanhSachVoucher.Name = "flpDanhSachVoucher";
             flpDanhSachVoucher.Padding = new Padding(8);
-            flpDanhSachVoucher.Size = new Size(968, 533);
+            flpDanhSachVoucher.Size = new Size(968, 489);
             flpDanhSachVoucher.TabIndex = 0;
             flpDanhSachVoucher.WrapContents = false;
             // 
@@ -66,10 +72,40 @@ namespace doanbanve.Forms
             btnXoaVoucher.UseVisualStyleBackColor = true;
             btnXoaVoucher.Click += btnXoaVoucher_Click;
             // 
+            // lblTimKiemVoucher
+            // 
+            lblTimKiemVoucher.AutoSize = true;
+            lblTimKiemVoucher.Location = new Point(0, 12);
+            lblTimKiemVoucher.Name = "lblTimKiemVoucher";
+            lblTimKiemVoucher.Size = new Size(73, 20);
+            lblTimKiemVoucher.TabIndex = 4;
+            lblTimKiemVoucher.Text = "Tìm kiếm:";
+            // 
+            // txtTimKiemVoucher
+            // 
+            txtTimKiemVoucher.Location = new Point(74, 8);
+            txtTimKiemVoucher.Name = "txtTimKiemVoucher";
+            txtTimKiemVoucher.Size = new Size(300, 27);
+            txtTimKiemVoucher.TabIndex = 5;
+            txtTimKiemVoucher.TextChanged += txtTimKiemVoucher_TextChanged;
+            // 
+            // btnXoaLocVoucher
+            // 
+            btnXoaLocVoucher.Location = new Point(382, 8);
+            btnXoaLocVoucher.Name = "btnXoaLocVoucher";
+            btnXoaLocVoucher.Size = new Size(96, 27);
+            btnXoaLocVoucher.TabIndex = 6;
+            btnXoaLocVoucher.Text = "Xóa lọc";
+            btnXoaLocVoucher.UseVisualStyleBackColor = true;
+            btnXoaLocVoucher.Click += btnXoaLocVoucher_Click;
+            // 
             // ucQuanLyVoucher
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnXoaLocVoucher);
+            Controls.Add(txtTimKiemVoucher);
+            Controls.Add(lblTimKiemVoucher);
             Controls.Add(btnXoaVoucher);
             Controls.Add(btnSuaVoucher);
             Controls.Add(btnThemVoucher);
@@ -77,6 +113,7 @@ namespace doanbanve.Forms
             Name = "ucQuanLyVoucher";
             Size = new Size(968, 608);
             ResumeLayout(false);
+            PerformLayout();
         }
     }
 }

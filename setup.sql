@@ -12,7 +12,6 @@ IF OBJECT_ID(N'HoaDon', N'U') IS NOT NULL DROP TABLE HoaDon;
 IF OBJECT_ID(N'ChiTietGioHang', N'U') IS NOT NULL DROP TABLE ChiTietGioHang;
 IF OBJECT_ID(N'GioHang', N'U') IS NOT NULL DROP TABLE GioHang;
 IF OBJECT_ID(N'Voucher', N'U') IS NOT NULL DROP TABLE Voucher;
-IF OBJECT_ID(N'ChiTietVe', N'U') IS NOT NULL DROP TABLE ChiTietVe;
 IF OBJECT_ID(N'Ve', N'U') IS NOT NULL DROP TABLE Ve;
 IF OBJECT_ID(N'LoaiVe', N'U') IS NOT NULL DROP TABLE LoaiVe;
 IF OBJECT_ID(N'NguoiDung', N'U') IS NOT NULL DROP TABLE NguoiDung;
@@ -56,16 +55,6 @@ CREATE TABLE Ve
     CONSTRAINT FK_Ve_LoaiVe FOREIGN KEY (MaLoaiVe) REFERENCES LoaiVe(MaLoaiVe)
 );
 
-CREATE TABLE ChiTietVe
-(
-    MaChiTietVe INT IDENTITY(1,1) PRIMARY KEY,
-    MaVe INT NOT NULL,
-    NgaySuDung DATE NOT NULL,
-    SoLuongToiDa INT NOT NULL,
-    SoLuongDaDat INT NOT NULL DEFAULT 0,
-    CONSTRAINT FK_ChiTietVe_Ve FOREIGN KEY (MaVe) REFERENCES Ve(MaVe)
-);
-
 CREATE TABLE Voucher
 (
     MaVoucher INT IDENTITY(1,1) PRIMARY KEY,
@@ -82,7 +71,7 @@ CREATE TABLE Voucher
 CREATE TABLE GioHang
 (
     MaGioHang INT IDENTITY(1,1) PRIMARY KEY,
-    MaNguoiDung INT NOT NULL,
+    MaNguoiDung INT NOT NULL UNIQUE,
     NgayTao DATETIME NOT NULL DEFAULT GETDATE(),
     CONSTRAINT FK_GioHang_NguoiDung FOREIGN KEY (MaNguoiDung) REFERENCES NguoiDung(MaNguoiDung)
 );
@@ -91,7 +80,6 @@ CREATE TABLE ChiTietGioHang
 (
     MaChiTietGioHang INT IDENTITY(1,1) PRIMARY KEY,
     MaGioHang INT NOT NULL,
-    MaChiTietVe INT NULL,
     MaVe INT NOT NULL,
     NgaySuDung DATE NOT NULL,
     SoLuongNguoiLon INT NOT NULL,
@@ -101,7 +89,6 @@ CREATE TABLE ChiTietGioHang
     DonGiaTreEm DECIMAL(18,2) NULL,
     DonGiaNguoiCaoTuoi DECIMAL(18,2) NULL,
     CONSTRAINT FK_ChiTietGioHang_GioHang FOREIGN KEY (MaGioHang) REFERENCES GioHang(MaGioHang),
-    CONSTRAINT FK_ChiTietGioHang_ChiTietVe FOREIGN KEY (MaChiTietVe) REFERENCES ChiTietVe(MaChiTietVe),
     CONSTRAINT FK_ChiTietGioHang_Ve FOREIGN KEY (MaVe) REFERENCES Ve(MaVe)
 );
 
@@ -123,7 +110,6 @@ CREATE TABLE ChiTietHoaDon
 (
     MaChiTietHoaDon INT IDENTITY(1,1) PRIMARY KEY,
     MaHoaDon INT NOT NULL,
-    MaChiTietVe INT NULL,
     MaVe INT NOT NULL,
     NgaySuDung DATE NOT NULL,
     SoLuongNguoiLon INT NOT NULL,
@@ -134,11 +120,9 @@ CREATE TABLE ChiTietHoaDon
     DonGiaNguoiCaoTuoi DECIMAL(18,2) NOT NULL,
     ThanhTien DECIMAL(18,2) NOT NULL,
     CONSTRAINT FK_ChiTietHoaDon_HoaDon FOREIGN KEY (MaHoaDon) REFERENCES HoaDon(MaHoaDon),
-    CONSTRAINT FK_ChiTietHoaDon_ChiTietVe FOREIGN KEY (MaChiTietVe) REFERENCES ChiTietVe(MaChiTietVe),
     CONSTRAINT FK_ChiTietHoaDon_Ve FOREIGN KEY (MaVe) REFERENCES Ve(MaVe)
 );
 
-CREATE INDEX IX_ChiTietVe_NgaySuDung ON ChiTietVe(NgaySuDung);
 CREATE INDEX IX_HoaDon_NgayLap ON HoaDon(NgayLap);
 CREATE INDEX IX_Ve_MaLoaiVe ON Ve(MaLoaiVe);
 
@@ -169,24 +153,14 @@ VALUES
     (3, N'Combo Trọn gói VIP', 450000.00, 450000.00, 350000.00, 400000.00, 200, N'Bao gồm tất cả dịch vụ, miễn xếp hàng', N'BAO GỒM:\n- Vé vào cổng + tất cả trò chơi\n- Ưu tiên xếp hàng\n\nHƯỚNG DẪN:\n- Xuất trình QR tại quầy VIP\n- Vé chỉ sử dụng 01 lần', NULL, 1);
 GO
 
--- 3. Thêm dữ liệu mẫu cho bảng ChiTietVe (Vé áp dụng cho các ngày cụ thể)
--- Giả sử: MaVe từ 1 đến 4 như trên
-INSERT INTO ChiTietVe (MaVe, NgaySuDung, SoLuongToiDa, SoLuongDaDat)
-VALUES 
-    (1, '2026-05-10', 500, 10), -- Vé tham quan NL ngày 10/05
-    (2, '2026-05-10', 300, 5),  -- Vé tham quan TE ngày 10/05
-    (3, '2026-05-10', 200, 2),  -- Vé tàu lượn ngày 10/05
-    (4, '2026-05-11', 100, 0);  -- Combo VIP ngày 11/05
-GO
-
--- 4. Thêm dữ liệu mẫu cho bảng Voucher (Mã giảm giá)
+-- 3. Thêm dữ liệu mẫu cho bảng Voucher (Mã giảm giá)
 INSERT INTO Voucher (MaGiamGia, TenVoucher, KieuGiamGia, GiaTriGiam, NgayBatDau, NgayKetThuc, SoLuong, TrangThai)
 VALUES 
     (N'SUMMER2026', N'Chào hè rực rỡ giảm 10%', N'PhanTram', 10.00, '2026-05-01', '2026-08-31', 100, 1),
     (N'GIAM50K', N'Giảm trực tiếp 50k cho đơn từ 200k', N'TienMat', 50000.00, '2026-05-01', '2026-06-30', 50, 1);
 GO
 
--- 5. Thêm dữ liệu mẫu cho bảng GioHang (Giỏ hàng của User)
+-- 4. Thêm dữ liệu mẫu cho bảng GioHang (Giỏ hàng của User)
 -- Giả sử MaNguoiDung = 1 là 'user01' đã được bạn tạo trước đó
 INSERT INTO GioHang (MaNguoiDung)
 VALUES 
@@ -194,18 +168,18 @@ VALUES
     (2);
 GO
 
--- 6. Thêm dữ liệu mẫu cho bảng ChiTietGioHang
+-- 5. Thêm dữ liệu mẫu cho bảng ChiTietGioHang
 -- Giả sử: 
 -- MaGioHang = 1 của user01
 -- MaChiTietVe = 1 (Vé tham quan NL giá 200k)
-INSERT INTO ChiTietGioHang (MaGioHang, MaChiTietVe, MaVe, NgaySuDung, SoLuongNguoiLon, SoLuongTreEm, SoLuongNguoiCaoTuoi, DonGiaNguoiLon, DonGiaTreEm, DonGiaNguoiCaoTuoi)
+INSERT INTO ChiTietGioHang (MaGioHang, MaVe, NgaySuDung, SoLuongNguoiLon, SoLuongTreEm, SoLuongNguoiCaoTuoi, DonGiaNguoiLon, DonGiaTreEm, DonGiaNguoiCaoTuoi)
 VALUES 
-    (1, NULL, 1, '2026-05-10', 1, 0, 1, 200000.00, 150000.00, 170000.00),
-    (1, NULL, 2, '2026-05-10', 0, 1, 0, 120000.00, 100000.00, 110000.00),
-    (2, NULL, 4, '2026-05-11', 1, 1, 0, 450000.00, 350000.00, 400000.00);
+    (1, 1, '2026-05-10', 1, 0, 1, 200000.00, 150000.00, 170000.00),
+    (1, 2, '2026-05-10', 0, 1, 0, 120000.00, 100000.00, 110000.00),
+    (2, 4, '2026-05-11', 1, 1, 0, 450000.00, 350000.00, 400000.00);
 GO
 
--- 7. Thêm dữ liệu mẫu cho bảng HoaDon
+-- 6. Thêm dữ liệu mẫu cho bảng HoaDon
 -- Giả sử: user01 (MaNguoiDung=1) thanh toán giỏ hàng, áp dụng voucher giảm 10% (MaVoucher=1)
 -- Tổng tiền ban đầu: 500k -> Giảm 10% (50k) -> Còn 450k
 INSERT INTO HoaDon (MaNguoiDung, NgayLap, TongTien, MaVoucher, TienGiam, ThanhToan, TrangThai)
@@ -214,11 +188,11 @@ VALUES
     (2, GETDATE(), 900000.00, NULL, 0.00, N'TienMat', N'ChuaThanhToan');
 GO
 
--- 8. Thêm dữ liệu mẫu cho bảng ChiTietHoaDon
+-- 7. Thêm dữ liệu mẫu cho bảng ChiTietHoaDon
 -- Dữ liệu này chuyển từ ChiTietGioHang sang sau khi đã tạo HoaDon thành công
-INSERT INTO ChiTietHoaDon (MaHoaDon, MaChiTietVe, MaVe, NgaySuDung, SoLuongNguoiLon, SoLuongTreEm, SoLuongNguoiCaoTuoi, DonGiaNguoiLon, DonGiaTreEm, DonGiaNguoiCaoTuoi, ThanhTien)
+INSERT INTO ChiTietHoaDon (MaHoaDon, MaVe, NgaySuDung, SoLuongNguoiLon, SoLuongTreEm, SoLuongNguoiCaoTuoi, DonGiaNguoiLon, DonGiaTreEm, DonGiaNguoiCaoTuoi, ThanhTien)
 VALUES 
-    (1, NULL, 1, '2026-05-10', 1, 0, 1, 200000.00, 150000.00, 170000.00, 370000.00),
-    (1, NULL, 2, '2026-05-10', 0, 1, 0, 120000.00, 100000.00, 110000.00, 100000.00),
-    (2, NULL, 4, '2026-05-11', 1, 1, 0, 450000.00, 350000.00, 400000.00, 800000.00);
+    (1, 1, '2026-05-10', 1, 0, 1, 200000.00, 150000.00, 170000.00, 370000.00),
+    (1, 2, '2026-05-10', 0, 1, 0, 120000.00, 100000.00, 110000.00, 100000.00),
+    (2, 4, '2026-05-11', 1, 1, 0, 450000.00, 350000.00, 400000.00, 800000.00);
 GO

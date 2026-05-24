@@ -8,6 +8,7 @@ namespace doanbanve.Forms
         private readonly Color mauNenMacDinh = Color.White;
         private readonly Color mauNenChon = Color.FromArgb(230, 243, 255);
         private Panel? theHoaDonDangChon;
+        private List<Models.ThongTinHoaDon> danhSachHoaDon = new();
 
         public ucQuanLyHoaDon()
         {
@@ -17,15 +18,54 @@ namespace doanbanve.Forms
 
         public async Task TaiDuLieu()
         {
+            danhSachHoaDon = await hoaDonController.LayDanhSachHoaDonQuanLy();
+            HienThiDanhSachHoaDon();
+        }
+
+        private void HienThiDanhSachHoaDon()
+        {
             flpDanhSachHoaDon.SuspendLayout();
             flpDanhSachHoaDon.Controls.Clear();
             theHoaDonDangChon = null;
-            var danhSach = await hoaDonController.LayDanhSachHoaDonQuanLy();
-            foreach (var hoaDon in danhSach)
+
+            var tuKhoa = txtTimKiemHoaDon.Text.Trim();
+            IEnumerable<Models.ThongTinHoaDon> danhSachLoc = danhSachHoaDon;
+            if (!string.IsNullOrWhiteSpace(tuKhoa))
+            {
+                danhSachLoc = danhSachLoc.Where(hoaDon => KhopTuKhoaTimKiem(hoaDon, tuKhoa));
+            }
+
+            foreach (var hoaDon in danhSachLoc)
             {
                 flpDanhSachHoaDon.Controls.Add(TaoTheHoaDon(hoaDon));
             }
+
+            if (flpDanhSachHoaDon.Controls.Count == 0)
+            {
+                flpDanhSachHoaDon.Controls.Add(new Label
+                {
+                    Text = "Không tìm thấy hóa đơn phù hợp.",
+                    AutoSize = true,
+                    Margin = new Padding(12),
+                    ForeColor = Color.FromArgb(90, 90, 90)
+                });
+            }
+
             flpDanhSachHoaDon.ResumeLayout();
+        }
+
+        private static bool KhopTuKhoaTimKiem(Models.ThongTinHoaDon hoaDon, string tuKhoa)
+        {
+            return CoChua(hoaDon.MaHoaDon.ToString(), tuKhoa)
+                || CoChua(hoaDon.HoTenNguoiDat, tuKhoa)
+                || CoChua(hoaDon.TrangThai, tuKhoa)
+                || CoChua(hoaDon.ThanhToan, tuKhoa);
+        }
+
+        private static bool CoChua(string? noiDung, string tuKhoa)
+        {
+            return !string.IsNullOrWhiteSpace(noiDung)
+                && noiDung.Contains(tuKhoa, StringComparison.CurrentCultureIgnoreCase);
         }
 
         private Panel TaoTheHoaDon(Models.ThongTinHoaDon hoaDon)
@@ -156,6 +196,17 @@ namespace doanbanve.Forms
 
             using var formChiTiet = new frmChiTietHoaDonQuanLy(hoaDon.MaHoaDon);
             formChiTiet.ShowDialog();
+        }
+
+        private void txtTimKiemHoaDon_TextChanged(object sender, EventArgs e)
+        {
+            HienThiDanhSachHoaDon();
+        }
+
+        private void btnXoaLocHoaDon_Click(object sender, EventArgs e)
+        {
+            txtTimKiemHoaDon.Clear();
+            txtTimKiemHoaDon.Focus();
         }
     }
 }

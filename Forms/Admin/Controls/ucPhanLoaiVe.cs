@@ -9,6 +9,7 @@ namespace doanbanve.Forms
         private readonly Color mauNenMacDinh = Color.White;
         private readonly Color mauNenChon = Color.FromArgb(230, 243, 255);
         private Panel? theLoaiVeDangChon;
+        private List<LoaiVe> danhSachLoaiVe = new();
 
         public ucPhanLoaiVe()
         {
@@ -18,15 +19,52 @@ namespace doanbanve.Forms
 
         public async Task TaiDuLieu()
         {
+            danhSachLoaiVe = await loaiVeController.LayDanhSachLoaiVeQuanLy();
+            HienThiDanhSachLoaiVe();
+        }
+
+        private void HienThiDanhSachLoaiVe()
+        {
             flpDanhSachLoaiVe.SuspendLayout();
             flpDanhSachLoaiVe.Controls.Clear();
             theLoaiVeDangChon = null;
-            var danhSach = await loaiVeController.LayDanhSachLoaiVeQuanLy();
-            foreach (var loaiVe in danhSach)
+
+            var tuKhoa = txtTimKiemLoaiVe.Text.Trim();
+            IEnumerable<LoaiVe> danhSachLoc = danhSachLoaiVe;
+            if (!string.IsNullOrWhiteSpace(tuKhoa))
+            {
+                danhSachLoc = danhSachLoc.Where(loaiVe => KhopTuKhoaTimKiem(loaiVe, tuKhoa));
+            }
+
+            foreach (var loaiVe in danhSachLoc)
             {
                 flpDanhSachLoaiVe.Controls.Add(TaoTheLoaiVe(loaiVe));
             }
+
+            if (flpDanhSachLoaiVe.Controls.Count == 0)
+            {
+                flpDanhSachLoaiVe.Controls.Add(new Label
+                {
+                    Text = "Không tìm thấy loại vé phù hợp.",
+                    AutoSize = true,
+                    Margin = new Padding(12),
+                    ForeColor = Color.FromArgb(90, 90, 90)
+                });
+            }
+
             flpDanhSachLoaiVe.ResumeLayout();
+        }
+
+        private static bool KhopTuKhoaTimKiem(LoaiVe loaiVe, string tuKhoa)
+        {
+            return CoChua(loaiVe.TenLoaiVe, tuKhoa)
+                || CoChua(loaiVe.MoTa, tuKhoa);
+        }
+
+        private static bool CoChua(string? noiDung, string tuKhoa)
+        {
+            return !string.IsNullOrWhiteSpace(noiDung)
+                && noiDung.Contains(tuKhoa, StringComparison.CurrentCultureIgnoreCase);
         }
 
         private Panel TaoTheLoaiVe(LoaiVe loaiVe)
@@ -195,6 +233,17 @@ namespace doanbanve.Forms
             {
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtTimKiemLoaiVe_TextChanged(object sender, EventArgs e)
+        {
+            HienThiDanhSachLoaiVe();
+        }
+
+        private void btnXoaLocLoaiVe_Click(object sender, EventArgs e)
+        {
+            txtTimKiemLoaiVe.Clear();
+            txtTimKiemLoaiVe.Focus();
         }
     }
 }

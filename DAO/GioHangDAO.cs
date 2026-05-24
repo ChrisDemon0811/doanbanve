@@ -11,7 +11,6 @@ namespace doanbanve.DAO
             var maGioHang = await db.GioHang
                 .AsNoTracking()
                 .Where(x => x.MaNguoiDung == maNguoiDung)
-                .OrderByDescending(x => x.MaGioHang)
                 .Select(x => (int?)x.MaGioHang)
                 .FirstOrDefaultAsync();
 
@@ -26,9 +25,28 @@ namespace doanbanve.DAO
                 NgayTao = DateTime.Now
             };
 
-            db.GioHang.Add(gioHang);
-            await db.SaveChangesAsync();
-            return gioHang.MaGioHang;
+            try
+            {
+                db.GioHang.Add(gioHang);
+                await db.SaveChangesAsync();
+                return gioHang.MaGioHang;
+            }
+            catch (DbUpdateException)
+            {
+                // Truong hop chay dong thoi: user khac request vua tao gio hang xong.
+                var maGioHangDaCo = await db.GioHang
+                    .AsNoTracking()
+                    .Where(x => x.MaNguoiDung == maNguoiDung)
+                    .Select(x => (int?)x.MaGioHang)
+                    .FirstOrDefaultAsync();
+
+                if (maGioHangDaCo.HasValue)
+                {
+                    return maGioHangDaCo.Value;
+                }
+
+                throw;
+            }
         }
     }
 }

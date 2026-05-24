@@ -13,7 +13,6 @@ namespace doanbanve.Data
         public DbSet<Ve> Ve => Set<Ve>();
         public DbSet<VoucherDuLieu> Voucher => Set<VoucherDuLieu>();
         public DbSet<GioHangDuLieu> GioHang => Set<GioHangDuLieu>();
-        public DbSet<ChiTietVeDuLieu> ChiTietVe => Set<ChiTietVeDuLieu>();
         public DbSet<ChiTietGioHangDuLieu> ChiTietGioHang => Set<ChiTietGioHangDuLieu>();
         public DbSet<HoaDonDuLieu> HoaDon => Set<HoaDonDuLieu>();
         public DbSet<ChiTietHoaDonDuLieu> ChiTietHoaDon => Set<ChiTietHoaDonDuLieu>();
@@ -75,9 +74,7 @@ namespace doanbanve.Data
 
             modelBuilder.Entity<GioHangDuLieu>().ToTable("GioHang").HasKey(x => x.MaGioHang);
             modelBuilder.Entity<GioHangDuLieu>().Property(x => x.NgayTao).HasColumnType("datetime");
-
-            modelBuilder.Entity<ChiTietVeDuLieu>().ToTable("ChiTietVe").HasKey(x => x.MaChiTietVe);
-            modelBuilder.Entity<ChiTietVeDuLieu>().Property(x => x.NgaySuDung).HasColumnType("date");
+            modelBuilder.Entity<GioHangDuLieu>().HasIndex(x => x.MaNguoiDung).IsUnique();
 
             modelBuilder.Entity<ChiTietGioHangDuLieu>().ToTable("ChiTietGioHang").HasKey(x => x.MaChiTietGioHang);
             modelBuilder.Entity<ChiTietGioHangDuLieu>().Property(x => x.NgaySuDung).HasColumnType("date");

@@ -69,27 +69,15 @@ namespace doanbanve.DAO
             using var db = DuLieuContext.TaoMoi();
             using var giaoDich = await db.Database.BeginTransactionAsync();
 
-            var danhSachMaChiTietVe = await db.ChiTietVe
-                .Where(x => x.MaVe == maVe)
-                .Select(x => x.MaChiTietVe)
-                .ToListAsync();
-
             var chiTietGioHangCanXoa = await db.ChiTietGioHang
-                .Where(x => x.MaVe == maVe ||
-                            (x.MaChiTietVe.HasValue && danhSachMaChiTietVe.Contains(x.MaChiTietVe.Value)))
+                .Where(x => x.MaVe == maVe)
                 .ToListAsync();
             db.ChiTietGioHang.RemoveRange(chiTietGioHangCanXoa);
 
             var chiTietHoaDonCanXoa = await db.ChiTietHoaDon
-                .Where(x => x.MaVe == maVe ||
-                            (x.MaChiTietVe.HasValue && danhSachMaChiTietVe.Contains(x.MaChiTietVe.Value)))
-                .ToListAsync();
-            db.ChiTietHoaDon.RemoveRange(chiTietHoaDonCanXoa);
-
-            var chiTietVeCanXoa = await db.ChiTietVe
                 .Where(x => x.MaVe == maVe)
                 .ToListAsync();
-            db.ChiTietVe.RemoveRange(chiTietVeCanXoa);
+            db.ChiTietHoaDon.RemoveRange(chiTietHoaDonCanXoa);
 
             var ve = await db.Ve.FirstOrDefaultAsync(x => x.MaVe == maVe);
             if (ve != null)

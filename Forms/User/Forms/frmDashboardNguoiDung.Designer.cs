@@ -14,6 +14,9 @@ namespace doanbanve.Forms
         private Button btnDoiMatKhau;
         private FlowLayoutPanel pnlLoaiVe;
         private FlowLayoutPanel pnlVe;
+        private Label lblTimKiemVe;
+        private TextBox txtTimKiemVe;
+        private Button btnXoaTimKiemVe;
 
         protected override void Dispose(bool disposing)
         {
@@ -37,6 +40,9 @@ namespace doanbanve.Forms
             btnDoiMatKhau = new Button();
             pnlLoaiVe = new FlowLayoutPanel();
             pnlVe = new FlowLayoutPanel();
+            lblTimKiemVe = new Label();
+            txtTimKiemVe = new TextBox();
+            btnXoaTimKiemVe = new Button();
             SuspendLayout();
             // 
             // lblTieuDe
@@ -138,16 +144,46 @@ namespace doanbanve.Forms
             // pnlVe
             // 
             pnlVe.AutoScroll = true;
-            pnlVe.Location = new Point(24, 248);
+            pnlVe.Location = new Point(24, 288);
             pnlVe.Name = "pnlVe";
-            pnlVe.Size = new Size(1120, 560);
+            pnlVe.Size = new Size(1120, 520);
             pnlVe.TabIndex = 7;
+            // 
+            // lblTimKiemVe
+            // 
+            lblTimKiemVe.AutoSize = true;
+            lblTimKiemVe.Location = new Point(24, 252);
+            lblTimKiemVe.Name = "lblTimKiemVe";
+            lblTimKiemVe.Size = new Size(73, 20);
+            lblTimKiemVe.TabIndex = 9;
+            lblTimKiemVe.Text = "Tìm kiếm:";
+            // 
+            // txtTimKiemVe
+            // 
+            txtTimKiemVe.Location = new Point(98, 248);
+            txtTimKiemVe.Name = "txtTimKiemVe";
+            txtTimKiemVe.Size = new Size(320, 27);
+            txtTimKiemVe.TabIndex = 10;
+            txtTimKiemVe.TextChanged += txtTimKiemVe_TextChanged;
+            // 
+            // btnXoaTimKiemVe
+            // 
+            btnXoaTimKiemVe.Location = new Point(430, 248);
+            btnXoaTimKiemVe.Name = "btnXoaTimKiemVe";
+            btnXoaTimKiemVe.Size = new Size(96, 27);
+            btnXoaTimKiemVe.TabIndex = 11;
+            btnXoaTimKiemVe.Text = "Xóa lọc";
+            btnXoaTimKiemVe.UseVisualStyleBackColor = true;
+            btnXoaTimKiemVe.Click += btnXoaTimKiemVe_Click;
             // 
             // frmDashboardNguoiDung
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1098, 840);
+            Controls.Add(btnXoaTimKiemVe);
+            Controls.Add(txtTimKiemVe);
+            Controls.Add(lblTimKiemVe);
             Controls.Add(pnlVe);
             Controls.Add(pnlLoaiVe);
             Controls.Add(btnThongTinNguoiDung);

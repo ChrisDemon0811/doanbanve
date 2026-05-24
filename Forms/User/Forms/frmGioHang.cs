@@ -19,12 +19,12 @@ namespace doanbanve.Forms
         private async Task HienThiDanhSach()
         {
             pnlDanhSach.Controls.Clear();
-            lblTongTien.Text = "0 VNĐ";
+            lblTongTien.Text = "0 VN\u0110";
             lblTongSoLuong.Text = "0";
 
             if (Session.NguoiDungHienTai == null)
             {
-                MessageBox.Show("Vui lòng đăng nhập để xem giỏ hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui long dang nhap de xem gio hang.", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Close();
                 return;
             }
@@ -41,7 +41,7 @@ namespace doanbanve.Forms
                 tongSoLuong += muc.TinhTongSoLuong();
             }
 
-            lblTongTien.Text = tongTien.ToString("N0") + " VNĐ";
+            lblTongTien.Text = tongTien.ToString("N0") + " VN\u0110";
             lblTongSoLuong.Text = tongSoLuong.ToString();
         }
 
@@ -50,7 +50,7 @@ namespace doanbanve.Forms
             var theMuc = new Panel
             {
                 Width = 820,
-                Height = 140,
+                Height = 156,
                 BackColor = Color.White,
                 Margin = new Padding(8),
                 BorderStyle = BorderStyle.FixedSingle
@@ -66,21 +66,28 @@ namespace doanbanve.Forms
 
             var lblNgaySuDung = new Label
             {
-                Text = "Ngày sử dụng: " + muc.NgaySuDung.ToString("dd/MM/yyyy"),
+                Text = "Ngay su dung: " + muc.NgaySuDung.ToString("dd/MM/yyyy"),
                 Location = new Point(16, 44),
                 AutoSize = true
             };
 
             var lblSoLuong = new Label
             {
-                Text = $"Người lớn: {muc.SoLuongNguoiLon} | Trẻ em: {muc.SoLuongTreEm} | Người cao tuổi: {muc.SoLuongNguoiCaoTuoi}",
+                Text = $"Nguoi lon: {muc.SoLuongNguoiLon} | Tre em: {muc.SoLuongTreEm} | Nguoi cao tuoi: {muc.SoLuongNguoiCaoTuoi}",
                 Location = new Point(16, 70),
+                AutoSize = true
+            };
+
+            var lblSoLuongCon = new Label
+            {
+                Text = $"Còn lại: {muc.Ve.SoLuong} vé",
+                Location = new Point(16, 94),
                 AutoSize = true
             };
 
             var lblGia = new Label
             {
-                Text = muc.TinhTongTien().ToString("N0") + " VNĐ",
+                Text = muc.TinhTongTien().ToString("N0") + " VN\u0110",
                 ForeColor = Color.FromArgb(210, 85, 30),
                 Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point),
                 Location = new Point(680, 52),
@@ -90,7 +97,7 @@ namespace doanbanve.Forms
             var btnSua = new Button
             {
                 Text = "Sửa",
-                Location = new Point(520, 86),
+                Location = new Point(520, 110),
                 Size = new Size(80, 28)
             };
             btnSua.Click += (_, _) => SuaMucGioHang(muc);
@@ -98,7 +105,7 @@ namespace doanbanve.Forms
             var btnThongTinVe = new Button
             {
                 Text = "Thông tin vé",
-                Location = new Point(610, 86),
+                Location = new Point(610, 110),
                 Size = new Size(86, 28)
             };
             btnThongTinVe.Click += (_, _) => MoThongTinVe(muc.Ve);
@@ -106,7 +113,7 @@ namespace doanbanve.Forms
             var btnXoa = new Button
             {
                 Text = "Xóa",
-                Location = new Point(700, 86),
+                Location = new Point(700, 110),
                 Size = new Size(80, 28)
             };
             btnXoa.Click += async (_, _) => await XoaMucGioHang(muc);
@@ -114,6 +121,7 @@ namespace doanbanve.Forms
             theMuc.Controls.Add(lblTenVe);
             theMuc.Controls.Add(lblNgaySuDung);
             theMuc.Controls.Add(lblSoLuong);
+            theMuc.Controls.Add(lblSoLuongCon);
             theMuc.Controls.Add(lblGia);
             theMuc.Controls.Add(btnSua);
             theMuc.Controls.Add(btnThongTinVe);

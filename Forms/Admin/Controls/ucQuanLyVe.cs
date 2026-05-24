@@ -10,6 +10,9 @@ namespace doanbanve.Forms
         private readonly Color mauNenMacDinh = Color.White;
         private readonly Color mauNenChon = Color.FromArgb(230, 243, 255);
         private Panel? theVeDangChon;
+        private List<VeHienThi> danhSachVeHienThi = new();
+
+        private sealed record VeHienThi(Ve Ve, string TenLoaiVe);
 
         public ucQuanLyVe()
         {
@@ -19,18 +22,65 @@ namespace doanbanve.Forms
 
         public async Task TaiDuLieu()
         {
-            flpDanhSachVe.SuspendLayout();
-            flpDanhSachVe.Controls.Clear();
-            theVeDangChon = null;
             var danhSachLoaiVe = await loaiVeController.LayDanhSachLoaiVeQuanLy();
             var mapLoaiVe = danhSachLoaiVe.ToDictionary(x => x.MaLoaiVe, x => x.TenLoaiVe);
             var danhSach = await veController.LayDanhSachVeQuanLy();
-            foreach (var ve in danhSach)
+
+            danhSachVeHienThi = danhSach
+                .Select(ve =>
+                {
+                    mapLoaiVe.TryGetValue(ve.MaLoaiVe, out var tenLoaiVe);
+                    return new VeHienThi(ve, tenLoaiVe ?? ve.MaLoaiVe.ToString());
+                })
+                .ToList();
+
+            HienThiDanhSachVe();
+        }
+
+        private void HienThiDanhSachVe()
+        {
+            flpDanhSachVe.SuspendLayout();
+            flpDanhSachVe.Controls.Clear();
+            theVeDangChon = null;
+
+            var tuKhoa = txtTimKiemVe.Text.Trim();
+            IEnumerable<VeHienThi> danhSachLoc = danhSachVeHienThi;
+            if (!string.IsNullOrWhiteSpace(tuKhoa))
             {
-                mapLoaiVe.TryGetValue(ve.MaLoaiVe, out var tenLoaiVe);
-                flpDanhSachVe.Controls.Add(TaoTheVe(ve, tenLoaiVe ?? ve.MaLoaiVe.ToString()));
+                danhSachLoc = danhSachLoc.Where(x => KhopTuKhoaTimKiem(x, tuKhoa));
             }
+
+            foreach (var muc in danhSachLoc)
+            {
+                flpDanhSachVe.Controls.Add(TaoTheVe(muc.Ve, muc.TenLoaiVe));
+            }
+
+            if (flpDanhSachVe.Controls.Count == 0)
+            {
+                flpDanhSachVe.Controls.Add(new Label
+                {
+                    Text = "Không tìm thấy vé phù hợp.",
+                    AutoSize = true,
+                    Margin = new Padding(12),
+                    ForeColor = Color.FromArgb(90, 90, 90)
+                });
+            }
+
             flpDanhSachVe.ResumeLayout();
+        }
+
+        private static bool KhopTuKhoaTimKiem(VeHienThi muc, string tuKhoa)
+        {
+            return CoChua(muc.Ve.TenVe, tuKhoa)
+                || CoChua(muc.TenLoaiVe, tuKhoa)
+                || CoChua(muc.Ve.MoTa, tuKhoa)
+                || CoChua(muc.Ve.ThongTinVe, tuKhoa);
+        }
+
+        private static bool CoChua(string? noiDung, string tuKhoa)
+        {
+            return !string.IsNullOrWhiteSpace(noiDung)
+                && noiDung.Contains(tuKhoa, StringComparison.CurrentCultureIgnoreCase);
         }
 
         private void FlpDanhSachVe_SizeChanged(object? sender, EventArgs e)
@@ -252,6 +302,17 @@ namespace doanbanve.Forms
             }
 
             theVeDangChon = null;
+        }
+
+        private void txtTimKiemVe_TextChanged(object sender, EventArgs e)
+        {
+            HienThiDanhSachVe();
+        }
+
+        private void btnXoaLocVe_Click(object sender, EventArgs e)
+        {
+            txtTimKiemVe.Clear();
+            txtTimKiemVe.Focus();
         }
     }
 }

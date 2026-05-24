@@ -8,6 +8,7 @@ namespace doanbanve.Forms
         private readonly Color mauNenMacDinh = Color.White;
         private readonly Color mauNenChon = Color.FromArgb(230, 243, 255);
         private Panel? theNguoiDungDangChon;
+        private List<Models.NguoiDung> danhSachNguoiDung = new();
 
         public ucQuanLyNguoiDung()
         {
@@ -17,15 +18,55 @@ namespace doanbanve.Forms
 
         public async Task TaiDuLieu()
         {
+            danhSachNguoiDung = await nguoiDungController.LayDanhSachNguoiDung();
+            HienThiDanhSachNguoiDung();
+        }
+
+        private void HienThiDanhSachNguoiDung()
+        {
             flpDanhSachNguoiDung.SuspendLayout();
             flpDanhSachNguoiDung.Controls.Clear();
             theNguoiDungDangChon = null;
-            var danhSach = await nguoiDungController.LayDanhSachNguoiDung();
-            foreach (var nguoiDung in danhSach)
+
+            var tuKhoa = txtTimKiemNguoiDung.Text.Trim();
+            IEnumerable<Models.NguoiDung> danhSachLoc = danhSachNguoiDung;
+            if (!string.IsNullOrWhiteSpace(tuKhoa))
+            {
+                danhSachLoc = danhSachLoc.Where(nguoiDung => KhopTuKhoaTimKiem(nguoiDung, tuKhoa));
+            }
+
+            foreach (var nguoiDung in danhSachLoc)
             {
                 flpDanhSachNguoiDung.Controls.Add(TaoTheNguoiDung(nguoiDung));
             }
+
+            if (flpDanhSachNguoiDung.Controls.Count == 0)
+            {
+                flpDanhSachNguoiDung.Controls.Add(new Label
+                {
+                    Text = "Không tìm thấy người dùng phù hợp.",
+                    AutoSize = true,
+                    Margin = new Padding(12),
+                    ForeColor = Color.FromArgb(90, 90, 90)
+                });
+            }
+
             flpDanhSachNguoiDung.ResumeLayout();
+        }
+
+        private static bool KhopTuKhoaTimKiem(Models.NguoiDung nguoiDung, string tuKhoa)
+        {
+            return CoChua(nguoiDung.HoTen, tuKhoa)
+                || CoChua(nguoiDung.TaiKhoan, tuKhoa)
+                || CoChua(nguoiDung.Email, tuKhoa)
+                || CoChua(nguoiDung.SoDienThoai, tuKhoa)
+                || CoChua(nguoiDung.VaiTro, tuKhoa);
+        }
+
+        private static bool CoChua(string? noiDung, string tuKhoa)
+        {
+            return !string.IsNullOrWhiteSpace(noiDung)
+                && noiDung.Contains(tuKhoa, StringComparison.CurrentCultureIgnoreCase);
         }
 
         private Panel TaoTheNguoiDung(Models.NguoiDung nguoiDung)
@@ -169,6 +210,17 @@ namespace doanbanve.Forms
             var taiKhoan = nguoiDung.TaiKhoan;
             using var formDatMatKhau = new frmDatMatKhauNguoiDung(maNguoiDung, taiKhoan);
             formDatMatKhau.ShowDialog();
+        }
+
+        private void txtTimKiemNguoiDung_TextChanged(object sender, EventArgs e)
+        {
+            HienThiDanhSachNguoiDung();
+        }
+
+        private void btnXoaLocNguoiDung_Click(object sender, EventArgs e)
+        {
+            txtTimKiemNguoiDung.Clear();
+            txtTimKiemNguoiDung.Focus();
         }
     }
 }

@@ -61,27 +61,15 @@ namespace doanbanve.DAO
 
             if (danhSachMaVe.Count > 0)
             {
-                var danhSachMaChiTietVe = await db.ChiTietVe
-                    .Where(x => danhSachMaVe.Contains(x.MaVe))
-                    .Select(x => x.MaChiTietVe)
-                    .ToListAsync();
-
                 var chiTietGioHangCanXoa = await db.ChiTietGioHang
-                    .Where(x => danhSachMaVe.Contains(x.MaVe) ||
-                                (x.MaChiTietVe.HasValue && danhSachMaChiTietVe.Contains(x.MaChiTietVe.Value)))
+                    .Where(x => danhSachMaVe.Contains(x.MaVe))
                     .ToListAsync();
                 db.ChiTietGioHang.RemoveRange(chiTietGioHangCanXoa);
 
                 var chiTietHoaDonCanXoa = await db.ChiTietHoaDon
-                    .Where(x => danhSachMaVe.Contains(x.MaVe) ||
-                                (x.MaChiTietVe.HasValue && danhSachMaChiTietVe.Contains(x.MaChiTietVe.Value)))
-                    .ToListAsync();
-                db.ChiTietHoaDon.RemoveRange(chiTietHoaDonCanXoa);
-
-                var chiTietVeCanXoa = await db.ChiTietVe
                     .Where(x => danhSachMaVe.Contains(x.MaVe))
                     .ToListAsync();
-                db.ChiTietVe.RemoveRange(chiTietVeCanXoa);
+                db.ChiTietHoaDon.RemoveRange(chiTietHoaDonCanXoa);
 
                 var veCanXoa = await db.Ve
                     .Where(x => x.MaLoaiVe == maLoaiVe)

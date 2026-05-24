@@ -22,6 +22,7 @@ namespace doanbanve.DAO
                     {
                         MaVe = chiTiet.MaVe,
                         TenVe = ve.TenVe,
+                        SoLuong = ve.SoLuong,
                         GiaNguoiLon = ve.GiaNguoiLon,
                         GiaTreEm = ve.GiaTreEm,
                         GiaNguoiCaoTuoi = ve.GiaNguoiCaoTuoi,

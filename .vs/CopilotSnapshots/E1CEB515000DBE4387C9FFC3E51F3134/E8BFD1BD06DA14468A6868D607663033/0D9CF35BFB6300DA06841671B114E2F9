@@ -1,0 +1,135 @@
+﻿using doanbanve.Data;
+using doanbanve.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace doanbanve.DAO
+{
+    public class ChiTietGioHangDAO
+    {
+        public async Task<List<MucGioHang>> LayDanhSach(int maGioHang)
+        {
+            using var db = DuLieuContext.TaoMoi();
+            return await (
+                from chiTiet in db.ChiTietGioHang.AsNoTracking()
+                join ve in db.Ve.AsNoTracking() on chiTiet.MaVe equals ve.MaVe
+                where chiTiet.MaGioHang == maGioHang
+                orderby chiTiet.MaChiTietGioHang descending
+                select new MucGioHang
+                {
+                    MaChiTietGioHang = chiTiet.MaChiTietGioHang,
+                    MaGioHang = chiTiet.MaGioHang,
+                    Ve = new Ve
+                    {
+                        MaVe = chiTiet.MaVe,
+                        TenVe = ve.TenVe,
+                        GiaNguoiLon = ve.GiaNguoiLon,
+                        GiaTreEm = ve.GiaTreEm,
+                        GiaNguoiCaoTuoi = ve.GiaNguoiCaoTuoi,
+                        MoTa = ve.MoTa,
+                        ThongTinVe = ve.ThongTinVe,
+                        AnhVe = ve.AnhVe
+                    },
+                    NgaySuDung = chiTiet.NgaySuDung,
+                    SoLuongNguoiLon = chiTiet.SoLuongNguoiLon,
+                    SoLuongTreEm = chiTiet.SoLuongTreEm,
+                    SoLuongNguoiCaoTuoi = chiTiet.SoLuongNguoiCaoTuoi
+                }).ToListAsync();
+        }
+
+        public async Task<MucGioHang?> LayTheoVeVaNgay(int maGioHang, int maVe, DateTime ngaySuDung)
+        {
+            using var db = DuLieuContext.TaoMoi();
+            var duLieu = await db.ChiTietGioHang
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x =>
+                    x.MaGioHang == maGioHang &&
+                    x.MaVe == maVe &&
+                    x.NgaySuDung == ngaySuDung.Date);
+
+            if (duLieu == null)
+            {
+                return null;
+            }
+
+            return new MucGioHang
+            {
+                MaChiTietGioHang = duLieu.MaChiTietGioHang,
+                MaGioHang = duLieu.MaGioHang,
+                Ve = new Ve { MaVe = duLieu.MaVe },
+                NgaySuDung = duLieu.NgaySuDung,
+                SoLuongNguoiLon = duLieu.SoLuongNguoiLon,
+                SoLuongTreEm = duLieu.SoLuongTreEm,
+                SoLuongNguoiCaoTuoi = duLieu.SoLuongNguoiCaoTuoi
+            };
+        }
+
+        public async Task<int> Them(MucGioHang muc)
+        {
+            using var db = DuLieuContext.TaoMoi();
+            var chiTiet = new ChiTietGioHangDuLieu
+            {
+                MaGioHang = muc.MaGioHang,
+                MaVe = muc.Ve.MaVe,
+                NgaySuDung = muc.NgaySuDung.Date,
+                SoLuongNguoiLon = muc.SoLuongNguoiLon,
+                SoLuongTreEm = muc.SoLuongTreEm,
+                SoLuongNguoiCaoTuoi = muc.SoLuongNguoiCaoTuoi,
+                DonGiaNguoiLon = muc.Ve.GiaNguoiLon,
+                DonGiaTreEm = muc.Ve.GiaTreEm,
+                DonGiaNguoiCaoTuoi = muc.Ve.GiaNguoiCaoTuoi
+            };
+
+            db.ChiTietGioHang.Add(chiTiet);
+            await db.SaveChangesAsync();
+            return chiTiet.MaChiTietGioHang;
+        }
+
+        public async Task CapNhat(MucGioHang muc)
+        {
+            using var db = DuLieuContext.TaoMoi();
+            var duLieu = await db.ChiTietGioHang.FirstOrDefaultAsync(x => x.MaChiTietGioHang == muc.MaChiTietGioHang);
+            if (duLieu == null)
+            {
+                return;
+            }
+
+            duLieu.NgaySuDung = muc.NgaySuDung.Date;
+            duLieu.SoLuongNguoiLon = muc.SoLuongNguoiLon;
+            duLieu.SoLuongTreEm = muc.SoLuongTreEm;
+            duLieu.SoLuongNguoiCaoTuoi = muc.SoLuongNguoiCaoTuoi;
+            duLieu.DonGiaNguoiLon = muc.Ve.GiaNguoiLon;
+            duLieu.DonGiaTreEm = muc.Ve.GiaTreEm;
+            duLieu.DonGiaNguoiCaoTuoi = muc.Ve.GiaNguoiCaoTuoi;
+            await db.SaveChangesAsync();
+        }
+
+        public async Task Xoa(int maChiTietGioHang)
+        {
+            using var db = DuLieuContext.TaoMoi();
+            var duLieu = await db.ChiTietGioHang.FirstOrDefaultAsync(x => x.MaChiTietGioHang == maChiTietGioHang);
+            if (duLieu == null)
+            {
+                return;
+            }
+
+            db.ChiTietGioHang.Remove(duLieu);
+            await db.SaveChangesAsync();
+        }
+
+        public async Task XoaTheoGioHang(int maGioHang)
+        {
+            using var db = DuLieuContext.TaoMoi();
+            var danhSach = await db.ChiTietGioHang
+                .Where(x => x.MaGioHang == maGioHang)
+                .ToListAsync();
+
+            if (danhSach.Count == 0)
+            {
+                return;
+            }
+
+            db.ChiTietGioHang.RemoveRange(danhSach);
+            await db.SaveChangesAsync();
+        }
+    }
+}
