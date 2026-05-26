@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings": {
+    "SqlServer": "Server=DESKTOP-EJ7142L\\SQLEXPRESS;Database=QuanLyBanVeKhuDuLich;Trusted_Connection=True;TrustServerCertificate=True"
+  }
+}

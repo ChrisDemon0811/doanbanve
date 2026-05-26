@@ -52,7 +52,7 @@ namespace doanbanve.Forms
             var theMuc = new Panel
             {
                 Width = 620,
-                Height = 140,
+                Height = 150,
                 BackColor = Color.White,
                 Margin = new Padding(8),
                 BorderStyle = BorderStyle.FixedSingle
@@ -103,13 +103,28 @@ namespace doanbanve.Forms
                 AutoSize = true
             };
 
+            var btnThongTinVe = new Button
+            {
+                Text = "Thông tin vé",
+                Location = new Point(480, 104),
+                Size = new Size(110, 28)
+            };
+            btnThongTinVe.Click += (_, _) => MoThongTinVe(muc.Ve);
+
             theMuc.Controls.Add(lblTenVe);
             theMuc.Controls.Add(lblNgaySuDung);
             theMuc.Controls.Add(lblNguoiLon);
             theMuc.Controls.Add(lblTreEm);
             theMuc.Controls.Add(lblNguoiCaoTuoi);
             theMuc.Controls.Add(lblThanhTien);
+            theMuc.Controls.Add(btnThongTinVe);
             return theMuc;
+        }
+
+        private void MoThongTinVe(Models.Ve ve)
+        {
+            var formThongTin = new frmThongTinVe(ve);
+            formThongTin.ShowDialog();
         }
     }
 }

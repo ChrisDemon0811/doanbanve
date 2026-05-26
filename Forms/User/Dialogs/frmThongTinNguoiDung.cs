@@ -115,18 +115,10 @@ namespace doanbanve.Forms
             var btnChiTiet = new Button
             {
                 Text = "Chi tiết thanh toán",
-                Location = new Point(480, 76),
-                Size = new Size(130, 28)
+                Location = new Point(560, 76),
+                Size = new Size(150, 28)
             };
             btnChiTiet.Click += (_, _) => MoChiTietHoaDon(hoaDon.MaHoaDon);
-
-            var btnThongTinVe = new Button
-            {
-                Text = "Thông tin vé",
-                Location = new Point(616, 76),
-                Size = new Size(90, 28)
-            };
-            btnThongTinVe.Click += (_, _) => MoThongTinVeTuHoaDon(hoaDon.MaHoaDon);
 
             theHoaDon.Controls.Add(lblMaHoaDon);
             theHoaDon.Controls.Add(lblNgayLap);
@@ -134,7 +126,6 @@ namespace doanbanve.Forms
             theHoaDon.Controls.Add(lblThanhToan);
             theHoaDon.Controls.Add(lblThanhTien);
             theHoaDon.Controls.Add(btnChiTiet);
-            theHoaDon.Controls.Add(btnThongTinVe);
             return theHoaDon;
         }
 
@@ -144,17 +135,5 @@ namespace doanbanve.Forms
             formChiTiet.ShowDialog();
         }
 
-        private async void MoThongTinVeTuHoaDon(int maHoaDon)
-        {
-            var danhSach = await hoaDonController.LayChiTietHoaDon(maHoaDon);
-            var muc = danhSach.FirstOrDefault();
-            if (muc == null)
-            {
-                return;
-            }
-
-            var formThongTin = new frmThongTinVe(muc.Ve);
-            formThongTin.ShowDialog();
-        }
     }
 }
