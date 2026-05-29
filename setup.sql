@@ -9,8 +9,10 @@ GO
 
 IF OBJECT_ID(N'ChiTietHoaDon', N'U') IS NOT NULL DROP TABLE ChiTietHoaDon;
 IF OBJECT_ID(N'HoaDon', N'U') IS NOT NULL DROP TABLE HoaDon;
+IF OBJECT_ID(N'LichSuChat', N'U') IS NOT NULL DROP TABLE LichSuChat;
 IF OBJECT_ID(N'ChiTietGioHang', N'U') IS NOT NULL DROP TABLE ChiTietGioHang;
 IF OBJECT_ID(N'GioHang', N'U') IS NOT NULL DROP TABLE GioHang;
+IF OBJECT_ID(N'CauHinhAI', N'U') IS NOT NULL DROP TABLE CauHinhAI;
 IF OBJECT_ID(N'Voucher', N'U') IS NOT NULL DROP TABLE Voucher;
 IF OBJECT_ID(N'Ve', N'U') IS NOT NULL DROP TABLE Ve;
 IF OBJECT_ID(N'LoaiVe', N'U') IS NOT NULL DROP TABLE LoaiVe;
@@ -28,6 +30,15 @@ CREATE TABLE NguoiDung
     VaiTro NVARCHAR(20) NOT NULL,
     NgayDangKy DATETIME NOT NULL DEFAULT GETDATE(),
     TrangThai BIT NOT NULL DEFAULT 1
+);
+
+CREATE TABLE CauHinhAI
+(
+    MaCauHinhAI INT IDENTITY(1,1) PRIMARY KEY,
+    NhaCungCap NVARCHAR(200) NOT NULL,
+    KhoaApi NVARCHAR(255) NOT NULL,
+    MoHinh NVARCHAR(100) NOT NULL,
+    NhacLenh NVARCHAR(MAX) NOT NULL
 );
 
 CREATE TABLE LoaiVe
@@ -123,6 +134,16 @@ CREATE TABLE ChiTietHoaDon
     CONSTRAINT FK_ChiTietHoaDon_Ve FOREIGN KEY (MaVe) REFERENCES Ve(MaVe)
 );
 
+CREATE TABLE LichSuChat
+(
+    MaLichSuChat INT IDENTITY(1,1) PRIMARY KEY,
+    MaNguoiDung INT NOT NULL,
+    CauHoi NVARCHAR(MAX) NOT NULL,
+    TraLoi NVARCHAR(MAX) NOT NULL,
+    NgayTao DATETIME NOT NULL DEFAULT GETDATE(),
+    CONSTRAINT FK_LichSuChat_NguoiDung FOREIGN KEY (MaNguoiDung) REFERENCES NguoiDung(MaNguoiDung)
+);
+
 CREATE INDEX IX_HoaDon_NgayLap ON HoaDon(NgayLap);
 CREATE INDEX IX_Ve_MaLoaiVe ON Ve(MaLoaiVe);
 
@@ -131,6 +152,9 @@ VALUES
     (N'user01', N'e10adc3949ba59abbe56e057f20f883e', N'Nguyen Van A', N'user01@gmail.com', N'0900000001', N'NguoiDung', 1),
     (N'user02', N'e10adc3949ba59abbe56e057f20f883e', N'Tran Thi B', N'user02@gmail.com', N'0900000002', N'NguoiDung', 1),
     (N'quanly01', N'e10adc3949ba59abbe56e057f20f883e', N'Le Van Quan', N'quanly01@gmail.com', N'0900000003', N'QuanLy', 1);
+
+INSERT INTO CauHinhAI (NhaCungCap, KhoaApi, MoHinh, NhacLenh)
+VALUES (N'https://api.openai.com/v1/chat/completions', N'', N'gpt-4o-mini', N'Ban la tro ly cham soc khach hang cua khu du lich. Tra loi ngan gon, lich su va dung chinh sach.');
 
 
 INSERT INTO LoaiVe (TenLoaiVe, MoTa, TrangThai)

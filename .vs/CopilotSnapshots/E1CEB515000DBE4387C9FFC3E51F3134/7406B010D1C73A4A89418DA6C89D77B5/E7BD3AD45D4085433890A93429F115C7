@@ -1,0 +1,128 @@
+﻿using System.Net.Http.Headers;
+using System.Text;
+using System.Text.Json;
+using doanbanve.Controllers;
+using doanbanve.Models;
+using doanbanve.Utils;
+
+namespace doanbanve.Forms
+{
+    public partial class frmChatAI : Form
+    {
+        private readonly CauHinhAIController cauHinhController = new();
+        private readonly LichSuChatController lichSuController = new();
+
+        public frmChatAI()
+        {
+            InitializeComponent();
+        }
+
+        private async void frmChatAI_Load(object sender, EventArgs e)
+        {
+            if (Session.NguoiDungHienTai == null)
+            {
+                MessageBox.Show("Vui lòng đăng nhập để chat.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Close();
+                return;
+            }
+
+            await TaiLichSu();
+        }
+
+        private async Task TaiLichSu()
+        {
+            if (Session.NguoiDungHienTai == null)
+            {
+                return;
+            }
+
+            rtbHoiThoai.Clear();
+            var lichSu = await lichSuController.LayTheoNguoiDung(Session.NguoiDungHienTai.MaNguoiDung);
+            foreach (var muc in lichSu.OrderBy(x => x.NgayTao))
+            {
+                rtbHoiThoai.AppendText($"Bạn: {muc.CauHoi}{Environment.NewLine}");
+                rtbHoiThoai.AppendText($"AI: {muc.TraLoi}{Environment.NewLine}{Environment.NewLine}");
+            }
+        }
+
+        private async void btnGui_Click(object sender, EventArgs e)
+        {
+            var cauHoi = txtCauHoi.Text.Trim();
+            if (string.IsNullOrWhiteSpace(cauHoi))
+            {
+                MessageBox.Show("Vui lòng nhập câu hỏi.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (Session.NguoiDungHienTai == null)
+            {
+                return;
+            }
+
+            try
+            {
+                var cauHinh = await cauHinhController.LayCauHinhHienTai();
+                if (cauHinh == null)
+                {
+                    MessageBox.Show("Chưa cấu hình AI.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                var traLoi = await GoiAI(cauHinh, cauHoi);
+                rtbHoiThoai.AppendText($"Bạn: {cauHoi}{Environment.NewLine}");
+                rtbHoiThoai.AppendText($"AI: {traLoi}{Environment.NewLine}{Environment.NewLine}");
+                txtCauHoi.Clear();
+
+                var lichSu = new LichSuChat
+                {
+                    MaNguoiDung = Session.NguoiDungHienTai.MaNguoiDung,
+                    CauHoi = cauHoi,
+                    TraLoi = traLoi,
+                    NgayTao = DateTime.Now
+                };
+                await lichSuController.ThemLichSu(lichSu);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private static async Task<string> GoiAI(CauHinhAI cauHinh, string cauHoi)
+        {
+            using var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", cauHinh.KhoaApi);
+
+            var payload = new
+            {
+                model = cauHinh.MoHinh,
+                messages = new object[]
+                {
+                    new { role = "system", content = cauHinh.NhacLenh },
+                    new { role = "user", content = cauHoi }
+                }
+            };
+
+            var noiDung = JsonSerializer.Serialize(payload);
+            using var content = new StringContent(noiDung, Encoding.UTF8, "application/json");
+            try
+            {
+                using var response = await httpClient.PostAsync(cauHinh.NhaCungCap, content);
+                response.EnsureSuccessStatusCode();
+
+                var json = await response.Content.ReadAsStringAsync();
+                using var doc = JsonDocument.Parse(json);
+                var traLoi = doc.RootElement
+                    .GetProperty("choices")[0]
+                    .GetProperty("message")
+                    .GetProperty("content")
+                    .GetString();
+                return traLoi ?? "Không nhận được phản hồi.";
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Không gọi được AI: {ex.Message}");
+            }
+        }
+    }
+}

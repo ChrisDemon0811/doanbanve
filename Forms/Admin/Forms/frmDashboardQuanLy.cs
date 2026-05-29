@@ -166,6 +166,12 @@ namespace doanbanve.Forms
             pnlThongKe.Visible = true;
         }
 
+        private void btnMenuQuanLyAI_Click(object sender, EventArgs e)
+        {
+            using var formQuanLyAI = new Admin.Forms.frmQuanLyAI();
+            formQuanLyAI.ShowDialog();
+        }
+
         private void CauHinhBang(DataGridView bang)
         {
             bang.BackgroundColor = Color.White;

@@ -10,6 +10,7 @@ namespace doanbanve.Forms
         private Button btnMenuVoucher;
         private Button btnMenuHoaDon;
         private Button btnMenuThongKe;
+        private Button btnMenuQuanLyAI;
         private Panel pnlNoiDung;
         private ucQuanLyNguoiDung ucNguoiDung;
         private ucQuanLyVe ucQuanLyVe;
@@ -52,6 +53,7 @@ namespace doanbanve.Forms
             btnMenuThongKe = new Button();
             btnMenuHoaDon = new Button();
             btnMenuVoucher = new Button();
+            btnMenuQuanLyAI = new Button();
             btnMenuLoaiVe = new Button();
             btnMenuVe = new Button();
             btnMenuNguoiDung = new Button();
@@ -93,6 +95,7 @@ namespace doanbanve.Forms
             pnlMenu.Controls.Add(btnMenuThongKe);
             pnlMenu.Controls.Add(btnMenuHoaDon);
             pnlMenu.Controls.Add(btnMenuVoucher);
+            pnlMenu.Controls.Add(btnMenuQuanLyAI);
             pnlMenu.Controls.Add(btnMenuLoaiVe);
             pnlMenu.Controls.Add(btnMenuVe);
             pnlMenu.Controls.Add(btnMenuNguoiDung);
@@ -127,7 +130,7 @@ namespace doanbanve.Forms
             // btnMenuHoaDon
             // 
             btnMenuHoaDon.Dock = DockStyle.Top;
-            btnMenuHoaDon.Location = new Point(0, 176);
+            btnMenuHoaDon.Location = new Point(0, 220);
             btnMenuHoaDon.Name = "btnMenuHoaDon";
             btnMenuHoaDon.Size = new Size(200, 44);
             btnMenuHoaDon.TabIndex = 4;
@@ -138,13 +141,24 @@ namespace doanbanve.Forms
             // btnMenuVoucher
             // 
             btnMenuVoucher.Dock = DockStyle.Top;
-            btnMenuVoucher.Location = new Point(0, 132);
+            btnMenuVoucher.Location = new Point(0, 176);
             btnMenuVoucher.Name = "btnMenuVoucher";
             btnMenuVoucher.Size = new Size(200, 44);
             btnMenuVoucher.TabIndex = 3;
             btnMenuVoucher.Text = "Quản lý voucher";
             btnMenuVoucher.UseVisualStyleBackColor = true;
             btnMenuVoucher.Click += btnMenuVoucher_Click;
+            // 
+            // btnMenuQuanLyAI
+            // 
+            btnMenuQuanLyAI.Dock = DockStyle.Top;
+            btnMenuQuanLyAI.Location = new Point(0, 132);
+            btnMenuQuanLyAI.Name = "btnMenuQuanLyAI";
+            btnMenuQuanLyAI.Size = new Size(200, 44);
+            btnMenuQuanLyAI.TabIndex = 7;
+            btnMenuQuanLyAI.Text = "Quản lý AI";
+            btnMenuQuanLyAI.UseVisualStyleBackColor = true;
+            btnMenuQuanLyAI.Click += btnMenuQuanLyAI_Click;
             // 
             // btnMenuLoaiVe
             // 

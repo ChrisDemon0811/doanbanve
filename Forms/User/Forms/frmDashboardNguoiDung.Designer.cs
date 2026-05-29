@@ -12,6 +12,7 @@ namespace doanbanve.Forms
         private Button btnGioHang;
         private Button btnThongTinNguoiDung;
         private Button btnDoiMatKhau;
+        private Button btnChamSocKhachHang;
         private FlowLayoutPanel pnlLoaiVe;
         private FlowLayoutPanel pnlVe;
         private Label lblTimKiemVe;
@@ -38,6 +39,7 @@ namespace doanbanve.Forms
             btnGioHang = new Button();
             btnThongTinNguoiDung = new Button();
             btnDoiMatKhau = new Button();
+            btnChamSocKhachHang = new Button();
             pnlLoaiVe = new FlowLayoutPanel();
             pnlVe = new FlowLayoutPanel();
             lblTimKiemVe = new Label();
@@ -133,6 +135,16 @@ namespace doanbanve.Forms
             btnDoiMatKhau.UseVisualStyleBackColor = true;
             btnDoiMatKhau.Click += btnDoiMatKhau_Click;
             // 
+            // btnChamSocKhachHang
+            // 
+            btnChamSocKhachHang.Location = new Point(468, 24);
+            btnChamSocKhachHang.Name = "btnChamSocKhachHang";
+            btnChamSocKhachHang.Size = new Size(130, 32);
+            btnChamSocKhachHang.TabIndex = 9;
+            btnChamSocKhachHang.Text = "Chăm sóc khách hàng";
+            btnChamSocKhachHang.UseVisualStyleBackColor = true;
+            btnChamSocKhachHang.Click += btnChamSocKhachHang_Click;
+            // 
             // pnlLoaiVe
             // 
             pnlLoaiVe.AutoScroll = true;
@@ -186,6 +198,7 @@ namespace doanbanve.Forms
             Controls.Add(lblTimKiemVe);
             Controls.Add(pnlVe);
             Controls.Add(pnlLoaiVe);
+            Controls.Add(btnChamSocKhachHang);
             Controls.Add(btnThongTinNguoiDung);
             Controls.Add(btnDoiMatKhau);
             Controls.Add(btnGioHang);

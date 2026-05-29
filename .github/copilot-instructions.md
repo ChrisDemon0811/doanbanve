@@ -1,7 +1,7 @@
 # Copilot Instructions - Quản Lý Bán Vé Khu Du Lịch
 
 ## Tổng quan
-Đồ án WinForms nhỏ dùng C#, .NET WinForms, phiên bản .NET 8.0, Entity Framework Core, SQL Server 2022 . Quản lý bán vé khu du lịch.
+Đồ án WinForms nhỏ dùng C#, .NET WinForms, phiên bản .NET 8.0, Entity Framework Core, SQL Server 2022. Quản lý bán vé khu du lịch.
 
 ## Ngôn ngữ
 - Trả lời, giải thích, comment bằng **Tiếng Việt**.

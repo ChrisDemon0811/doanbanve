@@ -16,6 +16,8 @@ namespace doanbanve.Data
         public DbSet<ChiTietGioHangDuLieu> ChiTietGioHang => Set<ChiTietGioHangDuLieu>();
         public DbSet<HoaDonDuLieu> HoaDon => Set<HoaDonDuLieu>();
         public DbSet<ChiTietHoaDonDuLieu> ChiTietHoaDon => Set<ChiTietHoaDonDuLieu>();
+        public DbSet<CauHinhAI> CauHinhAI => Set<CauHinhAI>();
+        public DbSet<LichSuChat> LichSuChat => Set<LichSuChat>();
 
         public DuLieuContext(DbContextOptions<DuLieuContext> tuyChon) : base(tuyChon)
         {
@@ -95,6 +97,14 @@ namespace doanbanve.Data
             modelBuilder.Entity<ChiTietHoaDonDuLieu>().Property(x => x.DonGiaTreEm).HasPrecision(18, 2);
             modelBuilder.Entity<ChiTietHoaDonDuLieu>().Property(x => x.DonGiaNguoiCaoTuoi).HasPrecision(18, 2);
             modelBuilder.Entity<ChiTietHoaDonDuLieu>().Property(x => x.ThanhTien).HasPrecision(18, 2);
+
+            modelBuilder.Entity<CauHinhAI>().ToTable("CauHinhAI").HasKey(x => x.MaCauHinhAI);
+            modelBuilder.Entity<CauHinhAI>().Property(x => x.NhaCungCap).HasMaxLength(200);
+            modelBuilder.Entity<CauHinhAI>().Property(x => x.KhoaApi).HasMaxLength(255);
+            modelBuilder.Entity<CauHinhAI>().Property(x => x.MoHinh).HasMaxLength(100);
+
+            modelBuilder.Entity<LichSuChat>().ToTable("LichSuChat").HasKey(x => x.MaLichSuChat);
+            modelBuilder.Entity<LichSuChat>().Property(x => x.NgayTao).HasColumnType("datetime");
         }
     }
 }

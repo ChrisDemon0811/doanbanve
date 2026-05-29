@@ -1,4 +1,3 @@
-D:\Study\Lập trình windows\doanbanve\bin\Debug\net8.0-windows\appsettings.json
 D:\Study\Lập trình windows\doanbanve\bin\Debug\net8.0-windows\doanbanve.exe
 D:\Study\Lập trình windows\doanbanve\bin\Debug\net8.0-windows\doanbanve.deps.json
 D:\Study\Lập trình windows\doanbanve\bin\Debug\net8.0-windows\doanbanve.runtimeconfig.json
@@ -306,3 +305,8 @@ C:\Users\PC\Desktop\project\doanbanve\obj\Debug\net8.0-windows\Ve\doanbanve.reso
 C:\Users\PC\Desktop\project\doanbanve\bin\Debug\net8.0-windows\doanbanve.dll.config
 C:\Users\PC\Desktop\project\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.frmCapNhatThongTinNguoiDung.resources
 C:\Users\PC\Desktop\project\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.frmDoiMatKhau.resources
+D:\Study\Lập trình windows\doanbanve\bin\Debug\net8.0-windows\doanbanve.dll.config
+D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.frmCapNhatThongTinNguoiDung.resources
+D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.frmDoiMatKhau.resources
+D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.Admin.Forms.frmQuanLyAI.resources
+D:\Study\Lập trình windows\doanbanve\obj\Debug\net8.0-windows\doanbanve.Forms.frmChatAI.resources

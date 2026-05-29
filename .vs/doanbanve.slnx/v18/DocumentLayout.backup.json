@@ -1,205 +1,141 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\",
+  "WorkspaceRootPath": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\forms\\user\\dialogs\\frmthongtinnguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\user\\dialogs\\frmthongtinnguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\user\\forms\\frmdashboardnguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\user\\forms\\frmdashboardnguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\forms\\user\\dialogs\\frmchitietthanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\user\\dialogs\\frmchitietthanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\forms\\user\\dialogs\\frmchitietthanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\user\\dialogs\\frmchitietthanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\forms\\user\\forms\\frmthanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\user\\forms\\frmthanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|C:\\Users\\PC\\Desktop\\project\\doanbanve\\forms\\user\\forms\\frmgiohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\user\\forms\\frmgiohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|C:\\Users\\PC\\Desktop\\project\\doanbanve\\forms\\user\\forms\\frmdashboardnguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\user\\forms\\frmdashboardnguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\user\\forms\\frmdashboardnguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\forms\\user\\dialogs\\frmcapnhatthongtinnguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\user\\dialogs\\frmcapnhatthongtinnguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\user\\dialogs\\frmchatai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\user\\dialogs\\frmchatai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|C:\\Users\\PC\\Desktop\\project\\doanbanve\\forms\\user\\dialogs\\frmchonve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\user\\dialogs\\frmchonve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\.github\\copilot-instructions.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.github\\copilot-instructions.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\forms\\user\\dialogs\\frmdangky.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\user\\dialogs\\frmdangky.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\copilot-instructions.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:copilot-instructions.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\forms\\user\\dialogs\\frmdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\user\\dialogs\\frmdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\forms\\user\\dialogs\\frmdoimatkhau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\user\\dialogs\\frmdoimatkhau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\forms\\user\\dialogs\\frmthongtinnguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\user\\dialogs\\frmthongtinnguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\forms\\user\\dialogs\\frmthongtinve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\user\\dialogs\\frmthongtinve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\doanbanve.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:doanbanve.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\utils\\cauhinhhethong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:utils\\cauhinhhethong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\data\\dulieucontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:data\\dulieucontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\data\\thucthedulieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:data\\thucthedulieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\setup.sql||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:setup.sql||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\models\\mucgiohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\models\\mucgiohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:models\\mucgiohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\models\\loaive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:models\\loaive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\utils\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\utils\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:utils\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\utils\\mahoamatkhau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\utils\\mahoamatkhau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:utils\\mahoamatkhau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\utils\\giohangtam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\utils\\giohangtam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:utils\\giohangtam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\models\\thongkedulieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\models\\thongkedulieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:models\\thongkedulieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\controllers\\hoadoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\controllers\\hoadoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:controllers\\hoadoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\models\\donhangdathanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\models\\donhangdathanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:models\\donhangdathanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\forms\\admin\\controls\\ucquanlyhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\admin\\controls\\ucquanlyhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\admin\\controls\\ucquanlyhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\dao\\nguoidungdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\dao\\nguoidungdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:dao\\nguoidungdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|C:\\Users\\PC\\Desktop\\project\\doanbanve\\forms\\admin\\controls\\ucquanlyhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\admin\\controls\\ucquanlyhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\admin\\controls\\ucquanlyhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\forms\\admin\\controls\\ucquanlynguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\admin\\controls\\ucquanlynguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\admin\\controls\\ucquanlynguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|C:\\Users\\PC\\Desktop\\project\\doanbanve\\forms\\admin\\controls\\ucquanlynguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\admin\\controls\\ucquanlynguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\admin\\controls\\ucquanlynguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\forms\\admin\\controls\\ucquanlyve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\admin\\controls\\ucquanlyve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\admin\\controls\\ucquanlyve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|C:\\Users\\PC\\Desktop\\project\\doanbanve\\forms\\admin\\controls\\ucquanlyve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\admin\\controls\\ucquanlyve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\admin\\controls\\ucquanlyve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\forms\\admin\\controls\\ucquanlyvoucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\admin\\controls\\ucquanlyvoucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\admin\\controls\\ucquanlyvoucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|C:\\Users\\PC\\Desktop\\project\\doanbanve\\forms\\admin\\controls\\ucquanlyvoucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\admin\\controls\\ucquanlyvoucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\admin\\controls\\ucquanlyvoucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\forms\\admin\\controls\\ucphanloaive.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\admin\\controls\\ucphanloaive.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\admin\\controls\\ucphanloaive.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|C:\\Users\\PC\\Desktop\\project\\doanbanve\\forms\\admin\\controls\\ucphanloaive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\admin\\controls\\ucphanloaive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\admin\\controls\\ucphanloaive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\forms\\user\\forms\\frmthanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\user\\forms\\frmthanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\user\\forms\\frmthanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\forms\\user\\forms\\frmgiohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\user\\forms\\frmgiohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\user\\forms\\frmgiohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\.copilot\\plans\\plan-xa-bng-chitietve-v-lin-kt.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|MarkdownSecurePreview"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|C:\\Users\\PC\\Desktop\\project\\doanbanve\\forms\\admin\\dialogs\\frmchitiethoadonquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\admin\\dialogs\\frmchitiethoadonquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\admin\\dialogs\\frmchitiethoadonquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\dao\\chitietgiohangdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\dao\\chitietgiohangdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:dao\\chitietgiohangdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\forms\\admin\\controls\\ucquanlyhoadon.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\admin\\controls\\ucquanlyhoadon.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\admin\\controls\\ucquanlyhoadon.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\dao\\loaivedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\dao\\loaivedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:dao\\loaivedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\dao\\vedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\dao\\vedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:dao\\vedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\dao\\hoadondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\dao\\hoadondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:dao\\hoadondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|c:\\users\\pc\\desktop\\project\\doanbanve\\app.config||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:app.config||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\admin\\forms\\frmdashboardquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\admin\\forms\\frmdashboardquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -209,359 +145,57 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "frmGioHang.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Forms\\frmGioHang.cs",
-              "RelativeDocumentMoniker": "Forms\\User\\Forms\\frmGioHang.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Forms\\frmGioHang.cs [Design]",
-              "RelativeToolTip": "Forms\\User\\Forms\\frmGioHang.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "frmDashboardNguoiDung.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Forms\\frmDashboardNguoiDung.cs",
+              "RelativeDocumentMoniker": "Forms\\User\\Forms\\frmDashboardNguoiDung.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Forms\\frmDashboardNguoiDung.cs",
+              "RelativeToolTip": "Forms\\User\\Forms\\frmDashboardNguoiDung.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-24T07:54:23.24Z",
+              "WhenOpened": "2026-05-29T03:13:22.761Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmDashboardNguoiDung.cs [Design]",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Forms\\frmDashboardNguoiDung.cs",
+              "RelativeDocumentMoniker": "Forms\\User\\Forms\\frmDashboardNguoiDung.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Forms\\frmDashboardNguoiDung.cs [Design]",
+              "RelativeToolTip": "Forms\\User\\Forms\\frmDashboardNguoiDung.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-29T03:11:36.878Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "frmThanhToan.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Forms\\frmThanhToan.cs",
-              "RelativeDocumentMoniker": "Forms\\User\\Forms\\frmThanhToan.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Forms\\frmThanhToan.cs [Design]",
-              "RelativeToolTip": "Forms\\User\\Forms\\frmThanhToan.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T03:01:02.605Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmChiTietThanhToan.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Dialogs\\frmChiTietThanhToan.cs",
-              "RelativeDocumentMoniker": "Forms\\User\\Dialogs\\frmChiTietThanhToan.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Dialogs\\frmChiTietThanhToan.cs",
-              "RelativeToolTip": "Forms\\User\\Dialogs\\frmChiTietThanhToan.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAIwGoAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T02:59:11.26Z",
+              "Title": "copilot-instructions.md",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\.github\\copilot-instructions.md",
+              "RelativeDocumentMoniker": ".github\\copilot-instructions.md",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\.github\\copilot-instructions.md",
+              "RelativeToolTip": ".github\\copilot-instructions.md",
+              "ViewState": "AgIAACgAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-05-29T02:52:01.775Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmChiTietThanhToan.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Dialogs\\frmChiTietThanhToan.cs",
-              "RelativeDocumentMoniker": "Forms\\User\\Dialogs\\frmChiTietThanhToan.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Dialogs\\frmChiTietThanhToan.cs [Design]",
-              "RelativeToolTip": "Forms\\User\\Dialogs\\frmChiTietThanhToan.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T03:01:05.115Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmThongTinNguoiDung.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Dialogs\\frmThongTinNguoiDung.cs",
-              "RelativeDocumentMoniker": "Forms\\User\\Dialogs\\frmThongTinNguoiDung.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Dialogs\\frmThongTinNguoiDung.cs",
-              "RelativeToolTip": "Forms\\User\\Dialogs\\frmThongTinNguoiDung.cs",
-              "ViewState": "AgIAAGwAAAAAAAAAAADwv3cAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T03:19:15.749Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "frmDashboardNguoiDung.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Forms\\frmDashboardNguoiDung.cs",
-              "RelativeDocumentMoniker": "Forms\\User\\Forms\\frmDashboardNguoiDung.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Forms\\frmDashboardNguoiDung.cs [Design]",
-              "RelativeToolTip": "Forms\\User\\Forms\\frmDashboardNguoiDung.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-24T07:53:44.747Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "frmCapNhatThongTinNguoiDung.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Dialogs\\frmCapNhatThongTinNguoiDung.cs",
-              "RelativeDocumentMoniker": "Forms\\User\\Dialogs\\frmCapNhatThongTinNguoiDung.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Dialogs\\frmCapNhatThongTinNguoiDung.cs [Design]",
-              "RelativeToolTip": "Forms\\User\\Dialogs\\frmCapNhatThongTinNguoiDung.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T03:01:07.694Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "frmChonVe.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Dialogs\\frmChonVe.cs",
-              "RelativeDocumentMoniker": "Forms\\User\\Dialogs\\frmChonVe.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Dialogs\\frmChonVe.cs [Design]",
-              "RelativeToolTip": "Forms\\User\\Dialogs\\frmChonVe.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T07:09:15.989Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "frmDangKy.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Dialogs\\frmDangKy.cs",
-              "RelativeDocumentMoniker": "Forms\\User\\Dialogs\\frmDangKy.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Dialogs\\frmDangKy.cs [Design]",
-              "RelativeToolTip": "Forms\\User\\Dialogs\\frmDangKy.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T03:01:20.894Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "frmDangNhap.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Dialogs\\frmDangNhap.cs",
-              "RelativeDocumentMoniker": "Forms\\User\\Dialogs\\frmDangNhap.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Dialogs\\frmDangNhap.cs [Design]",
-              "RelativeToolTip": "Forms\\User\\Dialogs\\frmDangNhap.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T03:01:19.959Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "frmDoiMatKhau.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Dialogs\\frmDoiMatKhau.cs",
-              "RelativeDocumentMoniker": "Forms\\User\\Dialogs\\frmDoiMatKhau.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Dialogs\\frmDoiMatKhau.cs [Design]",
-              "RelativeToolTip": "Forms\\User\\Dialogs\\frmDoiMatKhau.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T03:01:18.04Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "frmThongTinNguoiDung.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Dialogs\\frmThongTinNguoiDung.cs",
-              "RelativeDocumentMoniker": "Forms\\User\\Dialogs\\frmThongTinNguoiDung.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Dialogs\\frmThongTinNguoiDung.cs [Design]",
-              "RelativeToolTip": "Forms\\User\\Dialogs\\frmThongTinNguoiDung.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T03:01:15.113Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "frmThongTinVe.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Dialogs\\frmThongTinVe.cs",
-              "RelativeDocumentMoniker": "Forms\\User\\Dialogs\\frmThongTinVe.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Dialogs\\frmThongTinVe.cs [Design]",
-              "RelativeToolTip": "Forms\\User\\Dialogs\\frmThongTinVe.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T03:01:12.516Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "App.config",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\App.config",
-              "RelativeDocumentMoniker": "App.config",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\App.config",
-              "RelativeToolTip": "App.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2026-05-26T02:03:53.731Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "doanbanve",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\doanbanve.csproj",
-              "RelativeDocumentMoniker": "doanbanve.csproj",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\doanbanve.csproj",
-              "RelativeToolTip": "doanbanve.csproj",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-05-26T02:03:27.806Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T02:06:59.935Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "App.config",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\App.config",
-              "RelativeDocumentMoniker": "App.config",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\App.config",
-              "RelativeToolTip": "App.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2026-05-26T02:03:33.159Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ThucTheDuLieu.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Data\\ThucTheDuLieu.cs",
-              "RelativeDocumentMoniker": "Data\\ThucTheDuLieu.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Data\\ThucTheDuLieu.cs",
-              "RelativeToolTip": "Data\\ThucTheDuLieu.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-24T06:43:26.79Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "CauHinhHeThong.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Utils\\CauHinhHeThong.cs",
-              "RelativeDocumentMoniker": "Utils\\CauHinhHeThong.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Utils\\CauHinhHeThong.cs",
-              "RelativeToolTip": "Utils\\CauHinhHeThong.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T01:06:03.157Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "MucGioHang.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\MucGioHang.cs",
-              "RelativeDocumentMoniker": "Models\\MucGioHang.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\MucGioHang.cs",
-              "RelativeToolTip": "Models\\MucGioHang.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T01:03:56.816Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "LoaiVe.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\LoaiVe.cs",
-              "RelativeDocumentMoniker": "Models\\LoaiVe.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\LoaiVe.cs",
-              "RelativeToolTip": "Models\\LoaiVe.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T01:21:18.933Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "DuLieuContext.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Data\\DuLieuContext.cs",
-              "RelativeDocumentMoniker": "Data\\DuLieuContext.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Data\\DuLieuContext.cs",
-              "RelativeToolTip": "Data\\DuLieuContext.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAuwCQAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-24T06:43:33.415Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "setup.sql",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\setup.sql",
-              "RelativeDocumentMoniker": "setup.sql",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\setup.sql",
-              "RelativeToolTip": "setup.sql",
-              "ViewState": "AgIAALEAAAAAAAAAAAAiwMYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-05-24T06:42:47.963Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "Session.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Utils\\Session.cs",
-              "RelativeDocumentMoniker": "Utils\\Session.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Utils\\Session.cs",
-              "RelativeToolTip": "Utils\\Session.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T01:06:16.301Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "MaHoaMatKhau.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Utils\\MaHoaMatKhau.cs",
-              "RelativeDocumentMoniker": "Utils\\MaHoaMatKhau.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Utils\\MaHoaMatKhau.cs",
-              "RelativeToolTip": "Utils\\MaHoaMatKhau.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T01:06:11.799Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "GioHangTam.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Utils\\GioHangTam.cs",
-              "RelativeDocumentMoniker": "Utils\\GioHangTam.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Utils\\GioHangTam.cs",
-              "RelativeToolTip": "Utils\\GioHangTam.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T01:06:05.93Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "ThongKeDuLieu.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\ThongKeDuLieu.cs",
-              "RelativeDocumentMoniker": "Models\\ThongKeDuLieu.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\ThongKeDuLieu.cs",
-              "RelativeToolTip": "Models\\ThongKeDuLieu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T01:05:56.015Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "DonHangDaThanhToan.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\DonHangDaThanhToan.cs",
-              "RelativeDocumentMoniker": "Models\\DonHangDaThanhToan.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Models\\DonHangDaThanhToan.cs",
-              "RelativeToolTip": "Models\\DonHangDaThanhToan.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T01:03:54.055Z",
+              "DocumentIndex": 4,
+              "Title": "copilot-instructions.md",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\copilot-instructions.md",
+              "RelativeDocumentMoniker": "copilot-instructions.md",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\copilot-instructions.md",
+              "RelativeToolTip": "copilot-instructions.md",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-05-29T02:51:59.292Z",
               "EditorCaption": ""
             },
             {
@@ -586,37 +220,133 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 2,
+              "Title": "frmChatAI.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Dialogs\\frmChatAI.cs",
+              "RelativeDocumentMoniker": "Forms\\User\\Dialogs\\frmChatAI.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Dialogs\\frmChatAI.cs",
+              "RelativeToolTip": "Forms\\User\\Dialogs\\frmChatAI.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAArwI4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-29T02:47:21.124Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "frmDashboardQuanLy.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Forms\\frmDashboardQuanLy.cs",
+              "RelativeDocumentMoniker": "Forms\\Admin\\Forms\\frmDashboardQuanLy.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Forms\\frmDashboardQuanLy.cs",
+              "RelativeToolTip": "Forms\\Admin\\Forms\\frmDashboardQuanLy.cs",
+              "ViewState": "AgIAAKsAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-29T02:54:37.487Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MucGioHang.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\MucGioHang.cs",
+              "RelativeDocumentMoniker": "Models\\MucGioHang.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\MucGioHang.cs",
+              "RelativeToolTip": "Models\\MucGioHang.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T01:03:56.816Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Session.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Utils\\Session.cs",
+              "RelativeDocumentMoniker": "Utils\\Session.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Utils\\Session.cs",
+              "RelativeToolTip": "Utils\\Session.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T01:06:16.301Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MaHoaMatKhau.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Utils\\MaHoaMatKhau.cs",
+              "RelativeDocumentMoniker": "Utils\\MaHoaMatKhau.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Utils\\MaHoaMatKhau.cs",
+              "RelativeToolTip": "Utils\\MaHoaMatKhau.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T01:06:11.799Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GioHangTam.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Utils\\GioHangTam.cs",
+              "RelativeDocumentMoniker": "Utils\\GioHangTam.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Utils\\GioHangTam.cs",
+              "RelativeToolTip": "Utils\\GioHangTam.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T01:06:05.93Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ThongKeDuLieu.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\ThongKeDuLieu.cs",
+              "RelativeDocumentMoniker": "Models\\ThongKeDuLieu.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\ThongKeDuLieu.cs",
+              "RelativeToolTip": "Models\\ThongKeDuLieu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T01:05:56.015Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DonHangDaThanhToan.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\DonHangDaThanhToan.cs",
+              "RelativeDocumentMoniker": "Models\\DonHangDaThanhToan.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\DonHangDaThanhToan.cs",
+              "RelativeToolTip": "Models\\DonHangDaThanhToan.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T01:03:54.055Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "GioHangController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Controllers\\GioHangController.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\GioHangController.cs",
               "RelativeDocumentMoniker": "Controllers\\GioHangController.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Controllers\\GioHangController.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\GioHangController.cs",
               "RelativeToolTip": "Controllers\\GioHangController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T08:07:47.875Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-23T08:07:47.875Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 10,
               "Title": "HoaDonController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Controllers\\HoaDonController.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\HoaDonController.cs",
               "RelativeDocumentMoniker": "Controllers\\HoaDonController.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Controllers\\HoaDonController.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\HoaDonController.cs",
               "RelativeToolTip": "Controllers\\HoaDonController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T08:07:50.588Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-23T08:07:50.588Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 13,
               "Title": "ucQuanLyHoaDon.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyHoaDon.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyHoaDon.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucQuanLyHoaDon.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyHoaDon.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyHoaDon.cs",
               "RelativeToolTip": "Forms\\Admin\\Controls\\ucQuanLyHoaDon.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAQwAQAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -625,11 +355,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 18,
               "Title": "ucQuanLyVe.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyVe.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyVe.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucQuanLyVe.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyVe.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyVe.cs",
               "RelativeToolTip": "Forms\\Admin\\Controls\\ucQuanLyVe.cs",
               "ViewState": "AgIAACYAAAAAAAAAAAAgwD0AAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -638,11 +368,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 16,
               "Title": "ucQuanLyNguoiDung.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyNguoiDung.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyNguoiDung.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucQuanLyNguoiDung.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyNguoiDung.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyNguoiDung.cs",
               "RelativeToolTip": "Forms\\Admin\\Controls\\ucQuanLyNguoiDung.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAA1wC4AAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -651,11 +381,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 14,
               "Title": "NguoiDungDAO.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\NguoiDungDAO.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\NguoiDungDAO.cs",
               "RelativeDocumentMoniker": "DAO\\NguoiDungDAO.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\NguoiDungDAO.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\NguoiDungDAO.cs",
               "RelativeToolTip": "DAO\\NguoiDungDAO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -663,11 +393,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 19,
               "Title": "ucQuanLyVe.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyVe.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyVe.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucQuanLyVe.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyVe.cs [Design]",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyVe.cs [Design]",
               "RelativeToolTip": "Forms\\Admin\\Controls\\ucQuanLyVe.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-24T08:01:23.353Z",
@@ -675,11 +405,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 20,
               "Title": "ucQuanLyVoucher.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyVoucher.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyVoucher.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucQuanLyVoucher.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyVoucher.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyVoucher.cs",
               "RelativeToolTip": "Forms\\Admin\\Controls\\ucQuanLyVoucher.cs",
               "ViewState": "AgIAALMAAAAAAAAAAAAUwEQAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -688,11 +418,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 15,
               "Title": "ucQuanLyHoaDon.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyHoaDon.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyHoaDon.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucQuanLyHoaDon.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyHoaDon.cs [Design]",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyHoaDon.cs [Design]",
               "RelativeToolTip": "Forms\\Admin\\Controls\\ucQuanLyHoaDon.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-23T08:08:40.048Z",
@@ -700,11 +430,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 21,
               "Title": "ucQuanLyVoucher.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyVoucher.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyVoucher.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucQuanLyVoucher.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyVoucher.cs [Design]",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyVoucher.cs [Design]",
               "RelativeToolTip": "Forms\\Admin\\Controls\\ucQuanLyVoucher.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-24T08:01:48.86Z",
@@ -712,11 +442,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 17,
               "Title": "ucQuanLyNguoiDung.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyNguoiDung.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyNguoiDung.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucQuanLyNguoiDung.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyNguoiDung.cs [Design]",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyNguoiDung.cs [Design]",
               "RelativeToolTip": "Forms\\Admin\\Controls\\ucQuanLyNguoiDung.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-24T08:00:57.123Z",
@@ -724,24 +454,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 24,
               "Title": "frmThanhToan.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Forms\\frmThanhToan.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Forms\\frmThanhToan.cs",
               "RelativeDocumentMoniker": "Forms\\User\\Forms\\frmThanhToan.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Forms\\frmThanhToan.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Forms\\frmThanhToan.cs",
               "RelativeToolTip": "Forms\\User\\Forms\\frmThanhToan.cs",
               "ViewState": "AgIAAFgAAAAAAAAAAAArwG0AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-24T07:55:51.011Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-24T07:55:51.011Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 22,
               "Title": "ucPhanLoaiVe.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucPhanLoaiVe.Designer.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucPhanLoaiVe.Designer.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucPhanLoaiVe.Designer.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucPhanLoaiVe.Designer.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucPhanLoaiVe.Designer.cs",
               "RelativeToolTip": "Forms\\Admin\\Controls\\ucPhanLoaiVe.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -749,56 +478,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 25,
               "Title": "frmGioHang.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Forms\\frmGioHang.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Forms\\frmGioHang.cs",
               "RelativeDocumentMoniker": "Forms\\User\\Forms\\frmGioHang.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\User\\Forms\\frmGioHang.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Forms\\frmGioHang.cs",
               "RelativeToolTip": "Forms\\User\\Forms\\frmGioHang.cs",
               "ViewState": "AgIAAFIAAAAAAAAAAAArwHMAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-24T07:54:26.083Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-24T07:54:26.083Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 23,
               "Title": "ucPhanLoaiVe.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucPhanLoaiVe.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucPhanLoaiVe.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucPhanLoaiVe.cs",
               "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucPhanLoaiVe.cs [Design]",
+              "RelativeToolTip": "Forms\\Admin\\Controls\\ucPhanLoaiVe.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-23T08:07:56.958Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 26,
               "Title": "plan-xa-bng-chitietve-v-lin-kt.md [Preview]",
               "DocumentMoniker": "C:\\Users\\Admin\\.copilot\\plans\\plan-xa-bng-chitietve-v-lin-kt.md",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\Admin\\.copilot\\plans\\plan-xa-bng-chitietve-v-lin-kt.md",
               "ToolTip": "C:\\Users\\Admin\\.copilot\\plans\\plan-xa-bng-chitietve-v-lin-kt.md [Preview]",
-              "RelativeToolTip": "..\\..\\..\\..\\Admin\\.copilot\\plans\\plan-xa-bng-chitietve-v-lin-kt.md [Preview]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
               "WhenOpened": "2026-05-24T06:42:00.374Z",
               "EditorCaption": " [Preview]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 27,
               "Title": "frmChiTietHoaDonQuanLy.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Dialogs\\frmChiTietHoaDonQuanLy.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Dialogs\\frmChiTietHoaDonQuanLy.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Dialogs\\frmChiTietHoaDonQuanLy.cs",
               "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Dialogs\\frmChiTietHoaDonQuanLy.cs [Design]",
+              "RelativeToolTip": "Forms\\Admin\\Dialogs\\frmChiTietHoaDonQuanLy.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-24T06:29:05.631Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 28,
               "Title": "ChiTietGioHangDAO.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\ChiTietGioHangDAO.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\ChiTietGioHangDAO.cs",
               "RelativeDocumentMoniker": "DAO\\ChiTietGioHangDAO.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\ChiTietGioHangDAO.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\ChiTietGioHangDAO.cs",
               "RelativeToolTip": "DAO\\ChiTietGioHangDAO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -806,24 +534,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 29,
               "Title": "ucQuanLyHoaDon.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyHoaDon.Designer.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyHoaDon.Designer.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucQuanLyHoaDon.Designer.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyHoaDon.Designer.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyHoaDon.Designer.cs",
               "RelativeToolTip": "Forms\\Admin\\Controls\\ucQuanLyHoaDon.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T08:32:40.82Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-23T08:32:40.82Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 32,
               "Title": "HoaDonDAO.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\HoaDonDAO.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\HoaDonDAO.cs",
               "RelativeDocumentMoniker": "DAO\\HoaDonDAO.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\HoaDonDAO.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\HoaDonDAO.cs",
               "RelativeToolTip": "DAO\\HoaDonDAO.cs",
               "ViewState": "AgIAAN4AAAAAAAAAAABlwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -831,11 +558,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 31,
               "Title": "VeDAO.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\VeDAO.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\VeDAO.cs",
               "RelativeDocumentMoniker": "DAO\\VeDAO.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\VeDAO.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\VeDAO.cs",
               "RelativeToolTip": "DAO\\VeDAO.cs",
               "ViewState": "AgIAAEUAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -843,11 +570,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 30,
               "Title": "LoaiVeDAO.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\LoaiVeDAO.cs",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\LoaiVeDAO.cs",
               "RelativeDocumentMoniker": "DAO\\LoaiVeDAO.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project\\doanbanve\\DAO\\LoaiVeDAO.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\LoaiVeDAO.cs",
               "RelativeToolTip": "DAO\\LoaiVeDAO.cs",
               "ViewState": "AgIAAD4AAAAAAAAAAABBwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

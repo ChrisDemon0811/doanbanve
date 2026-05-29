@@ -32,6 +32,7 @@ namespace doanbanve.Forms
             btnDangXuat.Visible = daDangNhap;
             btnDoiMatKhau.Visible = daDangNhap;
             btnThongTinNguoiDung.Visible = daDangNhap;
+            btnChamSocKhachHang.Visible = daDangNhap;
 
             if (daDangNhap)
             {
@@ -292,6 +293,12 @@ namespace doanbanve.Forms
             var formDoiMatKhau = new frmDoiMatKhau();
             formDoiMatKhau.ShowDialog();
             HienThiThongTinDangNhap();
+        }
+
+        private void btnChamSocKhachHang_Click(object sender, EventArgs e)
+        {
+            var formChat = new frmChatAI();
+            formChat.ShowDialog();
         }
 
         private void txtTimKiemVe_TextChanged(object sender, EventArgs e)
