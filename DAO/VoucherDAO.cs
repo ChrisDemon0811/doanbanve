@@ -116,14 +116,36 @@ namespace doanbanve.DAO
         public async Task XoaVoucher(int maVoucher)
         {
             using var db = DuLieuContext.TaoMoi();
-            var voucher = await db.Voucher.FirstOrDefaultAsync(x => x.MaVoucher == maVoucher);
-            if (voucher == null)
+            using var transaction = await db.Database.BeginTransactionAsync();
+            try
             {
-                return;
-            }
+                var voucher = await db.Voucher.FirstOrDefaultAsync(x => x.MaVoucher == maVoucher);
+                if (voucher == null)
+                {
+                    return;
+                }
 
-            db.Voucher.Remove(voucher);
-            await db.SaveChangesAsync();
+                // Null out references from HoaDon to avoid FK constraint errors
+                var hoaDons = await db.HoaDon.Where(h => h.MaVoucher == maVoucher).ToListAsync();
+                if (hoaDons.Count > 0)
+                {
+                    foreach (var hd in hoaDons)
+                    {
+                        hd.MaVoucher = null;
+                    }
+                    await db.SaveChangesAsync();
+                }
+
+                db.Voucher.Remove(voucher);
+                await db.SaveChangesAsync();
+
+                await transaction.CommitAsync();
+            }
+            catch
+            {
+                await transaction.RollbackAsync();
+                throw;
+            }
         }
 
         public async Task TruSoLuong(int maVoucher)
