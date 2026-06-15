@@ -137,7 +137,7 @@ namespace doanbanve.Forms
 
             var lblSoLuong = new Label
             {
-                Text = "Số lượng: " + ve.SoLuong,
+                Text = "Số lượng/ngày: " + ve.SoLuong,
                 Location = new Point(12, 116),
                 AutoSize = true
             };

@@ -1,6 +1,7 @@
 using doanbanve.Data;
 using doanbanve.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace doanbanve.DAO
 {
@@ -116,7 +117,7 @@ namespace doanbanve.DAO
             return hoaDon.MaHoaDon;
         }
 
-        public async Task<int> LuuHoaDonVaCapNhatTonKho(int maNguoiDung, List<MucGioHang> danhSachMuc, int? maVoucher, decimal tienGiam, string thanhToan)
+        public async Task<int> LuuHoaDonVaKiemTraSoLuongTheoNgay(int maNguoiDung, List<MucGioHang> danhSachMuc, int? maVoucher, decimal tienGiam, string thanhToan)
         {
             if (danhSachMuc == null || danhSachMuc.Count == 0)
             {
@@ -124,42 +125,11 @@ namespace doanbanve.DAO
             }
 
             using var db = DuLieuContext.TaoMoi();
-            using var giaoDich = await db.Database.BeginTransactionAsync();
+            using var giaoDich = await db.Database.BeginTransactionAsync(IsolationLevel.Serializable);
 
             try
             {
-                var soLuongTheoVe = danhSachMuc
-                    .GroupBy(x => x.Ve.MaVe)
-                    .Select(g => new
-                    {
-                        MaVe = g.Key,
-                        SoLuongCanTru = g.Sum(m => m.TinhTongSoLuong())
-                    })
-                    .Where(x => x.SoLuongCanTru > 0)
-                    .ToList();
-
-                foreach (var mucTruKho in soLuongTheoVe)
-                {
-                    var soDongCapNhat = await db.Ve
-                        .Where(x => x.MaVe == mucTruKho.MaVe &&
-                                    x.TrangThai &&
-                                    x.SoLuong >= mucTruKho.SoLuongCanTru)
-                        .ExecuteUpdateAsync(setters => setters
-                            .SetProperty(x => x.SoLuong, x => x.SoLuong - mucTruKho.SoLuongCanTru));
-
-                    if (soDongCapNhat == 0)
-                    {
-                        var tenVe = await db.Ve
-                            .AsNoTracking()
-                            .Where(x => x.MaVe == mucTruKho.MaVe)
-                            .Select(x => x.TenVe)
-                            .FirstOrDefaultAsync();
-
-                        throw new InvalidOperationException(
-                            $"Vé '{tenVe ?? mucTruKho.MaVe.ToString()}' không đủ số lượng để thanh toán.");
-                    }
-                }
-
+                await KiemTraSoLuongVeTheoNgay(db, danhSachMuc);
                 if (maVoucher.HasValue)
                 {
                     var homNay = DateTime.Today;
@@ -217,6 +187,50 @@ namespace doanbanve.DAO
             {
                 await giaoDich.RollbackAsync();
                 throw;
+            }
+        }
+
+        private static async Task KiemTraSoLuongVeTheoNgay(DuLieuContext db, List<MucGioHang> danhSachMuc)
+        {
+            var soLuongTheoVeNgay = danhSachMuc
+                .GroupBy(x => new { x.Ve.MaVe, NgaySuDung = x.NgaySuDung.Date })
+                .Select(g => new
+                {
+                    g.Key.MaVe,
+                    g.Key.NgaySuDung,
+                    SoLuongCanBan = g.Sum(m => m.TinhTongSoLuong())
+                })
+                .Where(x => x.SoLuongCanBan > 0)
+                .ToList();
+
+            foreach (var mucCanBan in soLuongTheoVeNgay)
+            {
+                var ve = await db.Ve
+                    .AsNoTracking()
+                    .Where(x => x.MaVe == mucCanBan.MaVe && x.TrangThai)
+                    .Select(x => new { x.TenVe, SucChuaMoiNgay = x.SoLuong })
+                    .FirstOrDefaultAsync();
+
+                if (ve == null)
+                {
+                    throw new InvalidOperationException("Vé không tồn tại hoặc đã ngừng bán.");
+                }
+
+                var soLuongDaBan = await (
+                    from chiTiet in db.ChiTietHoaDon.AsNoTracking()
+                    join hoaDon in db.HoaDon.AsNoTracking() on chiTiet.MaHoaDon equals hoaDon.MaHoaDon
+                    where chiTiet.MaVe == mucCanBan.MaVe &&
+                          chiTiet.NgaySuDung == mucCanBan.NgaySuDung &&
+                          hoaDon.TrangThai == "DaThanhToan"
+                    select (int?)(chiTiet.SoLuongNguoiLon + chiTiet.SoLuongTreEm + chiTiet.SoLuongNguoiCaoTuoi)
+                ).SumAsync() ?? 0;
+
+                var soLuongConLai = Math.Max(0, ve.SucChuaMoiNgay - soLuongDaBan);
+                if (mucCanBan.SoLuongCanBan > soLuongConLai)
+                {
+                    throw new InvalidOperationException(
+                        $"Vé '{ve.TenVe}' ngày {mucCanBan.NgaySuDung:dd/MM/yyyy} chỉ còn {soLuongConLai} vé.");
+                }
             }
         }
 

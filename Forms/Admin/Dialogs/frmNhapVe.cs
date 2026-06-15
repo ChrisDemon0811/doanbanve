@@ -140,7 +140,7 @@ namespace doanbanve.Forms
 
             if (!int.TryParse(txtSoLuong.Text.Trim(), out var soLuong) || soLuong < 0)
             {
-                MessageBox.Show("Số lượng không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Số lượng/ngày không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 

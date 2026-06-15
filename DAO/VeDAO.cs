@@ -33,6 +33,33 @@ namespace doanbanve.DAO
                 .ToListAsync();
         }
 
+        public async Task<int> LaySoLuongConLaiTheoNgay(int maVe, DateTime ngaySuDung)
+        {
+            using var db = DuLieuContext.TaoMoi();
+            var sucChuaMoiNgay = await db.Ve
+                .AsNoTracking()
+                .Where(x => x.MaVe == maVe && x.TrangThai)
+                .Select(x => (int?)x.SoLuong)
+                .FirstOrDefaultAsync();
+
+            if (!sucChuaMoiNgay.HasValue)
+            {
+                throw new InvalidOperationException("Vé không tồn tại hoặc đã ngừng bán.");
+            }
+
+            var ngay = ngaySuDung.Date;
+            var soLuongDaBan = await (
+                from chiTiet in db.ChiTietHoaDon.AsNoTracking()
+                join hoaDon in db.HoaDon.AsNoTracking() on chiTiet.MaHoaDon equals hoaDon.MaHoaDon
+                where chiTiet.MaVe == maVe &&
+                      chiTiet.NgaySuDung == ngay &&
+                      hoaDon.TrangThai == "DaThanhToan"
+                select (int?)(chiTiet.SoLuongNguoiLon + chiTiet.SoLuongTreEm + chiTiet.SoLuongNguoiCaoTuoi)
+            ).SumAsync() ?? 0;
+
+            return Math.Max(0, sucChuaMoiNgay.Value - soLuongDaBan);
+        }
+
         public async Task<int> ThemVe(Ve ve)
         {
             using var db = DuLieuContext.TaoMoi();

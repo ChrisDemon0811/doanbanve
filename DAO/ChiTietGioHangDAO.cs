@@ -9,32 +9,46 @@ namespace doanbanve.DAO
         public async Task<List<MucGioHang>> LayDanhSach(int maGioHang)
         {
             using var db = DuLieuContext.TaoMoi();
-            return await (
+            var duLieu = await (
                 from chiTiet in db.ChiTietGioHang.AsNoTracking()
                 join ve in db.Ve.AsNoTracking() on chiTiet.MaVe equals ve.MaVe
                 where chiTiet.MaGioHang == maGioHang
                 orderby chiTiet.MaChiTietGioHang descending
-                select new MucGioHang
+                select new
                 {
-                    MaChiTietGioHang = chiTiet.MaChiTietGioHang,
-                    MaGioHang = chiTiet.MaGioHang,
-                    Ve = new Ve
-                    {
-                        MaVe = chiTiet.MaVe,
-                        TenVe = ve.TenVe,
-                        SoLuong = ve.SoLuong,
-                        GiaNguoiLon = ve.GiaNguoiLon,
-                        GiaTreEm = ve.GiaTreEm,
-                        GiaNguoiCaoTuoi = ve.GiaNguoiCaoTuoi,
-                        MoTa = ve.MoTa,
-                        ThongTinVe = ve.ThongTinVe,
-                        AnhVe = ve.AnhVe
-                    },
-                    NgaySuDung = chiTiet.NgaySuDung,
-                    SoLuongNguoiLon = chiTiet.SoLuongNguoiLon,
-                    SoLuongTreEm = chiTiet.SoLuongTreEm,
-                    SoLuongNguoiCaoTuoi = chiTiet.SoLuongNguoiCaoTuoi
+                    ChiTiet = chiTiet,
+                    Ve = ve,
+                    SoLuongDaBan = (
+                        from chiTietHoaDon in db.ChiTietHoaDon.AsNoTracking()
+                        join hoaDon in db.HoaDon.AsNoTracking() on chiTietHoaDon.MaHoaDon equals hoaDon.MaHoaDon
+                        where chiTietHoaDon.MaVe == chiTiet.MaVe &&
+                              chiTietHoaDon.NgaySuDung == chiTiet.NgaySuDung &&
+                              hoaDon.TrangThai == "DaThanhToan"
+                        select (int?)(chiTietHoaDon.SoLuongNguoiLon + chiTietHoaDon.SoLuongTreEm + chiTietHoaDon.SoLuongNguoiCaoTuoi)
+                    ).Sum() ?? 0
                 }).ToListAsync();
+
+            return duLieu.Select(x => new MucGioHang
+            {
+                MaChiTietGioHang = x.ChiTiet.MaChiTietGioHang,
+                MaGioHang = x.ChiTiet.MaGioHang,
+                Ve = new Ve
+                {
+                    MaVe = x.ChiTiet.MaVe,
+                    TenVe = x.Ve.TenVe,
+                    SoLuong = Math.Max(0, x.Ve.SoLuong - x.SoLuongDaBan),
+                    GiaNguoiLon = x.Ve.GiaNguoiLon,
+                    GiaTreEm = x.Ve.GiaTreEm,
+                    GiaNguoiCaoTuoi = x.Ve.GiaNguoiCaoTuoi,
+                    MoTa = x.Ve.MoTa,
+                    ThongTinVe = x.Ve.ThongTinVe,
+                    AnhVe = x.Ve.AnhVe
+                },
+                NgaySuDung = x.ChiTiet.NgaySuDung,
+                SoLuongNguoiLon = x.ChiTiet.SoLuongNguoiLon,
+                SoLuongTreEm = x.ChiTiet.SoLuongTreEm,
+                SoLuongNguoiCaoTuoi = x.ChiTiet.SoLuongNguoiCaoTuoi
+            }).ToList();
         }
 
         public async Task<MucGioHang?> LayTheoVeVaNgay(int maGioHang, int maVe, DateTime ngaySuDung)
@@ -62,6 +76,24 @@ namespace doanbanve.DAO
                 SoLuongTreEm = duLieu.SoLuongTreEm,
                 SoLuongNguoiCaoTuoi = duLieu.SoLuongNguoiCaoTuoi
             };
+        }
+
+        public async Task<int> LayTongSoLuongTheoVeVaNgay(int maGioHang, int maVe, DateTime ngaySuDung, int? maChiTietBoQua = null)
+        {
+            using var db = DuLieuContext.TaoMoi();
+            var ngay = ngaySuDung.Date;
+            var truyVan = db.ChiTietGioHang
+                .AsNoTracking()
+                .Where(x => x.MaGioHang == maGioHang &&
+                            x.MaVe == maVe &&
+                            x.NgaySuDung == ngay);
+
+            if (maChiTietBoQua.HasValue)
+            {
+                truyVan = truyVan.Where(x => x.MaChiTietGioHang != maChiTietBoQua.Value);
+            }
+
+            return await truyVan.SumAsync(x => (int?)(x.SoLuongNguoiLon + x.SoLuongTreEm + x.SoLuongNguoiCaoTuoi)) ?? 0;
         }
 
         public async Task<int> Them(MucGioHang muc)

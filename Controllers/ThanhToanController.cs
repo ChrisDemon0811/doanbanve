@@ -17,7 +17,7 @@ namespace doanbanve.Controllers
 
         public async Task<int> LuuHoaDon(int maNguoiDung, List<MucGioHang> danhSachMuc, int? maVoucher, decimal tienGiam, string thanhToan)
         {
-            var maHoaDon = await hoaDonDAO.LuuHoaDonVaCapNhatTonKho(maNguoiDung, danhSachMuc, maVoucher, tienGiam, thanhToan);
+            var maHoaDon = await hoaDonDAO.LuuHoaDonVaKiemTraSoLuongTheoNgay(maNguoiDung, danhSachMuc, maVoucher, tienGiam, thanhToan);
 
             var maGioHang = await gioHangDAO.LayHoacTaoGioHang(maNguoiDung);
             await chiTietGioHangDAO.XoaTheoGioHang(maGioHang);

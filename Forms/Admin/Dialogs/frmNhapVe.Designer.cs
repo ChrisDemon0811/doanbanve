@@ -187,7 +187,7 @@ namespace doanbanve.Forms
             lblSoLuong.Name = "lblSoLuong";
             lblSoLuong.Size = new Size(72, 20);
             lblSoLuong.TabIndex = 12;
-            lblSoLuong.Text = "Số lượng:";
+            lblSoLuong.Text = "Số lượng/ngày:";
             // 
             // txtSoLuong
             // 

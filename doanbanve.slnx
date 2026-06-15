@@ -2,5 +2,6 @@
   <Folder Name="/.github/">
     <File Path="copilot-instructions.md" />
   </Folder>
+  <Folder Name="/Solution Items/" />
   <Project Path="doanbanve.csproj" />
 </Solution>

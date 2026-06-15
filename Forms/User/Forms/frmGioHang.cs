@@ -80,7 +80,7 @@ namespace doanbanve.Forms
 
             var lblSoLuongCon = new Label
             {
-                Text = $"Còn lại: {muc.Ve.SoLuong} vé",
+                Text = $"Còn lại ngày {muc.NgaySuDung:dd/MM/yyyy}: {muc.Ve.SoLuong} vé",
                 Location = new Point(16, 94),
                 AutoSize = true
             };

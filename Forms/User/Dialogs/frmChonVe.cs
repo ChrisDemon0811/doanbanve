@@ -7,6 +7,8 @@ namespace doanbanve.Forms
     {
         private readonly Ve ve;
         private readonly int? maChiTietGioHang;
+        private readonly Controllers.VeController veController = new();
+        private readonly Label lblSoLuongConLai = new();
 
         public frmChonVe(Ve ve, int? maChiTietGioHang = null)
         {
@@ -15,13 +17,15 @@ namespace doanbanve.Forms
             this.maChiTietGioHang = maChiTietGioHang;
         }
 
-        private void frmChonVe_Load(object sender, EventArgs e)
+        private async void frmChonVe_Load(object sender, EventArgs e)
         {
             lblTenVe.Text = ve.TenVe;
             dtpNgaySuDung.MinDate = DateTime.Today;
             dtpNgaySuDung.Value = DateTime.Today;
             dtpNgaySuDung.Format = DateTimePickerFormat.Custom;
             dtpNgaySuDung.CustomFormat = "dddd, dd/MM/yyyy";
+            dtpNgaySuDung.ValueChanged += async (_, _) => await CapNhatSoLuongConLai();
+            ThemNhanSoLuongConLai();
             lblGiaNguoiLon.Text = ve.GiaNguoiLon.ToString("N0") + " VNĐ";
             lblGiaTreEm.Text = ve.GiaTreEm.ToString("N0") + " VNĐ";
             lblGiaNguoiCaoTuoi.Text = ve.GiaNguoiCaoTuoi.ToString("N0") + " VNĐ";
@@ -35,6 +39,34 @@ namespace doanbanve.Forms
             }
 
             CapNhatTongTien();
+            await CapNhatSoLuongConLai();
+        }
+
+        private void ThemNhanSoLuongConLai()
+        {
+            lblSoLuongConLai.AutoSize = true;
+            lblSoLuongConLai.Location = new Point(384, 64);
+            lblSoLuongConLai.ForeColor = Color.FromArgb(210, 85, 30);
+            lblSoLuongConLai.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblSoLuongConLai.Text = $"Số lượng/ngày: {ve.SoLuong} vé";
+
+            if (!Controls.Contains(lblSoLuongConLai))
+            {
+                Controls.Add(lblSoLuongConLai);
+            }
+        }
+
+        private async Task CapNhatSoLuongConLai()
+        {
+            try
+            {
+                var soLuongConLai = await veController.LaySoLuongConLaiTheoNgay(ve.MaVe, dtpNgaySuDung.Value.Date);
+                lblSoLuongConLai.Text = $"Còn lại ngày {dtpNgaySuDung.Value:dd/MM/yyyy}: {soLuongConLai} vé";
+            }
+            catch
+            {
+                lblSoLuongConLai.Text = $"Số lượng/ngày: {ve.SoLuong} vé";
+            }
         }
 
         private void btnCongNguoiLon_Click(object sender, EventArgs e)

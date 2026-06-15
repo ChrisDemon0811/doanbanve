@@ -17,6 +17,11 @@ namespace doanbanve.Controllers
             return await veDAO.LayDanhSachVeQuanLy();
         }
 
+        public async Task<int> LaySoLuongConLaiTheoNgay(int maVe, DateTime ngaySuDung)
+        {
+            return await veDAO.LaySoLuongConLaiTheoNgay(maVe, ngaySuDung);
+        }
+
         public async Task ThemVe(Ve ve)
         {
             await veDAO.ThemVe(ve);
