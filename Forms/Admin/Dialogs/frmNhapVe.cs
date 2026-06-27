@@ -13,6 +13,10 @@ namespace doanbanve.Forms
         public frmNhapVe(Ve? ve)
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            doanbanve.Utils.GiaoDienHelper.ApDungNutChinh(btnLuu);
+            doanbanve.Utils.GiaoDienHelper.ApDungNutPhu(btnHuy);
+            doanbanve.Utils.GiaoDienHelper.ApDungNutPhu(btnChonAnh);
             VeHienTai = ve;
         }
 

@@ -15,6 +15,9 @@ namespace doanbanve.Forms
         public frmThanhToan()
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            GiaoDienHelper.ApDungNutChinh(btnThanhToan);
+            GiaoDienHelper.ApDungNutPhu(btnApDungVoucher);
         }
 
         private async void frmThanhToan_Load(object sender, EventArgs e)
@@ -60,73 +63,91 @@ namespace doanbanve.Forms
 
         private Panel TaoTheThanhToan(MucGioHang muc)
         {
+            var doRongThe = Math.Max(820, pnlDanhSach.ClientSize.Width - pnlDanhSach.Padding.Horizontal - 32);
+            var doRongNoiDung = Math.Max(470, doRongThe - 270);
+            var fontTenVe = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            var tenVe = GiaoDienHelper.ChuanHoaNoiDungHienThi(muc.Ve.TenVe);
+            var chieuCaoTen = GiaoDienHelper.TinhChieuCaoVanBan(tenVe, fontTenVe, doRongNoiDung, 32);
+            var yNgaySuDung = 16 + chieuCaoTen + 8;
+            var ySoLuongCon = yNgaySuDung + 24;
+            var yNguoiLon = ySoLuongCon + 24;
+            var yTreEm = yNguoiLon + 24;
+            var yNut = Math.Max(yTreEm, yNgaySuDung + 56);
+            var chieuCaoThe = yTreEm + 44;
+
             var theMuc = new Panel
             {
-                Width = 700,
-                Height = 140,
+                Width = doRongThe,
+                Height = chieuCaoThe,
                 BackColor = Color.White,
                 Margin = new Padding(8),
                 BorderStyle = BorderStyle.FixedSingle
             };
+            GiaoDienHelper.ApDungThe(theMuc);
 
             var lblTenVe = new Label
             {
-                Text = muc.Ve.TenVe,
-                Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point),
+                Text = tenVe,
+                Font = fontTenVe,
                 Location = new Point(16, 16),
-                AutoSize = true
+                AutoSize = false,
+                Size = new Size(doRongNoiDung, chieuCaoTen),
+                UseMnemonic = false
             };
 
             var lblNgaySuDung = new Label
             {
                 Text = "Ngày sử dụng: " + muc.NgaySuDung.ToString("dd/MM/yyyy"),
-                Location = new Point(16, 44),
+                Location = new Point(16, yNgaySuDung),
                 AutoSize = true
             };
 
             var lblSoLuongCon = new Label
             {
                 Text = $"Còn lại ngày {muc.NgaySuDung:dd/MM/yyyy}: {muc.Ve.SoLuong} vé",
-                Location = new Point(16, 64),
+                Location = new Point(16, ySoLuongCon),
                 AutoSize = true
             };
 
             var lblNguoiLon = new Label
             {
-                Text = $"Người lớn: {muc.SoLuongNguoiLon} x {muc.Ve.GiaNguoiLon.ToString("N0")} VN\u0110",
-                Location = new Point(16, 84),
+                Text = $"Người lớn: {muc.SoLuongNguoiLon} x {muc.Ve.GiaNguoiLon.ToString("N0")} VNĐ",
+                Location = new Point(16, yNguoiLon),
                 AutoSize = true
             };
 
             var lblTreEm = new Label
             {
-                Text = $"Trẻ em: {muc.SoLuongTreEm} x {muc.Ve.GiaTreEm.ToString("N0")} VN\u0110",
-                Location = new Point(16, 104),
+                Text = $"Trẻ em: {muc.SoLuongTreEm} x {muc.Ve.GiaTreEm.ToString("N0")} VNĐ",
+                Location = new Point(16, yTreEm),
                 AutoSize = true
             };
 
             var lblNguoiCaoTuoi = new Label
             {
-                Text = $"Người cao tuổi: {muc.SoLuongNguoiCaoTuoi} x {muc.Ve.GiaNguoiCaoTuoi.ToString("N0")} VN\u0110",
-                Location = new Point(280, 104),
+                Text = $"Người cao tuổi: {muc.SoLuongNguoiCaoTuoi} x {muc.Ve.GiaNguoiCaoTuoi.ToString("N0")} VNĐ",
+                Location = new Point(300, yTreEm),
                 AutoSize = true
             };
 
             var lblGia = new Label
             {
-                Text = muc.TinhTongTien().ToString("N0") + " VN\u0110",
-                ForeColor = Color.FromArgb(210, 85, 30),
+                Text = muc.TinhTongTien().ToString("N0") + " VNĐ",
+                ForeColor = GiaoDienHelper.MauNhan,
                 Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point),
-                Location = new Point(560, 48),
-                AutoSize = true
+                Location = new Point(doRongThe - 210, yNgaySuDung),
+                AutoSize = false,
+                Size = new Size(170, 28),
+                TextAlign = ContentAlignment.MiddleRight
             };
 
             var btnThongTinVe = new Button
             {
                 Text = "Thông tin vé",
-                Location = new Point(560, 100),
+                Location = new Point(doRongThe - 150, yNut),
                 Size = new Size(110, 28)
             };
+            GiaoDienHelper.ApDungNutPhu(btnThongTinVe);
             btnThongTinVe.Click += (_, _) => MoThongTinVe(muc.Ve);
 
             theMuc.Controls.Add(lblTenVe);
@@ -139,7 +160,6 @@ namespace doanbanve.Forms
             theMuc.Controls.Add(btnThongTinVe);
             return theMuc;
         }
-
         private void MoThongTinVe(Ve ve)
         {
             var formThongTin = new frmThongTinVe(ve);
@@ -178,7 +198,7 @@ namespace doanbanve.Forms
 
             if (!danhSachMuc.Any())
             {
-                MessageBox.Show("Gio hang dang trong.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Giỏ hàng đang trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -192,12 +212,12 @@ namespace doanbanve.Forms
                     tienGiam,
                     phuongThuc);
 
-                MessageBox.Show("Thanh toán thanh công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thanh toán thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "L\u1ed7i", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -213,3 +233,4 @@ namespace doanbanve.Forms
         }
     }
 }
+

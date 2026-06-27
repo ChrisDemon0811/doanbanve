@@ -1,4 +1,5 @@
 using doanbanve.Controllers;
+using doanbanve.Utils;
 
 namespace doanbanve.Forms
 {
@@ -13,6 +14,10 @@ namespace doanbanve.Forms
         public ucQuanLyNguoiDung()
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            GiaoDienHelper.ApDungNutPhu(btnXemThongTin);
+            GiaoDienHelper.ApDungNutPhu(btnResetMatKhau);
+            GiaoDienHelper.ApDungNutPhu(btnXoaLocNguoiDung);
             flpDanhSachNguoiDung.SizeChanged += FlpDanhSachNguoiDung_SizeChanged;
         }
 
@@ -60,7 +65,8 @@ namespace doanbanve.Forms
                 || CoChua(nguoiDung.TaiKhoan, tuKhoa)
                 || CoChua(nguoiDung.Email, tuKhoa)
                 || CoChua(nguoiDung.SoDienThoai, tuKhoa)
-                || CoChua(nguoiDung.VaiTro, tuKhoa);
+                || CoChua(nguoiDung.VaiTro, tuKhoa)
+                || CoChua(GiaoDienHelper.DinhDangVaiTro(nguoiDung.VaiTro), tuKhoa);
         }
 
         private static bool CoChua(string? noiDung, string tuKhoa)
@@ -80,6 +86,7 @@ namespace doanbanve.Forms
                 Margin = new Padding(8),
                 Tag = nguoiDung
             };
+            GiaoDienHelper.ApDungThe(the);
 
             var lblHoTen = new Label
             {
@@ -105,7 +112,7 @@ namespace doanbanve.Forms
 
             var lblVaiTro = new Label
             {
-                Text = "Vai trò: " + nguoiDung.VaiTro,
+                Text = "Vai trò: " + GiaoDienHelper.DinhDangVaiTro(nguoiDung.VaiTro),
                 Location = new Point(320, 38),
                 AutoSize = true
             };
@@ -191,7 +198,7 @@ namespace doanbanve.Forms
             var taiKhoan = nguoiDung.TaiKhoan;
             var email = nguoiDung.Email ?? "";
             var soDienThoai = nguoiDung.SoDienThoai ?? "";
-            var vaiTro = nguoiDung.VaiTro;
+            var vaiTro = GiaoDienHelper.DinhDangVaiTro(nguoiDung.VaiTro);
 
             MessageBox.Show($"Họ tên: {hoTen}\nTài khoản: {taiKhoan}\nEmail: {email}\nSố điện thoại: {soDienThoai}\nVai trò: {vaiTro}",
                 "Thông tin người dùng", MessageBoxButtons.OK, MessageBoxIcon.Information);

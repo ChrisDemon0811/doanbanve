@@ -10,6 +10,9 @@ namespace doanbanve.Forms
         public frmCapNhatThongTinNguoiDung()
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            doanbanve.Utils.GiaoDienHelper.ApDungNutChinh(btnLuu);
+            doanbanve.Utils.GiaoDienHelper.ApDungNutPhu(btnHuy);
         }
 
         private void frmCapNhatThongTinNguoiDung_Load(object sender, EventArgs e)

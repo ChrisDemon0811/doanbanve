@@ -15,6 +15,8 @@ namespace doanbanve.Forms
         public frmChatAI()
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            doanbanve.Utils.GiaoDienHelper.ApDungNutChinh(btnGui);
         }
 
         private async void frmChatAI_Load(object sender, EventArgs e)

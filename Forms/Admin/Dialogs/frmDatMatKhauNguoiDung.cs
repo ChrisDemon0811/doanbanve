@@ -11,6 +11,9 @@ namespace doanbanve.Forms
         public frmDatMatKhauNguoiDung(int maNguoiDung, string taiKhoan)
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            doanbanve.Utils.GiaoDienHelper.ApDungNutChinh(btnXacNhan);
+            doanbanve.Utils.GiaoDienHelper.ApDungNutPhu(btnHuy);
             this.maNguoiDung = maNguoiDung;
             this.taiKhoan = taiKhoan;
         }

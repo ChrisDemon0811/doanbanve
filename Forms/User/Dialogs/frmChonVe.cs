@@ -13,6 +13,9 @@ namespace doanbanve.Forms
         public frmChonVe(Ve ve, int? maChiTietGioHang = null)
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            GiaoDienHelper.ApDungNutPhu(btnThemGioHang);
+            GiaoDienHelper.ApDungNutChinh(btnDatNgay);
             this.ve = ve;
             this.maChiTietGioHang = maChiTietGioHang;
         }
@@ -20,19 +23,22 @@ namespace doanbanve.Forms
         private async void frmChonVe_Load(object sender, EventArgs e)
         {
             lblTenVe.Text = ve.TenVe;
-            dtpNgaySuDung.MinDate = DateTime.Today;
-            dtpNgaySuDung.Value = DateTime.Today;
             dtpNgaySuDung.Format = DateTimePickerFormat.Custom;
             dtpNgaySuDung.CustomFormat = "dddd, dd/MM/yyyy";
+
+            var ngayBanDau = maChiTietGioHang.HasValue && mucBanDau != null
+                ? mucBanDau.NgaySuDung.Date
+                : DateTime.Today;
+            dtpNgaySuDung.MinDate = ngayBanDau < DateTime.Today ? ngayBanDau : DateTime.Today;
+            dtpNgaySuDung.Value = ngayBanDau;
             dtpNgaySuDung.ValueChanged += async (_, _) => await CapNhatSoLuongConLai();
             ThemNhanSoLuongConLai();
-            lblGiaNguoiLon.Text = ve.GiaNguoiLon.ToString("N0") + " VNĐ";
-            lblGiaTreEm.Text = ve.GiaTreEm.ToString("N0") + " VNĐ";
-            lblGiaNguoiCaoTuoi.Text = ve.GiaNguoiCaoTuoi.ToString("N0") + " VNĐ";
+            lblGiaNguoiLon.Text = ve.GiaNguoiLon.ToString("N0") + " VN\u0110";
+            lblGiaTreEm.Text = ve.GiaTreEm.ToString("N0") + " VN\u0110";
+            lblGiaNguoiCaoTuoi.Text = ve.GiaNguoiCaoTuoi.ToString("N0") + " VN\u0110";
 
             if (maChiTietGioHang.HasValue && mucBanDau != null)
             {
-                dtpNgaySuDung.Value = mucBanDau.NgaySuDung.Date;
                 nudNguoiLon.Value = mucBanDau.SoLuongNguoiLon;
                 nudTreEm.Value = mucBanDau.SoLuongTreEm;
                 nudNguoiCaoTuoi.Value = mucBanDau.SoLuongNguoiCaoTuoi;

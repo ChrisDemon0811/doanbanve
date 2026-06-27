@@ -1,5 +1,6 @@
 using doanbanve.Controllers;
 using doanbanve.Models;
+using doanbanve.Utils;
 
 namespace doanbanve.Forms
 {
@@ -14,6 +15,11 @@ namespace doanbanve.Forms
         public ucPhanLoaiVe()
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            GiaoDienHelper.ApDungNutChinh(btnThemLoaiVe);
+            GiaoDienHelper.ApDungNutPhu(btnSuaLoaiVe);
+            GiaoDienHelper.ApDungNutPhu(btnXoaLoaiVe);
+            GiaoDienHelper.ApDungNutPhu(btnXoaLocLoaiVe);
             flpDanhSachLoaiVe.SizeChanged += FlpDanhSachLoaiVe_SizeChanged;
         }
 
@@ -78,6 +84,7 @@ namespace doanbanve.Forms
                 Margin = new Padding(8),
                 Tag = loaiVe
             };
+            GiaoDienHelper.ApDungThe(the);
 
             var lblTen = new Label
             {

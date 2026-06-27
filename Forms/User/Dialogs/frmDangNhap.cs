@@ -10,6 +10,9 @@ namespace doanbanve.Forms
         public frmDangNhap()
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            doanbanve.Utils.GiaoDienHelper.ApDungNutChinh(btnDangNhap);
+            doanbanve.Utils.GiaoDienHelper.ApDungNutPhu(btnDangKy);
         }
 
         private async void btnDangNhap_Click(object sender, EventArgs e)

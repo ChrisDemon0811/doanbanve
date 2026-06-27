@@ -1,5 +1,6 @@
 using doanbanve.Controllers;
 using doanbanve.Models;
+using doanbanve.Utils;
 
 namespace doanbanve.Forms
 {
@@ -12,6 +13,7 @@ namespace doanbanve.Forms
         public frmChiTietHoaDonQuanLy(int maHoaDon)
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
             this.maHoaDon = maHoaDon;
         }
 
@@ -42,9 +44,9 @@ namespace doanbanve.Forms
             lblMaHoaDon.Text = $"Mã hóa đơn: {thongTinHoaDon.MaHoaDon}";
             lblNguoiDat.Text = $"Người đặt: {thongTinHoaDon.HoTenNguoiDat}";
             lblNgayDat.Text = $"Ngày đặt: {thongTinHoaDon.NgayLap:dd/MM/yyyy HH:mm}";
-            lblThanhToan.Text = $"Hình thức thanh toán: {thongTinHoaDon.ThanhToan}";
+            lblThanhToan.Text = $"Hình thức thanh toán: {GiaoDienHelper.DinhDangThanhToan(thongTinHoaDon.ThanhToan)}";
             lblGiamGia.Text = $"Giảm giá: {thongTinHoaDon.TienGiam.ToString("N0")} VNĐ";
-            lblTrangThai.Text = $"Trạng thái: {thongTinHoaDon.TrangThai}";
+            lblTrangThai.Text = $"Trạng thái: {GiaoDienHelper.DinhDangTrangThaiHoaDon(thongTinHoaDon.TrangThai)}";
         }
 
         private Panel TaoTheChiTiet(MucGioHang muc)
@@ -57,6 +59,7 @@ namespace doanbanve.Forms
                 Margin = new Padding(8),
                 BorderStyle = BorderStyle.FixedSingle
             };
+            GiaoDienHelper.ApDungThe(theMuc);
 
             var lblTenVe = new Label
             {
@@ -97,7 +100,7 @@ namespace doanbanve.Forms
             var lblThanhTien = new Label
             {
                 Text = muc.TinhTongTien().ToString("N0") + " VNĐ",
-                ForeColor = Color.FromArgb(210, 85, 30),
+                ForeColor = GiaoDienHelper.MauNhan,
                 Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point),
                 Location = new Point(480, 40),
                 AutoSize = true

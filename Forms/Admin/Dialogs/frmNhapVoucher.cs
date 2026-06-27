@@ -7,6 +7,9 @@ namespace doanbanve.Forms
         public frmNhapVoucher((int MaVoucher, string MaGiamGia, string TenVoucher, string KieuGiamGia, decimal GiaTriGiam, DateTime NgayBatDau, DateTime NgayKetThuc, int SoLuong)? voucher)
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            doanbanve.Utils.GiaoDienHelper.ApDungNutChinh(btnLuu);
+            doanbanve.Utils.GiaoDienHelper.ApDungNutPhu(btnHuy);
             VoucherHienTai = voucher;
             dtpNgayBatDau.Format = DateTimePickerFormat.Custom;
             dtpNgayKetThuc.Format = DateTimePickerFormat.Custom;
@@ -19,7 +22,7 @@ namespace doanbanve.Forms
 
         private void frmNhapVoucher_Load(object sender, EventArgs e)
         {
-            cboKieuGiamGia.Items.AddRange(new object[] { "PhanTram", "TienMat" });
+            cboKieuGiamGia.Items.AddRange(new object[] { "Phần trăm", "Tiền mặt" });
             cboKieuGiamGia.SelectedIndex = 0;
 
             dtpNgayBatDau.MinDate = DateTime.Today;
@@ -29,7 +32,7 @@ namespace doanbanve.Forms
             {
                 txtMaGiamGia.Text = VoucherHienTai.Value.MaGiamGia;
                 txtTenVoucher.Text = VoucherHienTai.Value.TenVoucher;
-                cboKieuGiamGia.SelectedItem = VoucherHienTai.Value.KieuGiamGia;
+                cboKieuGiamGia.SelectedIndex = VoucherHienTai.Value.KieuGiamGia == "TienMat" ? 1 : 0;
                 txtGiaTriGiam.Text = VoucherHienTai.Value.GiaTriGiam.ToString();
                 dtpNgayBatDau.Value = VoucherHienTai.Value.NgayBatDau.Date < DateTime.Today
                     ? DateTime.Today
@@ -105,7 +108,7 @@ namespace doanbanve.Forms
                 return;
             }
 
-            var kieuGiamGia = cboKieuGiamGia.SelectedItem?.ToString() ?? "PhanTram";
+            var kieuGiamGia = cboKieuGiamGia.SelectedIndex == 1 ? "TienMat" : "PhanTram";
             if (dtpNgayKetThuc.Value.Date <= dtpNgayBatDau.Value.Date)
             {
                 MessageBox.Show("Ngày kết thúc phải lớn hơn ngày bắt đầu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);

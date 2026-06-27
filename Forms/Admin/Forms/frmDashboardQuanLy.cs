@@ -20,6 +20,8 @@ namespace doanbanve.Forms
         public frmDashboardQuanLy()
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            CauHinhGiaoDienQuanLy();
         }
 
         private async void frmDashboardQuanLy_Load(object sender, EventArgs e)
@@ -33,6 +35,21 @@ namespace doanbanve.Forms
             await ucQuanLyHoaDon.TaiDuLieu();
             await TaiThongKe();
             HienThiManHinhNguoiDung();
+        }
+
+        private void CauHinhGiaoDienQuanLy()
+        {
+            pnlMenu.BackColor = Color.FromArgb(242, 244, 247);
+            pnlNoiDung.BackColor = GiaoDienHelper.MauNen;
+            pnlBoLocThongKe.BackColor = Color.White;
+            GiaoDienHelper.ApDungThe(pnlBieuDo);
+            GiaoDienHelper.ApDungNutChinh(btnApDungThongKe);
+            GiaoDienHelper.ApDungNutPhu(btnDangXuatQuanLy);
+
+            foreach (var nut in LayDanhSachNutMenu())
+            {
+                GiaoDienHelper.ApDungNutMenu(nut);
+            }
         }
 
         private void CaiDatThongKeMacDinh()
@@ -108,6 +125,7 @@ namespace doanbanve.Forms
 
         private void HienThiManHinhNguoiDung()
         {
+            CapNhatMenuDangChon(btnMenuNguoiDung);
             ucNguoiDung.Visible = true;
             ucQuanLyVe.Visible = false;
             ucPhanLoaiVe.Visible = false;
@@ -118,6 +136,7 @@ namespace doanbanve.Forms
 
         private void HienThiManHinhVe()
         {
+            CapNhatMenuDangChon(btnMenuVe);
             ucNguoiDung.Visible = false;
             ucQuanLyVe.Visible = true;
             ucPhanLoaiVe.Visible = false;
@@ -128,6 +147,7 @@ namespace doanbanve.Forms
 
         private void HienThiManHinhLoaiVe()
         {
+            CapNhatMenuDangChon(btnMenuLoaiVe);
             ucNguoiDung.Visible = false;
             ucQuanLyVe.Visible = false;
             ucPhanLoaiVe.Visible = true;
@@ -138,6 +158,7 @@ namespace doanbanve.Forms
 
         private void HienThiManHinhVoucher()
         {
+            CapNhatMenuDangChon(btnMenuVoucher);
             ucNguoiDung.Visible = false;
             ucQuanLyVe.Visible = false;
             ucPhanLoaiVe.Visible = false;
@@ -148,6 +169,7 @@ namespace doanbanve.Forms
 
         private void HienThiManHinhHoaDon()
         {
+            CapNhatMenuDangChon(btnMenuHoaDon);
             ucNguoiDung.Visible = false;
             ucQuanLyVe.Visible = false;
             ucPhanLoaiVe.Visible = false;
@@ -158,6 +180,7 @@ namespace doanbanve.Forms
 
         private void HienThiManHinhThongKe()
         {
+            CapNhatMenuDangChon(btnMenuThongKe);
             ucNguoiDung.Visible = false;
             ucQuanLyVe.Visible = false;
             ucPhanLoaiVe.Visible = false;
@@ -172,17 +195,31 @@ namespace doanbanve.Forms
             formQuanLyAI.ShowDialog();
         }
 
+        private IEnumerable<Button> LayDanhSachNutMenu()
+        {
+            return new[]
+            {
+                btnMenuNguoiDung,
+                btnMenuVe,
+                btnMenuLoaiVe,
+                btnMenuQuanLyAI,
+                btnMenuVoucher,
+                btnMenuHoaDon,
+                btnMenuThongKe
+            };
+        }
+
+        private void CapNhatMenuDangChon(Button nutDangChon)
+        {
+            foreach (var nut in LayDanhSachNutMenu())
+            {
+                GiaoDienHelper.ApDungNutMenu(nut, nut == nutDangChon);
+            }
+        }
+
         private void CauHinhBang(DataGridView bang)
         {
-            bang.BackgroundColor = Color.White;
-            bang.EnableHeadersVisualStyles = false;
-            bang.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(230, 230, 230);
-            bang.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
-            bang.ColumnHeadersDefaultCellStyle.SelectionBackColor = bang.ColumnHeadersDefaultCellStyle.BackColor;
-            bang.ColumnHeadersDefaultCellStyle.SelectionForeColor = bang.ColumnHeadersDefaultCellStyle.ForeColor;
-            bang.RowTemplate.Height = 28;
-            bang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            bang.MultiSelect = false;
+            GiaoDienHelper.ApDungBang(bang);
         }
 
 

@@ -10,6 +10,8 @@ namespace doanbanve.Forms
         public frmDangKy()
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            doanbanve.Utils.GiaoDienHelper.ApDungNutChinh(btnDangKy);
         }
 
         private async void btnDangKy_Click(object sender, EventArgs e)

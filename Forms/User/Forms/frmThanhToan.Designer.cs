@@ -58,13 +58,13 @@ namespace doanbanve.Forms
             pnlDanhSach.Location = new Point(24, 24);
             pnlDanhSach.Name = "pnlDanhSach";
             pnlDanhSach.Padding = new Padding(12);
-            pnlDanhSach.Size = new Size(760, 303);
+            pnlDanhSach.Size = new Size(920, 330);
             pnlDanhSach.TabIndex = 0;
             // 
             // lblNguoiDatText
             // 
             lblNguoiDatText.AutoSize = true;
-            lblNguoiDatText.Location = new Point(24, 330);
+            lblNguoiDatText.Location = new Point(24, 372);
             lblNguoiDatText.Name = "lblNguoiDatText";
             lblNguoiDatText.Size = new Size(80, 20);
             lblNguoiDatText.TabIndex = 1;
@@ -73,7 +73,7 @@ namespace doanbanve.Forms
             // lblNguoiDat
             // 
             lblNguoiDat.AutoSize = true;
-            lblNguoiDat.Location = new Point(100, 330);
+            lblNguoiDat.Location = new Point(110, 372);
             lblNguoiDat.Name = "lblNguoiDat";
             lblNguoiDat.Size = new Size(15, 20);
             lblNguoiDat.TabIndex = 2;
@@ -82,7 +82,7 @@ namespace doanbanve.Forms
             // lblNgayDatText
             // 
             lblNgayDatText.AutoSize = true;
-            lblNgayDatText.Location = new Point(24, 356);
+            lblNgayDatText.Location = new Point(24, 400);
             lblNgayDatText.Name = "lblNgayDatText";
             lblNgayDatText.Size = new Size(73, 20);
             lblNgayDatText.TabIndex = 3;
@@ -91,7 +91,7 @@ namespace doanbanve.Forms
             // lblNgayDat
             // 
             lblNgayDat.AutoSize = true;
-            lblNgayDat.Location = new Point(100, 356);
+            lblNgayDat.Location = new Point(110, 400);
             lblNgayDat.Name = "lblNgayDat";
             lblNgayDat.Size = new Size(15, 20);
             lblNgayDat.TabIndex = 4;
@@ -100,7 +100,7 @@ namespace doanbanve.Forms
             // lblVoucherText
             // 
             lblVoucherText.AutoSize = true;
-            lblVoucherText.Location = new Point(24, 390);
+            lblVoucherText.Location = new Point(24, 436);
             lblVoucherText.Name = "lblVoucherText";
             lblVoucherText.Size = new Size(89, 20);
             lblVoucherText.TabIndex = 5;
@@ -108,16 +108,16 @@ namespace doanbanve.Forms
             // 
             // txtMaVoucher
             // 
-            txtMaVoucher.Location = new Point(110, 386);
+            txtMaVoucher.Location = new Point(110, 432);
             txtMaVoucher.Name = "txtMaVoucher";
-            txtMaVoucher.Size = new Size(180, 27);
+            txtMaVoucher.Size = new Size(220, 27);
             txtMaVoucher.TabIndex = 6;
             // 
             // btnApDungVoucher
             // 
-            btnApDungVoucher.Location = new Point(300, 384);
+            btnApDungVoucher.Location = new Point(342, 431);
             btnApDungVoucher.Name = "btnApDungVoucher";
-            btnApDungVoucher.Size = new Size(96, 26);
+            btnApDungVoucher.Size = new Size(112, 30);
             btnApDungVoucher.TabIndex = 7;
             btnApDungVoucher.Text = "Áp dụng";
             btnApDungVoucher.UseVisualStyleBackColor = true;
@@ -126,7 +126,7 @@ namespace doanbanve.Forms
             // lblTienGiamText
             // 
             lblTienGiamText.AutoSize = true;
-            lblTienGiamText.Location = new Point(24, 422);
+            lblTienGiamText.Location = new Point(24, 470);
             lblTienGiamText.Name = "lblTienGiamText";
             lblTienGiamText.Size = new Size(72, 20);
             lblTienGiamText.TabIndex = 8;
@@ -135,7 +135,7 @@ namespace doanbanve.Forms
             // lblTienGiam
             // 
             lblTienGiam.AutoSize = true;
-            lblTienGiam.Location = new Point(110, 422);
+            lblTienGiam.Location = new Point(110, 470);
             lblTienGiam.Name = "lblTienGiam";
             lblTienGiam.Size = new Size(52, 20);
             lblTienGiam.TabIndex = 9;
@@ -144,7 +144,7 @@ namespace doanbanve.Forms
             // lblTongTienText
             // 
             lblTongTienText.AutoSize = true;
-            lblTongTienText.Location = new Point(24, 448);
+            lblTongTienText.Location = new Point(24, 498);
             lblTongTienText.Name = "lblTongTienText";
             lblTongTienText.Size = new Size(75, 20);
             lblTongTienText.TabIndex = 10;
@@ -153,7 +153,7 @@ namespace doanbanve.Forms
             // lblTongTien
             // 
             lblTongTien.AutoSize = true;
-            lblTongTien.Location = new Point(110, 448);
+            lblTongTien.Location = new Point(110, 498);
             lblTongTien.Name = "lblTongTien";
             lblTongTien.Size = new Size(52, 20);
             lblTongTien.TabIndex = 11;
@@ -162,7 +162,7 @@ namespace doanbanve.Forms
             // lblThanhTienText
             // 
             lblThanhTienText.AutoSize = true;
-            lblThanhTienText.Location = new Point(24, 474);
+            lblThanhTienText.Location = new Point(24, 526);
             lblThanhTienText.Name = "lblThanhTienText";
             lblThanhTienText.Size = new Size(81, 20);
             lblThanhTienText.TabIndex = 12;
@@ -173,7 +173,7 @@ namespace doanbanve.Forms
             lblThanhTien.AutoSize = true;
             lblThanhTien.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblThanhTien.ForeColor = Color.FromArgb(210, 85, 30);
-            lblThanhTien.Location = new Point(110, 472);
+            lblThanhTien.Location = new Point(110, 524);
             lblThanhTien.Name = "lblThanhTien";
             lblThanhTien.Size = new Size(62, 23);
             lblThanhTien.TabIndex = 13;
@@ -184,15 +184,15 @@ namespace doanbanve.Forms
             cboThanhToan.DropDownStyle = ComboBoxStyle.DropDownList;
             cboThanhToan.FormattingEnabled = true;
             cboThanhToan.Items.AddRange(new object[] { "Thẻ ngân hàng", "Thẻ tín dụng/Ghi nợ quốc tế", "Ví điện tử" });
-            cboThanhToan.Location = new Point(420, 352);
+            cboThanhToan.Location = new Point(560, 400);
             cboThanhToan.Name = "cboThanhToan";
-            cboThanhToan.Size = new Size(260, 28);
+            cboThanhToan.Size = new Size(320, 28);
             cboThanhToan.TabIndex = 15;
             // 
             // lblThanhToanText
             // 
             lblThanhToanText.AutoSize = true;
-            lblThanhToanText.Location = new Point(420, 330);
+            lblThanhToanText.Location = new Point(560, 372);
             lblThanhToanText.Name = "lblThanhToanText";
             lblThanhToanText.Size = new Size(171, 20);
             lblThanhToanText.TabIndex = 14;
@@ -202,9 +202,9 @@ namespace doanbanve.Forms
             // 
             btnThanhToan.BackColor = Color.FromArgb(210, 85, 30);
             btnThanhToan.ForeColor = Color.White;
-            btnThanhToan.Location = new Point(420, 398);
+            btnThanhToan.Location = new Point(560, 454);
             btnThanhToan.Name = "btnThanhToan";
-            btnThanhToan.Size = new Size(160, 36);
+            btnThanhToan.Size = new Size(180, 40);
             btnThanhToan.TabIndex = 16;
             btnThanhToan.Text = "Thanh toán";
             btnThanhToan.UseVisualStyleBackColor = false;
@@ -214,7 +214,7 @@ namespace doanbanve.Forms
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(819, 510);
+            ClientSize = new Size(980, 575);
             Controls.Add(btnThanhToan);
             Controls.Add(cboThanhToan);
             Controls.Add(lblThanhToanText);

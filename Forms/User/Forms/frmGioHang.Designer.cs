@@ -46,7 +46,7 @@ namespace doanbanve.Forms
             pnlTongQuan.Dock = DockStyle.Bottom;
             pnlTongQuan.Location = new Point(0, 420);
             pnlTongQuan.Name = "pnlTongQuan";
-            pnlTongQuan.Size = new Size(880, 80);
+            pnlTongQuan.Size = new Size(1040, 80);
             pnlTongQuan.TabIndex = 0;
             // 
             // lblTieuDe
@@ -101,7 +101,7 @@ namespace doanbanve.Forms
             // 
             btnMuaHang.BackColor = Color.FromArgb(210, 85, 30);
             btnMuaHang.ForeColor = Color.White;
-            btnMuaHang.Location = new Point(720, 22);
+            btnMuaHang.Location = new Point(870, 22);
             btnMuaHang.Name = "btnMuaHang";
             btnMuaHang.Size = new Size(130, 36);
             btnMuaHang.TabIndex = 5;
@@ -117,13 +117,13 @@ namespace doanbanve.Forms
             pnlDanhSach.Location = new Point(0, 0);
             pnlDanhSach.Name = "pnlDanhSach";
             pnlDanhSach.Padding = new Padding(12);
-            pnlDanhSach.Size = new Size(880, 420);
+            pnlDanhSach.Size = new Size(1040, 480);
             pnlDanhSach.TabIndex = 1;
             // 
             // frmGioHang
             // 
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(880, 500);
+            ClientSize = new Size(1040, 560);
             Controls.Add(pnlDanhSach);
             Controls.Add(pnlTongQuan);
             FormBorderStyle = FormBorderStyle.FixedDialog;

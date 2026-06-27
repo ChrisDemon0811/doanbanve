@@ -1,4 +1,5 @@
 using doanbanve.Controllers;
+using doanbanve.Utils;
 
 namespace doanbanve.Forms
 {
@@ -13,6 +14,9 @@ namespace doanbanve.Forms
         public ucQuanLyHoaDon()
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            GiaoDienHelper.ApDungNutPhu(btnChiTietHoaDon);
+            GiaoDienHelper.ApDungNutPhu(btnXoaLocHoaDon);
             flpDanhSachHoaDon.SizeChanged += FlpDanhSachHoaDon_SizeChanged;
         }
 
@@ -59,7 +63,9 @@ namespace doanbanve.Forms
             return CoChua(hoaDon.MaHoaDon.ToString(), tuKhoa)
                 || CoChua(hoaDon.HoTenNguoiDat, tuKhoa)
                 || CoChua(hoaDon.TrangThai, tuKhoa)
-                || CoChua(hoaDon.ThanhToan, tuKhoa);
+                || CoChua(GiaoDienHelper.DinhDangTrangThaiHoaDon(hoaDon.TrangThai), tuKhoa)
+                || CoChua(hoaDon.ThanhToan, tuKhoa)
+                || CoChua(GiaoDienHelper.DinhDangThanhToan(hoaDon.ThanhToan), tuKhoa);
         }
 
         private static bool CoChua(string? noiDung, string tuKhoa)
@@ -79,6 +85,7 @@ namespace doanbanve.Forms
                 Margin = new Padding(8),
                 Tag = hoaDon
             };
+            GiaoDienHelper.ApDungThe(the);
 
             var lblMa = new Label
             {
@@ -111,14 +118,14 @@ namespace doanbanve.Forms
 
             var lblTrangThai = new Label
             {
-                Text = "Trạng thái: " + hoaDon.TrangThai,
+                Text = "Trạng thái: " + GiaoDienHelper.DinhDangTrangThaiHoaDon(hoaDon.TrangThai),
                 Location = new Point(320, 60),
                 AutoSize = true
             };
 
             var lblThanhToan = new Label
             {
-                Text = "Thanh toán: " + hoaDon.ThanhToan,
+                Text = "Thanh toán: " + GiaoDienHelper.DinhDangThanhToan(hoaDon.ThanhToan),
                 Location = new Point(320, 82),
                 AutoSize = true
             };

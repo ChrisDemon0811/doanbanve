@@ -10,6 +10,8 @@ namespace doanbanve.Forms.Admin.Forms
         public frmQuanLyAI()
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            doanbanve.Utils.GiaoDienHelper.ApDungNutChinh(btnLuu);
         }
 
         private async void frmQuanLyAI_Load(object sender, EventArgs e)

@@ -7,6 +7,8 @@ namespace doanbanve.Forms
         public frmGioHang()
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            GiaoDienHelper.ApDungNutChinh(btnMuaHang);
         }
 
         private readonly Controllers.GioHangController gioHangController = new();
@@ -24,7 +26,7 @@ namespace doanbanve.Forms
 
             if (Session.NguoiDungHienTai == null)
             {
-                MessageBox.Show("Vui long dang nhap de xem gio hang.", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng đăng nhập để xem giỏ hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Close();
                 return;
             }
@@ -47,75 +49,94 @@ namespace doanbanve.Forms
 
         private Panel TaoTheGioHang(Models.MucGioHang muc)
         {
+            var doRongThe = Math.Max(860, pnlDanhSach.ClientSize.Width - pnlDanhSach.Padding.Horizontal - 32);
+            var doRongNoiDung = Math.Max(480, doRongThe - 260);
+            var fontTenVe = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            var tenVe = GiaoDienHelper.ChuanHoaNoiDungHienThi(muc.Ve.TenVe);
+            var chieuCaoTen = GiaoDienHelper.TinhChieuCaoVanBan(tenVe, fontTenVe, doRongNoiDung, 32);
+            var yNgaySuDung = 16 + chieuCaoTen + 8;
+            var ySoLuong = yNgaySuDung + 26;
+            var ySoLuongCon = ySoLuong + 26;
+            var yNut = ySoLuongCon + 34;
+            var chieuCaoThe = yNut + 46;
+
             var theMuc = new Panel
             {
-                Width = 820,
-                Height = 156,
+                Width = doRongThe,
+                Height = chieuCaoThe,
                 BackColor = Color.White,
                 Margin = new Padding(8),
                 BorderStyle = BorderStyle.FixedSingle
             };
+            GiaoDienHelper.ApDungThe(theMuc);
 
             var lblTenVe = new Label
             {
-                Text = muc.Ve.TenVe,
-                Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point),
+                Text = tenVe,
+                Font = fontTenVe,
                 Location = new Point(16, 16),
-                AutoSize = true
+                AutoSize = false,
+                Size = new Size(doRongNoiDung, chieuCaoTen),
+                UseMnemonic = false
             };
 
             var lblNgaySuDung = new Label
             {
-                Text = "Ngay su dung: " + muc.NgaySuDung.ToString("dd/MM/yyyy"),
-                Location = new Point(16, 44),
+                Text = "Ngày sử dụng: " + muc.NgaySuDung.ToString("dd/MM/yyyy"),
+                Location = new Point(16, yNgaySuDung),
                 AutoSize = true
             };
 
             var lblSoLuong = new Label
             {
-                Text = $"Nguoi lon: {muc.SoLuongNguoiLon} | Tre em: {muc.SoLuongTreEm} | Nguoi cao tuoi: {muc.SoLuongNguoiCaoTuoi}",
-                Location = new Point(16, 70),
+                Text = $"Người lớn: {muc.SoLuongNguoiLon} | Trẻ em: {muc.SoLuongTreEm} | Người cao tuổi: {muc.SoLuongNguoiCaoTuoi}",
+                Location = new Point(16, ySoLuong),
                 AutoSize = true
             };
 
             var lblSoLuongCon = new Label
             {
                 Text = $"Còn lại ngày {muc.NgaySuDung:dd/MM/yyyy}: {muc.Ve.SoLuong} vé",
-                Location = new Point(16, 94),
+                Location = new Point(16, ySoLuongCon),
                 AutoSize = true
             };
 
             var lblGia = new Label
             {
-                Text = muc.TinhTongTien().ToString("N0") + " VN\u0110",
-                ForeColor = Color.FromArgb(210, 85, 30),
+                Text = muc.TinhTongTien().ToString("N0") + " VNĐ",
+                ForeColor = GiaoDienHelper.MauNhan,
                 Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point),
-                Location = new Point(680, 52),
-                AutoSize = true
+                Location = new Point(doRongThe - 210, yNgaySuDung),
+                AutoSize = false,
+                Size = new Size(170, 28),
+                TextAlign = ContentAlignment.MiddleRight
             };
 
             var btnSua = new Button
             {
                 Text = "Sửa",
-                Location = new Point(520, 110),
+                Location = new Point(doRongThe - 300, yNut),
                 Size = new Size(80, 28)
             };
+            GiaoDienHelper.ApDungNutPhu(btnSua);
             btnSua.Click += (_, _) => SuaMucGioHang(muc);
 
             var btnThongTinVe = new Button
             {
                 Text = "Thông tin vé",
-                Location = new Point(610, 110),
-                Size = new Size(86, 28)
+                Location = new Point(doRongThe - 210, yNut),
+                Size = new Size(110, 28)
             };
+            GiaoDienHelper.ApDungNutPhu(btnThongTinVe);
             btnThongTinVe.Click += (_, _) => MoThongTinVe(muc.Ve);
 
             var btnXoa = new Button
             {
                 Text = "Xóa",
-                Location = new Point(700, 110),
+                Location = new Point(doRongThe - 90, yNut),
                 Size = new Size(80, 28)
             };
+            GiaoDienHelper.ApDungNutPhu(btnXoa);
             btnXoa.Click += async (_, _) => await XoaMucGioHang(muc);
 
             theMuc.Controls.Add(lblTenVe);
@@ -128,7 +149,6 @@ namespace doanbanve.Forms
             theMuc.Controls.Add(btnXoa);
             return theMuc;
         }
-
         private async Task XoaMucGioHang(Models.MucGioHang muc)
         {
             if (Session.NguoiDungHienTai == null)
@@ -164,3 +184,4 @@ namespace doanbanve.Forms
         }
     }
 }
+

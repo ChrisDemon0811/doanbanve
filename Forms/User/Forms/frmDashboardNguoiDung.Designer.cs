@@ -107,7 +107,7 @@ namespace doanbanve.Forms
             // 
             // btnGioHang
             // 
-            btnGioHang.Location = new Point(900, 24);
+            btnGioHang.Location = new Point(1096, 24);
             btnGioHang.Name = "btnGioHang";
             btnGioHang.Size = new Size(120, 32);
             btnGioHang.TabIndex = 6;
@@ -117,19 +117,19 @@ namespace doanbanve.Forms
             // 
             // btnThongTinNguoiDung
             // 
-            btnThongTinNguoiDung.Location = new Point(756, 24);
+            btnThongTinNguoiDung.Location = new Point(912, 24);
             btnThongTinNguoiDung.Name = "btnThongTinNguoiDung";
-            btnThongTinNguoiDung.Size = new Size(130, 32);
+            btnThongTinNguoiDung.Size = new Size(170, 32);
             btnThongTinNguoiDung.TabIndex = 7;
-            btnThongTinNguoiDung.Text = "Thông tin user";
+            btnThongTinNguoiDung.Text = "Thông tin tài khoản";
             btnThongTinNguoiDung.UseVisualStyleBackColor = true;
             btnThongTinNguoiDung.Click += btnThongTinNguoiDung_Click;
             // 
             // btnDoiMatKhau
             // 
-            btnDoiMatKhau.Location = new Point(612, 24);
+            btnDoiMatKhau.Location = new Point(756, 24);
             btnDoiMatKhau.Name = "btnDoiMatKhau";
-            btnDoiMatKhau.Size = new Size(130, 32);
+            btnDoiMatKhau.Size = new Size(140, 32);
             btnDoiMatKhau.TabIndex = 8;
             btnDoiMatKhau.Text = "Đổi mật khẩu";
             btnDoiMatKhau.UseVisualStyleBackColor = true;
@@ -137,9 +137,9 @@ namespace doanbanve.Forms
             // 
             // btnChamSocKhachHang
             // 
-            btnChamSocKhachHang.Location = new Point(468, 24);
+            btnChamSocKhachHang.Location = new Point(562, 24);
             btnChamSocKhachHang.Name = "btnChamSocKhachHang";
-            btnChamSocKhachHang.Size = new Size(130, 32);
+            btnChamSocKhachHang.Size = new Size(178, 32);
             btnChamSocKhachHang.TabIndex = 9;
             btnChamSocKhachHang.Text = "Chăm sóc khách hàng";
             btnChamSocKhachHang.UseVisualStyleBackColor = true;
@@ -150,7 +150,7 @@ namespace doanbanve.Forms
             pnlLoaiVe.AutoScroll = true;
             pnlLoaiVe.Location = new Point(24, 176);
             pnlLoaiVe.Name = "pnlLoaiVe";
-            pnlLoaiVe.Size = new Size(1120, 60);
+            pnlLoaiVe.Size = new Size(1192, 60);
             pnlLoaiVe.TabIndex = 6;
             // 
             // pnlVe
@@ -158,7 +158,7 @@ namespace doanbanve.Forms
             pnlVe.AutoScroll = true;
             pnlVe.Location = new Point(24, 288);
             pnlVe.Name = "pnlVe";
-            pnlVe.Size = new Size(1120, 520);
+            pnlVe.Size = new Size(1192, 540);
             pnlVe.TabIndex = 7;
             // 
             // lblTimKiemVe
@@ -174,15 +174,15 @@ namespace doanbanve.Forms
             // 
             txtTimKiemVe.Location = new Point(98, 248);
             txtTimKiemVe.Name = "txtTimKiemVe";
-            txtTimKiemVe.Size = new Size(320, 27);
+            txtTimKiemVe.Size = new Size(360, 27);
             txtTimKiemVe.TabIndex = 10;
             txtTimKiemVe.TextChanged += txtTimKiemVe_TextChanged;
             // 
             // btnXoaTimKiemVe
             // 
-            btnXoaTimKiemVe.Location = new Point(430, 248);
+            btnXoaTimKiemVe.Location = new Point(470, 247);
             btnXoaTimKiemVe.Name = "btnXoaTimKiemVe";
-            btnXoaTimKiemVe.Size = new Size(96, 27);
+            btnXoaTimKiemVe.Size = new Size(112, 30);
             btnXoaTimKiemVe.TabIndex = 11;
             btnXoaTimKiemVe.Text = "Xóa lọc";
             btnXoaTimKiemVe.UseVisualStyleBackColor = true;
@@ -192,7 +192,7 @@ namespace doanbanve.Forms
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1098, 840);
+            ClientSize = new Size(1240, 860);
             Controls.Add(btnXoaTimKiemVe);
             Controls.Add(txtTimKiemVe);
             Controls.Add(lblTimKiemVe);
@@ -212,7 +212,7 @@ namespace doanbanve.Forms
             MaximizeBox = false;
             Name = "frmDashboardNguoiDung";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Dashboard User";
+            Text = "Dashboard bán vé";
             Load += frmDashboardNguoiDung_Load;
             ResumeLayout(false);
             PerformLayout();

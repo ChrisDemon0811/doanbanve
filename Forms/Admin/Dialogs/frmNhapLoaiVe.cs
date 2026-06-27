@@ -9,6 +9,9 @@ namespace doanbanve.Forms
         public frmNhapLoaiVe(LoaiVe? loaiVe)
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            doanbanve.Utils.GiaoDienHelper.ApDungNutChinh(btnLuu);
+            doanbanve.Utils.GiaoDienHelper.ApDungNutPhu(btnHuy);
             LoaiVeHienTai = loaiVe;
         }
 

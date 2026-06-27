@@ -1,5 +1,6 @@
 using doanbanve.Controllers;
 using doanbanve.Models;
+using doanbanve.Utils;
 
 namespace doanbanve.Forms
 {
@@ -17,6 +18,12 @@ namespace doanbanve.Forms
         public ucQuanLyVe()
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            GiaoDienHelper.ApDungNutChinh(btnThemVe);
+            GiaoDienHelper.ApDungNutPhu(btnSuaVe);
+            GiaoDienHelper.ApDungNutPhu(btnXoaVe);
+            GiaoDienHelper.ApDungNutPhu(btnLamMoiVe);
+            GiaoDienHelper.ApDungNutPhu(btnXoaLocVe);
             flpDanhSachVe.SizeChanged += FlpDanhSachVe_SizeChanged;
         }
 
@@ -105,6 +112,7 @@ namespace doanbanve.Forms
                 Margin = new Padding(8),
                 Tag = ve
             };
+            GiaoDienHelper.ApDungThe(theVe);
 
             var lblTenVe = new Label
             {
@@ -155,6 +163,7 @@ namespace doanbanve.Forms
                 Text = "Xem thông tin",
                 Size = new Size(140, 28)
             };
+            GiaoDienHelper.ApDungNutPhu(btnThongTin);
             btnThongTin.Location = new Point(theVe.Width - btnThongTin.Width - 12, (theVe.Height - btnThongTin.Height) / 2);
             btnThongTin.Click += (_, _) => MoThongTinVe(ve);
 

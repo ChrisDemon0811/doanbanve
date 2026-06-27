@@ -10,6 +10,8 @@ namespace doanbanve.Forms
         public frmThongTinNguoiDung()
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            GiaoDienHelper.ApDungNutChinh(btnCapNhatThongTin);
         }
 
         private async void frmThongTinNguoiDung_Load(object sender, EventArgs e)
@@ -25,7 +27,7 @@ namespace doanbanve.Forms
             lblTaiKhoan.Text = Session.NguoiDungHienTai.TaiKhoan;
             lblEmail.Text = Session.NguoiDungHienTai.Email ?? "Chưa cập nhật";
             lblSoDienThoai.Text = Session.NguoiDungHienTai.SoDienThoai ?? "Chưa cập nhật";
-            lblVaiTro.Text = Session.NguoiDungHienTai.VaiTro;
+            lblVaiTro.Text = GiaoDienHelper.DinhDangVaiTro(Session.NguoiDungHienTai.VaiTro);
 
             await TaiDanhSachHoaDon();
         }
@@ -73,6 +75,7 @@ namespace doanbanve.Forms
                 Margin = new Padding(8),
                 BorderStyle = BorderStyle.FixedSingle
             };
+            GiaoDienHelper.ApDungThe(theHoaDon);
 
             var lblMaHoaDon = new Label
             {
@@ -98,7 +101,7 @@ namespace doanbanve.Forms
 
             var lblThanhToan = new Label
             {
-                Text = "Thanh toán: " + hoaDon.ThanhToan,
+                Text = "Thanh toán: " + GiaoDienHelper.DinhDangThanhToan(hoaDon.ThanhToan),
                 Location = new Point(16, 88),
                 AutoSize = true
             };
@@ -106,7 +109,7 @@ namespace doanbanve.Forms
             var lblThanhTien = new Label
             {
                 Text = hoaDon.ThanhTien.ToString("N0") + " VNĐ",
-                ForeColor = Color.FromArgb(210, 85, 30),
+                ForeColor = GiaoDienHelper.MauNhan,
                 Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point),
                 Location = new Point(540, 40),
                 AutoSize = true
@@ -118,6 +121,7 @@ namespace doanbanve.Forms
                 Location = new Point(560, 76),
                 Size = new Size(150, 28)
             };
+            GiaoDienHelper.ApDungNutPhu(btnChiTiet);
             btnChiTiet.Click += (_, _) => MoChiTietHoaDon(hoaDon.MaHoaDon);
 
             theHoaDon.Controls.Add(lblMaHoaDon);

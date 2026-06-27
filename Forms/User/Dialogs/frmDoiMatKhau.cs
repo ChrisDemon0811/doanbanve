@@ -10,6 +10,8 @@ namespace doanbanve.Forms
         public frmDoiMatKhau()
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            doanbanve.Utils.GiaoDienHelper.ApDungNutChinh(btnDoiMatKhau);
         }
 
         private async void btnDoiMatKhau_Click(object sender, EventArgs e)

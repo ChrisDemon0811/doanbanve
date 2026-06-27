@@ -14,6 +14,17 @@ namespace doanbanve.Forms
         public frmDashboardNguoiDung()
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            Text = "Dashboard bán vé";
+            btnThongTinNguoiDung.Text = "Thông tin tài khoản";
+            GiaoDienHelper.ApDungNutChinh(btnDangNhap);
+            GiaoDienHelper.ApDungNutPhu(btnDangKy);
+            GiaoDienHelper.ApDungNutPhu(btnDangXuat);
+            GiaoDienHelper.ApDungNutPhu(btnGioHang);
+            GiaoDienHelper.ApDungNutPhu(btnThongTinNguoiDung);
+            GiaoDienHelper.ApDungNutPhu(btnDoiMatKhau);
+            GiaoDienHelper.ApDungNutPhu(btnChamSocKhachHang);
+            GiaoDienHelper.ApDungNutPhu(btnXoaTimKiemVe);
         }
 
         private async void frmDashboardNguoiDung_Load(object sender, EventArgs e)
@@ -37,7 +48,7 @@ namespace doanbanve.Forms
             if (daDangNhap)
             {
                 lblXinChao.Text = $"Xin chào, {Session.NguoiDungHienTai!.HoTen}!";
-                lblThongTin.Text = $"Vai trò: {Session.NguoiDungHienTai!.VaiTro}";
+                lblThongTin.Text = $"Vai trò: {GiaoDienHelper.DinhDangVaiTro(Session.NguoiDungHienTai!.VaiTro)}";
             }
             else
             {
@@ -88,7 +99,7 @@ namespace doanbanve.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "L\u1ed7i", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -101,10 +112,9 @@ namespace doanbanve.Forms
                 Height = 36,
                 Padding = new Padding(16, 6, 16, 6),
                 Margin = new Padding(8, 8, 8, 8),
-                BackColor = Color.White,
-                FlatStyle = FlatStyle.Standard,
                 Tag = loaiVe?.MaLoaiVe
             };
+            GiaoDienHelper.ApDungNutPhu(nutLoai);
             nutLoai.Click += async (_, _) =>
             {
                 maLoaiVeDangLoc = loaiVe?.MaLoaiVe;
@@ -140,70 +150,89 @@ namespace doanbanve.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "L\u1ed7i", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private Panel TaoTheVe(Ve ve)
         {
+            var doRongThe = Math.Max(980, pnlVe.ClientSize.Width - pnlVe.Padding.Horizontal - 32);
+            var doRongNoiDung = Math.Max(520, doRongThe - 330);
+            var fontTenVe = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            var fontMoTa = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            var tenVe = GiaoDienHelper.ChuanHoaNoiDungHienThi(ve.TenVe);
+            var moTa = GiaoDienHelper.ChuanHoaNoiDungHienThi(ve.MoTa, "Đang cập nhật mô tả.");
+            var chieuCaoTen = GiaoDienHelper.TinhChieuCaoVanBan(tenVe, fontTenVe, doRongNoiDung, 34);
+            var chieuCaoMoTa = GiaoDienHelper.TinhChieuCaoVanBan(moTa, fontMoTa, doRongNoiDung, 42);
+            var yMoTa = 16 + chieuCaoTen + 10;
+            var ySoLuong = yMoTa + chieuCaoMoTa + 14;
+            var yNut = ySoLuong + 34;
+            var chieuCaoThe = yNut + 48;
+
             var theVe = new Panel
             {
-                Width = 1040,
-                Height = 200,
+                Width = doRongThe,
+                Height = chieuCaoThe,
                 BackColor = Color.White,
                 Margin = new Padding(8, 8, 8, 8),
                 BorderStyle = BorderStyle.FixedSingle
             };
+            GiaoDienHelper.ApDungThe(theVe);
 
             var lblTenVe = new Label
             {
-                Text = ve.TenVe,
-                Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point),
+                Text = tenVe,
+                Font = fontTenVe,
                 Location = new Point(16, 16),
-                AutoSize = true
+                AutoSize = false,
+                Size = new Size(doRongNoiDung, chieuCaoTen),
+                UseMnemonic = false
             };
 
             var lblMoTa = new Label
             {
-                Text = string.IsNullOrWhiteSpace(ve.MoTa) ? "Đang cập nhật mô tả." : ve.MoTa,
-                Location = new Point(16, 48),
+                Text = moTa,
+                Font = fontMoTa,
+                Location = new Point(16, yMoTa),
                 AutoSize = false,
-                Size = new Size(760, 60)
+                Size = new Size(doRongNoiDung, chieuCaoMoTa),
+                UseMnemonic = false
             };
 
             var lblGia = new Label
             {
                 Text = $"Chỉ từ {ve.GiaVe.ToString("N0")} VNĐ",
-                ForeColor = Color.FromArgb(210, 85, 30),
+                ForeColor = GiaoDienHelper.MauNhan,
                 Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point),
-                Location = new Point(820, 56),
-                AutoSize = true
+                Location = new Point(doRongThe - 250, Math.Max(24, yMoTa + 2)),
+                AutoSize = false,
+                Size = new Size(214, 28),
+                TextAlign = ContentAlignment.MiddleRight
             };
 
             var lblSoLuongCon = new Label
             {
                 Text = $"Số lượng/ngày: {ve.SoLuong} vé",
-                Location = new Point(16, 116),
+                Location = new Point(16, ySoLuong),
                 AutoSize = true
             };
 
             var btnChon = new Button
             {
                 Text = "Chọn",
-                Location = new Point(880, 140),
+                Location = new Point(doRongThe - 150, yNut),
                 Size = new Size(100, 30),
-                BackColor = Color.FromArgb(210, 85, 30),
-                ForeColor = Color.White,
-                FlatStyle = FlatStyle.Flat
             };
+            GiaoDienHelper.ApDungNutChinh(btnChon);
             btnChon.Click += (_, _) => MoFormChonVe(ve);
 
             var btnThongTinVe = new Button
             {
                 Text = "Thông tin vé",
-                Location = new Point(16, 140),
+                Location = new Point(16, yNut),
                 Size = new Size(120, 30)
             };
+            GiaoDienHelper.ApDungNutPhu(btnThongTinVe);
             btnThongTinVe.Click += (_, _) => MoThongTinVe(ve);
 
             theVe.Controls.Add(lblTenVe);
@@ -214,12 +243,11 @@ namespace doanbanve.Forms
             theVe.Controls.Add(btnChon);
             return theVe;
         }
-
         private Label TaoNhanKhongCoKetQua()
         {
             return new Label
             {
-                Text = "Khong tim thay ve phu hop.",
+                Text = "Không tìm thấy vé phù hợp.",
                 AutoSize = true,
                 Location = new Point(16, 16),
                 Font = new Font("Segoe UI", 10F, FontStyle.Italic, GraphicsUnit.Point),
@@ -314,3 +342,4 @@ namespace doanbanve.Forms
         }
     }
 }
+

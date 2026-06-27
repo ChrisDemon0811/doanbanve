@@ -1,4 +1,5 @@
 using doanbanve.Controllers;
+using doanbanve.Utils;
 
 namespace doanbanve.Forms
 {
@@ -24,6 +25,11 @@ namespace doanbanve.Forms
         public ucQuanLyVoucher()
         {
             InitializeComponent();
+            doanbanve.Utils.GiaoDienHelper.ApDungGiaoDien(this);
+            GiaoDienHelper.ApDungNutChinh(btnThemVoucher);
+            GiaoDienHelper.ApDungNutPhu(btnSuaVoucher);
+            GiaoDienHelper.ApDungNutPhu(btnXoaVoucher);
+            GiaoDienHelper.ApDungNutPhu(btnXoaLocVoucher);
             flpDanhSachVoucher.SizeChanged += FlpDanhSachVoucher_SizeChanged;
         }
 
@@ -81,6 +87,8 @@ namespace doanbanve.Forms
             return CoChua(voucher.MaGiamGia, tuKhoa)
                 || CoChua(voucher.TenVoucher, tuKhoa)
                 || CoChua(voucher.KieuGiamGia, tuKhoa)
+                || CoChua(GiaoDienHelper.DinhDangKieuGiamGia(voucher.KieuGiamGia), tuKhoa)
+                || CoChua(GiaoDienHelper.DinhDangTrangThai(voucher.TrangThai), tuKhoa)
                 || CoChua(voucher.SoLuong.ToString(), tuKhoa);
         }
 
@@ -95,12 +103,13 @@ namespace doanbanve.Forms
             var the = new Panel
             {
                 Width = flpDanhSachVoucher.ClientSize.Width - flpDanhSachVoucher.Padding.Horizontal - 24,
-                Height = 140,
+                Height = 164,
                 BackColor = mauNenMacDinh,
                 BorderStyle = BorderStyle.FixedSingle,
                 Margin = new Padding(8),
                 Tag = voucher
             };
+            GiaoDienHelper.ApDungThe(the);
 
             var lblTen = new Label
             {
@@ -124,6 +133,13 @@ namespace doanbanve.Forms
                 AutoSize = true
             };
 
+            var lblKieuGiamGia = new Label
+            {
+                Text = "Kiểu giảm giá: " + GiaoDienHelper.DinhDangKieuGiamGia(voucher.KieuGiamGia),
+                Location = new Point(320, 60),
+                AutoSize = true
+            };
+
             var lblThoiGian = new Label
             {
                 Text = $"Thời gian: {voucher.NgayBatDau:dd/MM/yyyy} - {voucher.NgayKetThuc:dd/MM/yyyy}",
@@ -138,11 +154,20 @@ namespace doanbanve.Forms
                 AutoSize = true
             };
 
+            var lblTrangThai = new Label
+            {
+                Text = "Trạng thái: " + GiaoDienHelper.DinhDangTrangThai(voucher.TrangThai),
+                Location = new Point(12, 126),
+                AutoSize = true
+            };
+
             the.Controls.Add(lblTen);
             the.Controls.Add(lblMa);
             the.Controls.Add(lblGiaTri);
+            the.Controls.Add(lblKieuGiamGia);
             the.Controls.Add(lblThoiGian);
             the.Controls.Add(lblSoLuong);
+            the.Controls.Add(lblTrangThai);
             GanSuKienChonThe(the);
             return the;
         }
