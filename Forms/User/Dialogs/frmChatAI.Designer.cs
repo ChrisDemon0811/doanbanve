@@ -4,7 +4,7 @@ namespace doanbanve.Forms
     {
         private System.ComponentModel.IContainer components = null;
         private Label lblTieuDe;
-        private RichTextBox rtbHoiThoai;
+        private FlowLayoutPanel flpHoiThoai;
         private TextBox txtCauHoi;
         private Button btnGui;
 
@@ -20,7 +20,7 @@ namespace doanbanve.Forms
         private void InitializeComponent()
         {
             lblTieuDe = new Label();
-            rtbHoiThoai = new RichTextBox();
+            flpHoiThoai = new FlowLayoutPanel();
             txtCauHoi = new TextBox();
             btnGui = new Button();
             SuspendLayout();
@@ -35,25 +35,29 @@ namespace doanbanve.Forms
             lblTieuDe.TabIndex = 0;
             lblTieuDe.Text = "Chăm sóc khách hàng AI";
             // 
-            // rtbHoiThoai
+            // flpHoiThoai
             // 
-            rtbHoiThoai.Location = new Point(16, 56);
-            rtbHoiThoai.Name = "rtbHoiThoai";
-            rtbHoiThoai.ReadOnly = true;
-            rtbHoiThoai.Size = new Size(640, 320);
-            rtbHoiThoai.TabIndex = 1;
-            rtbHoiThoai.Text = "";
+            flpHoiThoai.AutoScroll = true;
+            flpHoiThoai.BackColor = Color.White;
+            flpHoiThoai.BorderStyle = BorderStyle.FixedSingle;
+            flpHoiThoai.FlowDirection = FlowDirection.TopDown;
+            flpHoiThoai.Location = new Point(16, 56);
+            flpHoiThoai.Name = "flpHoiThoai";
+            flpHoiThoai.Padding = new Padding(12);
+            flpHoiThoai.Size = new Size(680, 360);
+            flpHoiThoai.TabIndex = 1;
+            flpHoiThoai.WrapContents = false;
             // 
             // txtCauHoi
             // 
-            txtCauHoi.Location = new Point(16, 388);
+            txtCauHoi.Location = new Point(16, 430);
             txtCauHoi.Name = "txtCauHoi";
-            txtCauHoi.Size = new Size(520, 27);
+            txtCauHoi.Size = new Size(560, 27);
             txtCauHoi.TabIndex = 2;
             // 
             // btnGui
             // 
-            btnGui.Location = new Point(552, 386);
+            btnGui.Location = new Point(592, 428);
             btnGui.Name = "btnGui";
             btnGui.Size = new Size(104, 30);
             btnGui.TabIndex = 3;
@@ -65,10 +69,10 @@ namespace doanbanve.Forms
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(680, 440);
+            ClientSize = new Size(720, 482);
             Controls.Add(btnGui);
             Controls.Add(txtCauHoi);
-            Controls.Add(rtbHoiThoai);
+            Controls.Add(flpHoiThoai);
             Controls.Add(lblTieuDe);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;

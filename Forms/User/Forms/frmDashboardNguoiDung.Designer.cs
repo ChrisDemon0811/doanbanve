@@ -147,7 +147,7 @@ namespace doanbanve.Forms
             // 
             // pnlLoaiVe
             // 
-            pnlLoaiVe.AutoScroll = true;
+            pnlLoaiVe.AutoScroll = false;
             pnlLoaiVe.Location = new Point(24, 176);
             pnlLoaiVe.Name = "pnlLoaiVe";
             pnlLoaiVe.Size = new Size(1192, 60);

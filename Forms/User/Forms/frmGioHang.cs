@@ -170,11 +170,42 @@ namespace doanbanve.Forms
             _ = HienThiDanhSach();
         }
 
-        private void btnMuaHang_Click(object sender, EventArgs e)
+        private async void btnMuaHang_Click(object sender, EventArgs e)
         {
+            if (Session.NguoiDungHienTai == null)
+            {
+                MessageBox.Show("Vui lòng đăng nhập để mua hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var danhSachNgayQuaKhu = await gioHangController.LayDanhSachNgayQuaKhu(Session.NguoiDungHienTai.MaNguoiDung);
+            if (danhSachNgayQuaKhu.Count > 0)
+            {
+                var noiDungLoi = TaoThongBaoNgayQuaKhu(danhSachNgayQuaKhu);
+                MessageBox.Show(noiDungLoi, "Ngày sử dụng không hợp lệ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             var formThanhToan = new frmThanhToan();
             formThanhToan.ShowDialog();
             _ = HienThiDanhSach();
+        }
+
+        private static string TaoThongBaoNgayQuaKhu(List<Models.MucGioHang> danhSachNgayQuaKhu)
+        {
+            var danhSachHienThi = danhSachNgayQuaKhu
+                .Take(5)
+                .Select(muc => $"- {GiaoDienHelper.ChuanHoaNoiDungHienThi(muc.Ve.TenVe)}: {muc.NgaySuDung:dd/MM/yyyy}");
+
+            var thongBao = "Giỏ hàng có vé dùng ngày trong quá khứ nên chưa thể thanh toán.\n\n"
+                + string.Join("\n", danhSachHienThi);
+
+            if (danhSachNgayQuaKhu.Count > 5)
+            {
+                thongBao += $"\n- ... và {danhSachNgayQuaKhu.Count - 5} vé khác";
+            }
+
+            return thongBao + "\n\nVui lòng bấm Sửa để chọn lại ngày từ hôm nay trở về sau.";
         }
 
         private void MoThongTinVe(Models.Ve ve)

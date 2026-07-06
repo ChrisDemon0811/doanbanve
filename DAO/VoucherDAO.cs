@@ -5,6 +5,86 @@ namespace doanbanve.DAO
 {
     public class VoucherDAO
     {
+        public async Task<List<(int MaVoucher, string MaGiamGia, string TenVoucher, string KieuGiamGia, decimal GiaTriGiam, DateTime NgayBatDau, DateTime NgayKetThuc, int SoLuong, bool TrangThai)>> LayVoucherConHieuLuc()
+        {
+            using var db = DuLieuContext.TaoMoi();
+            var homNay = DateTime.Today;
+            var danhSach = await db.Voucher
+                .AsNoTracking()
+                .Where(x => x.TrangThai &&
+                            x.SoLuong > 0 &&
+                            x.NgayBatDau <= homNay &&
+                            x.NgayKetThuc >= homNay)
+                .OrderBy(x => x.NgayKetThuc)
+                .Select(x => new
+                {
+                    x.MaVoucher,
+                    x.MaGiamGia,
+                    x.TenVoucher,
+                    x.KieuGiamGia,
+                    x.GiaTriGiam,
+                    x.NgayBatDau,
+                    x.NgayKetThuc,
+                    x.SoLuong,
+                    x.TrangThai
+                })
+                .ToListAsync();
+
+            return danhSach
+                .Select(x => (
+                    x.MaVoucher,
+                    x.MaGiamGia,
+                    x.TenVoucher,
+                    x.KieuGiamGia,
+                    x.GiaTriGiam,
+                    x.NgayBatDau,
+                    x.NgayKetThuc,
+                    x.SoLuong,
+                    x.TrangThai))
+                .ToList();
+        }
+
+        public decimal TinhTienGiam((int MaVoucher, string MaGiamGia, string TenVoucher, string KieuGiamGia, decimal GiaTriGiam, DateTime NgayBatDau, DateTime NgayKetThuc, int SoLuong, bool TrangThai) voucher, decimal tongTien)
+        {
+            var tienGiam = voucher.KieuGiamGia == "PhanTram"
+                ? tongTien * (voucher.GiaTriGiam / 100m)
+                : voucher.GiaTriGiam;
+
+            return Math.Min(tongTien, Math.Max(0, tienGiam));
+        }
+
+        public async Task<(bool CoVoucher, int MaVoucher, string MaGiamGia, string TenVoucher, decimal TienGiam)> LayVoucherTotNhat(decimal tongTien)
+        {
+            if (tongTien <= 0)
+            {
+                return (false, 0, string.Empty, string.Empty, 0);
+            }
+
+            var danhSach = await LayVoucherConHieuLuc();
+            var voucherTotNhat = danhSach
+                .Select(voucher => new
+                {
+                    Voucher = voucher,
+                    TienGiam = TinhTienGiam(voucher, tongTien)
+                })
+                .Where(x => x.TienGiam > 0)
+                .OrderByDescending(x => x.TienGiam)
+                .ThenBy(x => x.Voucher.NgayKetThuc)
+                .FirstOrDefault();
+
+            if (voucherTotNhat == null)
+            {
+                return (false, 0, string.Empty, string.Empty, 0);
+            }
+
+            return (
+                true,
+                voucherTotNhat.Voucher.MaVoucher,
+                voucherTotNhat.Voucher.MaGiamGia,
+                voucherTotNhat.Voucher.TenVoucher,
+                voucherTotNhat.TienGiam);
+        }
+
         public async Task<(bool HopLe, int? MaVoucher, decimal TienGiam, string ThongBao)> KiemTraVoucher(string maGiamGia, decimal tongTien)
         {
             using var db = DuLieuContext.TaoMoi();

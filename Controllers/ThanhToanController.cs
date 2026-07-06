@@ -15,12 +15,22 @@ namespace doanbanve.Controllers
             return await voucherDAO.KiemTraVoucher(maGiamGia, tongTien);
         }
 
-        public async Task<int> LuuHoaDon(int maNguoiDung, List<MucGioHang> danhSachMuc, int? maVoucher, decimal tienGiam, string thanhToan)
+        public async Task<int> LuuHoaDon(
+            int maNguoiDung,
+            List<MucGioHang> danhSachMuc,
+            int? maVoucher,
+            decimal tienGiam,
+            string thanhToan,
+            bool xoaGioHangSauThanhToan = true)
         {
             var maHoaDon = await hoaDonDAO.LuuHoaDonVaKiemTraSoLuongTheoNgay(maNguoiDung, danhSachMuc, maVoucher, tienGiam, thanhToan);
 
-            var maGioHang = await gioHangDAO.LayHoacTaoGioHang(maNguoiDung);
-            await chiTietGioHangDAO.XoaTheoGioHang(maGioHang);
+            if (xoaGioHangSauThanhToan)
+            {
+                var maGioHang = await gioHangDAO.LayHoacTaoGioHang(maNguoiDung);
+                await chiTietGioHangDAO.XoaTheoGioHang(maGioHang);
+            }
+
             return maHoaDon;
         }
     }

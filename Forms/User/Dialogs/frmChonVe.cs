@@ -161,7 +161,7 @@ namespace doanbanve.Forms
             LuuGioHangAsync("Đã thêm vé vào giỏ hàng.");
         }
 
-        private void btnDatNgay_Click(object sender, EventArgs e)
+        private async void btnDatNgay_Click(object sender, EventArgs e)
         {
             if (Session.NguoiDungHienTai == null)
             {
@@ -175,7 +175,27 @@ namespace doanbanve.Forms
                 return;
             }
 
-            LuuGioHangAsync("Đã thêm vé và chuyển sang bước thanh toán.", true);
+            btnDatNgay.Enabled = false;
+            btnThemGioHang.Enabled = false;
+
+            try
+            {
+                var muc = TaoMucGioHang();
+                await KiemTraMuaTrucTiep(muc);
+
+                using var formThanhToan = new frmThanhToan(new List<MucGioHang> { muc });
+                formThanhToan.ShowDialog(this);
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                btnDatNgay.Enabled = true;
+                btnThemGioHang.Enabled = true;
+            }
         }
 
         private async void LuuGioHangAsync(string thongBao, bool moThanhToan = false)
@@ -232,5 +252,22 @@ namespace doanbanve.Forms
                 SoLuongNguoiCaoTuoi = (int)nudNguoiCaoTuoi.Value
             };
         }
+
+        private async Task KiemTraMuaTrucTiep(MucGioHang muc)
+        {
+            if (muc.NgaySuDung.Date < DateTime.Today)
+            {
+                throw new InvalidOperationException("Ngày sử dụng không hợp lệ. Vui lòng chọn ngày từ hôm nay trở về sau.");
+            }
+
+            var soLuongMuonMua = muc.TinhTongSoLuong();
+            var soLuongConLai = await veController.LaySoLuongConLaiTheoNgay(muc.Ve.MaVe, muc.NgaySuDung);
+            if (soLuongMuonMua > soLuongConLai)
+            {
+                throw new InvalidOperationException(
+                    $"Vé '{muc.Ve.TenVe}' ngày {muc.NgaySuDung:dd/MM/yyyy} chỉ còn {soLuongConLai} vé.");
+            }
+        }
     }
 }
+

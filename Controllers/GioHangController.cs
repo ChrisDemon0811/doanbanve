@@ -15,6 +15,16 @@ namespace doanbanve.Controllers
             return await chiTietGioHangDAO.LayDanhSach(maGioHang);
         }
 
+        public async Task<List<MucGioHang>> LayDanhSachNgayQuaKhu(int maNguoiDung)
+        {
+            var homNay = DateTime.Today;
+            var danhSach = await LayDanhSach(maNguoiDung);
+            return danhSach
+                .Where(muc => muc.NgaySuDung.Date < homNay)
+                .OrderBy(muc => muc.NgaySuDung)
+                .ToList();
+        }
+
         public async Task ThemHoacGopMuc(int maNguoiDung, MucGioHang mucMoi)
         {
             var maGioHang = await gioHangDAO.LayHoacTaoGioHang(maNguoiDung);
