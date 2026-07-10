@@ -34,6 +34,9 @@
     <Compile Update="Forms\Admin\Dialogs\frmNhapVoucher.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Admin\Forms\frmBaoCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Admin\Forms\frmDashboardQuanLy.cs">
       <SubType>Form</SubType>
     </Compile>

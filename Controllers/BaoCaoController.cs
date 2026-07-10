@@ -7,6 +7,11 @@ namespace doanbanve.Controllers
     {
         private readonly BaoCaoDAO baoCaoDAO = new();
 
+        public async Task<List<BaoCaoVeDTO>> LayDanhSachVe()
+        {
+            return await baoCaoDAO.LayDanhSachVe();
+        }
+
         public async Task<List<BaoCaoDoanhThu>> LayBaoCaoDoanhThu(DateTime? tuNgay, DateTime? denNgay, bool theoThang)
         {
             return await baoCaoDAO.LayBaoCaoDoanhThu(tuNgay, denNgay, theoThang);

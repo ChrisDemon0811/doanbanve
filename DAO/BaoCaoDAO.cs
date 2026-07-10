@@ -6,6 +6,34 @@ namespace doanbanve.DAO
 {
     public class BaoCaoDAO
     {
+        public async Task<List<BaoCaoVeDTO>> LayDanhSachVe()
+        {
+            using var db = DuLieuContext.TaoMoi();
+            return await db.Ve
+                .AsNoTracking()
+                .Where(ve => ve.TrangThai)
+                .Join(
+                    db.LoaiVe.AsNoTracking(),
+                    ve => ve.MaLoaiVe,
+                    loaiVe => loaiVe.MaLoaiVe,
+                    (ve, loaiVe) => new BaoCaoVeDTO
+                    {
+                        MaVe = ve.MaVe,
+                        TenVe = ve.TenVe,
+                        MaLoaiVe = ve.MaLoaiVe,
+                        TenLoaiVe = loaiVe.TenLoaiVe,
+                        GiaVe = ve.GiaVe,
+                        GiaNguoiLon = ve.GiaNguoiLon,
+                        GiaTreEm = ve.GiaTreEm,
+                        GiaNguoiCaoTuoi = ve.GiaNguoiCaoTuoi,
+                        SoLuongConLai = ve.SoLuong,
+                        TrangThai = ve.TrangThai
+                    })
+                .OrderBy(x => x.TenLoaiVe)
+                .ThenBy(x => x.TenVe)
+                .ToListAsync();
+        }
+
         public async Task<List<BaoCaoDoanhThu>> LayBaoCaoDoanhThu(DateTime? tuNgay, DateTime? denNgay, bool theoThang)
         {
             using var db = DuLieuContext.TaoMoi();

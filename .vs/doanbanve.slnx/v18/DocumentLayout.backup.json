@@ -238,7 +238,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -259,17 +259,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmChatAI.cs [Design]",
-              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Dialogs\\frmChatAI.cs",
-              "RelativeDocumentMoniker": "Forms\\User\\Dialogs\\frmChatAI.cs",
-              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Dialogs\\frmChatAI.cs [Design]",
-              "RelativeToolTip": "Forms\\User\\Dialogs\\frmChatAI.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-03T02:55:34.583Z"
             },
             {
               "$type": "Document",
@@ -331,6 +320,17 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-29T03:14:50.925Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmChatAI.cs [Design]",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Dialogs\\frmChatAI.cs",
+              "RelativeDocumentMoniker": "Forms\\User\\Dialogs\\frmChatAI.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Dialogs\\frmChatAI.cs [Design]",
+              "RelativeToolTip": "Forms\\User\\Dialogs\\frmChatAI.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T02:55:34.583Z"
             },
             {
               "$type": "Document",

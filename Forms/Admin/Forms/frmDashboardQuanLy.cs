@@ -20,6 +20,7 @@ namespace doanbanve.Forms
         private DateTime? denNgayThongKe;
         private List<ThongKeDoanhThuNgay> danhSachBieuDo = new();
         private readonly Button btnAIPhanTichDoanhThu = new();
+        private Button? btnBaoCao;
         private Button? btnReportDoanhThu;
         private Button? btnReportVeBanChay;
 
@@ -62,10 +63,19 @@ namespace doanbanve.Forms
 
         private void ThemNutBaoCao()
         {
-            if (btnReportDoanhThu != null || btnReportVeBanChay != null)
+            if (btnBaoCao != null || btnReportDoanhThu != null || btnReportVeBanChay != null)
             {
                 return;
             }
+
+            btnBaoCao = new Button
+            {
+                Dock = DockStyle.Top,
+                Height = 44,
+                Text = "Báo cáo",
+                Name = "btnBaoCao"
+            };
+            btnBaoCao.Click += btnBaoCao_Click;
 
             btnReportDoanhThu = new Button
             {
@@ -87,8 +97,10 @@ namespace doanbanve.Forms
 
             pnlMenu.Controls.Add(btnReportVeBanChay);
             pnlMenu.Controls.Add(btnReportDoanhThu);
-            pnlMenu.Controls.SetChildIndex(btnReportDoanhThu, 1);
-            pnlMenu.Controls.SetChildIndex(btnReportVeBanChay, 1);
+            pnlMenu.Controls.Add(btnBaoCao);
+            pnlMenu.Controls.SetChildIndex(btnBaoCao, 1);
+            pnlMenu.Controls.SetChildIndex(btnReportDoanhThu, 2);
+            pnlMenu.Controls.SetChildIndex(btnReportVeBanChay, 3);
         }
 
         private void ThemNutAIPhanTichDoanhThu()
@@ -262,6 +274,7 @@ namespace doanbanve.Forms
                 btnMenuVoucher,
                 btnMenuHoaDon,
                 btnMenuThongKe,
+                btnBaoCao,
                 btnReportDoanhThu,
                 btnReportVeBanChay
             }.Where(nut => nut != null)!;
@@ -651,6 +664,12 @@ Hãy trả lời ngắn gọn bằng tiếng Việt theo 4 mục:
         {
             HienThiManHinhThongKe();
             _ = TaiThongKe();
+        }
+
+        private void btnBaoCao_Click(object? sender, EventArgs e)
+        {
+            using var formBaoCao = new frmBaoCao();
+            formBaoCao.ShowDialog(this);
         }
 
         private void btnReportDoanhThu_Click(object? sender, EventArgs e)
