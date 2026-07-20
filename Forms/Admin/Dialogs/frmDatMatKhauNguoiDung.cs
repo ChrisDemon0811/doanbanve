@@ -35,7 +35,7 @@ namespace doanbanve.Forms
             try
             {
                 await nguoiDungController.DatMatKhau(maNguoiDung, matKhauMoi);
-                MessageBox.Show("Đã reset mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Đã đặt lại mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
                 Close();
             }

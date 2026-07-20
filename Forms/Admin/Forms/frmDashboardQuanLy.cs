@@ -1,9 +1,7 @@
 using System.Drawing.Drawing2D;
 using System.Globalization;
-using System.Text;
 using doanbanve.Controllers;
 using doanbanve.Models;
-using doanbanve.Services;
 using doanbanve.Utils;
 
 namespace doanbanve.Forms
@@ -15,11 +13,9 @@ namespace doanbanve.Forms
         private readonly LoaiVeController loaiVeController = new();
         private readonly VoucherController voucherController = new();
         private readonly HoaDonController hoaDonController = new();
-        private readonly TroLyAIService troLyAIService = new();
         private DateTime? tuNgayThongKe;
         private DateTime? denNgayThongKe;
         private List<ThongKeDoanhThuNgay> danhSachBieuDo = new();
-        private readonly Button btnAIPhanTichDoanhThu = new();
         private Button? btnBaoCao;
         private Button? btnReportDoanhThu;
         private Button? btnReportVeBanChay;
@@ -40,7 +36,6 @@ namespace doanbanve.Forms
             await ucPhanLoaiVe.TaiDuLieu();
             await ucQuanLyVoucher.TaiDuLieu();
             await ucQuanLyHoaDon.TaiDuLieu();
-            await TaiThongKe();
             HienThiManHinhNguoiDung();
         }
 
@@ -52,7 +47,6 @@ namespace doanbanve.Forms
             GiaoDienHelper.ApDungThe(pnlBieuDo);
             GiaoDienHelper.ApDungNutChinh(btnApDungThongKe);
             GiaoDienHelper.ApDungNutPhu(btnDangXuatQuanLy);
-            ThemNutAIPhanTichDoanhThu();
             ThemNutBaoCao();
 
             foreach (var nut in LayDanhSachNutMenu())
@@ -101,23 +95,6 @@ namespace doanbanve.Forms
             pnlMenu.Controls.SetChildIndex(btnBaoCao, 1);
             pnlMenu.Controls.SetChildIndex(btnReportDoanhThu, 2);
             pnlMenu.Controls.SetChildIndex(btnReportVeBanChay, 3);
-        }
-
-        private void ThemNutAIPhanTichDoanhThu()
-        {
-            btnAIPhanTichDoanhThu.Name = "btnAIPhanTichDoanhThu";
-            btnAIPhanTichDoanhThu.Text = "AI phân tích doanh thu";
-            btnAIPhanTichDoanhThu.Location = new Point(12, 276);
-            btnAIPhanTichDoanhThu.Size = new Size(236, 36);
-            btnAIPhanTichDoanhThu.Click += btnAIPhanTichDoanhThu_Click;
-            GiaoDienHelper.ApDungNutPhu(btnAIPhanTichDoanhThu);
-
-            if (!pnlThongKe.Controls.Contains(btnAIPhanTichDoanhThu))
-            {
-                pnlThongKe.Controls.Add(btnAIPhanTichDoanhThu);
-            }
-
-            btnAIPhanTichDoanhThu.BringToFront();
         }
 
         private void CaiDatThongKeMacDinh()
@@ -246,17 +223,6 @@ namespace doanbanve.Forms
             pnlThongKe.Visible = false;
         }
 
-        private void HienThiManHinhThongKe()
-        {
-            CapNhatMenuDangChon(btnMenuThongKe);
-            ucNguoiDung.Visible = false;
-            ucQuanLyVe.Visible = false;
-            ucPhanLoaiVe.Visible = false;
-            ucQuanLyVoucher.Visible = false;
-            ucQuanLyHoaDon.Visible = false;
-            pnlThongKe.Visible = true;
-        }
-
         private void btnMenuQuanLyAI_Click(object sender, EventArgs e)
         {
             using var formQuanLyAI = new Admin.Forms.frmQuanLyAI();
@@ -273,7 +239,6 @@ namespace doanbanve.Forms
                 btnMenuQuanLyAI,
                 btnMenuVoucher,
                 btnMenuHoaDon,
-                btnMenuThongKe,
                 btnBaoCao,
                 btnReportDoanhThu,
                 btnReportVeBanChay
@@ -483,128 +448,6 @@ namespace doanbanve.Forms
             return giaTri.ToString("N0", CultureInfo.CurrentCulture);
         }
 
-        private async void btnAIPhanTichDoanhThu_Click(object? sender, EventArgs e)
-        {
-            var tuNgay = tuNgayThongKe ?? dtpTuNgay.Value.Date;
-            var denNgay = denNgayThongKe ?? dtpDenNgay.Value.Date;
-
-            if (tuNgay > denNgay)
-            {
-                MessageBox.Show("Từ ngày không được lớn hơn đến ngày.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            btnAIPhanTichDoanhThu.Enabled = false;
-            var textCu = btnAIPhanTichDoanhThu.Text;
-            btnAIPhanTichDoanhThu.Text = "AI đang phân tích...";
-
-            try
-            {
-                var thongKe = await hoaDonController.LayThongKeDuLieu(tuNgay, denNgay);
-                var tongVe = await hoaDonController.LayTongVeDaBan(tuNgay, denNgay);
-                var danhSachDoanhThu = cboLoaiThongKe.SelectedIndex == 1
-                    ? await hoaDonController.LayThongKeDoanhThuTheoThang(tuNgay, denNgay)
-                    : await hoaDonController.LayThongKeDoanhThuTheoNgay(tuNgay, denNgay);
-                var danhSachLoaiVe = await hoaDonController.LayThongKeTheoLoaiVe(tuNgay, denNgay);
-
-                if (thongKe.TongHoaDon <= 0 && tongVe <= 0 && danhSachDoanhThu.Count == 0 && danhSachLoaiVe.Count == 0)
-                {
-                    MessageBox.Show("Chưa có dữ liệu để phân tích", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-
-                var prompt = TaoPromptPhanTichDoanhThu(tuNgay, denNgay, thongKe, tongVe, danhSachDoanhThu, danhSachLoaiVe);
-                var maNguoiDung = Session.NguoiDungHienTai?.MaNguoiDung ?? 0;
-                var nhanXet = await troLyAIService.PhanTichDoanhThu(maNguoiDung, prompt);
-
-                using var formPhanTich = new frmPhanTichDoanhThuAI(nhanXet);
-                formPhanTich.ShowDialog(this);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                btnAIPhanTichDoanhThu.Text = textCu;
-                btnAIPhanTichDoanhThu.Enabled = true;
-            }
-        }
-
-        private string TaoPromptPhanTichDoanhThu(
-            DateTime tuNgay,
-            DateTime denNgay,
-            ThongKeDuLieu thongKe,
-            int tongVe,
-            List<ThongKeDoanhThuNgay> danhSachDoanhThu,
-            List<ThongKeTheoLoaiVe> danhSachLoaiVe)
-        {
-            var trungBinhHoaDon = thongKe.TongHoaDon > 0 ? thongKe.TongThanhTien / thongKe.TongHoaDon : 0;
-            var duLieuDoanhThu = TaoDuLieuDoanhThuChoAI(danhSachDoanhThu);
-            var duLieuLoaiVe = TaoDuLieuLoaiVeChoAI(danhSachLoaiVe);
-
-            return $@"Bạn là trợ lý phân tích kinh doanh cho khu du lịch.
-Chỉ phân tích dựa trên số liệu được cung cấp, không tự tạo thêm số liệu.
-Không được tự bịa số liệu, doanh thu, loại vé hoặc gợi ý không dựa trên dữ liệu dưới đây.
-
-THỜI GIAN:
-Từ ngày: {tuNgay:dd/MM/yyyy}
-Đến ngày: {denNgay:dd/MM/yyyy}
-
-TỔNG QUAN:
-- Tổng hóa đơn: {thongKe.TongHoaDon}
-- Tổng tiền: {thongKe.TongTien:N0} VNĐ
-- Tổng giảm giá: {thongKe.TongTienGiam:N0} VNĐ
-- Thành tiền: {thongKe.TongThanhTien:N0} VNĐ
-- Tổng vé bán: {tongVe}
-- Trung bình mỗi hóa đơn: {trungBinhHoaDon:N0} VNĐ
-
-DOANH THU THEO NGÀY/THÁNG:
-{duLieuDoanhThu}
-
-THỐNG KÊ THEO LOẠI VÉ:
-{duLieuLoaiVe}
-
-Hãy trả lời ngắn gọn bằng tiếng Việt theo 4 mục:
-1. Nhận xét doanh thu
-2. Loại vé bán tốt
-3. Điểm cần chú ý
-4. Gợi ý quản lý";
-        }
-
-        private string TaoDuLieuDoanhThuChoAI(List<ThongKeDoanhThuNgay> danhSachDoanhThu)
-        {
-            if (danhSachDoanhThu.Count == 0)
-            {
-                return "Không có dữ liệu doanh thu theo thời gian.";
-            }
-
-            var dinhDangNgay = cboLoaiThongKe.SelectedIndex == 1 ? "MM/yyyy" : "dd/MM/yyyy";
-            var sb = new StringBuilder();
-            foreach (var muc in danhSachDoanhThu)
-            {
-                sb.AppendLine($"- {muc.Ngay.ToString(dinhDangNgay, CultureInfo.CurrentCulture)}: {muc.TongThanhTien:N0} VNĐ");
-            }
-
-            return sb.ToString();
-        }
-
-        private static string TaoDuLieuLoaiVeChoAI(List<ThongKeTheoLoaiVe> danhSachLoaiVe)
-        {
-            if (danhSachLoaiVe.Count == 0)
-            {
-                return "Không có dữ liệu thống kê theo loại vé.";
-            }
-
-            var sb = new StringBuilder();
-            foreach (var muc in danhSachLoaiVe.OrderByDescending(x => x.SoVeDaBan).ThenByDescending(x => x.TongThanhTien))
-            {
-                sb.AppendLine($"- Mã loại {muc.MaLoaiVe}, {muc.TenLoaiVe}: {muc.SoVeDaBan} vé, {muc.TongThanhTien:N0} VNĐ");
-            }
-
-            return sb.ToString();
-        }
-
         private void btnApDungThongKe_Click(object sender, EventArgs e)
         {
             if (cboLoaiThongKe.SelectedIndex == 1)
@@ -658,12 +501,6 @@ Hãy trả lời ngắn gọn bằng tiếng Việt theo 4 mục:
         {
             HienThiManHinhHoaDon();
             _ = ucQuanLyHoaDon.TaiDuLieu();
-        }
-
-        private void btnMenuThongKe_Click(object sender, EventArgs e)
-        {
-            HienThiManHinhThongKe();
-            _ = TaiThongKe();
         }
 
         private void btnBaoCao_Click(object? sender, EventArgs e)

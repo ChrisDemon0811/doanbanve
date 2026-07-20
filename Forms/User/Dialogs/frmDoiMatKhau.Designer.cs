@@ -36,50 +36,50 @@ namespace doanbanve.Forms
             lblMatKhauCu.AutoSize = true;
             lblMatKhauCu.Location = new Point(20, 20);
             lblMatKhauCu.Name = "lblMatKhauCu";
-            lblMatKhauCu.Size = new Size(86, 15);
+            lblMatKhauCu.Size = new Size(126, 20);
             lblMatKhauCu.TabIndex = 0;
             lblMatKhauCu.Text = "Mật khẩu hiện tại:";
-            // 
-            // txtMatKhauCu
-            // 
-            txtMatKhauCu.Location = new Point(160, 16);
-            txtMatKhauCu.Name = "txtMatKhauCu";
-            txtMatKhauCu.PasswordChar = '*';
-            txtMatKhauCu.Size = new Size(200, 23);
-            txtMatKhauCu.TabIndex = 1;
             // 
             // lblMatKhauMoi
             // 
             lblMatKhauMoi.AutoSize = true;
             lblMatKhauMoi.Location = new Point(20, 56);
             lblMatKhauMoi.Name = "lblMatKhauMoi";
-            lblMatKhauMoi.Size = new Size(86, 15);
+            lblMatKhauMoi.Size = new Size(103, 20);
             lblMatKhauMoi.TabIndex = 2;
             lblMatKhauMoi.Text = "Mật khẩu mới:";
-            // 
-            // txtMatKhauMoi
-            // 
-            txtMatKhauMoi.Location = new Point(160, 52);
-            txtMatKhauMoi.Name = "txtMatKhauMoi";
-            txtMatKhauMoi.PasswordChar = '*';
-            txtMatKhauMoi.Size = new Size(200, 23);
-            txtMatKhauMoi.TabIndex = 3;
             // 
             // lblMatKhauXacNhan
             // 
             lblMatKhauXacNhan.AutoSize = true;
             lblMatKhauXacNhan.Location = new Point(20, 92);
             lblMatKhauXacNhan.Name = "lblMatKhauXacNhan";
-            lblMatKhauXacNhan.Size = new Size(101, 15);
+            lblMatKhauXacNhan.Size = new Size(137, 20);
             lblMatKhauXacNhan.TabIndex = 4;
             lblMatKhauXacNhan.Text = "Xác nhận mật khẩu:";
+            // 
+            // txtMatKhauCu
+            // 
+            txtMatKhauCu.Location = new Point(160, 16);
+            txtMatKhauCu.Name = "txtMatKhauCu";
+            txtMatKhauCu.PasswordChar = '*';
+            txtMatKhauCu.Size = new Size(200, 27);
+            txtMatKhauCu.TabIndex = 1;
+            // 
+            // txtMatKhauMoi
+            // 
+            txtMatKhauMoi.Location = new Point(160, 52);
+            txtMatKhauMoi.Name = "txtMatKhauMoi";
+            txtMatKhauMoi.PasswordChar = '*';
+            txtMatKhauMoi.Size = new Size(200, 27);
+            txtMatKhauMoi.TabIndex = 3;
             // 
             // txtMatKhauXacNhan
             // 
             txtMatKhauXacNhan.Location = new Point(160, 88);
             txtMatKhauXacNhan.Name = "txtMatKhauXacNhan";
             txtMatKhauXacNhan.PasswordChar = '*';
-            txtMatKhauXacNhan.Size = new Size(200, 23);
+            txtMatKhauXacNhan.Size = new Size(200, 27);
             txtMatKhauXacNhan.TabIndex = 5;
             // 
             // btnDoiMatKhau
@@ -88,12 +88,13 @@ namespace doanbanve.Forms
             btnDoiMatKhau.Name = "btnDoiMatKhau";
             btnDoiMatKhau.Size = new Size(120, 28);
             btnDoiMatKhau.TabIndex = 6;
-            btnDoiMatKhau.Text = "Đổi mật khẩu";
+            btnDoiMatKhau.Text = "Xác nhận";
             btnDoiMatKhau.UseVisualStyleBackColor = true;
             btnDoiMatKhau.Click += btnDoiMatKhau_Click;
             // 
             // frmDoiMatKhau
             // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(390, 180);
             Controls.Add(btnDoiMatKhau);

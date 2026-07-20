@@ -1,5 +1,6 @@
 using System.Drawing.Drawing2D;
 using System.Globalization;
+using System.Text;
 using doanbanve.Controllers;
 using doanbanve.Models;
 using doanbanve.Utils;
@@ -10,6 +11,7 @@ namespace doanbanve.Forms
     {
         private readonly BaoCaoController baoCaoController = new();
         private readonly HoaDonController hoaDonController = new();
+        private readonly TroLyAIController troLyAIController = new();
 
         private readonly TabControl tabBaoCao = new();
         private readonly DataGridView dgvDanhSachVe = new();
@@ -32,9 +34,14 @@ namespace doanbanve.Forms
         private readonly DateTimePicker dtpDenNgayDoanhThu = new();
         private readonly ComboBox cboKieuDoanhThu = new();
         private readonly Button btnXemDoanhThu = new();
+        private readonly Button btnPhanTichAI = new();
         private readonly Panel pnlBieuDoDoanhThu = new();
 
         private List<ThongKeDoanhThuNgay> danhSachBieuDoDoanhThu = new();
+        private List<ThongKeDoanhThuNgay> danhSachDoanhThuHienTai = new();
+        private List<ThongKeTheoLoaiVe> danhSachLoaiVeHienTai = new();
+        private ThongKeDuLieu thongKeDoanhThuHienTai = new();
+        private int tongVeDoanhThuHienTai;
         private bool dangTaiHoaDon;
         private bool hienThiDoanhThuTheoThang;
 
@@ -300,6 +307,12 @@ namespace doanbanve.Forms
             btnXemDoanhThu.Size = new Size(132, 32);
             btnXemDoanhThu.Click += async (_, _) => await TaiBaoCaoDoanhThu();
 
+            btnPhanTichAI.Name = "btnPhanTichAI";
+            btnPhanTichAI.Text = "AI phân tích doanh thu";
+            btnPhanTichAI.Location = new Point(872, 14);
+            btnPhanTichAI.Size = new Size(190, 32);
+            btnPhanTichAI.Click += btnPhanTichAI_Click;
+
             pnlBoLoc.Controls.Add(lblTuNgay);
             pnlBoLoc.Controls.Add(dtpTuNgayDoanhThu);
             pnlBoLoc.Controls.Add(lblDenNgay);
@@ -307,6 +320,7 @@ namespace doanbanve.Forms
             pnlBoLoc.Controls.Add(lblKieu);
             pnlBoLoc.Controls.Add(cboKieuDoanhThu);
             pnlBoLoc.Controls.Add(btnXemDoanhThu);
+            pnlBoLoc.Controls.Add(btnPhanTichAI);
 
             var flpTongQuan = new FlowLayoutPanel
             {
@@ -606,12 +620,12 @@ namespace doanbanve.Forms
             }
         }
 
-        private async Task TaiBaoCaoDoanhThu()
+        private async Task<bool> TaiBaoCaoDoanhThu()
         {
             if (dtpTuNgayDoanhThu.Value.Date > dtpDenNgayDoanhThu.Value.Date)
             {
                 MessageBox.Show("Từ ngày không được lớn hơn đến ngày.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return false;
             }
 
             btnXemDoanhThu.Enabled = false;
@@ -641,18 +655,198 @@ namespace doanbanve.Forms
 
                 HienThiDoanhThuTheoLoai(danhSachLoaiVe);
                 HienThiDoanhThuTheoThoiGian(danhSachDoanhThu);
+                thongKeDoanhThuHienTai = thongKe;
+                tongVeDoanhThuHienTai = tongVe;
+                danhSachLoaiVeHienTai = danhSachLoaiVe;
+                danhSachDoanhThuHienTai = danhSachDoanhThu;
                 danhSachBieuDoDoanhThu = danhSachDoanhThu;
                 pnlBieuDoDoanhThu.Invalidate();
+                return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
             finally
             {
                 btnXemDoanhThu.Text = textCu;
                 btnXemDoanhThu.Enabled = true;
             }
+        }
+
+        private async void btnPhanTichAI_Click(object? sender, EventArgs e)
+        {
+            if (!await TaiBaoCaoDoanhThu())
+            {
+                return;
+            }
+
+            if (thongKeDoanhThuHienTai.TongHoaDon <= 0 &&
+                tongVeDoanhThuHienTai <= 0 &&
+                danhSachLoaiVeHienTai.Count == 0 &&
+                danhSachDoanhThuHienTai.Count == 0)
+            {
+                MessageBox.Show("Chưa có dữ liệu để phân tích.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            btnPhanTichAI.Enabled = false;
+            var textCu = btnPhanTichAI.Text;
+            btnPhanTichAI.Text = "Đang phân tích...";
+
+            try
+            {
+                var tuNgay = dtpTuNgayDoanhThu.Value.Date;
+                var denNgay = dtpDenNgayDoanhThu.Value.Date;
+                var nhacLenh = TaoNhacLenhPhanTichDoanhThu(tuNgay, denNgay);
+                var phanTichDuPhong = TaoPhanTichDoanhThuDuPhong(tuNgay, denNgay);
+                var maNguoiDung = Session.NguoiDungHienTai?.MaNguoiDung ?? 0;
+                var phanTichAI = await troLyAIController.PhanTichDoanhThuNeuCoThe(maNguoiDung, nhacLenh);
+
+                if (string.IsNullOrWhiteSpace(phanTichAI))
+                {
+                    MessageBox.Show(
+                        "Chưa cấu hình AI hoặc không thể kết nối AI.",
+                        "Thông báo",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+
+                using var formPhanTich = new frmPhanTichDoanhThuAI(phanTichAI ?? phanTichDuPhong);
+                formPhanTich.ShowDialog(this);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(
+                    "Chưa cấu hình AI hoặc không thể kết nối AI.",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                var phanTichDuPhong = TaoPhanTichDoanhThuDuPhong(
+                    dtpTuNgayDoanhThu.Value.Date,
+                    dtpDenNgayDoanhThu.Value.Date);
+                using var formPhanTich = new frmPhanTichDoanhThuAI(phanTichDuPhong);
+                formPhanTich.ShowDialog(this);
+            }
+            finally
+            {
+                btnPhanTichAI.Text = textCu;
+                btnPhanTichAI.Enabled = true;
+            }
+        }
+
+        private string TaoNhacLenhPhanTichDoanhThu(DateTime tuNgay, DateTime denNgay)
+        {
+            var duLieuLoaiVe = TaoDuLieuLoaiVeChoAI(danhSachLoaiVeHienTai);
+            var duLieuDoanhThu = TaoDuLieuDoanhThuChoAI(danhSachDoanhThuHienTai, hienThiDoanhThuTheoThang);
+
+            return $@"Bạn là trợ lý phân tích kinh doanh cho khu du lịch.
+Chỉ phân tích dựa trên số liệu được cung cấp, không tự tạo hoặc suy đoán thêm số liệu.
+Trả lời ngắn gọn, dễ hiểu và bằng tiếng Việt.
+
+THỜI GIAN:
+- Từ ngày: {tuNgay:dd/MM/yyyy}
+- Đến ngày: {denNgay:dd/MM/yyyy}
+
+TỔNG QUAN:
+- Tổng hóa đơn: {thongKeDoanhThuHienTai.TongHoaDon:N0}
+- Tổng vé đã bán: {tongVeDoanhThuHienTai:N0}
+- Tổng tiền: {thongKeDoanhThuHienTai.TongTien:N0} VNĐ
+- Tổng tiền giảm: {thongKeDoanhThuHienTai.TongTienGiam:N0} VNĐ
+- Tổng doanh thu thực tế: {thongKeDoanhThuHienTai.TongThanhTien:N0} VNĐ
+
+DOANH THU THEO LOẠI VÉ:
+{duLieuLoaiVe}
+
+DOANH THU THEO {(hienThiDoanhThuTheoThang ? "THÁNG" : "NGÀY")}:
+{duLieuDoanhThu}
+
+Hãy trả lời theo 5 mục:
+1. Tổng quan doanh thu trong khoảng thời gian đã chọn.
+2. Loại vé có doanh thu cao nhất.
+3. Loại vé bán ít hoặc có doanh thu thấp, nếu có.
+4. Nhận xét về tiền giảm và voucher.
+5. Gợi ý đơn giản để tăng doanh thu.";
+        }
+
+        private string TaoPhanTichDoanhThuDuPhong(DateTime tuNgay, DateTime denNgay)
+        {
+            var loaiVeCaoNhat = danhSachLoaiVeHienTai
+                .OrderByDescending(x => x.TongThanhTien)
+                .ThenByDescending(x => x.SoVeDaBan)
+                .FirstOrDefault();
+            var loaiVeThapNhat = danhSachLoaiVeHienTai.Count > 1
+                ? danhSachLoaiVeHienTai
+                    .OrderBy(x => x.TongThanhTien)
+                    .ThenBy(x => x.SoVeDaBan)
+                    .FirstOrDefault()
+                : null;
+            var tyLeGiam = thongKeDoanhThuHienTai.TongTien > 0
+                ? thongKeDoanhThuHienTai.TongTienGiam / thongKeDoanhThuHienTai.TongTien * 100
+                : 0;
+            var sb = new StringBuilder();
+
+            sb.AppendLine("PHÂN TÍCH CƠ BẢN TỪ DỮ LIỆU HỆ THỐNG");
+            sb.AppendLine();
+            sb.AppendLine("1. Tổng quan doanh thu");
+            sb.AppendLine($"Từ ngày {tuNgay:dd/MM/yyyy} đến ngày {denNgay:dd/MM/yyyy}, hệ thống có {thongKeDoanhThuHienTai.TongHoaDon:N0} hóa đơn, bán được {tongVeDoanhThuHienTai:N0} vé và đạt doanh thu thực tế {DinhDangTien(thongKeDoanhThuHienTai.TongThanhTien)}.");
+            sb.AppendLine();
+            sb.AppendLine("2. Loại vé có doanh thu cao nhất");
+            sb.AppendLine(loaiVeCaoNhat == null
+                ? "Chưa có dữ liệu doanh thu theo loại vé."
+                : $"{loaiVeCaoNhat.TenLoaiVe} đứng đầu với {loaiVeCaoNhat.SoVeDaBan:N0} vé đã bán và {DinhDangTien(loaiVeCaoNhat.TongThanhTien)} doanh thu.");
+            sb.AppendLine();
+            sb.AppendLine("3. Loại vé cần chú ý");
+            sb.AppendLine(loaiVeThapNhat == null
+                ? "Chưa đủ dữ liệu để so sánh giữa các loại vé."
+                : $"{loaiVeThapNhat.TenLoaiVe} đang có mức thấp nhất với {loaiVeThapNhat.SoVeDaBan:N0} vé và {DinhDangTien(loaiVeThapNhat.TongThanhTien)} doanh thu.");
+            sb.AppendLine();
+            sb.AppendLine("4. Tiền giảm và voucher");
+            sb.AppendLine($"Tổng tiền giảm là {DinhDangTien(thongKeDoanhThuHienTai.TongTienGiam)}, chiếm khoảng {tyLeGiam:N1}% tổng tiền trước giảm.");
+            sb.AppendLine();
+            sb.AppendLine("5. Gợi ý quản lý");
+            sb.AppendLine(loaiVeThapNhat == null
+                ? "Tiếp tục theo dõi doanh thu theo từng loại vé và hiệu quả voucher ở các kỳ tiếp theo."
+                : $"Có thể ưu tiên truyền thông cho {loaiVeThapNhat.TenLoaiVe}, đồng thời theo dõi hiệu quả voucher để tăng doanh thu nhưng vẫn kiểm soát tiền giảm.");
+
+            return sb.ToString();
+        }
+
+        private static string TaoDuLieuLoaiVeChoAI(List<ThongKeTheoLoaiVe> danhSachLoaiVe)
+        {
+            if (danhSachLoaiVe.Count == 0)
+            {
+                return "Không có dữ liệu doanh thu theo loại vé.";
+            }
+
+            var sb = new StringBuilder();
+            foreach (var muc in danhSachLoaiVe.OrderByDescending(x => x.TongThanhTien))
+            {
+                sb.AppendLine($"- {muc.TenLoaiVe}: {muc.SoVeDaBan:N0} vé, {muc.TongThanhTien:N0} VNĐ.");
+            }
+
+            return sb.ToString();
+        }
+
+        private static string TaoDuLieuDoanhThuChoAI(
+            List<ThongKeDoanhThuNgay> danhSachDoanhThu,
+            bool theoThang)
+        {
+            if (danhSachDoanhThu.Count == 0)
+            {
+                return "Không có dữ liệu doanh thu theo thời gian.";
+            }
+
+            var dinhDangNgay = theoThang ? "MM/yyyy" : "dd/MM/yyyy";
+            var sb = new StringBuilder();
+            foreach (var muc in danhSachDoanhThu.OrderBy(x => x.Ngay))
+            {
+                sb.AppendLine($"- {muc.Ngay.ToString(dinhDangNgay, CultureInfo.CurrentCulture)}: {muc.TongThanhTien:N0} VNĐ.");
+            }
+
+            return sb.ToString();
         }
 
         private void HienThiDoanhThuTheoLoai(List<ThongKeTheoLoaiVe> danhSachLoaiVe)
@@ -799,6 +993,7 @@ namespace doanbanve.Forms
             }
 
             GiaoDienHelper.ApDungNutChinh(btnXemDoanhThu);
+            GiaoDienHelper.ApDungNutPhu(btnPhanTichAI);
         }
 
         private static void CauHinhBang(DataGridView bang)

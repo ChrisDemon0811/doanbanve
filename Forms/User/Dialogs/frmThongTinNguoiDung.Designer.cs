@@ -177,7 +177,7 @@ namespace doanbanve.Forms
             // 
             btnCapNhatThongTin.Location = new Point(40, 230);
             btnCapNhatThongTin.Name = "btnCapNhatThongTin";
-            btnCapNhatThongTin.Size = new Size(160, 32);
+            btnCapNhatThongTin.Size = new Size(220, 38);
             btnCapNhatThongTin.TabIndex = 10;
             btnCapNhatThongTin.Text = "Cập nhật thông tin";
             btnCapNhatThongTin.UseVisualStyleBackColor = true;

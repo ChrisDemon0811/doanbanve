@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\user\\dialogs\\frmdoimatkhau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\user\\dialogs\\frmdoimatkhau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|d:\\study\\l\u1EADp tr\u00ECnh windows\\doanbanve\\forms\\user\\dialogs\\frmchatai.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E4988E1-5A3B-981F-7C8A-B3AC69C9ACFD}|doanbanve.csproj|solutionrelative:forms\\user\\dialogs\\frmchatai.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -238,7 +242,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -262,7 +266,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "frmDoiMatKhau.cs [Design]",
+              "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Dialogs\\frmDoiMatKhau.cs",
+              "RelativeDocumentMoniker": "Forms\\User\\Dialogs\\frmDoiMatKhau.cs",
+              "ToolTip": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Dialogs\\frmDoiMatKhau.cs [Design]",
+              "RelativeToolTip": "Forms\\User\\Dialogs\\frmDoiMatKhau.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-11T14:03:29.468Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "TroLyAIService.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Services\\TroLyAIService.cs",
               "RelativeDocumentMoniker": "Services\\TroLyAIService.cs",
@@ -274,7 +290,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "BaoCaoDoanhThu.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\BaoCaoDoanhThu.cs",
               "RelativeDocumentMoniker": "Models\\BaoCaoDoanhThu.cs",
@@ -286,7 +302,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "AGENTS.md",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\AGENTS.md",
               "RelativeDocumentMoniker": "AGENTS.md",
@@ -298,7 +314,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "setup.sql",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\setup.sql",
               "RelativeDocumentMoniker": "setup.sql",
@@ -310,7 +326,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "frmChatAI.Designer.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Dialogs\\frmChatAI.Designer.cs",
               "RelativeDocumentMoniker": "Forms\\User\\Dialogs\\frmChatAI.Designer.cs",
@@ -323,7 +339,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "frmChatAI.cs [Design]",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Dialogs\\frmChatAI.cs",
               "RelativeDocumentMoniker": "Forms\\User\\Dialogs\\frmChatAI.cs",
@@ -334,7 +350,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "GiaoDienHelper.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Utils\\GiaoDienHelper.cs",
               "RelativeDocumentMoniker": "Utils\\GiaoDienHelper.cs",
@@ -346,7 +362,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "frmChatAI.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Dialogs\\frmChatAI.cs",
               "RelativeDocumentMoniker": "Forms\\User\\Dialogs\\frmChatAI.cs",
@@ -358,7 +374,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "HUONG_DAN_rBaoCaoDoanhThu.md",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Reports\\HUONG_DAN_rBaoCaoDoanhThu.md",
               "RelativeDocumentMoniker": "Reports\\HUONG_DAN_rBaoCaoDoanhThu.md",
@@ -370,7 +386,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "BaoCaoDoanhThu.rdlc",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Reports\\BaoCaoDoanhThu.rdlc",
               "RelativeDocumentMoniker": "Reports\\BaoCaoDoanhThu.rdlc",
@@ -382,7 +398,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "HUONG_DAN_rBaoCaoVeBanChayTheoLoai.md",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Reports\\HUONG_DAN_rBaoCaoVeBanChayTheoLoai.md",
               "RelativeDocumentMoniker": "Reports\\HUONG_DAN_rBaoCaoVeBanChayTheoLoai.md",
@@ -394,7 +410,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 54,
               "Title": "frmQuanLyAI.resx",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Forms\\frmQuanLyAI.resx",
               "RelativeDocumentMoniker": "Forms\\Admin\\Forms\\frmQuanLyAI.resx",
@@ -406,7 +422,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 53,
               "Title": "frmQuanLyAI.Designer.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Forms\\frmQuanLyAI.Designer.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Forms\\frmQuanLyAI.Designer.cs",
@@ -418,7 +434,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 52,
               "Title": "frmQuanLyAI.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Forms\\frmQuanLyAI.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Forms\\frmQuanLyAI.cs",
@@ -430,7 +446,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "copilot-instructions.md",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\copilot-instructions.md",
               "RelativeDocumentMoniker": "copilot-instructions.md",
@@ -442,7 +458,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 57,
               "Title": "VoucherDAO.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\VoucherDAO.cs",
               "RelativeDocumentMoniker": "DAO\\VoucherDAO.cs",
@@ -454,7 +470,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "frmDashboardNguoiDung.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Forms\\frmDashboardNguoiDung.cs",
               "RelativeDocumentMoniker": "Forms\\User\\Forms\\frmDashboardNguoiDung.cs",
@@ -467,7 +483,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 55,
               "Title": "frmChatAI.resx",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Dialogs\\frmChatAI.resx",
               "RelativeDocumentMoniker": "Forms\\User\\Dialogs\\frmChatAI.resx",
@@ -479,7 +495,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 56,
               "Title": "frmDashboardNguoiDung.Designer.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Forms\\frmDashboardNguoiDung.Designer.cs",
               "RelativeDocumentMoniker": "Forms\\User\\Forms\\frmDashboardNguoiDung.Designer.cs",
@@ -491,7 +507,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 51,
               "Title": "DuLieuContext.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Data\\DuLieuContext.cs",
               "RelativeDocumentMoniker": "Data\\DuLieuContext.cs",
@@ -503,7 +519,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 50,
               "Title": "LichSuChatController.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\LichSuChatController.cs",
               "RelativeDocumentMoniker": "Controllers\\LichSuChatController.cs",
@@ -515,7 +531,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 49,
               "Title": "CauHinhAIController.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\CauHinhAIController.cs",
               "RelativeDocumentMoniker": "Controllers\\CauHinhAIController.cs",
@@ -527,7 +543,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 48,
               "Title": "LichSuChatDAO.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\LichSuChatDAO.cs",
               "RelativeDocumentMoniker": "DAO\\LichSuChatDAO.cs",
@@ -539,7 +555,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 47,
               "Title": "CauHinhAIDAO.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\CauHinhAIDAO.cs",
               "RelativeDocumentMoniker": "DAO\\CauHinhAIDAO.cs",
@@ -551,7 +567,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 46,
               "Title": "LichSuChat.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\LichSuChat.cs",
               "RelativeDocumentMoniker": "Models\\LichSuChat.cs",
@@ -563,7 +579,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 45,
               "Title": "CauHinhAI.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\CauHinhAI.cs",
               "RelativeDocumentMoniker": "Models\\CauHinhAI.cs",
@@ -575,7 +591,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 44,
               "Title": "frmDashboardQuanLy.Designer.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Forms\\frmDashboardQuanLy.Designer.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Forms\\frmDashboardQuanLy.Designer.cs",
@@ -587,7 +603,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "copilot-instructions.md",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\.github\\copilot-instructions.md",
               "RelativeDocumentMoniker": ".github\\copilot-instructions.md",
@@ -599,7 +615,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 43,
               "Title": "frmDashboardQuanLy.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Forms\\frmDashboardQuanLy.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Forms\\frmDashboardQuanLy.cs",
@@ -611,7 +627,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "MucGioHang.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\MucGioHang.cs",
               "RelativeDocumentMoniker": "Models\\MucGioHang.cs",
@@ -623,7 +639,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Session.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Utils\\Session.cs",
               "RelativeDocumentMoniker": "Utils\\Session.cs",
@@ -635,7 +651,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "MaHoaMatKhau.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Utils\\MaHoaMatKhau.cs",
               "RelativeDocumentMoniker": "Utils\\MaHoaMatKhau.cs",
@@ -647,7 +663,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "GioHangTam.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Utils\\GioHangTam.cs",
               "RelativeDocumentMoniker": "Utils\\GioHangTam.cs",
@@ -659,7 +675,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "ThongKeDuLieu.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\ThongKeDuLieu.cs",
               "RelativeDocumentMoniker": "Models\\ThongKeDuLieu.cs",
@@ -671,7 +687,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "DonHangDaThanhToan.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Models\\DonHangDaThanhToan.cs",
               "RelativeDocumentMoniker": "Models\\DonHangDaThanhToan.cs",
@@ -683,7 +699,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "GioHangController.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\GioHangController.cs",
               "RelativeDocumentMoniker": "Controllers\\GioHangController.cs",
@@ -695,7 +711,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "HoaDonController.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Controllers\\HoaDonController.cs",
               "RelativeDocumentMoniker": "Controllers\\HoaDonController.cs",
@@ -707,7 +723,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "ucQuanLyHoaDon.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyHoaDon.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucQuanLyHoaDon.cs",
@@ -720,7 +736,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "ucQuanLyVe.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyVe.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucQuanLyVe.cs",
@@ -733,7 +749,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "ucQuanLyNguoiDung.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyNguoiDung.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucQuanLyNguoiDung.cs",
@@ -746,7 +762,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "NguoiDungDAO.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\NguoiDungDAO.cs",
               "RelativeDocumentMoniker": "DAO\\NguoiDungDAO.cs",
@@ -758,7 +774,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "ucQuanLyVoucher.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyVoucher.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucQuanLyVoucher.cs",
@@ -771,7 +787,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "frmThanhToan.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Forms\\frmThanhToan.cs",
               "RelativeDocumentMoniker": "Forms\\User\\Forms\\frmThanhToan.cs",
@@ -783,7 +799,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "ucPhanLoaiVe.Designer.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucPhanLoaiVe.Designer.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucPhanLoaiVe.Designer.cs",
@@ -795,7 +811,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "frmGioHang.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Forms\\frmGioHang.cs",
               "RelativeDocumentMoniker": "Forms\\User\\Forms\\frmGioHang.cs",
@@ -807,7 +823,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "ChiTietGioHangDAO.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\ChiTietGioHangDAO.cs",
               "RelativeDocumentMoniker": "DAO\\ChiTietGioHangDAO.cs",
@@ -819,7 +835,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "ucQuanLyHoaDon.Designer.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyHoaDon.Designer.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucQuanLyHoaDon.Designer.cs",
@@ -831,7 +847,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 42,
               "Title": "HoaDonDAO.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\HoaDonDAO.cs",
               "RelativeDocumentMoniker": "DAO\\HoaDonDAO.cs",
@@ -843,7 +859,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "VeDAO.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\VeDAO.cs",
               "RelativeDocumentMoniker": "DAO\\VeDAO.cs",
@@ -855,7 +871,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "LoaiVeDAO.cs",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\DAO\\LoaiVeDAO.cs",
               "RelativeDocumentMoniker": "DAO\\LoaiVeDAO.cs",
@@ -867,7 +883,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "frmDashboardNguoiDung.cs [Design]",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\User\\Forms\\frmDashboardNguoiDung.cs",
               "RelativeDocumentMoniker": "Forms\\User\\Forms\\frmDashboardNguoiDung.cs",
@@ -878,7 +894,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "ucQuanLyVe.cs [Design]",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyVe.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucQuanLyVe.cs",
@@ -889,7 +905,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "ucQuanLyHoaDon.cs [Design]",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyHoaDon.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucQuanLyHoaDon.cs",
@@ -900,7 +916,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "ucQuanLyVoucher.cs [Design]",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyVoucher.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucQuanLyVoucher.cs",
@@ -911,7 +927,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "ucQuanLyNguoiDung.cs [Design]",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucQuanLyNguoiDung.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucQuanLyNguoiDung.cs",
@@ -922,7 +938,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "ucPhanLoaiVe.cs [Design]",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Controls\\ucPhanLoaiVe.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Controls\\ucPhanLoaiVe.cs",
@@ -933,7 +949,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "frmChiTietHoaDonQuanLy.cs [Design]",
               "DocumentMoniker": "D:\\Study\\L\u1EADp tr\u00ECnh windows\\doanbanve\\Forms\\Admin\\Dialogs\\frmChiTietHoaDonQuanLy.cs",
               "RelativeDocumentMoniker": "Forms\\Admin\\Dialogs\\frmChiTietHoaDonQuanLy.cs",

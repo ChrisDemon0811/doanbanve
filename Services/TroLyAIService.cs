@@ -79,6 +79,45 @@ namespace doanbanve.Services
             return traLoi;
         }
 
+        public async Task<string?> PhanTichDoanhThuNeuCoThe(int maNguoiDung, string noiDungNhacLenh)
+        {
+            if (string.IsNullOrWhiteSpace(noiDungNhacLenh))
+            {
+                return null;
+            }
+
+            try
+            {
+                var nhacLenhDaTrim = noiDungNhacLenh.Trim();
+                var cauHinh = await cauHinhAIController.LayCauHinhHienTai();
+                if (cauHinh == null || string.IsNullOrWhiteSpace(cauHinh.KhoaApi) || string.IsNullOrWhiteSpace(cauHinh.MoHinh))
+                {
+                    return null;
+                }
+
+                var traLoi = await GoiAI(cauHinh, nhacLenhDaTrim);
+                if (string.IsNullOrWhiteSpace(traLoi) || traLoi == "Không nhận được phản hồi từ AI.")
+                {
+                    return null;
+                }
+
+                try
+                {
+                    await LuuLichSuNeuCo(maNguoiDung, "Phân tích báo cáo doanh thu", traLoi);
+                }
+                catch
+                {
+                    // Lỗi lưu lịch sử không được làm mất kết quả phân tích đã nhận từ AI.
+                }
+
+                return traLoi;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         private static async Task<string> TaoDuLieuVe()
         {
             using var db = DuLieuContext.TaoMoi();

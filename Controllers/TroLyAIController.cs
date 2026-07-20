@@ -10,5 +10,10 @@ namespace doanbanve.Controllers
         {
             return troLyAIService.TuVanVe(maNguoiDung, cauHoi);
         }
+
+        public Task<string?> PhanTichDoanhThuNeuCoThe(int maNguoiDung, string noiDungNhacLenh)
+        {
+            return troLyAIService.PhanTichDoanhThuNeuCoThe(maNguoiDung, noiDungNhacLenh);
+        }
     }
 }

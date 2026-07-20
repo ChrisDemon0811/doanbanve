@@ -30,7 +30,7 @@ namespace doanbanve.Forms
             // lblTaiKhoan
             // 
             lblTaiKhoan.AutoSize = true;
-            lblTaiKhoan.Location = new Point(16, 16);
+            lblTaiKhoan.Location = new Point(24, 24);
             lblTaiKhoan.Name = "lblTaiKhoan";
             lblTaiKhoan.Size = new Size(74, 20);
             lblTaiKhoan.TabIndex = 0;
@@ -39,7 +39,7 @@ namespace doanbanve.Forms
             // lblMatKhauMoi
             // 
             lblMatKhauMoi.AutoSize = true;
-            lblMatKhauMoi.Location = new Point(16, 48);
+            lblMatKhauMoi.Location = new Point(24, 72);
             lblMatKhauMoi.Name = "lblMatKhauMoi";
             lblMatKhauMoi.Size = new Size(94, 20);
             lblMatKhauMoi.TabIndex = 1;
@@ -47,17 +47,17 @@ namespace doanbanve.Forms
             // 
             // txtMatKhauMoi
             // 
-            txtMatKhauMoi.Location = new Point(120, 44);
+            txtMatKhauMoi.Location = new Point(152, 68);
             txtMatKhauMoi.Name = "txtMatKhauMoi";
-            txtMatKhauMoi.Size = new Size(220, 27);
+            txtMatKhauMoi.Size = new Size(318, 27);
             txtMatKhauMoi.TabIndex = 2;
             txtMatKhauMoi.UseSystemPasswordChar = true;
             // 
             // btnXacNhan
             // 
-            btnXacNhan.Location = new Point(180, 84);
+            btnXacNhan.Location = new Point(226, 124);
             btnXacNhan.Name = "btnXacNhan";
-            btnXacNhan.Size = new Size(80, 28);
+            btnXacNhan.Size = new Size(120, 36);
             btnXacNhan.TabIndex = 3;
             btnXacNhan.Text = "Xác nhận";
             btnXacNhan.UseVisualStyleBackColor = true;
@@ -65,9 +65,9 @@ namespace doanbanve.Forms
             // 
             // btnHuy
             // 
-            btnHuy.Location = new Point(270, 84);
+            btnHuy.Location = new Point(362, 124);
             btnHuy.Name = "btnHuy";
-            btnHuy.Size = new Size(70, 28);
+            btnHuy.Size = new Size(108, 36);
             btnHuy.TabIndex = 4;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
@@ -77,7 +77,9 @@ namespace doanbanve.Forms
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(360, 126);
+            AcceptButton = btnXacNhan;
+            CancelButton = btnHuy;
+            ClientSize = new Size(500, 184);
             Controls.Add(btnHuy);
             Controls.Add(btnXacNhan);
             Controls.Add(txtMatKhauMoi);
@@ -88,7 +90,7 @@ namespace doanbanve.Forms
             MinimizeBox = false;
             Name = "frmDatMatKhauNguoiDung";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Reset mật khẩu";
+            Text = "Đặt lại mật khẩu";
             Load += frmDatMatKhauNguoiDung_Load;
             ResumeLayout(false);
             PerformLayout();

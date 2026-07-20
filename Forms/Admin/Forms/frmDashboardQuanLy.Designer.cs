@@ -125,7 +125,7 @@ namespace doanbanve.Forms
             btnMenuThongKe.TabIndex = 5;
             btnMenuThongKe.Text = "Thống kê";
             btnMenuThongKe.UseVisualStyleBackColor = true;
-            btnMenuThongKe.Click += btnMenuThongKe_Click;
+            btnMenuThongKe.Visible = false;
             // 
             // btnMenuHoaDon
             // 

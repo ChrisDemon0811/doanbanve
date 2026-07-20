@@ -86,7 +86,7 @@ namespace doanbanve.Forms
             // lblTenVe
             // 
             lblTenVe.AutoSize = true;
-            lblTenVe.Location = new Point(20, 20);
+            lblTenVe.Location = new Point(24, 28);
             lblTenVe.Name = "lblTenVe";
             lblTenVe.Size = new Size(54, 20);
             lblTenVe.TabIndex = 0;
@@ -94,15 +94,15 @@ namespace doanbanve.Forms
             // 
             // txtTenVe
             // 
-            txtTenVe.Location = new Point(100, 16);
+            txtTenVe.Location = new Point(130, 24);
             txtTenVe.Name = "txtTenVe";
-            txtTenVe.Size = new Size(220, 27);
+            txtTenVe.Size = new Size(350, 27);
             txtTenVe.TabIndex = 1;
             // 
             // lblLoaiVe
             // 
             lblLoaiVe.AutoSize = true;
-            lblLoaiVe.Location = new Point(340, 20);
+            lblLoaiVe.Location = new Point(510, 28);
             lblLoaiVe.Name = "lblLoaiVe";
             lblLoaiVe.Size = new Size(59, 20);
             lblLoaiVe.TabIndex = 2;
@@ -111,15 +111,15 @@ namespace doanbanve.Forms
             // cboLoaiVe
             // 
             cboLoaiVe.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboLoaiVe.Location = new Point(400, 16);
+            cboLoaiVe.Location = new Point(590, 24);
             cboLoaiVe.Name = "cboLoaiVe";
-            cboLoaiVe.Size = new Size(200, 28);
+            cboLoaiVe.Size = new Size(280, 28);
             cboLoaiVe.TabIndex = 3;
             // 
             // lblGiaVe
             // 
             lblGiaVe.AutoSize = true;
-            lblGiaVe.Location = new Point(20, 56);
+            lblGiaVe.Location = new Point(24, 76);
             lblGiaVe.Name = "lblGiaVe";
             lblGiaVe.Size = new Size(53, 20);
             lblGiaVe.TabIndex = 4;
@@ -127,15 +127,15 @@ namespace doanbanve.Forms
             // 
             // txtGiaVe
             // 
-            txtGiaVe.Location = new Point(100, 52);
+            txtGiaVe.Location = new Point(130, 72);
             txtGiaVe.Name = "txtGiaVe";
-            txtGiaVe.Size = new Size(134, 27);
+            txtGiaVe.Size = new Size(160, 27);
             txtGiaVe.TabIndex = 5;
             // 
             // lblGiaNguoiLon
             // 
             lblGiaNguoiLon.AutoSize = true;
-            lblGiaNguoiLon.Location = new Point(240, 56);
+            lblGiaNguoiLon.Location = new Point(320, 76);
             lblGiaNguoiLon.Name = "lblGiaNguoiLon";
             lblGiaNguoiLon.Size = new Size(102, 20);
             lblGiaNguoiLon.TabIndex = 6;
@@ -143,15 +143,15 @@ namespace doanbanve.Forms
             // 
             // txtGiaNguoiLon
             // 
-            txtGiaNguoiLon.Location = new Point(340, 52);
+            txtGiaNguoiLon.Location = new Point(440, 72);
             txtGiaNguoiLon.Name = "txtGiaNguoiLon";
-            txtGiaNguoiLon.Size = new Size(124, 27);
+            txtGiaNguoiLon.Size = new Size(160, 27);
             txtGiaNguoiLon.TabIndex = 7;
             // 
             // lblGiaTreEm
             // 
             lblGiaTreEm.AutoSize = true;
-            lblGiaTreEm.Location = new Point(470, 56);
+            lblGiaTreEm.Location = new Point(630, 76);
             lblGiaTreEm.Name = "lblGiaTreEm";
             lblGiaTreEm.Size = new Size(81, 20);
             lblGiaTreEm.TabIndex = 8;
@@ -159,15 +159,15 @@ namespace doanbanve.Forms
             // 
             // txtGiaTreEm
             // 
-            txtGiaTreEm.Location = new Point(550, 52);
+            txtGiaTreEm.Location = new Point(730, 72);
             txtGiaTreEm.Name = "txtGiaTreEm";
-            txtGiaTreEm.Size = new Size(110, 27);
+            txtGiaTreEm.Size = new Size(140, 27);
             txtGiaTreEm.TabIndex = 9;
             // 
             // lblGiaNguoiCaoTuoi
             // 
             lblGiaNguoiCaoTuoi.AutoSize = true;
-            lblGiaNguoiCaoTuoi.Location = new Point(20, 92);
+            lblGiaNguoiCaoTuoi.Location = new Point(24, 124);
             lblGiaNguoiCaoTuoi.Name = "lblGiaNguoiCaoTuoi";
             lblGiaNguoiCaoTuoi.Size = new Size(135, 20);
             lblGiaNguoiCaoTuoi.TabIndex = 10;
@@ -175,31 +175,31 @@ namespace doanbanve.Forms
             // 
             // txtGiaNguoiCaoTuoi
             // 
-            txtGiaNguoiCaoTuoi.Location = new Point(154, 88);
+            txtGiaNguoiCaoTuoi.Location = new Point(180, 120);
             txtGiaNguoiCaoTuoi.Name = "txtGiaNguoiCaoTuoi";
-            txtGiaNguoiCaoTuoi.Size = new Size(118, 27);
+            txtGiaNguoiCaoTuoi.Size = new Size(160, 27);
             txtGiaNguoiCaoTuoi.TabIndex = 11;
             // 
             // lblSoLuong
             // 
             lblSoLuong.AutoSize = true;
-            lblSoLuong.Location = new Point(270, 92);
+            lblSoLuong.Location = new Point(380, 124);
             lblSoLuong.Name = "lblSoLuong";
-            lblSoLuong.Size = new Size(72, 20);
+            lblSoLuong.Size = new Size(112, 20);
             lblSoLuong.TabIndex = 12;
             lblSoLuong.Text = "Số lượng/ngày:";
             // 
             // txtSoLuong
             // 
-            txtSoLuong.Location = new Point(340, 88);
+            txtSoLuong.Location = new Point(510, 120);
             txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(120, 27);
+            txtSoLuong.Size = new Size(160, 27);
             txtSoLuong.TabIndex = 13;
             // 
             // lblMoTa
             // 
             lblMoTa.AutoSize = true;
-            lblMoTa.Location = new Point(20, 128);
+            lblMoTa.Location = new Point(24, 172);
             lblMoTa.Name = "lblMoTa";
             lblMoTa.Size = new Size(51, 20);
             lblMoTa.TabIndex = 14;
@@ -207,15 +207,15 @@ namespace doanbanve.Forms
             // 
             // txtMoTa
             // 
-            txtMoTa.Location = new Point(100, 124);
+            txtMoTa.Location = new Point(130, 168);
             txtMoTa.Name = "txtMoTa";
-            txtMoTa.Size = new Size(560, 27);
+            txtMoTa.Size = new Size(740, 27);
             txtMoTa.TabIndex = 15;
             // 
             // lblThongTinVe
             // 
             lblThongTinVe.AutoSize = true;
-            lblThongTinVe.Location = new Point(20, 296);
+            lblThongTinVe.Location = new Point(24, 400);
             lblThongTinVe.Name = "lblThongTinVe";
             lblThongTinVe.Size = new Size(94, 20);
             lblThongTinVe.TabIndex = 19;
@@ -223,16 +223,16 @@ namespace doanbanve.Forms
             // 
             // rtbThongTinVe
             // 
-            rtbThongTinVe.Location = new Point(120, 324);
+            rtbThongTinVe.Location = new Point(130, 432);
             rtbThongTinVe.Name = "rtbThongTinVe";
-            rtbThongTinVe.Size = new Size(540, 220);
+            rtbThongTinVe.Size = new Size(740, 210);
             rtbThongTinVe.TabIndex = 21;
             rtbThongTinVe.Text = "";
             // 
             // lblAnhVe
             // 
             lblAnhVe.AutoSize = true;
-            lblAnhVe.Location = new Point(20, 164);
+            lblAnhVe.Location = new Point(24, 220);
             lblAnhVe.Name = "lblAnhVe";
             lblAnhVe.Size = new Size(57, 20);
             lblAnhVe.TabIndex = 16;
@@ -242,18 +242,18 @@ namespace doanbanve.Forms
             // 
             picAnhVe.BackColor = Color.FromArgb(245, 245, 245);
             picAnhVe.BorderStyle = BorderStyle.FixedSingle;
-            picAnhVe.Location = new Point(100, 164);
+            picAnhVe.Location = new Point(130, 216);
             picAnhVe.Name = "picAnhVe";
-            picAnhVe.Size = new Size(200, 120);
+            picAnhVe.Size = new Size(240, 150);
             picAnhVe.SizeMode = PictureBoxSizeMode.Zoom;
             picAnhVe.TabIndex = 17;
             picAnhVe.TabStop = false;
             // 
             // btnChonAnh
             // 
-            btnChonAnh.Location = new Point(320, 164);
+            btnChonAnh.Location = new Point(390, 216);
             btnChonAnh.Name = "btnChonAnh";
-            btnChonAnh.Size = new Size(90, 28);
+            btnChonAnh.Size = new Size(132, 34);
             btnChonAnh.TabIndex = 18;
             btnChonAnh.Text = "Chọn ảnh";
             btnChonAnh.UseVisualStyleBackColor = true;
@@ -264,7 +264,7 @@ namespace doanbanve.Forms
             toolDinhDang.Dock = DockStyle.None;
             toolDinhDang.ImageScalingSize = new Size(20, 20);
             toolDinhDang.Items.AddRange(new ToolStripItem[] { btnDam, btnNghieng, btnGachChan, btnCanTrai, btnCanGiua, btnCanPhai, btnGachDauDong, cboCoChu });
-            toolDinhDang.Location = new Point(120, 292);
+            toolDinhDang.Location = new Point(130, 396);
             toolDinhDang.Name = "toolDinhDang";
             toolDinhDang.Size = new Size(334, 32);
             toolDinhDang.TabIndex = 20;
@@ -334,9 +334,9 @@ namespace doanbanve.Forms
             // 
             // btnLuu
             // 
-            btnLuu.Location = new Point(460, 556);
+            btnLuu.Location = new Point(630, 660);
             btnLuu.Name = "btnLuu";
-            btnLuu.Size = new Size(90, 28);
+            btnLuu.Size = new Size(112, 36);
             btnLuu.TabIndex = 22;
             btnLuu.Text = "Lưu";
             btnLuu.UseVisualStyleBackColor = true;
@@ -344,9 +344,9 @@ namespace doanbanve.Forms
             // 
             // btnHuy
             // 
-            btnHuy.Location = new Point(570, 556);
+            btnHuy.Location = new Point(758, 660);
             btnHuy.Name = "btnHuy";
-            btnHuy.Size = new Size(90, 28);
+            btnHuy.Size = new Size(112, 36);
             btnHuy.TabIndex = 23;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
@@ -356,7 +356,9 @@ namespace doanbanve.Forms
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(690, 606);
+            AcceptButton = btnLuu;
+            CancelButton = btnHuy;
+            ClientSize = new Size(900, 720);
             Controls.Add(toolDinhDang);
             Controls.Add(btnHuy);
             Controls.Add(btnLuu);
